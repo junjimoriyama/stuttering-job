@@ -1,0 +1,35 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  age: 1
+  gender: MyString
+  industry: MyString
+  job_details: MyText
+  reason: MyText
+  employment: MyString
+  years: 1
+  job_difficulty: 1
+  job_struggles: MyText
+  job_hunt_difficulty: 1
+  job_hunt_struggles: MyText
+  notebook: MyString
+  free: MyText
+  username: MyString
+  email: MyString
+
+two:
+  age: 1
+  gender: MyString
+  industry: MyString
+  job_details: MyText
+  reason: MyText
+  employment: MyString
+  years: 1
+  job_difficulty: 1
+  job_struggles: MyText
+  job_hunt_difficulty: 1
+  job_hunt_struggles: MyText
+  notebook: MyString
+  free: MyText
+  username: MyString
+  email: MyString

@@ -1,0 +1,14 @@
+@mixin formIsValid() {
+  outline: 2px solid #feacb9;
+  outline-offset: -2px;
+  box-shadow: none;
+  background-color: #f9fffd;
+  // background-color: #ffe6e6;
+}
+
+@mixin formIsActive() {
+  outline: none;
+  box-shadow: 0 0 0px 1000px #f9fffd inset;
+  outline: 2px solid #32d4ae;
+  outline-offset: -2px;
+}

@@ -1,0 +1,56 @@
+@use "../style/breakpoint.scss" as bp;
+
+
+.step {
+  margin-bottom: 50px;
+  border-bottom: 1px solid #e5e5e5;
+  width: 50%;
+
+  @include bp.media(sm, max) {
+    width: 80%; /* 601px〜1024px */
+  }
+
+  @include bp.media(xs, max) {
+    width: 95%; /* 600px以下 */
+  }
+  
+  .stepList {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+  
+    .stepItem {
+      font-size: 20px;
+      position: relative;
+      margin-bottom: 30px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      opacity: 0.5;
+  
+      &::after {
+        position: absolute;
+        display: block;
+        bottom: -30px;
+        content: '';
+        width: 15px;
+        height: 15px;
+        transform: translateY(50%);
+        background-color: #e5e5e5;
+        border-radius: 50%;
+      }
+      
+      &.current {
+        opacity: 1;
+        
+        &::after {
+          background-color: #32D4AE;
+        }
+      }
+    }
+  }
+}
+
+// #048575
+// #E2FFF8

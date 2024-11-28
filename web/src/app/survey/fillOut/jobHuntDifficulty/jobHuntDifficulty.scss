@@ -1,0 +1,54 @@
+@use "../../../style/breakpoint.scss" as bp;
+@use "../../../style/common.scss" as mixin;
+
+.survey {
+  .survey-form {
+    .job-hunt-difficulty {
+      margin-bottom: 30px;
+      .job-hunt-difficulty-level {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        width: 100%;
+        padding: 12px;
+        font-size: 1rem;
+        background-color: #ffffff;
+        // background-color: #ffffe0;
+        border-radius: 5px;
+    
+        &.isInvalid {
+          @include mixin.formIsValid;
+        }
+    
+        @include bp.media(sm, max) {
+          justify-content: center;
+        }
+    
+        &.isActive {
+          @include mixin.formIsActive();
+        }
+    
+        .job-hunt-difficulty-item {
+          display: grid;
+          place-items: center;
+          width: 30px;
+          height: 30px;
+          background-color: #fff;
+          border: 1px solid #e5e5e5;
+          transition: 0.2s;
+          cursor: pointer;
+    
+          &.isClicked {
+            color: #333;
+            background-color: #e5e5e5;
+          }
+    
+          &:hover {
+            opacity: 0.7;
+          }
+        }
+      }
+    }
+  }
+}
+

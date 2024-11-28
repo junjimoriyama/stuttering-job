@@ -1,0 +1,25 @@
+// breakpoint.scss
+
+// ブレークポイント用のmap
+$breakpoints: (
+  xs: 600px,
+  sm: 1024px,
+  md: 1440px
+);
+
+// メディアクエリ生成
+@mixin media($breakpoint, $type: max) {
+  $size: map-get($breakpoints, $breakpoint);
+
+  // max-width
+  @if $type == max {
+    @media(max-width: $size) {
+      @content;
+    }
+  // min-width
+  } @else if $type == min {
+    @media(min-width: $size) {
+      @content;
+    }
+  }
+}

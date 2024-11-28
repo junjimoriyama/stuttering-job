@@ -1,0 +1,99 @@
+@use "../../../style/breakpoint.scss" as bp;
+
+.confirm {
+  width: 100%;
+  // height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background-color: #f9f9f9;
+
+  @include bp.media(xs, max) {
+    padding: 10px;
+  }
+
+  .confirm-form {
+    width: 50%; /* デフォルト: 1025px以上 */
+
+    @include bp.media(sm, max) {
+      width: 80%; /* 601px〜1024px */
+    }
+
+    @include bp.media(xs, max) {
+      width: 95%; /* 600px以下 */
+    }
+    .confirm-form-title {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+    }
+
+    ul {
+      .confirm-form-row {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        // align-items: center;
+        // justify-content: space-between;
+        margin-bottom: 10px;
+
+        hr {
+          width: 100%;
+          margin: 5px 0;
+          border: none;
+          border-top: 1px solid #ddd;
+        }
+      }
+
+      .confirm-form-label {
+        font-weight: bold;
+        flex-shrink: 0;
+        text-align: left;
+      }
+
+      .confirm-form-value {
+        flex-grow: 1;
+        word-break: break-word;
+        background-color: #ffffe0;
+        padding: 10px;
+        border-radius: 5px;
+      }
+    }
+  }
+
+  .complete-step-button {
+    margin-top: 30px;
+    display: grid;
+    place-items: center;
+    width: 100%;
+    color: #ffffff;
+    background-color: #32D4AE;
+    border-radius: 10px;
+    padding: 10px;
+
+    @media (any-hover: hover) {
+      &:hover {
+        opacity: 0.5;
+      }
+    }
+  }
+
+  .back-fill-out-button {
+    margin-top: 30px;
+    display: grid;
+    place-items: center;
+    width: 100%;
+    color: #ffffff;
+    background-color: #accafe;
+    border-radius: 10px;
+    padding: 10px;
+
+    @media (any-hover: hover) {
+      &:hover {
+        opacity: 0.5;
+      }
+    }
+  }
+}

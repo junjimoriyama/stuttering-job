@@ -135,3 +135,41 @@ export const MainLogo = () => {
     </svg>
   );
 };
+
+export const SurpriseMark = () => {
+
+  return(
+  <svg
+    id="surpriseMark"
+    className="surpriseMark"
+    data-name="surpriseMark"
+    xmlns="http://www.w3.org/2000/svg"
+    width="100"
+    height="100"
+    version="1.1"
+    viewBox="0 0 100 100"
+  >
+    <text />
+    <text />
+    <circle cx="49.9" cy="49.7" r="46.4" fill="#feacb9" />
+    <rect
+      x="44.2"
+      y="15.6"
+      width="11.6"
+      height="44.4"
+      rx="2.5"
+      ry="2.5"
+      fill="#fff"
+    />
+    <rect
+      x="44.2"
+      y="69.2"
+      width="11.6"
+      height="11.6"
+      rx="2.5"
+      ry="2.5"
+      fill="#fff"
+    />
+  </svg>
+  )
+};

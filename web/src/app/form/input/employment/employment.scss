@@ -1,0 +1,13 @@
+@use "../../../style/common.scss" as mixin;
+
+.input {
+  .input-form {
+    .employment {
+      .employment-select {
+        &.isInvalid {
+          @include mixin.formIsValid;
+        }
+      }
+    }
+  }
+}

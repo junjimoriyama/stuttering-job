@@ -1,0 +1,13 @@
+@use "../../../style/common.scss" as mixin;
+
+.input {
+  .input-form {
+    .years {
+      .years-select {
+        &.isInvalid {
+          @include mixin.formIsValid;
+        }
+      }
+    }
+  }
+}

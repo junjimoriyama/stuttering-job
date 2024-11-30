@@ -1,0 +1,29 @@
+@use "../../../style/common.scss" as mixin;
+
+.input {
+  .input-form {
+    .userInfo {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+      // background-color: #f2f2f2;
+      // background-color: #ffffff;
+      padding: 20px;
+      border-radius: 5px;
+      .username {
+        .username-input {
+          &.isInvalid {
+            @include mixin.formIsValid;
+          }
+        }
+      }
+      .email {
+        .email-input {
+          &.isInvalid {
+            @include mixin.formIsValid;
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,13 @@
+@use "../../../style/common.scss" as mixin;
+
+.input {
+  .input-form {
+    .notebook {
+      .notebook-select {
+        &.isInvalid {
+          @include mixin.formIsValid;
+        }
+      }
+    }
+  }
+}

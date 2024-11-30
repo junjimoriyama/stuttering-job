@@ -1,0 +1,14 @@
+@use "../../../style/common.scss" as mixin;
+
+.input {
+  .input-form {
+    .industry {
+      .industry-select {
+        margin-bottom: 30px;
+        &.isInvalid {
+          @include mixin.formIsValid;
+        }
+      }
+    }
+  }
+}

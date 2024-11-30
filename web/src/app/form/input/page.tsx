@@ -7,7 +7,6 @@ import JobDetails from "./details/JobDetails";
 import JobDifficulty from "./jobDifficulty/JobDifficulty";
 import JobHuntDifficulty from "./jobHuntDifficulty/JobHuntDifficulty";
 import "../form.scss";
-import { sendAction } from "../actionInput";
 import Gender from "./gender/Gender";
 import Industry from "./industry/Industry";
 import Toast from "./toast/Toast";

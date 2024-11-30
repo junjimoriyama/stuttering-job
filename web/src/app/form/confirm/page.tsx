@@ -4,6 +4,8 @@ import Step from "@/app/step/Step";
 import "./confirm.scss";
 import Link from "next/link";
 import { useFormContext } from "react-hook-form";
+import { useActionState } from "react";
+import { sendAction } from "./actionConfirm";
 
 // サーバーからデータを取得
 const confirm = () => {
@@ -13,21 +15,32 @@ const confirm = () => {
   return (
     <div className="confirm">
       <Step />
-
-      <div className="confirm-form">
+      <form
+        action={sendAction}
+        className="confirm-form"
+        // onSubmit={handleSubmit}
+      >
         <div className="confirm-form-title">確認画面</div>
         <ul>
-          <li className="confirm-form-row" key={values.age}>
-          <p className="confirm-form-label">年代</p>
+          <li className="confirm-form-row">
+            <p className="confirm-form-label">年代</p>
             <p className="confirm-form-value">{values.age}</p>
+            <input type="hidden" name="age" value={values.age} readOnly />
           </li>
-          <li className="confirm-form-row" key={values.gender}>
-          <p className="confirm-form-label">性別</p>
+          <li className="confirm-form-row">
+            <p className="confirm-form-label">性別</p>
             <p className="confirm-form-value">{values.gender}</p>
+            <input type="hidden" name="gender" value={values.gender} readOnly />
           </li>
-          <li className="confirm-form-row" key={values.job_difficulty}>
-          <p className="confirm-form-label">苦労度</p>
+          <li className="confirm-form-row">
+            <p className="confirm-form-label">苦労度</p>
             <p className="confirm-form-value">{values.job_difficulty}</p>
+            <input
+              type="hidden"
+              name="job_difficulty"
+              value={values.job_difficulty}
+              readOnly
+            />
           </li>
         </ul>
 
@@ -45,7 +58,7 @@ const confirm = () => {
             戻る
           </button>
         </Link>
-      </div>
+      </form>
     </div>
   );
 };

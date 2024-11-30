@@ -10,8 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2024_11_27_124735) do
-  create_table "surveys", force: :cascade do |t|
+ActiveRecord::Schema[8.0].define(version: 2024_11_30_002021) do
+  create_table "forms", force: :cascade do |t|
     t.integer "age"
     t.string "gender"
     t.string "industry"

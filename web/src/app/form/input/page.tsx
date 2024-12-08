@@ -1,12 +1,11 @@
 "use client";
 
-import { useActionState, useEffect, useState } from "react";
-import { MainLogo } from "../../../../public/svg/svg";
+import { useActionState, useContext, useEffect, useState } from "react";
+// import { AboutBubble, MainLogo } from "../../../public/svg/svg";
 import Age from "./age/Age";
 import JobDetails from "./details/JobDetails";
 import JobDifficulty from "./jobDifficulty/JobDifficulty";
 import JobHuntDifficulty from "./jobHuntDifficulty/JobHuntDifficulty";
-import "../form.scss";
 import Gender from "./gender/Gender";
 import Industry from "./industry/Industry";
 import Toast from "./toast/Toast";
@@ -19,57 +18,114 @@ import JobStruggles from "./JobStruggles/JobStruggles";
 import JobHuntStruggles from "./jobHuntStruggles/JobHuntStruggles";
 import Free from "./free/Free";
 import Step from "../../step/Step";
-import { FormProvider, useForm, useFormContext } from "react-hook-form";
+import { useFormContext } from "react-hook-form";
 
-import { useRouter } from "next/navigation";
+import { useParams, useRouter, useSearchParams } from "next/navigation";
+import StepContext from "@/app/step/stepContext";
+import InputModal from "./inputModal/InputModal";
+
+import "./input.scss";
 
 const input = () => {
-  // formStat: 現在地(アクションの結果の戻り値になる)
-  // formAction: 新しいアクションを実行するための関数
-  // sendAction: 実行されるアクション
-  // null: 初期値
-
-  // useActionState
-  // const [formState, formAction] = useActionState(sendAction, null);
-
   const router = useRouter();
 
   // トースト
-  const [isAppear, setIsAppear] = useState(false);
+  const [toast, setToast] = useState({
+    display: false,
+    text: ''
+  });
+
+  // ステップ
+  const {step, setStep} = useContext(StepContext)
+
+  // params
+  const params = useSearchParams()
+
+  // モーダル
+  const [ isOpen, setIsOpen  ] = useState(false)
+
+   useEffect(() => {
+    const errorParam = params.get("error");
+
+    if (errorParam === "EmailAlreadyTaken") {
+      setToast({
+        display: true,
+        text: "emailAlreadyTaken",
+      });
+
+      // スクロールを一番下にする
+      window.scrollTo({
+        top: document.body.scrollHeight,
+        behavior: "smooth",
+      });
+
+      // クエリパラメータを削除
+      const currentUrl = new URL(window.location.href)
+      currentUrl.searchParams.delete('error')
+      router.replace(currentUrl.toString())
+    }
+  }, [params, router]);
 
   // useForm
   const {
+    // 入力された値登録
     register,
+    // 送信時の処理
     handleSubmit,
+    // formの状態（エラー、送信中等）
     formState: { errors },
+    // 特定のフィールドの値をプログラムで設定する
     setValue,
   } = useFormContext();
 
   // トースト消す
   const deleteToast = () => {
-    if (isAppear) {
-      setIsAppear(false);
+    if (toast) {
+      setToast({
+        display: false,
+        text: ''});
     }
   };
+
+  // モーダル開いたら
+  const handleModalOpen = () => {
+    setIsOpen(true)
+    // 背景固定
+    document.body.style.overflow = 'hidden'
+  }
   return (
-    <div className="input" onClick={() => deleteToast()}>
-      <Toast isAppear={isAppear} setIsAppear={setIsAppear} />
-      <Step />
+    <div 
+    className="input" 
+    onClick={() => deleteToast()}>
+      <Toast toast={toast} setToast={setToast} />
+      <Step
+        step={'input'}
+        setStep={setStep}
+      />
       <form
-        className="input-form"
+        className={`input-form ${isOpen ? "inActive" : ''}`}
         onSubmit={handleSubmit(
           // バリデーション成功
           () => {
-            setIsAppear(false);
+            setToast({
+              display: false,
+              text: ""});
             router.push("/form/confirm");
           },
           // バリデーション失敗
           () => {
-            setIsAppear(true);
+            setToast({
+              display: true,
+              text: "notAnswered"});
           }
         )}
       >
-        <div className="title">体験アンケート</div>
+        <div 
+        className="form-guide"
+        onClick={handleModalOpen}
+        // onClick={() => setIsOpen(true)}
+        >体験談について</div>
+        <p className="form-prompt">下記にご回答お願いいたします。</p>
         <ul>
           {/* 年代 --> */}
           <Age register={register} errors={errors} />
@@ -78,28 +134,23 @@ const input = () => {
           <Gender register={register} errors={errors} />
 
           {/* 業種 --> */}
-          {/* <Industry
-            isIndustryInvalid={isIndustryInvalid}
-            setIsIndustryInvalid={setIsIndustryInvalid}
-          /> */}
+          <Industry register={register} errors={errors} />
 
           {/* 具体的な業種 */}
-          {/* <JobDetails /> */}
+          <JobDetails 
+          register={register} 
+          errors={errors}
+          setValue={setValue}
+          />
 
           {/* 今の仕事を選んだ理由 */}
-          {/* <Reason /> */}
+          <Reason register={register} errors={errors}/>
 
           {/* 雇用形態 */}
-          {/* <Employment
-            isEmploymentInvalid={isEmploymentInvalid}
-            setIsEmploymentInvalid={setIsEmploymentInvalid}
-          /> */}
+          <Employment register={register} errors={errors} />
 
           {/* 勤続年数 */}
-          {/* <Years
-            isYearsInvalid={isYearsInvalid}
-            setIsYearsInvalid={setIsYearsInvalid}
-          /> */}
+          <Years register={register} errors={errors} />
 
           {/* 仕事の苦労度 */}
           <JobDifficulty
@@ -109,42 +160,51 @@ const input = () => {
           />
 
           {/* 現在の仕事で苦労していること */}
-          {/* <JobStruggles /> */}
+          <JobStruggles 
+          register={register} 
+          errors={errors}
+          />
 
           {/* 就職活動の苦労度 */}
-          {/* <JobHuntDifficulty
-            isJobHuntDifficultyInvalid={isJobHuntDifficultyInvalid}
-            setIsJobHuntDifficultyInvalid={setIsJobHuntDifficultyInvalid}
-          /> */}
+          <JobHuntDifficulty
+            register={register}
+            errors={errors}
+            setValue={setValue}
+          />
 
           {/* 就職活動で苦労していること */}
-          {/* <JobHuntStruggles /> */}
-
-          {/* jobHuntStruggles */}
+          <JobHuntStruggles 
+            register={register} 
+            errors={errors}
+          />
 
           {/* 手帳の有無 */}
-          {/* <Notebook
-            isNotebookInvalid={isNotebookInvalid}
-            setIsNotebookInvalid={setIsNotebookInvalid}
-          /> */}
+          <Notebook
+            register={register} 
+            errors={errors}
+          />
 
           {/* 自由記入欄 */}
-          {/* <Free /> */}
+          <Free 
+          register={register} 
+          errors={errors}
+          />
 
           {/*　ユーザー情報 */}
-          {/* <UserInfo
-            isUserNameInvalid={isUserNameInvalid}
-            setIsInUserNameInvalid={setIsInUserNameInvalid}
-            isEmailInvalid={isEmailInvalid}
-            setIsEmailInvalid={setIsEmailInvalid}
-          /> */}
+          <UserInfo
+            register={register} 
+            errors={errors}
+          />
         </ul>
 
         <button className="confirm-step-button" type="submit">
           確認画面へ
         </button>
       </form>
-      {/* <MainLogo/> */}
+      <InputModal
+      isOpen={isOpen}
+      setIsOpen={setIsOpen}
+      />
       {/* </FormProvider> */}
     </div>
   );
@@ -224,43 +284,10 @@ export default input;
           </li> */
 }
 
-// const [isAgeInvalid, setIsAgeInvalid] = useState(false);
-// const [isGenderInvalid, setIsGenderInvalid] = useState(false);
-// const [isIndustryInvalid, setIsIndustryInvalid] = useState(false);
-// const [isUserNameInvalid, setIsInUserNameInvalid] = useState(false);
-// const [isJobDifficultyInvalid, setIsJobDifficultyInvalid] = useState(false);
-// const [isJobHuntDifficultyInvalid, setIsJobHuntDifficultyInvalid] =
-//   useState(false);
-// const [isEmploymentInvalid, setIsEmploymentInvalid] = useState(false);
-// const [isYearsInvalid, setIsYearsInvalid] = useState(false);
-// const [isNotebookInvalid, setIsNotebookInvalid] = useState(false);
-// const [isEmailInvalid, setIsEmailInvalid] = useState(false);
+// formStat: 現在地(アクションの結果の戻り値になる)
+// formAction: 新しいアクションを実行するための関数
+// sendAction: 実行されるアクション
+// null: 初期値
 
-// const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-//   // const formData = new FormData(e.currentTarget);
-
-//   // const validList = [
-//   //   { key: "age", setInvalid: setIsAgeInvalid },
-//   //   { key: "gender", setInvalid: setIsGenderInvalid },
-//   //   // { key: "industry", setInvalid: setIsIndustryInvalid },
-//   //   // { key: "username", setInvalid: setIsInUserNameInvalid },
-//   //   // { key: "email", setInvalid: setIsEmailInvalid },
-//   //   { key: "job_difficulty", setInvalid: setIsJobDifficultyInvalid },
-//   //   // { key: "job_hunt_difficulty", setInvalid: setIsJobHuntDifficultyInvalid },
-//   //   // { key: "employment", setInvalid: setIsEmploymentInvalid },
-//   //   // { key: "years", setInvalid: setIsYearsInvalid },
-//   //   // { key: "notebook", setInvalid: setIsNotebookInvalid },
-//   // ];
-
-//   // validList.forEach(({ key, setInvalid }) => {
-//   //   const value = formData.get(key);
-//   //   const trimValue = typeof value === "string" ? value.trim() : value;
-//   //   // formに値がなければ
-//   //   if (!trimValue || trimValue === "") {
-//   //     // 送信無効化
-//   //     e.preventDefault();
-//   //     setInvalid(true);
-//   //     setIsAppear(true);
-//   //   }
-//   // });
-// };
+// useActionState
+// const [formState, formAction] = useActionState(sendAction, null);

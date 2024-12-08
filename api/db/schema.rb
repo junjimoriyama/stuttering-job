@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2024_11_30_002021) do
+ActiveRecord::Schema[8.0].define(version: 2024_12_03_011600) do
   create_table "forms", force: :cascade do |t|
     t.integer "age"
     t.string "gender"
@@ -18,7 +18,7 @@ ActiveRecord::Schema[8.0].define(version: 2024_11_30_002021) do
     t.text "job_details"
     t.text "reason"
     t.string "employment"
-    t.integer "years"
+    t.string "years"
     t.integer "job_difficulty"
     t.text "job_struggles"
     t.integer "job_hunt_difficulty"

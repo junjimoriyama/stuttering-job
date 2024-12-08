@@ -1,12 +1,11 @@
+import { BaseFormProps } from "@/app/types/form";
 import "./industry.scss";
+import { SurpriseMark } from "@/public/svg/svg";
 
 export const Industry = ({
-  isIndustryInvalid,
-  setIsIndustryInvalid,
-}: {
-  isIndustryInvalid: boolean;
-  setIsIndustryInvalid: (value: boolean) => void;
-}) => {
+  register,
+  errors,
+}: BaseFormProps) => {
   const industryList = [
     { value: "manufacturing", label: "製造業" },
     { value: "agriculture", label: "農林水産漁業" },
@@ -28,7 +27,7 @@ export const Industry = ({
   ];
 
   const handleSelect = () => {
-    setIsIndustryInvalid(false);
+    // setIsIndustryInvalid(false);
   };
 
   return (
@@ -39,11 +38,8 @@ export const Industry = ({
       </label>
       <select
         id="industry"
-        className={`industry-select ${isIndustryInvalid ? "isInvalid" : ""}`}
-        name="industry"
         defaultValue=""
-        onChange={() => handleSelect()}
-        // required
+        {...register('industry', {required: '選択は必須です'})}
       >
         <option value="" disabled>
           選択してください
@@ -56,6 +52,13 @@ export const Industry = ({
           );
         })}
       </select>
+        {errors.industry && typeof errors.industry.message === 'string' && (
+            <p className="error">
+            <SurpriseMark />
+            {errors.industry.message}
+          </p>
+        )}
+        <hr />
     </li>
   );
 };

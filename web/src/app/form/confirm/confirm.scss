@@ -1,15 +1,22 @@
 @use "@/app/style/breakpoint.scss" as bp;
-// @use "../../../style/breakpoint.scss" as bp;
+@use "@/app/style/common.scss" as mixin;
+
+$bgColor: #ffffff;
+// $bgColor: #fffef7;
+$inputFocusColor: #f4f5f6;
+$mustMarkColor: #f9851c;
+$temporarySaveBtnColor: #7cabb4;
+$freeTextColor: #1a2c5b;
+$executeBtnColor: #1a2c5b;
 
 .confirm {
   width: 100%;
-  // height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   padding: 20px;
-  background-color: #f9f9f9;
+  background-color: #ffffff;
 
   @include bp.media(xs, max) {
     padding: 10px;
@@ -31,14 +38,13 @@
       justify-content: center;
     }
 
-    ul {
+    .confirm-form-list {
+      margin-bottom: 30px;
       .confirm-form-row {
         display: flex;
         flex-direction: column;
         gap: 10px;
-        // align-items: center;
-        // justify-content: space-between;
-        margin-bottom: 10px;
+        margin-bottom: 30px;
 
         hr {
           width: 100%;
@@ -57,44 +63,24 @@
       .confirm-form-value {
         flex-grow: 1;
         word-break: break-word;
-        background-color: #ffffe0;
+        background-color: $inputFocusColor;
         padding: 10px;
         border-radius: 5px;
       }
     }
   }
+  
+    .back-fill-out-button {
+      @include mixin.formActionBtn(#fff);
+      color: #1a2c5b;
+      border: 3px solid #1a2c5b;
+      box-shadow: #fff 0px 3px 0 0, #1a2c5b 0px 7px 0 0px;
+      padding: 8px;
+      width: 100%;
+    }
 
   .complete-step-button {
-    margin-top: 30px;
-    display: grid;
-    place-items: center;
+    @include mixin.formActionBtn($executeBtnColor);
     width: 100%;
-    color: #ffffff;
-    background-color: #32D4AE;
-    border-radius: 10px;
-    padding: 10px;
-
-    @media (any-hover: hover) {
-      &:hover {
-        opacity: 0.5;
-      }
-    }
-  }
-
-  .back-fill-out-button {
-    margin-top: 30px;
-    display: grid;
-    place-items: center;
-    width: 100%;
-    color: #ffffff;
-    background-color: #accafe;
-    border-radius: 10px;
-    padding: 10px;
-
-    @media (any-hover: hover) {
-      &:hover {
-        opacity: 0.5;
-      }
-    }
   }
 }

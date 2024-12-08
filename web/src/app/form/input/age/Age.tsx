@@ -2,7 +2,7 @@ import React from "react";
 import { UseFormRegister, FieldErrors, UseFormSetValue } from "react-hook-form";
 import "./age.scss";
 import { BaseFormProps } from "@/app/types/form";
-import { SurpriseMark } from "../../../../../public/svg/svg";
+import { SurpriseMark } from "../../../../public/svg/svg";
 
 const Age = ({ register, errors }: BaseFormProps) => {
   return (
@@ -12,8 +12,8 @@ const Age = ({ register, errors }: BaseFormProps) => {
       </label>
       <select
         id="age"
-        {...register("age", { required: "選択は必須です" })}
         defaultValue=""
+        {...register("age", { required: "選択は必須です" })}
       >
         <option value="" disabled>
           選択してください
@@ -27,7 +27,7 @@ const Age = ({ register, errors }: BaseFormProps) => {
           );
         })}
       </select>
-      {errors.age && typeof errors.age.message === "string" && (
+      { errors.age && typeof errors.age.message === "string" && (
         <p className="error">
           <SurpriseMark />
           {errors.age.message}

@@ -1,16 +1,15 @@
 .input {
   .input-form {
     .reason {
-      .reason-heading {
-        display: flex;
-        justify-content: space-between;
+      .reason-textarea {
+        min-height: 100px;
+        margin-bottom: 5px;
       }
       .textCount {
         display: flex;
         align-items: center;
-      }
-      .job-details-textarea {
-        min-height: 40px;
+        justify-content: flex-end;
+        font-size: 14px;
       }
     }
   }

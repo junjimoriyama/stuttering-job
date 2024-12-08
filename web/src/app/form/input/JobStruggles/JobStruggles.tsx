@@ -1,7 +1,11 @@
 import { ChangeEvent, useState } from "react";
 import "./jobStruggles.scss";
+import { BaseFormProps } from "@/app/types/form";
 
-const JobStruggles = () => {
+const JobStruggles = ({
+  register,
+  errors
+} : BaseFormProps) => {
 
   const maxLength = 1000
 
@@ -27,9 +31,12 @@ const JobStruggles = () => {
       </div>
       <textarea 
       id="job-struggles" 
-      name="job_struggles"
       maxLength={maxLength}
-      onChange={(e: ChangeEvent<HTMLTextAreaElement>) => handleInput(e)}
+      {...register("job_struggles", {
+        onChange: (e) => handleInput(e),
+        // 入力値の前後の空白を削除
+        setValueAs: (value) => value.trim()
+      })}
       ></textarea>
       <hr />
     </li>

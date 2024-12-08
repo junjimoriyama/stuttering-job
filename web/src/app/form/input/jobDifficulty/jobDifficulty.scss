@@ -1,10 +1,12 @@
 @use "../../../style/breakpoint.scss" as bp;
 @use "../../../style/common.scss" as mixin;
 
+$inputFocusColor: #f4f5f6;
+
 .input {
   .input-form {
     .job-difficulty {
-      margin-bottom: 30px;
+      margin-bottom: 50px;
       .job-difficulty-level {
         display: flex;
         align-items: center;
@@ -12,7 +14,7 @@
         width: 100%;
         padding: 12px;
         font-size: 1rem;
-        background-color: #ffffff;
+        background-color: $inputFocusColor;
         // background-color: #ffffe0;
         border-radius: 5px;
 
@@ -35,6 +37,7 @@
           background-color: #fff;
           border: 1px solid #e5e5e5;
           transition: 0.2s;
+          padding-left: 3px;
           cursor: pointer;
     
           &.isClicked {

@@ -1,4 +1,4 @@
-import { LoadingLogo } from "../../../public/svg/svg";
+import { LoadingLogo } from "../../public/svg/svg";
 import "./loading.scss";
 
 const Loading = () => {

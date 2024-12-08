@@ -4,60 +4,70 @@ import Step from "@/app/step/Step";
 import "./confirm.scss";
 import Link from "next/link";
 import { useFormContext } from "react-hook-form";
-import { useActionState } from "react";
+import { useActionState, useContext } from "react";
 import { sendAction } from "./actionConfirm";
+import StepContext from "@/app/step/stepContext";
+import { useRouter } from "next/navigation";
 
 // サーバーからデータを取得
 const confirm = () => {
-  const { getValues } = useFormContext();
-  const values = getValues();
+  const { getValues } = useFormContext<Record<string, string>>();
+  const formValues = getValues();
+
+  const { step, setStep } = useContext(StepContext);
+
+  const router = useRouter();
+
+  const labels: Record<string, string> = {
+    age: "年代",
+    gender: "性別",
+    industry: "業種",
+    job_details: "具体的な仕事内容",
+    reason: "今の仕事を選んだ理由",
+    employment: "雇用形態",
+    years: "勤続年数",
+    job_difficulty: "仕事の苦労度",
+    job_struggles: "仕事中の苦労や工夫",
+    job_hunt_difficulty: "就職活動の苦労度",
+    job_hunt_struggles: "就職活動中の苦労や工夫",
+    notebook: "手帳の有無",
+    free: "自由記入欄",
+    username: "ユーザー名",
+    email: "連絡用メールアドレス",
+  };
+
+  // formの値を配列に
+  const formArray = Object.entries(formValues);
 
   return (
     <div className="confirm">
-      <Step />
-      <form
-        action={sendAction}
-        className="confirm-form"
-        // onSubmit={handleSubmit}
-      >
+      <Step step={"confirm"} setStep={setStep} />
+
+      <form action={sendAction} className="confirm-form">
         <div className="confirm-form-title">確認画面</div>
-        <ul>
-          <li className="confirm-form-row">
-            <p className="confirm-form-label">年代</p>
-            <p className="confirm-form-value">{values.age}</p>
-            <input type="hidden" name="age" value={values.age} readOnly />
-          </li>
-          <li className="confirm-form-row">
-            <p className="confirm-form-label">性別</p>
-            <p className="confirm-form-value">{values.gender}</p>
-            <input type="hidden" name="gender" value={values.gender} readOnly />
-          </li>
-          <li className="confirm-form-row">
-            <p className="confirm-form-label">苦労度</p>
-            <p className="confirm-form-value">{values.job_difficulty}</p>
-            <input
-              type="hidden"
-              name="job_difficulty"
-              value={values.job_difficulty}
-              readOnly
-            />
-          </li>
+        <ul className="confirm-form-list">
+          {formArray.map(([key, value]) => (
+            <li className="confirm-form-row" key={key}>
+              <p className="confirm-form-label">{labels[key]}</p>
+              <p className="confirm-form-value">{value || "未記入"}</p>
+              <input type="hidden" name={key} value={value} readOnly />
+            </li>
+          ))}
         </ul>
 
         <button
-          className="complete-step-button"
-          type="submit"
-          // onClick={handleComplete}
+          className="back-fill-out-button"
+          type="button"
+          onClick={() => router.push("/form/input")}
         >
+          戻る
+        </button>
+        
+        <button className="complete-step-button" type="submit">
           送信する
         </button>
 
-        <Link href="/form/input">
-          {/* <Link href="/input/fillOut"> */}
-          <button className="back-fill-out-button" type="submit">
-            戻る
-          </button>
-        </Link>
+        {/* </Link> */}
       </form>
     </div>
   );
@@ -148,3 +158,164 @@ export default confirm;
 //     </div>
 //   );
 // }
+
+{
+  /* <li className="confirm-form-row">
+            <p className="confirm-form-label">年代</p>
+            <p className="confirm-form-value">{formValues.age}</p>
+            <input type="hidden" name="age" value={formValues.age} readOnly />
+          </li>
+          <li className="confirm-form-row">
+            <p className="confirm-form-label">性別</p>
+            <p className="confirm-form-value">{formValues.gender}</p>
+            <input
+              type="hidden"
+              name="gender"
+              value={formValues.gender}
+              readOnly
+            />
+          </li>
+          <li className="confirm-form-row">
+            <p className="confirm-form-label">業種</p>
+            <p className="confirm-form-value">{formValues.industry}</p>
+            <input
+              type="hidden"
+              name="gender"
+              value={formValues.industry}
+              readOnly
+            />
+          </li>
+          <li className="confirm-form-row">
+            <p className="confirm-form-label">具体的な業種</p>
+            <p className="confirm-form-value">{formValues.job_details}</p>
+            <input
+              type="hidden"
+              name="gender"
+              value={formValues.details}
+              readOnly
+            />
+          </li>
+          <li className="confirm-form-row">
+            <p className="confirm-form-label">今の仕事を選んだ理由</p>
+            <p className="confirm-form-value">{formValues.reason}</p>
+            <input
+              type="hidden"
+              name="gender"
+              value={formValues.industry}
+              readOnly
+            />
+          </li>
+          <li className="confirm-form-row">
+            <p className="confirm-form-label">雇用形態</p>
+            <p className="confirm-form-value">{formValues.employment}</p>
+            <input
+              type="hidden"
+              name="gender"
+              value={formValues.employment}
+              readOnly
+            />
+          </li>
+          <li className="confirm-form-row">
+            <p className="confirm-form-label">勤続年数</p>
+            <p className="confirm-form-value">{formValues.years}</p>
+            <input
+              type="hidden"
+              name="gender"
+              value={formValues.years}
+              readOnly
+            />
+          </li>
+
+          <li className="confirm-form-row">
+            <p className="confirm-form-label">仕事の苦労度</p>
+            <p className="confirm-form-value">{formValues.job_difficulty}</p>
+            <input
+              type="hidden"
+              name="job_difficulty"
+              value={formValues.job_difficulty}
+              readOnly
+            />
+          </li>
+          <li className="confirm-form-row">
+            <p className="confirm-form-label">仕事中の苦労や工夫</p>
+            <p className="confirm-form-value">{formValues.job_struggles}</p>
+            <input
+              type="hidden"
+              name="job_difficulty"
+              value={formValues.job_difficulty}
+              readOnly
+            />
+          </li>
+          <li className="confirm-form-row">
+            <p className="confirm-form-label">就職活動の苦労度</p>
+            <p className="confirm-form-value">
+              {formValues.job_hunt_difficulty}
+            </p>
+            <input
+              type="hidden"
+              name="job_hunt_difficulty"
+              value={formValues.job_hunt_difficulty}
+              readOnly
+            />
+          </li>
+          <li className="confirm-form-row">
+            <p className="confirm-form-label">就職活動で苦労していること</p>
+            <p className="confirm-form-value">
+              {formValues.job_hunt_struggles}
+            </p>
+            <input
+              type="hidden"
+              name="job_difficulty"
+              value={formValues.job_hunt_struggles}
+              readOnly
+            />
+          </li>
+          <li className="confirm-form-row">
+            <p className="confirm-form-label">障害者手帳の有無</p>
+            <p className="confirm-form-value">
+              {formValues.notebook}
+            </p>
+            <input
+              type="hidden"
+              name="job_difficulty"
+              value={formValues.notebook}
+              readOnly
+            />
+          </li>
+          <li className="confirm-form-row">
+            <p className="confirm-form-label">見ている人に向けて</p>
+            <p className="confirm-form-value">
+              {formValues.free}
+            </p>
+            <input
+              type="hidden"
+              name="job_difficulty"
+              value={formValues.free}
+              readOnly
+            />
+          </li>
+          <li className="confirm-form-row">
+            <p className="confirm-form-label">連絡用メールアドレス</p>
+            <p className="confirm-form-value">
+              {formValues.username}
+            </p>
+            <input
+              type="hidden"
+              name="job_difficulty"
+              value={formValues.username}
+              readOnly
+            />
+          </li>
+          <li className="confirm-form-row">
+            <p className="confirm-form-label">パスワード</p>
+            <p className="confirm-form-value">
+              {formValues.email}
+            </p>
+            <input
+              type="hidden"
+              name="job_difficulty"
+              value={formValues.email}
+              readOnly
+            />
+          </li> */
+}

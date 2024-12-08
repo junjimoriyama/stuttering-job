@@ -1,16 +1,12 @@
+import { BaseFormProps } from "@/app/types/form";
 import "./notebook.scss";
+import { SurpriseMark } from "@/public/svg/svg";
 
 const Notebook = ({
-  isNotebookInvalid,
-  setIsNotebookInvalid,
-}: {
-  isNotebookInvalid: boolean;
-  setIsNotebookInvalid: (value: boolean) => void;
-}) => {
+  register,
+  errors
+} : BaseFormProps) => {
 
-  const handleSelect = () => {
-    setIsNotebookInvalid(false);
-  };
   return (
     <li className="notebook">
       <label htmlFor="notebook">
@@ -19,10 +15,9 @@ const Notebook = ({
       </label>
       <select 
       id="notebook"
-      className={`notebook-select ${isNotebookInvalid ? "isInvalid" : ""}`}
-      name="notebook" 
+      // className={`notebook-select ${isNotebookInvalid ? "isInvalid" : ""}`}
       defaultValue=""
-      onChange={() => handleSelect()}
+      {...register('notebook', {required: '選択は必須です。'})}
       >
         <option value="" disabled>
           選択してください
@@ -31,6 +26,14 @@ const Notebook = ({
         <option value="なし">なし</option>
         <option value="無回答">無回答</option>
       </select>
+      {
+        errors.notebook && typeof errors.notebook.message === 'string' && (
+          <p className="error">
+            <SurpriseMark />
+            {errors.notebook.message}
+          </p>
+        )
+      }
       <hr />
     </li>
   );

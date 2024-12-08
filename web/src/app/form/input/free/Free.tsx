@@ -1,7 +1,11 @@
 import { ChangeEvent, useState } from "react";
 import "./free.scss";
+import { BaseFormProps } from "@/app/types/form";
 
-const Free = () => {
+const Free = ({
+  register,
+  errors
+}: BaseFormProps) => {
 
   const maxLength = 1000
 
@@ -27,9 +31,11 @@ const Free = () => {
       </div>
       <textarea 
       id="free" 
-      name="job_hunt_struggles"
       maxLength={maxLength}
-      onChange={(e: ChangeEvent<HTMLTextAreaElement>) => handleInput(e)}
+      {...register('free', {
+        onChange: (e) => handleInput(e),
+        setValueAs: (value) => value.trim()
+      })}
       ></textarea>
       <hr />
     </li>

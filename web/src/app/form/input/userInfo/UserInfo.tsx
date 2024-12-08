@@ -1,25 +1,12 @@
+import { BaseFormProps } from "@/app/types/form";
 import "./userInfo.scss";
+import { SurpriseMark } from "@/public/svg/svg";
 
 const UserInfo = ({
-  isUserNameInvalid,
-  setIsInUserNameInvalid,
-  isEmailInvalid,
-  setIsEmailInvalid,
-}: {
-  isUserNameInvalid: boolean;
-  setIsInUserNameInvalid: (value: boolean) => void;
-  isEmailInvalid: boolean;
-  setIsEmailInvalid: (value: boolean) => void;
-}) => {
+  register,
+  errors
+}: BaseFormProps) => {
   
-  const handleUserNameInput = () => {
-    setIsInUserNameInvalid(false);
-  };
-
-  const handleEmailInput = () => {
-    setIsEmailInvalid(false);
-  };
-
   return (
     <li className="userInfo">
       <div className="username">
@@ -29,15 +16,22 @@ const UserInfo = ({
         </label>
         <input
           id="username"
-          className={`username-input ${isUserNameInvalid ? "isInvalid" : ""}`}
-          onChange={handleUserNameInput}
           type="text"
-          name="username"
           autoComplete="name"
+          {...register("username", {
+            required: '記入は必須です',
+            maxLength: 225,
+            setValueAs: (value) => value.trim()
+          })}
         />
+        {errors.username && typeof errors.username.message === 'string' && (
+          <p className="error">
+          <SurpriseMark />
+          {errors.username.message}
+          </p>
+        )}
       </div>
       <div
-        className={`email ${isEmailInvalid ? "isInvalid" : ""}`}
       >
         <label htmlFor="email">
           連絡先メールアドレス
@@ -45,12 +39,20 @@ const UserInfo = ({
         </label>
         <input
           id="email"
-          className={`email-input ${isEmailInvalid ? "isInvalid" : ""}`}
-          onChange={handleEmailInput}
           type="email"
-          name="email"
           autoComplete="email"
+          {...register("email", {
+            required: '記入は必須です',
+            maxLength: 255,
+            setValueAs: (value) => value.trim()
+          })}
         />
+        {errors.email && typeof errors.email.message === 'string' && (
+          <p className="error">
+          <SurpriseMark />
+          {errors.email.message}
+          </p>
+        )}
       </div>
     </li>
   );

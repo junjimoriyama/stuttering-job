@@ -2,28 +2,27 @@
 
 import { useState } from "react";
 import "./jobHuntDifficulty.scss";
+import { FormWithSetValueProps } from "@/app/types/form";
+import { SurpriseMark } from "@/public/svg/svg";
+import { useFormContext } from "react-hook-form";
 
 const JobHuntDifficulty = ({
-  isJobHuntDifficultyInvalid,
-  setIsJobHuntDifficultyInvalid,
-}: {
-  isJobHuntDifficultyInvalid: boolean;
-  setIsJobHuntDifficultyInvalid: (value: boolean) => void;
-}) => {
-  const [clickIndex, setClickedIndex] = useState<number | null>(null);
+  register,
+  errors,
+  setValue
+}: FormWithSetValueProps) => {
+
+  // useFormより値取得
+  const { getValues } = useFormContext()
+  const values = getValues()
+
+  const [clickIndex, setClickedIndex] = useState<number | null>(values.job_hunt_difficulty || null);
   const [onFocus, setOnFocus] = useState(false);
 
-  const handleClick = () => {
-    setIsJobHuntDifficultyInvalid(false);
+  const handleClick = (value: number) => {
     setOnFocus(true)
-  };
-
-  const handleFocus = () => {
-    if(isJobHuntDifficultyInvalid) {
-      setOnFocus(false)
-    } else {
-      setOnFocus(true)
-    }
+    setValue("job_hunt_difficulty", value, { shouldValidate: true });
+    setClickedIndex(value)
   };
 
   return (
@@ -34,13 +33,9 @@ const JobHuntDifficulty = ({
       </label>
       <div
         tabIndex={0}
-        onFocus={() => handleFocus()}
         onBlur={() => setOnFocus(false)}
         className={`
-          job-hunt-difficulty-level 
-          ${onFocus && !isJobHuntDifficultyInvalid ? "isActive" : ""}
-          ${isJobHuntDifficultyInvalid ? "isInvalid" : ""}
-        `}
+          job-hunt-difficulty-level ${onFocus  ? "isActive" : ""}`}
         >
         <span className="job-hunt-difficulty-level-text">小</span>
         {[...Array(5)].map((_, i) => {
@@ -53,7 +48,7 @@ const JobHuntDifficulty = ({
             }`}
             onClick={() => {
               setClickedIndex(i + 1)
-              handleClick()
+              handleClick(i + 1)
               }}
             >
               {value}
@@ -62,12 +57,19 @@ const JobHuntDifficulty = ({
         })}
         <span className="job-hunt-difficulty-level-text">大</span>
       </div>
+      {errors.job_hunt_difficulty && typeof errors.job_hunt_difficulty.message === "string" && (
+        <p className="error">
+          <SurpriseMark />
+          {errors.job_hunt_difficulty.message}
+        </p>
+      )}
+
 
       <input
         id="job-hunt-difficulty"
         type="hidden"
-        name="job_hunt_difficulty"
         value={clickIndex !== null ? clickIndex : ""}
+        {...register("job_hunt_difficulty", { required: "選択してください" })}
       />
     </li>
   );

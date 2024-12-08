@@ -1,16 +1,12 @@
+import { BaseFormProps } from "@/app/types/form";
 import "./years.scss";
+import { SurpriseMark } from "@/public/svg/svg";
 
 const Years = ({
-  isYearsInvalid,
-  setIsYearsInvalid,
-}: {
-  isYearsInvalid: boolean;
-  setIsYearsInvalid: (value: boolean) => void;
-}) => {
+  register,
+  errors,
+}: BaseFormProps ) => {
 
-  const handleSelect = () => {
-    setIsYearsInvalid(false);
-  };
   return (
     <li className="years">
       <label htmlFor="years">
@@ -19,10 +15,8 @@ const Years = ({
       </label>
       <select 
       id="years" 
-      className={`years-select ${isYearsInvalid ? "isInvalid" : ""}`}
-      name="years" 
       defaultValue=""
-      onChange={() => handleSelect()}
+      {...register("years", { required: "選択は必須です" })}
       >
         <option value="" disabled>
           選択してください
@@ -31,8 +25,14 @@ const Years = ({
         <option value="1-3年">1〜3&nbsp;年</option>
         <option value="3-5年">3〜5&nbsp;年</option>
         <option value="5-10年">5〜10&nbsp;年</option>
-        <option value="10+年">10&nbsp;年以上</option>
+        <option value="10年以上">10&nbsp;年以上</option>
       </select>
+      { errors.years && typeof errors.years.message === "string" && (
+        <p className="error">
+          <SurpriseMark />
+          {errors.years.message}
+        </p>
+      )}
       <hr />
     </li>
   );

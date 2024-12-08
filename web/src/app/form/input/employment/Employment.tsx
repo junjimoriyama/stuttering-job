@@ -1,16 +1,12 @@
+import { BaseFormProps } from "@/app/types/form";
 import "./employment.scss";
+import { SurpriseMark } from "@/public/svg/svg";
 
 const Employment = ({
-  isEmploymentInvalid,
-  setIsEmploymentInvalid
-} : {
-  isEmploymentInvalid: boolean,
-  setIsEmploymentInvalid: (value: boolean) => void,
-}) => {
+  register,
+  errors
+} : BaseFormProps) => {
 
-  const handleSelect = () => {
-    setIsEmploymentInvalid(false);
-  };
   return (
     <li className="employment">
       <label htmlFor="employment">
@@ -19,10 +15,8 @@ const Employment = ({
       </label>
       <select 
       id="employment"
-      className={`employment-select ${isEmploymentInvalid ? "isInvalid" : ""}`}
-      name="employment" 
       defaultValue=""
-      onChange={() => handleSelect()}
+      {...register('employment', {required: '選択は必須です'})}
       >
         <option value="" disabled>
           選択してください
@@ -33,6 +27,12 @@ const Employment = ({
         <option value="自営業＆フリーランス">自営業＆フリーランス</option>
         <option value="その他">その他</option>
       </select>
+      { errors.employment && typeof errors.employment.message === 'string' && (
+        <p className="error">
+        <SurpriseMark />
+        {errors.employment.message}
+      </p>
+      )}
       <hr />
     </li>
   );

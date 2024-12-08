@@ -7,10 +7,9 @@
   left: 50%;
   width: 250px;
   transform: translateX(-50%);
-  height: 100px;
-  background-color: #ffe6e6;
-  background-color: #ffe6e6;
-  border: 2px solid rgb(255, 141, 160);
+  height: 150px;
+  background-color: #ffffff;
+  border: 3px solid #feacb9;
   border-radius: 5px;
   display: none;
   z-index: 10;
@@ -18,10 +17,21 @@
   &.isDisplay {
     display: flex;
   }
+
   .deleteToastBtn {
     position: absolute;
     top: 5px;
     right: 5px;
+  }
+
+  .toastBox {
+    display: none;
+    &.isDisplay {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
   }
 
   .toast-text {

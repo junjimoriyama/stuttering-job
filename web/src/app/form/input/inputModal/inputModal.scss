@@ -1,0 +1,81 @@
+@use "../../../style/breakpoint.scss" as bp;
+
+$orange: #F9851C;
+$navy: #1a2c5b;
+
+.modal {
+  visibility: hidden;
+  opacity: 0;
+  transition: .3s;
+  z-index: 10;
+
+  &.isOpen {
+    visibility: visible;
+    opacity: 1;
+  }
+  .inputModalCloseBtn {
+    text-align: right;
+    color: #fff;
+    top: 20px;
+    right: 20px;
+  }
+
+  .mask {
+    position: fixed;
+    inset: 0;
+    background-color: #000000;
+    opacity: 0.7;
+  }
+  .inputModal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 50%;
+    height: 85%;
+    overflow-y: auto;
+    transform: translate(-50%, -50%);
+
+    @include bp.media(xs, min) {
+      &::-webkit-scrollbar {
+        display: none; /* WebKit ブラウザでスクロールバーを非表示 */
+      }
+      scrollbar-width: none; /* Firefox 用 */
+    }
+    @include bp.media(sm, max) {
+      width: 80%; /* 601px〜1024px */
+    }
+
+    @include bp.media(xs, max) {
+      width: 90%; /* 600px以下 */
+    }
+
+    
+    .inputModalList {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      padding: 8px 0;
+      .inputModalItem {
+        padding: 16px;
+        border: 3px solid $orange;
+        border-radius: 5px;
+        background-color: #f4f5f6;
+      }
+      .heading {
+        display: grid;
+        place-items: center;
+        justify-self: center;
+        background-color: $navy;
+        color: #fff;
+        padding: 8px;
+        border-radius: 5px;
+        margin-bottom: 10px;
+        width: 250px;
+        
+      }
+      .target {
+  
+      }
+    }
+  }
+}

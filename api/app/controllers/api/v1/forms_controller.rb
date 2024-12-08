@@ -15,7 +15,7 @@ class Api::V1::FormsController < ApplicationController
     if @form.save
       render json: @form, status: :created
     else
-      render json: @form.errors, status: :unprocessable_entity
+      render json: {errors: @form.errors.full_messages }, status: :unprocessable_entity
     end
   end
 

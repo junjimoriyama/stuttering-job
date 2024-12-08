@@ -2,13 +2,51 @@
   outline: 2px solid #feacb9;
   outline-offset: -2px;
   box-shadow: none;
-  background-color: #f9fffd;
+  background-color: #ffffff;
   // background-color: #ffe6e6;
 }
 
 @mixin formIsActive() {
   outline: none;
-  box-shadow: 0 0 0px 1000px #f9fffd inset;
-  outline: 2px solid #32d4ae;
+  // box-shadow: 0 0 0px 1000px #ffffff inset;
+  // box-shadow: 0 0 3px 3px #F9851C inset;
+  outline: 3px solid #F9851C;
   outline-offset: -2px;
+}
+
+@mixin formColorBox($bgColor) {
+  background-color: $bgColor;
+  position: relative;
+  padding: 4px 8px;
+  color: #ffffff;
+  border-radius: 50px;
+  display: inline-block;
+  text-align: center;
+  font-size: 12px;
+}
+
+@mixin formActionBtn($color) {
+  display: grid;
+  place-items: center;
+  padding: 12px;
+  margin-bottom: 30px;
+  background-color: $color;
+  border-radius: 3px;
+  box-shadow: #fff 0px 3px 0 0, $color 0px 7px 0 0px;
+  color: #fff;
+  transition: 0.2s;
+  cursor: pointer;
+
+  &.isCheck {
+    box-shadow: none;
+    transform: translateY(3px);
+  }
+
+  @media (any-hover: hover) {
+    &:hover {
+      // opacity: 0.7;
+      transform: translateY(3px);
+      box-shadow: 0px 2px 0px 0px rgba(0, 0, 0, 0.4);
+    }
+  }
 }

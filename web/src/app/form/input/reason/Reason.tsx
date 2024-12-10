@@ -39,7 +39,7 @@ const Reason = ({
         {textCount} / {maxLength}
       </div>
 
-      <hr />
+      
     </li>
   );
 };

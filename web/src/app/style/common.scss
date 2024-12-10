@@ -3,15 +3,13 @@
   outline-offset: -2px;
   box-shadow: none;
   background-color: #ffffff;
-  // background-color: #ffe6e6;
 }
 
 @mixin formIsActive() {
   outline: none;
-  // box-shadow: 0 0 0px 1000px #ffffff inset;
-  // box-shadow: 0 0 3px 3px #F9851C inset;
   outline: 3px solid #F9851C;
   outline-offset: -2px;
+  background-color: #fff;
 }
 
 @mixin formColorBox($bgColor) {
@@ -47,6 +45,37 @@
       // opacity: 0.7;
       transform: translateY(3px);
       box-shadow: 0px 2px 0px 0px rgba(0, 0, 0, 0.4);
+    }
+  }
+}
+
+
+@mixin typingText() {
+  text-align: center;
+  margin-bottom: 24px;
+  overflow: hidden; /* コンテンツを隠す */
+  white-space: nowrap; /* テキストを一行で表示 */
+  border-right: 2px solid #333; /* カーソルのように見える線 */
+  animation: typing 3s steps(30) forwards, blink 0.5s step-end infinite;
+
+  @keyframes typing {
+    0% {
+      width: 0;
+    } 95% {
+      border-right: 2px solid #333;
+    }
+    100% {
+      width: 100%; /* 見せたいテキストの幅に合わせる */
+      border-color: transparent;
+    }
+  }
+  
+  @keyframes blink {
+    50% {
+      border-color: transparent; /* カーソルを点滅させる */
+    }
+    100% {
+      border-color: transparent;
     }
   }
 }

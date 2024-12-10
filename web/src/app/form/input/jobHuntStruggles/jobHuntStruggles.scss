@@ -1,6 +1,10 @@
+@use "../../../style/common.scss" as mixin;
+@use "../../../style/variable.scss" as var;
+
 .input {
   .input-form {
     .job-hunt-struggles {
+      margin-bottom: var.$formMarginBottom;
       .job-hunt-struggles-heading {
         display: flex;
         justify-content: space-between;
@@ -11,6 +15,55 @@
       }
       .job-hunt-struggles-textarea {
         min-height: 40px;
+      }
+      .underTextArea {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        .temporarySave {
+          .temporarySaveBtn {
+            position: relative;
+
+            .CheckMark {
+              position: absolute;
+              top: -20px;
+              left: 0;
+              visibility: hidden;
+              opacity: 0;
+              transform: translateY(-50px);
+              &.isCheck {
+                animation: checkMarkDisplay 1s;
+
+                @keyframes checkMarkDisplay {
+                  0% {
+                    transform: translateY(-20px);
+                    visibility: hidden;
+                    opacity: 0;
+                  }
+                  50% {
+                    transform: translateY(0px);
+                    visibility: visible;
+                    opacity: 1;
+                  }
+                  75% {
+                    transform: translateY(0px);
+                    visibility: visible;
+                    opacity: 1;
+                  }
+                  100% {
+                    transform: translateY(-20px);
+                    visibility: hidden;
+                    opacity: 0;
+                  }
+                }
+              }
+            }
+          }
+          .textCount {
+            justify-content: flex-end;
+          }
+        }
       }
     }
   }

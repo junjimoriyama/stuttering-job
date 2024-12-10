@@ -1,10 +1,25 @@
-import React from "react";
+import React, { ChangeEvent, useEffect, useRef, useState } from "react";
 import { UseFormRegister, FieldErrors, UseFormSetValue } from "react-hook-form";
 import "./age.scss";
-import { BaseFormProps } from "@/app/types/form";
+import { BaseFormProps, FormWithSetValueProps } from "@/app/types/form";
 import { SurpriseMark } from "../../../../public/svg/svg";
+import { storageSelectSaveData } from "@/app/functions/functions";
 
-const Age = ({ register, errors }: BaseFormProps) => {
+const Age = ({ register, errors, setValue }: FormWithSetValueProps) => {
+
+  const [saveData, setSaveData] = useState("");
+
+  useEffect(() => {
+    const savedAgeData = localStorage.getItem("age") || ''
+    setSaveData(savedAgeData)
+    setValue("age",savedAgeData)
+  }, [])
+
+  let timerRef = useRef<NodeJS.Timeout | null>(null)
+
+  // localStorage.clear()
+
+
   return (
     <li className="age">
       <label htmlFor="age">
@@ -12,8 +27,11 @@ const Age = ({ register, errors }: BaseFormProps) => {
       </label>
       <select
         id="age"
-        defaultValue=""
-        {...register("age", { required: "選択は必須です" })}
+        // value={saveData}
+        defaultValue={saveData}
+        {...register("age", { 
+          onChange: (e) => storageSelectSaveData(e, "age", setValue, timerRef),
+          required: "選択は必須です" })}
       >
         <option value="" disabled>
           選択してください
@@ -33,7 +51,7 @@ const Age = ({ register, errors }: BaseFormProps) => {
           {errors.age.message}
         </p>
       )}
-      <hr />
+      
     </li>
   );
 };
@@ -82,7 +100,7 @@ export default Age;
 //           );
 //         })}
 //       </select>
-//       <hr />
+//       
 //     </li>
 //   );
 // };
@@ -127,7 +145,7 @@ export default Age;
 //       {errors.age && typeof errors.age.message === "string" && (
 //         <p className="error">{errors.age.message} </p>
 //       )}
-//       <hr />
+//       
 //     </li>
 //   );
 // };

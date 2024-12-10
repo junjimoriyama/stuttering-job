@@ -32,14 +32,13 @@ $executeBtnColor: #1a2c5b;
     @include bp.media(xs, max) {
       width: 95%; /* 600px以下 */
     }
-    .confirm-form-title {
-      width: 100%;
-      display: flex;
-      justify-content: center;
+    .confirm-guide {
+      @include mixin.typingText();
     }
 
     .confirm-form-list {
-      margin-bottom: 30px;
+      margin-bottom: 56px;
+
       .confirm-form-row {
         display: flex;
         flex-direction: column;
@@ -66,6 +65,8 @@ $executeBtnColor: #1a2c5b;
         background-color: $inputFocusColor;
         padding: 10px;
         border-radius: 5px;
+        outline: 3px solid #333;
+        outline-offset: -2px;
       }
     }
   }

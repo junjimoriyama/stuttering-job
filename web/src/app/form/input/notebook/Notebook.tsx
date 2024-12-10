@@ -34,7 +34,7 @@ const Notebook = ({
           </p>
         )
       }
-      <hr />
+      
     </li>
   );
 };

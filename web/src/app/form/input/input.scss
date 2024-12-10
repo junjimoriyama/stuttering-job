@@ -18,7 +18,6 @@ $executeBtnColor: #1a2c5b;
   justify-content: center;
   padding: 20px;
   background-color: $bgColor;
-  // background-color: #f9f9f9;
   position: relative;
   overflow: auto;
 
@@ -47,8 +46,10 @@ $executeBtnColor: #1a2c5b;
       width: 95%; /* 600px以下 */
     }
 
-    .form-guide {
+    .form-guide-btn {
+      width: 200px;
       text-align: center;
+      justify-self: flex-end;
       display: grid;
       place-items: center;
       padding: 5px 10px;
@@ -68,18 +69,40 @@ $executeBtnColor: #1a2c5b;
       }
     }
     .form-prompt {
-      text-align: center;
-      margin-bottom: 24px;
+      @include mixin.typingText()
     }
+    
+    // @keyframes typing {
+    //   0% {
+    //     width: 0;
+    //   } 95% {
+    //     border-right: 2px solid #333;
+    //   }
+    //   100% {
+    //     width: 100%; /* 見せたいテキストの幅に合わせる */
+    //     border-color: transparent;
+    //   }
+    // }
+    
+    @keyframes blink {
+      50% {
+        border-color: transparent; /* カーソルを点滅させる */
+      }
+      100% {
+        border-color: transparent;
+      }
+    }
+    
 
     input,
     select,
     textarea {
       width: 100%;
-      height: 45px;
+      // height: 50px;
       padding: 12px;
       font-size: 14px;
-      border: none;
+      outline: 3px solid #333;
+      outline-offset: -2px;
       border-radius: 5px;
       transition: 0.2s ease;
       cursor: pointer;
@@ -175,7 +198,7 @@ $executeBtnColor: #1a2c5b;
     }
 
     hr {
-      margin: 40px 0;
+      margin: 24px 0;
       border: 0;
       border-top: 1px solid #e5e5e5;
     }

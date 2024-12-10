@@ -58,7 +58,6 @@ export const Industry = ({
             {errors.industry.message}
           </p>
         )}
-        <hr />
     </li>
   );
 };

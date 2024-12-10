@@ -1,6 +1,10 @@
+@use "../../../style/common.scss" as mixin;
+@use "../../../style/variable.scss" as var;
+
 .input {
   .input-form {
     .reason {
+      margin-bottom: var.$formMarginBottom;
       .reason-textarea {
         min-height: 100px;
         margin-bottom: 5px;

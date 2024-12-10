@@ -4,11 +4,13 @@ import "./style/globals.css";
 import Head from "next/head";
 
 // import { Zen_Maru_Gothic } from "next/font/google";
-import { Noto_Sans_JP } from "next/font/google";
+// import { Noto_Sans_JP } from "next/font/google";
+import { M_PLUS_1p } from "next/font/google";
 // import { StepProvider } from "./survey/stepContext";
 
-const ZenMaruGothic = Noto_Sans_JP({ subsets: ["latin"], weight: ["400"] });
+// const ZenMaruGothic = Noto_Sans_JP({ subsets: ["latin"], weight: ["400"] });
 // const ZenMaruGothic = Zen_Maru_Gothic({ subsets: ["latin"], weight: ["400"] });
+const MPlus1p = M_PLUS_1p({ subsets: ["latin"], weight: ["500"] });
 
 
 // const geistSans = localFont({
@@ -35,7 +37,8 @@ export default function RootLayout({
   return (
     // <StepProvider>
     <html lang="ja">
-      <body className={ZenMaruGothic.className}>
+      <body className={MPlus1p.className}>
+      {/* <body className={ZenMaruGothic.className}> */}
         {children}
       </body>
     </html>

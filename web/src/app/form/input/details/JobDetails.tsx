@@ -1,14 +1,15 @@
 "use client";
 
-import { ChangeEvent, useEffect, useState } from "react";
+import { ChangeEvent, useEffect, useState, useRef } from "react";
 import "./jobDetails.scss";
 import { BaseFormProps, FormWithSetValueProps } from "@/app/types/form";
 import { CheckMark } from "@/public/svg/svg";
+import { storageTextSaveData } from "@/app/functions/functions";
+// import { handleInput } from '@/app/functions/functions'
 
 const JobDetails = ({ register, errors, setValue }: FormWithSetValueProps) => {
   const maxLength = 300;
   const [textCount, setTextCount] = useState(maxLength);
-  const [saveText, setSaveText] = useState("");
   const [isSave, setIsSave] = useState(false);
 
   // setValueで値を管理する
@@ -17,31 +18,13 @@ const JobDetails = ({ register, errors, setValue }: FormWithSetValueProps) => {
   // 保存ボタン押したらlsに保存
 
   useEffect(() => {
-    const savedText = localStorage.getItem("jobDetails") || "";
+    const savedText = localStorage.getItem("job_details") || "";
     setValue("job_details", savedText);
-    setSaveText(savedText);
-    setIsSave(true)
-    setIsSave(false)
+    setIsSave(true);
     setTextCount(maxLength - savedText.length);
   }, []);
 
-  const handleInput = (e: ChangeEvent<HTMLTextAreaElement>) => {
-    const value = e.target.value;
-    setValue("job_details", value);
-    setSaveText(value);
-    setTextCount(maxLength - value.length);
-    if (value.length > maxLength) {
-      e.target.blur();
-    }
-  };
-
-  const handleSave = () => {
-    setIsSave(true)
-    localStorage.setItem("jobDetails", saveText);
-  };
-  const handleAnimationEnd = () => {
-    setIsSave(false)
-  };
+  const timerRef = useRef<NodeJS.Timeout | null>(null)
 
   return (
     <li className="job-details">
@@ -52,38 +35,44 @@ const JobDetails = ({ register, errors, setValue }: FormWithSetValueProps) => {
       <textarea
         id="job-details-textarea"
         className="job-details-textarea"
-        value={saveText}
+        // value={saveText}
+        // onInput={handleInput}
         // name="job_details"
         maxLength={maxLength}
         {...register("job_details", {
-          onChange: (e) => handleInput(e),
+          onChange: (e) => storageTextSaveData(
+            e,
+            "job_details",
+            setValue,
+            timerRef,
+            maxLength,),
           // 入力値の前後の空白を削除
           setValueAs: (value) => value.trim(),
         })}
       />
       <div className="underTextArea">
-        <div className="temporarySave">
-          <button
-            className={`temporarySaveBtn ${isSave ? 'isCheck' : ''}`}
-            type="button"
-            onClick={handleSave}
-          >
-            一時保存
-          <span 
-          className={`CheckMark ${isSave ? 'isCheck' : ''}`}
-          onAnimationEnd={handleAnimationEnd}
-          >
-            <CheckMark />
-          </span>
-          </button>
-        </div>
         <div className="textCount">
           {textCount} / {maxLength}
         </div>
       </div>
-      <hr />
     </li>
   );
 };
 
 export default JobDetails;
+
+{/* <div className="temporarySave">
+  <button
+    className={`temporarySaveBtn ${isSave ? 'isCheck' : ''}`}
+    type="button"
+    onClick={handleSave}
+  >
+    一時保存
+  <span 
+  className={`CheckMark ${isSave ? 'isCheck' : ''}`}
+  onAnimationEnd={handleAnimationEnd}
+  >
+    <CheckMark />
+  </span>
+  </button>
+</div> */}

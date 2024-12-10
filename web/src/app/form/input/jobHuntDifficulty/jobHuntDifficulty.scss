@@ -1,12 +1,13 @@
 @use "../../../style/breakpoint.scss" as bp;
 @use "../../../style/common.scss" as mixin;
+@use "../../../style/variable.scss" as var;
 
 $inputFocusColor: #f4f5f6;
 
 .input {
   .input-form {
     .job-hunt-difficulty {
-      margin-bottom: 50px;
+      margin-bottom: var.$formMarginBottom;
       .job-hunt-difficulty-level {
         display: flex;
         align-items: center;
@@ -15,7 +16,8 @@ $inputFocusColor: #f4f5f6;
         padding: 12px;
         font-size: 1rem;
         background-color: $inputFocusColor;
-        // background-color: #ffffe0;
+        outline: 3px solid #333;
+        outline-offset: -2px;
         border-radius: 5px;
     
         &.isInvalid {

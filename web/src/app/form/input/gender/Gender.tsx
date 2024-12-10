@@ -29,7 +29,7 @@ export const Gender =({ register, errors }: BaseFormProps) => {
           {errors.gender.message}
         </p>
       )}
-      <hr />
+      
     </li>
   );
 };

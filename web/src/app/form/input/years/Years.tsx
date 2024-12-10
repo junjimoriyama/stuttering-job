@@ -33,7 +33,7 @@ const Years = ({
           {errors.years.message}
         </p>
       )}
-      <hr />
+      
     </li>
   );
 };

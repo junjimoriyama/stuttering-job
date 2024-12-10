@@ -44,7 +44,10 @@ const confirm = () => {
       <Step step={"confirm"} setStep={setStep} />
 
       <form action={sendAction} className="confirm-form">
-        <div className="confirm-form-title">確認画面</div>
+        <div className="confirm-guide">
+          <p>以下の内容で送信しても</p>
+          <p>よろしいでしょうか？</p>
+        </div>
         <ul className="confirm-form-list">
           {formArray.map(([key, value]) => (
             <li className="confirm-form-row" key={key}>
@@ -62,7 +65,7 @@ const confirm = () => {
         >
           戻る
         </button>
-        
+
         <button className="complete-step-button" type="submit">
           送信する
         </button>

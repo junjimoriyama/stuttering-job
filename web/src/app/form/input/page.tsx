@@ -14,7 +14,7 @@ import Reason from "./reason/Reason";
 import Employment from "./employment/Employment";
 import Years from "./years/Years";
 import Notebook from "./notebook/Notebook";
-import JobStruggles from "./JobStruggles/JobStruggles";
+import JobStruggles from "./jobStruggles/JobStruggles";
 import JobHuntStruggles from "./jobHuntStruggles/JobHuntStruggles";
 import Free from "./free/Free";
 import Step from "../../step/Step";
@@ -93,6 +93,8 @@ const input = () => {
     // 背景固定
     document.body.style.overflow = 'hidden'
   }
+
+
   return (
     <div 
     className="input" 
@@ -121,14 +123,18 @@ const input = () => {
         )}
       >
         <div 
-        className="form-guide"
+        className="form-guide-btn"
         onClick={handleModalOpen}
         // onClick={() => setIsOpen(true)}
         >体験談について</div>
         <p className="form-prompt">下記にご回答お願いいたします。</p>
         <ul>
           {/* 年代 --> */}
-          <Age register={register} errors={errors} />
+          <Age 
+          register={register} 
+          errors={errors} 
+          setValue={setValue}
+          />
 
           {/* 性別 --> Ï*/}
           <Gender register={register} errors={errors} />
@@ -147,8 +153,10 @@ const input = () => {
           <Reason register={register} errors={errors}/>
 
           {/* 雇用形態 */}
-          <Employment register={register} errors={errors} />
-
+          <Employment   register={register} 
+          errors={errors}
+          setValue={setValue}
+          />
           {/* 勤続年数 */}
           <Years register={register} errors={errors} />
 
@@ -258,7 +266,7 @@ export default input;
               <option value="no">いいえ</option>
               <option value="no-answer">無回答</option>
             </select>
-            <hr />
+            
           </li> */
 }
 {
@@ -291,3 +299,24 @@ export default input;
 
 // useActionState
 // const [formState, formAction] = useActionState(sendAction, null);
+
+
+// inputやselectをして何秒後かにローカルストレージに保存
+// 最後にinputされたら保存（途中のinputはイベント発生させない
+// フォームにonChange（input）したら処理する
+// let scrollTimer;
+// let flag = 0;
+    
+// window.onscroll = () => {
+//     flag = 1;
+//     ～スクロール中に走らせたい処理～
+
+//     clearTimeout(scrollTimer);
+
+//     scrollTimer = setTimeout(() => {
+//         if(flag === 1) {
+//             flag = 0;
+//             ～スクロール完了後に走らせたい処理～
+//         }
+//     }, 250);
+// }

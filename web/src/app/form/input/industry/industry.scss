@@ -1,10 +1,12 @@
 @use "../../../style/common.scss" as mixin;
+@use "../../../style/variable.scss" as var;
 
 .input {
   .input-form {
     .industry {
+      margin-bottom: 32px;
       .industry-select {
-        margin-bottom: 30px;
+        margin-bottom: var.$formMarginBottom;
         &.isInvalid {
           @include mixin.formIsValid;
         }

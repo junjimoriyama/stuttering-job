@@ -1,11 +1,21 @@
-import { BaseFormProps } from "@/app/types/form";
+import { BaseFormProps, formHookProps } from "@/app/types/form";
 import "./employment.scss";
 import { SurpriseMark } from "@/public/svg/svg";
+import { storageSelectSaveData } from "@/app/functions/functions";
+import { useEffect, useRef } from "react";
 
 const Employment = ({
   register,
-  errors
-} : BaseFormProps) => {
+  errors,
+  setValue
+} : formHookProps) => {
+
+  useEffect(() => {
+    const savedAgeData = localStorage.getItem("employment") || ''
+    setValue("age",savedAgeData)
+  }, [])
+
+  let timerRef = useRef<NodeJS.Timeout | null>(null)
 
   return (
     <li className="employment">
@@ -15,8 +25,11 @@ const Employment = ({
       </label>
       <select 
       id="employment"
-      defaultValue=""
-      {...register('employment', {required: '選択は必須です'})}
+      
+      {...register('employment', {
+        onChange: (e) => storageSelectSaveData(e, "employment", setValue, timerRef),
+        required: '選択は必須です'}
+      )}
       >
         <option value="" disabled>
           選択してください
@@ -33,7 +46,7 @@ const Employment = ({
         {errors.employment.message}
       </p>
       )}
-      <hr />
+      
     </li>
   );
 };

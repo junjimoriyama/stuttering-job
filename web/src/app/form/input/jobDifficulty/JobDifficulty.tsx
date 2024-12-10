@@ -7,7 +7,11 @@ import { FormWithSetValueProps } from "@/app/types/form";
 import { useFormContext } from "react-hook-form";
 import { SurpriseMark } from "@/public/svg/svg";
 
-const JobDifficulty = ({ register, errors, setValue }: FormWithSetValueProps) => {
+const JobDifficulty = ({  
+  register, 
+  errors, 
+  setValue 
+}: FormWithSetValueProps) => {
   // useFormより値取得
   const { getValues } = useFormContext();
   const values = getValues()
@@ -15,10 +19,19 @@ const JobDifficulty = ({ register, errors, setValue }: FormWithSetValueProps) =>
   const [clickIndex, setClickedIndex] = useState<number | null>(values.job_difficulty || null);
   const [onFocus, setOnFocus] = useState(false);
 
+
+  useEffect(() => {
+    const savedAgeData = localStorage.getItem("job_difficulty") || ''
+    setValue("job_difficulty",Number(savedAgeData))
+    setClickedIndex(Number(savedAgeData))
+  }, [])
+
   const handleClick = (value: number) => {
     setOnFocus(true)
     setValue("job_difficulty", value, { shouldValidate: true }); 
     setClickedIndex(value)
+
+    localStorage.setItem("job_difficulty", String(value)) 
   };
 
   return (
@@ -72,3 +85,10 @@ const JobDifficulty = ({ register, errors, setValue }: FormWithSetValueProps) =>
 };
 
 export default JobDifficulty;
+
+// const handleClick = (value: number) => {
+//   setOnFocus(true)
+//   setValue("job_difficulty", value, { shouldValidate: true }); 
+//   setClickedIndex(value)
+  
+// };

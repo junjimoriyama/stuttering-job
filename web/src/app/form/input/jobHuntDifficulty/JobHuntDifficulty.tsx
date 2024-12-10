@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./jobHuntDifficulty.scss";
 import { FormWithSetValueProps } from "@/app/types/form";
 import { SurpriseMark } from "@/public/svg/svg";
@@ -19,10 +19,17 @@ const JobHuntDifficulty = ({
   const [clickIndex, setClickedIndex] = useState<number | null>(values.job_hunt_difficulty || null);
   const [onFocus, setOnFocus] = useState(false);
 
+  useEffect(() => {
+    const savedAgeData = localStorage.getItem("job_hunt_difficulty") || ''
+    setValue("job_hunt_difficulty",Number(savedAgeData))
+    setClickedIndex(Number(savedAgeData))
+  }, [])
+
   const handleClick = (value: number) => {
     setOnFocus(true)
-    setValue("job_hunt_difficulty", value, { shouldValidate: true });
+    setValue("job_hunt_difficulty", value, { shouldValidate: true }); 
     setClickedIndex(value)
+    localStorage.setItem("job_hunt_difficulty", String(value)) 
   };
 
   return (

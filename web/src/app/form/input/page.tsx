@@ -137,7 +137,10 @@ const input = () => {
           />
 
           {/* 性別 --> Ï*/}
-          <Gender register={register} errors={errors} />
+          <Gender register={register} 
+          errors={errors}
+          setValue={setValue}
+          />
 
           {/* 業種 --> */}
           <Industry register={register} errors={errors} />

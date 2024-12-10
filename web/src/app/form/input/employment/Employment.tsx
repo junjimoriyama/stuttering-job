@@ -2,7 +2,7 @@ import { BaseFormProps, formHookProps } from "@/app/types/form";
 import "./employment.scss";
 import { SurpriseMark } from "@/public/svg/svg";
 import { storageSelectSaveData } from "@/app/functions/functions";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const Employment = ({
   register,
@@ -10,9 +10,12 @@ const Employment = ({
   setValue
 } : formHookProps) => {
 
+  // 表示用state 
+  const [saveData, setSaveData] = useState("");
+
   useEffect(() => {
     const savedAgeData = localStorage.getItem("employment") || ''
-    setValue("age",savedAgeData)
+    setValue("employment",savedAgeData)
   }, [])
 
   let timerRef = useRef<NodeJS.Timeout | null>(null)
@@ -25,9 +28,14 @@ const Employment = ({
       </label>
       <select 
       id="employment"
-      
+      value={saveData}
       {...register('employment', {
-        onChange: (e) => storageSelectSaveData(e, "employment", setValue, timerRef),
+        onChange: (e) => storageSelectSaveData(
+          e, 
+          "employment", 
+          setValue, 
+          setSaveData,
+          timerRef),
         required: '選択は必須です'}
       )}
       >

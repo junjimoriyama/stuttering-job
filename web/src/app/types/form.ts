@@ -13,6 +13,7 @@ export type handleSelectProps = (
   e: ChangeEvent<HTMLSelectElement>,
   key: string,
   setValue: (key: string, value:string) => void,
+  setSaveData: (key: string) => void,
   timerRef: React.MutableRefObject<NodeJS.Timeout | null>,
 ) => void
 
@@ -22,6 +23,7 @@ export type handleInputProps = (
   e: ChangeEvent<HTMLSelectElement>,
   key: string,
   setValue: (key: string, value:string) => void,
+  setTextCount: (key: number) => void,
   timerRef: React.MutableRefObject<NodeJS.Timeout | null>,
   maxLength: number,
 ) => void

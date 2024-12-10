@@ -5,20 +5,22 @@ import { BaseFormProps, FormWithSetValueProps } from "@/app/types/form";
 import { SurpriseMark } from "../../../../public/svg/svg";
 import { storageSelectSaveData } from "@/app/functions/functions";
 
-const Age = ({ register, errors, setValue }: FormWithSetValueProps) => {
-
+const Age = ({ 
+  register, 
+  errors, 
+  setValue 
+}: FormWithSetValueProps) => {
+  
+  // 表示用state 
   const [saveData, setSaveData] = useState("");
 
   useEffect(() => {
     const savedAgeData = localStorage.getItem("age") || ''
-    setSaveData(savedAgeData)
     setValue("age",savedAgeData)
+    setSaveData(savedAgeData)
   }, [])
 
-  let timerRef = useRef<NodeJS.Timeout | null>(null)
-
-  // localStorage.clear()
-
+  const timerRef = useRef<NodeJS.Timeout | null>(null)
 
   return (
     <li className="age">
@@ -27,10 +29,15 @@ const Age = ({ register, errors, setValue }: FormWithSetValueProps) => {
       </label>
       <select
         id="age"
-        // value={saveData}
-        defaultValue={saveData}
+        value={saveData}
+        // defaultValue={saveData}
         {...register("age", { 
-          onChange: (e) => storageSelectSaveData(e, "age", setValue, timerRef),
+          onChange: (e) => storageSelectSaveData(
+            e, 
+            "age", 
+            setValue, 
+            setSaveData,
+            timerRef),
           required: "選択は必須です" })}
       >
         <option value="" disabled>

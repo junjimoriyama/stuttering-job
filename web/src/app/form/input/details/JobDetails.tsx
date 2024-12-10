@@ -10,7 +10,6 @@ import { storageTextSaveData } from "@/app/functions/functions";
 const JobDetails = ({ register, errors, setValue }: FormWithSetValueProps) => {
   const maxLength = 300;
   const [textCount, setTextCount] = useState(maxLength);
-  const [isSave, setIsSave] = useState(false);
 
   // setValueで値を管理する
   // 読み込み時にlsよりデータ取得
@@ -18,10 +17,9 @@ const JobDetails = ({ register, errors, setValue }: FormWithSetValueProps) => {
   // 保存ボタン押したらlsに保存
 
   useEffect(() => {
-    const savedText = localStorage.getItem("job_details") || "";
-    setValue("job_details", savedText);
-    setIsSave(true);
-    setTextCount(maxLength - savedText.length);
+    const savedData = localStorage.getItem("job_details") || "";
+    setValue("job_details", savedData);
+    setTextCount(maxLength - savedData.length);
   }, []);
 
   const timerRef = useRef<NodeJS.Timeout | null>(null)
@@ -35,15 +33,13 @@ const JobDetails = ({ register, errors, setValue }: FormWithSetValueProps) => {
       <textarea
         id="job-details-textarea"
         className="job-details-textarea"
-        // value={saveText}
-        // onInput={handleInput}
-        // name="job_details"
         maxLength={maxLength}
         {...register("job_details", {
           onChange: (e) => storageTextSaveData(
             e,
             "job_details",
             setValue,
+            setTextCount,
             timerRef,
             maxLength,),
           // 入力値の前後の空白を削除

@@ -1,11 +1,25 @@
-import { BaseFormProps } from "@/app/types/form";
+import { FormWithSetValueProps } from "@/app/types/form";
 import "./userInfo.scss";
 import { SurpriseMark } from "@/public/svg/svg";
+import { useEffect, useRef } from "react";
+import { storagePersonalSaveData } from "@/app/functions/functions";
 
 const UserInfo = ({
   register,
-  errors
-}: BaseFormProps) => {
+  errors,
+  setValue
+}: FormWithSetValueProps) => {
+
+  useEffect(() => {
+    const getStorageUsernameData = localStorage.getItem("stutter_job_username") || "";
+    const getStorageEmailData = localStorage.getItem("stutter_job_email") || "";
+    setValue("username", getStorageUsernameData);
+    setValue("email", getStorageEmailData);
+  }, []);
+
+  const timerRef = useRef<NodeJS.Timeout | null>(null)
+
+  // localStorage.clear()
   
   return (
     <li className="userInfo">
@@ -17,7 +31,17 @@ const UserInfo = ({
         <input
           id="username"
           type="text"
-          autoComplete="name"
+          // autoComplete="name"
+          {...register("username", {
+            onChange: (e) => storagePersonalSaveData(
+              e,
+              "stutter_job_username",
+              setValue,
+              timerRef
+            ),
+            // 入力値の前後の空白を削除
+            setValueAs: (value) => value.trim(),
+          })}
           {...register("username", {
             required: '記入は必須です',
             maxLength: 225,
@@ -40,11 +64,16 @@ const UserInfo = ({
         <input
           id="email"
           type="email"
-          autoComplete="email"
+          // autoComplete="email"
           {...register("email", {
-            required: '記入は必須です',
-            maxLength: 255,
-            setValueAs: (value) => value.trim()
+            onChange: (e) => storagePersonalSaveData(
+              e,
+              "stutter_job_email",
+              setValue,
+              timerRef
+            ),
+            // 入力値の前後の空白を削除
+            setValueAs: (value) => value.trim(),
           })}
         />
         {errors.email && typeof errors.email.message === 'string' && (

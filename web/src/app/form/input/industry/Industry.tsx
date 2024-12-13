@@ -1,11 +1,14 @@
-import { BaseFormProps } from "@/app/types/form";
+import { BaseFormProps, FormWithSetValueProps } from "@/app/types/form";
 import "./industry.scss";
 import { SurpriseMark } from "@/public/svg/svg";
+import { useEffect, useRef, useState } from "react";
+import { storageSelectSaveData } from "@/app/functions/functions";
 
 export const Industry = ({
-  register,
-  errors,
-}: BaseFormProps) => {
+  register, 
+  errors, 
+  setValue 
+}: FormWithSetValueProps) => {
   const industryList = [
     { value: "manufacturing", label: "製造業" },
     { value: "agriculture", label: "農林水産漁業" },
@@ -26,9 +29,17 @@ export const Industry = ({
     { value: "other", label: "その他" },
   ];
 
-  const handleSelect = () => {
-    // setIsIndustryInvalid(false);
-  };
+  // 表示用state 
+  const [saveData, setSaveData] = useState("");
+
+  useEffect(() => {
+    const getStorageData = localStorage.getItem("stutter_job_industry") || ''
+    setValue("industry",getStorageData)
+    setSaveData(getStorageData)
+  }, [])
+
+  const timerRef = useRef<NodeJS.Timeout | null>(null)
+
 
   return (
     <li className="industry">
@@ -38,8 +49,15 @@ export const Industry = ({
       </label>
       <select
         id="industry"
-        defaultValue=""
-        {...register('industry', {required: '選択は必須です'})}
+        value={saveData}
+        {...register("industry", { 
+          onChange: (e) => storageSelectSaveData(
+            e, 
+            "stutter_job_industry", 
+            setValue, 
+            setSaveData,
+            timerRef),
+          required: "選択は必須です" })}
       >
         <option value="" disabled>
           選択してください

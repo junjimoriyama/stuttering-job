@@ -21,21 +21,20 @@ const JobDifficulty = ({
 
 
   useEffect(() => {
-    const savedAgeData = localStorage.getItem("job_difficulty") || ''
-    setValue("job_difficulty",Number(savedAgeData))
-    setClickedIndex(Number(savedAgeData))
+    const getStorageData = localStorage.getItem("stutter_job_job_difficulty") || ''
+    setValue("job_difficulty",Number(getStorageData))
+    setClickedIndex(Number(getStorageData))
   }, [])
 
   const handleClick = (value: number) => {
     setOnFocus(true)
     setValue("job_difficulty", value, { shouldValidate: true }); 
     setClickedIndex(value)
-
-    localStorage.setItem("job_difficulty", String(value)) 
+    localStorage.setItem("stutter_job_job_difficulty", String(value)) 
   };
 
   return (
-    <li className="job-difficulty">
+    <li className="job_difficulty">
       <label>
         吃音による仕事の苦労度
         <span className="must">必須</span>
@@ -44,15 +43,15 @@ const JobDifficulty = ({
         tabIndex={0}
         onBlur={() => setOnFocus(false)} 
         className={`
-          job-difficulty-level ${onFocus ? "isActive" : ""}`}
+          job_difficulty_level ${onFocus ? "isActive" : ""}`}
       >
-        <span className="job-difficulty-level-text">小</span>
+        <span className="job_difficulty_level_text">小</span>
         {[...Array(5)].map((_, i) => {
           const value = `${i + 1}`;
           return (
             <span
               key={value}
-              className={`job-difficulty-level-item ${
+              className={`job_difficulty_level_item ${
                 clickIndex === i + 1 ? "isClicked" : ""
               } `}
               onClick={() => {
@@ -64,7 +63,7 @@ const JobDifficulty = ({
             </span>
           );
         })}
-        <span className="job-difficulty-level-text">大</span>
+        <span className="job_difficulty_level_text">大</span>
       </div>
       {errors.job_difficulty && typeof errors.job_difficulty.message === "string" && (
         <p className="error">
@@ -74,7 +73,7 @@ const JobDifficulty = ({
       )}
 
       <input
-        id="job-difficulty"
+        id="job_difficulty"
         type="hidden"
         // name="job_difficulty"
         value={clickIndex !== null ? clickIndex : ""}

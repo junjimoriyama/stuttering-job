@@ -14,9 +14,9 @@ export const Gender = ({
 
   // 初期値の設定
   useEffect(() => {
-    const savedGenderData = localStorage.getItem("gender") || "";
-    setValue("gender", savedGenderData); // react-hook-form にセット
-    setSaveData(savedGenderData); // 表示用にセット
+    const getStorageData = localStorage.getItem("stutter_job_gender") || "";
+    setValue("gender", getStorageData); // react-hook-form にセット
+    setSaveData(getStorageData); // 表示用にセット
   }, [setValue]);
 
   const timerRef = useRef<NodeJS.Timeout | null>(null);
@@ -32,7 +32,12 @@ export const Gender = ({
         value={saveData} // 選択中の値を表示
         {...register("gender", {
           onChange: (e) =>
-            storageSelectSaveData(e, "gender", setValue, setSaveData, timerRef),
+            storageSelectSaveData(
+              e, 
+              "stutter_job_gender", 
+              setValue, 
+              setSaveData, 
+              timerRef),
           required: "選択は必須です",
         })}
       >

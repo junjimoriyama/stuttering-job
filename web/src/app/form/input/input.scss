@@ -1,13 +1,9 @@
 @use "@/app/style/breakpoint.scss" as bp;
 @use "@/app/style/common.scss" as mixin;
+@use "@/app/style/variable.scss" as var;
 
-$bgColor: #ffffff;
-// $bgColor: #fffef7;
-$inputFocusColor: #f4f5f6;
-$mustMarkColor: #f9851c;
-$temporarySaveBtnColor: #7cabb4;
-$freeTextColor: #1a2c5b;
-$executeBtnColor: #1a2c5b;
+// $temporarySaveBtnColor: #7cabb4;
+// $blue: #7cabb4;
 
 .input {
   position: relative;
@@ -17,7 +13,7 @@ $executeBtnColor: #1a2c5b;
   align-items: center;
   justify-content: center;
   padding: 20px;
-  background-color: $bgColor;
+  background-color: #fff;
   position: relative;
   overflow: auto;
 
@@ -30,7 +26,7 @@ $executeBtnColor: #1a2c5b;
     padding: 10px;
   }
 
-  .input-form {
+  .input_form {
     width: 50%; /* デフォルト: 1025px以上 */
     pointer-events: auto;
     
@@ -46,16 +42,16 @@ $executeBtnColor: #1a2c5b;
       width: 95%; /* 600px以下 */
     }
 
-    .form-guide-btn {
+    .form_guide_btn {
       width: 200px;
       text-align: center;
       justify-self: flex-end;
       display: grid;
       place-items: center;
       padding: 5px 10px;
-      background-color: #7cabb4;
+      background-color: var.$form_btn_color;
       border-radius: 3px;
-      box-shadow: #fff 0px 3px 0 0, #7cabb4 0px 7px 0 0px;
+      box-shadow: #fff 0px 3px 0 0, var.$form_btn_color 0px 7px 0 0px;
       color: #fff;
       transition: 0.2s;
       margin-bottom: 20px;
@@ -68,21 +64,9 @@ $executeBtnColor: #1a2c5b;
         }
       }
     }
-    .form-prompt {
+    .form_prompt {
       @include mixin.typingText()
     }
-    
-    // @keyframes typing {
-    //   0% {
-    //     width: 0;
-    //   } 95% {
-    //     border-right: 2px solid #333;
-    //   }
-    //   100% {
-    //     width: 100%; /* 見せたいテキストの幅に合わせる */
-    //     border-color: transparent;
-    //   }
-    // }
     
     @keyframes blink {
       50% {
@@ -98,10 +82,10 @@ $executeBtnColor: #1a2c5b;
     select,
     textarea {
       width: 100%;
-      // height: 50px;
       padding: 12px;
       font-size: 14px;
-      outline: 3px solid #333;
+      background-color: var.$form_input_color;
+      outline: 1px solid var.$form_border_color;
       outline-offset: -2px;
       border-radius: 5px;
       transition: 0.2s ease;
@@ -113,51 +97,17 @@ $executeBtnColor: #1a2c5b;
       }
 
       &:not(:focus) {
-        background-color: #f4f5f6;
+        // background-color: #f4f5f6;
         // box-shadow: 0 0 0px 1000px $inputFocusColor inset; /* 元の背景色に戻す */
       }
     }
 
     textarea {
       resize: none;
-      // resize: vertical;
       min-height: 100px;
       overflow: hidden;
       field-sizing: content;
       margin-bottom: 10px;
-    }
-
-    .temporarySave {
-      display: flex;
-      gap: 10px;
-      .temporarySaveBtn {
-        display: grid;
-        place-items: center;
-        padding: 6px;
-        background-color: $temporarySaveBtnColor;
-        border-radius: 3px;
-        box-shadow: #fff 0px 3px 0 0, $temporarySaveBtnColor 0px 5px 0 0px;
-        color: #fff;
-        font-size: 14px;
-        transition: 0.2s;
-        cursor: pointer;
-      
-        &.isCheck {
-          box-shadow: none;
-          transform: translateY(3px);
-        }
-      
-        @media (any-hover: hover) {
-          &:hover {
-            opacity: 0.7;
-            // transform: translateY(3px);
-            // box-shadow: 0px 2px 0px 0px rgba(0, 0, 0, 0.4);
-          }
-        }
-      }
-      .textCount {
-        justify-content: flex-end;
-      }
     }
 
     li {
@@ -189,11 +139,11 @@ $executeBtnColor: #1a2c5b;
       }
 
       .must {
-        @include mixin.formColorBox($mustMarkColor);
+        @include mixin.formColorBox(var.$form_must_bg_Color);
       }
 
-      .free-text {
-        @include mixin.formColorBox($freeTextColor);
+      .free_text {
+        @include mixin.formColorBox(var.$form_any_bg_Color);
       }
     }
 
@@ -210,9 +160,43 @@ $executeBtnColor: #1a2c5b;
     }
   }
 
-  .confirm-step-button {
-    @include mixin.formActionBtn($executeBtnColor);
+  .confirm_step_button {
+    @include mixin.formActionBtn(var.$form_btn_color);
     width: 100%;
     // height: 30px;
   }
 }
+
+
+// .temporarySave {
+//   display: flex;
+//   gap: 10px;
+//   .temporarySaveBtn {
+//     display: grid;
+//     place-items: center;
+//     padding: 6px;
+//     background-color: $temporarySaveBtnColor;
+//     border-radius: 3px;
+//     box-shadow: #fff 0px 3px 0 0, $temporarySaveBtnColor 0px 5px 0 0px;
+//     color: #fff;
+//     font-size: 14px;
+//     transition: 0.2s;
+//     cursor: pointer;
+  
+//     &.isCheck {
+//       box-shadow: none;
+//       transform: translateY(3px);
+//     }
+  
+//     @media (any-hover: hover) {
+//       &:hover {
+//         opacity: 0.7;
+//         // transform: translateY(3px);
+//         // box-shadow: 0px 2px 0px 0px rgba(0, 0, 0, 0.4);
+//       }
+//     }
+//   }
+//   .textCount {
+//     justify-content: flex-end;
+//   }
+// }

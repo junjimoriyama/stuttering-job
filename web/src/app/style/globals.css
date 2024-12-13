@@ -6,6 +6,9 @@ body {
   line-height:1.5
 }
 
+li {
+  list-style: none;
+}
 
 /* テーマカラー：　#32D4AE; */
 /* 背景色：　#f9f9f9; */

@@ -1,6 +1,6 @@
 // import { handleInput } from '@/app/functions/functions';
 import { ChangeEvent } from "react";
-import { handleInputProps, handleSelectProps } from "../types/form";
+import { handleInputPersonalProps, handleInputProps, handleSelectProps } from "../types/form";
 
 // 選択保存
 export const storageSelectSaveData: handleSelectProps = (
@@ -44,6 +44,29 @@ export const storageTextSaveData: handleInputProps = (
   }
 
   setTextCount(value.length)
+
+  if(timerRef.current) {
+    clearTimeout(timerRef.current)
+  }
+
+  timerRef.current = setTimeout(() => {
+    localStorage.setItem(key, value)
+  }, 250)
+}
+
+
+// 自由記入欄保存
+export const storagePersonalSaveData: handleInputPersonalProps = (
+  e,
+  key,
+  setValue,
+  timerRef,
+) => {
+  // 入力された値
+  const value = e.target.value
+  // useHookFormに値入れる
+  setValue(key, value)
+  
 
   if(timerRef.current) {
     clearTimeout(timerRef.current)

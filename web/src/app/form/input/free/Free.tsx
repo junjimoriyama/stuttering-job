@@ -1,32 +1,43 @@
-import { ChangeEvent, useState } from "react";
+import { ChangeEvent, useEffect, useRef, useState } from "react";
 import "./free.scss";
-import { BaseFormProps } from "@/app/types/form";
+import { BaseFormProps, formHookProps } from "@/app/types/form";
+import { storageTextSaveData } from "@/app/functions/functions";
 
-const Free = ({ register, errors }: BaseFormProps) => {
+const Free = ({ 
+  register, 
+  errors,
+  setValue
+}: formHookProps) => {
   const maxLength = 1000;
 
   const [textCount, setTextCount] = useState(maxLength);
 
-  const handleInput = (e: ChangeEvent<HTMLTextAreaElement>) => {
-    setTextCount(maxLength - e.target.value.length);
-    if (e.target.value.length > maxLength) {
-      e.target.blur();
-    }
-  };
+  const timerRef = useRef<NodeJS.Timeout | null>(null)
+
+useEffect(() => {
+  const getStorageData = localStorage.getItem('stutter_job_free') || ""
+  setValue("free", getStorageData)
+}, [])
 
   return (
     <li className="free">
-      <div className="free-heading">
+      <div className="free_heading">
         <label htmlFor="free">
           見ている人に向けて
-          <span className="free-text">自由記入</span>
+          <span className="free_text">自由記入</span>
         </label>
       </div>
       <textarea
         id="free"
         maxLength={maxLength}
         {...register("free", {
-          onChange: (e) => handleInput(e),
+          onChange: (e) => storageTextSaveData( 
+            e,
+            "stutter_job_free",
+            setValue,
+            setTextCount,
+            timerRef,
+            maxLength,),
           setValueAs: (value) => value.trim(),
         })}
       ></textarea>

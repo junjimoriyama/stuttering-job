@@ -20,20 +20,20 @@ const JobHuntDifficulty = ({
   const [onFocus, setOnFocus] = useState(false);
 
   useEffect(() => {
-    const savedAgeData = localStorage.getItem("job_hunt_difficulty") || ''
-    setValue("job_hunt_difficulty",Number(savedAgeData))
-    setClickedIndex(Number(savedAgeData))
+    const getStorageData = localStorage.getItem("stutter_job_job_hunt_difficulty") || ''
+    setValue("job_hunt_difficulty",Number(getStorageData))
+    setClickedIndex(Number(getStorageData))
   }, [])
 
   const handleClick = (value: number) => {
     setOnFocus(true)
     setValue("job_hunt_difficulty", value, { shouldValidate: true }); 
     setClickedIndex(value)
-    localStorage.setItem("job_hunt_difficulty", String(value)) 
+    localStorage.setItem("stutter_job_job_hunt_difficulty", String(value)) 
   };
 
   return (
-    <li className="job-hunt-difficulty">
+    <li className="job_hunt_difficulty">
       <label>
         吃音による就職活動の苦労度
         <span className="must">必須</span>
@@ -42,15 +42,15 @@ const JobHuntDifficulty = ({
         tabIndex={0}
         onBlur={() => setOnFocus(false)}
         className={`
-          job-hunt-difficulty-level ${onFocus  ? "isActive" : ""}`}
+          job_hunt_difficulty_level ${onFocus  ? "isActive" : ""}`}
         >
-        <span className="job-hunt-difficulty-level-text">小</span>
+        <span className="job_hunt_difficulty_level_text">小</span>
         {[...Array(5)].map((_, i) => {
           const value = `${i + 1}`;
           return (
             <span
             key={value}
-            className={`job-hunt-difficulty-item ${
+            className={`job_hunt_difficulty_item ${
               clickIndex === i + 1 ? "isClicked" : ""
             }`}
             onClick={() => {
@@ -62,7 +62,7 @@ const JobHuntDifficulty = ({
             </span>
           );
         })}
-        <span className="job-hunt-difficulty-level-text">大</span>
+        <span className="job_hunt_difficulty_level_text">大</span>
       </div>
       {errors.job_hunt_difficulty && typeof errors.job_hunt_difficulty.message === "string" && (
         <p className="error">
@@ -73,7 +73,7 @@ const JobHuntDifficulty = ({
 
 
       <input
-        id="job-hunt-difficulty"
+        id="job_hunt_difficulty"
         type="hidden"
         value={clickIndex !== null ? clickIndex : ""}
         {...register("job_hunt_difficulty", { required: "選択してください" })}

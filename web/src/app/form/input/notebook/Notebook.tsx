@@ -1,11 +1,25 @@
-import { BaseFormProps } from "@/app/types/form";
+import { BaseFormProps, FormWithSetValueProps } from "@/app/types/form";
 import "./notebook.scss";
 import { SurpriseMark } from "@/public/svg/svg";
+import { useEffect, useRef, useState } from "react";
+import { storageSelectSaveData } from "@/app/functions/functions";
 
 const Notebook = ({
   register,
-  errors
-} : BaseFormProps) => {
+  errors, 
+  setValue 
+}: FormWithSetValueProps) => {
+
+    // 表示用state 
+    const [saveData, setSaveData] = useState("");
+
+  useEffect(() => {
+    const getStorageData = localStorage.getItem("stutter_job_notebook") || ''
+    setValue("notebook",getStorageData)
+    setSaveData(getStorageData)
+  }, [])
+
+  const timerRef = useRef<NodeJS.Timeout | null>(null)
 
   return (
     <li className="notebook">
@@ -16,8 +30,15 @@ const Notebook = ({
       <select 
       id="notebook"
       // className={`notebook-select ${isNotebookInvalid ? "isInvalid" : ""}`}
-      defaultValue=""
-      {...register('notebook', {required: '選択は必須です。'})}
+      value={saveData}
+      {...register("notebook", { 
+        onChange: (e) => storageSelectSaveData(
+          e, 
+          "stutter_job_notebook", 
+          setValue, 
+          setSaveData,
+          timerRef),
+        required: "選択は必須です" })}
       >
         <option value="" disabled>
           選択してください

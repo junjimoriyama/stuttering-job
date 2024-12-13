@@ -1,13 +1,7 @@
 @use "@/app/style/breakpoint.scss" as bp;
 @use "@/app/style/common.scss" as mixin;
+@use "@/app/style/variable.scss" as var;
 
-$bgColor: #ffffff;
-// $bgColor: #fffef7;
-$inputFocusColor: #f4f5f6;
-$mustMarkColor: #f9851c;
-$temporarySaveBtnColor: #7cabb4;
-$freeTextColor: #1a2c5b;
-$executeBtnColor: #1a2c5b;
 
 .confirm {
   width: 100%;
@@ -22,7 +16,7 @@ $executeBtnColor: #1a2c5b;
     padding: 10px;
   }
 
-  .confirm-form {
+  .confirm_form {
     width: 50%; /* デフォルト: 1025px以上 */
 
     @include bp.media(sm, max) {
@@ -32,14 +26,14 @@ $executeBtnColor: #1a2c5b;
     @include bp.media(xs, max) {
       width: 95%; /* 600px以下 */
     }
-    .confirm-guide {
+    .confirm_guide {
       @include mixin.typingText();
     }
 
-    .confirm-form-list {
+    .confirm_form_list {
       margin-bottom: 56px;
 
-      .confirm-form-row {
+      .confirm_form_row {
         display: flex;
         flex-direction: column;
         gap: 10px;
@@ -53,16 +47,16 @@ $executeBtnColor: #1a2c5b;
         }
       }
 
-      .confirm-form-label {
+      .confirm_form_label {
         font-weight: bold;
         flex-shrink: 0;
         text-align: left;
       }
 
-      .confirm-form-value {
+      .confirm_form_value {
         flex-grow: 1;
         word-break: break-word;
-        background-color: $inputFocusColor;
+        background-color: var.$form_input_color;
         padding: 10px;
         border-radius: 5px;
         outline: 3px solid #333;
@@ -71,7 +65,7 @@ $executeBtnColor: #1a2c5b;
     }
   }
   
-    .back-fill-out-button {
+    .back-_fill_out_button {
       @include mixin.formActionBtn(#fff);
       color: #1a2c5b;
       border: 3px solid #1a2c5b;
@@ -80,8 +74,8 @@ $executeBtnColor: #1a2c5b;
       width: 100%;
     }
 
-  .complete-step-button {
-    @include mixin.formActionBtn($executeBtnColor);
+  .complete_step_button {
+    @include mixin.formActionBtn(var.$form_btn_color);
     width: 100%;
   }
 }

@@ -1,11 +1,24 @@
-import { BaseFormProps } from "@/app/types/form";
+import { BaseFormProps, FormWithSetValueProps } from "@/app/types/form";
 import "./years.scss";
 import { SurpriseMark } from "@/public/svg/svg";
+import { storageSelectSaveData } from "@/app/functions/functions";
+import { useEffect, useRef, useState } from "react";
 
 const Years = ({
   register,
-  errors,
-}: BaseFormProps ) => {
+  errors, 
+  setValue 
+}: FormWithSetValueProps) => {
+  // 表示用state 
+  const [saveData, setSaveData] = useState("");
+
+  useEffect(() => {
+    const getStorageData = localStorage.getItem("stutter_job_years") || ''
+    setValue("years",getStorageData)
+    setSaveData(getStorageData)
+  }, [])
+
+  const timerRef = useRef<NodeJS.Timeout | null>(null)
 
   return (
     <li className="years">
@@ -14,9 +27,16 @@ const Years = ({
         <span className="must">必須</span>
       </label>
       <select 
-      id="years" 
-      defaultValue=""
-      {...register("years", { required: "選択は必須です" })}
+      id="years"
+      value={saveData}
+      {...register("years", { 
+        onChange: (e) => storageSelectSaveData(
+          e, 
+          "stutter_job_years", 
+          setValue, 
+          setSaveData,
+          timerRef),
+        required: "選択は必須です" })}
       >
         <option value="" disabled>
           選択してください
@@ -33,7 +53,6 @@ const Years = ({
           {errors.years.message}
         </p>
       )}
-      
     </li>
   );
 };

@@ -28,6 +28,14 @@ export type handleInputProps = (
   maxLength: number,
 ) => void
 
+// selectタグlocalStorage保存
+export type handleInputPersonalProps = (
+  e: ChangeEvent<HTMLSelectElement>,
+  key: string,
+  setValue: (key: string, value:string) => void,
+  timerRef: React.MutableRefObject<NodeJS.Timeout | null>,
+) => void
+
 
 // 共通する基本型をinterfaceで定義
 export interface BaseFormProps {

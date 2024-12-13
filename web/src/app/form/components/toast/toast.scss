@@ -21,7 +21,7 @@
   .deleteToastBtn {
     position: absolute;
     top: 5px;
-    right: 5px;
+    right: 15px;
   }
 
   .toastBox {
@@ -34,7 +34,7 @@
     }
   }
 
-  .toast-text {
+  .toast_text {
     margin-bottom: 10px; /* 各段落の下に10pxの間隔を設定 */
     &:last-child {
       margin-bottom: 0; /* 最後の段落には余分なスペースを作らない */

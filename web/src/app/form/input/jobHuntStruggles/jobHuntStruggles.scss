@@ -2,10 +2,10 @@
 @use "../../../style/variable.scss" as var;
 
 .input {
-  .input-form {
-    .job-hunt-struggles {
-      margin-bottom: var.$formMarginBottom;
-      .job-hunt-struggles-heading {
+  .input_form {
+    .job_hunt_struggles {
+      margin-bottom: var.$for_margin_Bottom;
+      .job_hunt_struggles_heading {
         display: flex;
         justify-content: space-between;
       }
@@ -13,7 +13,7 @@
         display: flex;
         align-items: center;
       }
-      .job-hunt-struggles-textarea {
+      .job_hunt_struggles-textarea {
         min-height: 40px;
       }
       .underTextArea {

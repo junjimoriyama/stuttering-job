@@ -14,8 +14,9 @@ const Employment = ({
   const [saveData, setSaveData] = useState("");
 
   useEffect(() => {
-    const savedAgeData = localStorage.getItem("employment") || ''
-    setValue("employment",savedAgeData)
+    const getStorageData = localStorage.getItem("stutter_job_employment") || ''
+    setValue("employment",getStorageData)
+    setSaveData(getStorageData)
   }, [])
 
   let timerRef = useRef<NodeJS.Timeout | null>(null)
@@ -32,7 +33,7 @@ const Employment = ({
       {...register('employment', {
         onChange: (e) => storageSelectSaveData(
           e, 
-          "employment", 
+          "stutter_job_employment", 
           setValue, 
           setSaveData,
           timerRef),

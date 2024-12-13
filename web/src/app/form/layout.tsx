@@ -1,6 +1,6 @@
 "use client";
 import { FormProvider, useForm } from "react-hook-form";
-import { StepProvider } from "../step/stepContext";
+import { StepProvider } from "./step/stepContext";
 
 const Layout = ({ children }: { children: React.ReactNode }) => {
   const method = useForm({

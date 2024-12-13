@@ -1,7 +1,7 @@
 "use client";
 
-import Step from "@/app/step/Step";
-import StepContext from "@/app/step/stepContext";
+import Step from "@/app/form/step/Step";
+import StepContext from "@/app/form/step/stepContext";
 import React, { useContext, useEffect } from "react";
 import "./complete.scss";
 import { useFormContext } from "react-hook-form";
@@ -14,17 +14,20 @@ const complete = () => {
   const router = useRouter(); 
 
   useEffect(() => {
-    // データを全てリセットする
+    // hooksデータを全てリセット
     reset();
-
-    // 現在の履歴を置き換えて戻るボタンの挙動を制御
+    // localStorageデータを全てリセット
+    Object.keys(localStorage).forEach( key => {
+      if(key.startsWith('stutter_job')) {
+        localStorage.removeItem(key)
+      }
+    })
     
     // 戻るボタンが押された場合の遷移先
     const handlePopState = (event: PopStateEvent) => {
       setTimeout(() => {
         router.replace("/form/input"); // 最初のURLを置き換える
       }, 2000)
-      // router.push("/form/input");
     };
 
     window.addEventListener("popstate", handlePopState);

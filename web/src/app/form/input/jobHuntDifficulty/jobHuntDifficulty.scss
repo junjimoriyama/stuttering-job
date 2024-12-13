@@ -2,21 +2,19 @@
 @use "../../../style/common.scss" as mixin;
 @use "../../../style/variable.scss" as var;
 
-$inputFocusColor: #f4f5f6;
-
 .input {
-  .input-form {
-    .job-hunt-difficulty {
-      margin-bottom: var.$formMarginBottom;
-      .job-hunt-difficulty-level {
+  .input_form {
+    .job_hunt_difficulty {
+      margin-bottom: var.$for_margin_Bottom;
+      .job_hunt_difficulty_level {
         display: flex;
         align-items: center;
         gap: 10px;
         width: 100%;
         padding: 12px;
         font-size: 1rem;
-        background-color: $inputFocusColor;
-        outline: 3px solid #333;
+        background-color: var.$form_input_color;;
+        outline: 1px solid var.$form_border_color;
         outline-offset: -2px;
         border-radius: 5px;
     
@@ -32,7 +30,7 @@ $inputFocusColor: #f4f5f6;
           @include mixin.formIsActive();
         }
     
-        .job-hunt-difficulty-item {
+        .job_hunt_difficulty_item {
           display: grid;
           place-items: center;
           width: 30px;

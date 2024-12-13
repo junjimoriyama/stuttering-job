@@ -2,10 +2,10 @@
 @use "../../../style/variable.scss" as var;
 
 .input {
-  .input-form {
+  .input_form {
     .reason {
-      margin-bottom: var.$formMarginBottom;
-      .reason-textarea {
+      margin-bottom: var.$for_margin_Bottom;
+      .reason_textarea {
         min-height: 100px;
         margin-bottom: 5px;
       }

@@ -27,14 +27,14 @@ const Toast = ({
         ×
       </button>
       <div className={`toastBox ${toast.text === "notAnswered" ? "isDisplay" : ""}`}>
-        <p className="toast-text">必須欄の</p>
-        <p className="toast-text">ご確認をお願いします。</p>
+        <p className="toast_text">必須欄の</p>
+        <p className="toast_text">ご確認をお願いします。</p>
       </div>
       <div className={`toastBox ${toast.text === "emailAlreadyTaken" ? "isDisplay" : ""}`}>
-        <p className="toast-text">このメールアドレスは</p>
-        <p className="toast-text">使用されています。</p>
-        <p className="toast-text">他のアドレスを</p>
-        <p className="toast-text">お試しください。</p>
+        <p className="toast_text">このメールアドレスは</p>
+        <p className="toast_text">使用されています。</p>
+        <p className="toast_text">他のアドレスを</p>
+        <p className="toast_text">お試しください。</p>
       </div>
     </div>
   );

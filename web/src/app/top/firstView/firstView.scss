@@ -1,0 +1,231 @@
+.firstView {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+
+}
+.speech_bubble {
+  position: absolute;
+  
+}
+
+.circleLeft_1 {
+  top: 10%;
+  left: 20%;
+  svg {
+    width: 150px;
+    height: 150px;
+  }
+}
+.circleLeft_2 {
+  top: 20%;
+  left: 10%;
+}
+.circleLeft_3 {
+  top: 30%;
+  left: -5%;
+  svg {
+    width: 300px;
+    height: 300px;
+  }
+}
+.circleLeft_4 {
+  top: 40%;
+  left: 15%;
+}
+.circleLeft_5 {
+  top: 50%;
+  left: 25%; 
+  svg {
+    width: 100px;
+    height: 100px;
+  }
+}
+
+.circleRight_1 {
+  top: 0%;
+  right: 10%;
+}
+.circleRight_2{
+  top: 10%;
+  right: 25%;
+}
+.circleRight_3{
+  top: 20%;
+  right: 5%;
+  svg {
+    width: 150px;
+    height: 150px;
+  }
+}
+.circleRight_4{
+  top: 35%;
+  right: 10%;
+}
+.circleRight_5{
+  top: 50%;
+  right: 0%;
+  svg {
+    width: 150px;
+    height: 150px;
+  }
+}
+
+
+.rectLeft_1{
+  top: 0%;
+  left: 0%;
+  svg {
+    width: 150px;
+    height: 150px;
+  }
+}
+.rectLeft_2{
+  top: 15%;
+  left: 10%;
+}
+.rectLeft_3{
+  top: 25%;
+  left: 23%;
+  svg {
+    width: 300px;
+    height: 300px;
+  }
+}
+.rectLeft_4{
+  top: 35%;
+  left: 0%;
+}
+.rectLeft_5{
+  top: 45%;
+  left: 0%;
+  svg {
+    width: 100px;
+    height: 100px;
+  }
+}
+
+.rectRight_1{
+  top: 0%;
+  right: 0%;
+  svg {
+    width: 150px;
+    height: 150px;
+  }
+}
+.rectRight_2{
+  top: 15%;
+  right: 10%;
+}
+.rectRight_3{
+  top: 25%;
+  right: 23%;
+  svg {
+    width: 300px;
+    height: 300px;
+  }
+}
+.rectRight_4{
+  top: 35%;
+  right: 0%;
+}
+
+.rectRight_5{
+  top: 45%;
+  right: 0%;
+  svg {
+    width: 100px;
+    height: 100px;
+  }
+}
+
+
+@for $i from 1 through 5 {
+  .circleLeft_#{$i} {
+    animation: popUpCircle #{random(4) + 1}s ease-in-out forwards; // 1s ~ 4s のランダム時間
+    opacity: 0;
+    transform: translateY(-100px);
+  }
+}
+
+@for $i from 1 through 5 {
+  .circleRight_#{$i} {
+    animation: popUpCircle #{random(4) + 1}s ease-in-out forwards; // 1s ~ 4s のランダム時間
+    animation-delay: #{random(2)}s; // 0s ~ 3s のランダムディレイ
+    opacity: 0;
+    transform: translateY(-100px);
+  }
+}
+
+@for $i from 1 through 5 {
+  .rectLeft_#{$i} {
+    animation: popUpCircle #{random(4) + 2}s ease-in-out forwards; // 2s ~ 5s のランダム時間
+    animation-delay: #{random(3)}s; // 0s ~ 3s のランダムディレイ
+    opacity: 0;
+    transform: translateY(-200px);
+  }
+}
+
+@for $i from 1 through 5 {
+  .rectRight_#{$i} {
+    animation: popUpCircle #{random(5) + 2}s ease-in-out forwards; // 2s ~ 6s のランダム時間
+    animation-delay: #{random(4)}s; // 0s ~ 4s のランダムディレイ
+    opacity: 0;
+    transform: translateY(-100px);
+  }
+}
+
+@keyframes popUpCircle {
+  0% {
+    opacity: 0;
+    transform: translateY(100px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+// @for $i from 1 through 5 {
+//   .circleRight_#{$i} {
+//     top: calc(#{$i} * 20%);
+//     right: calc(#{$i} * 10%);
+//   }
+// }
+// @for $i from 1 through 5 {
+//   .rectLeft_#{$i} {
+//     top: calc(#{$i} * random(2) * 10%);
+//     left: calc(#{$i} * 10%);
+//   }
+// }
+// @for $i from 1 through 5 {
+//   .rectRight_#{$i} {
+//     top: calc(#{$i} * 10% * random(2));
+//     right: calc(#{$i} * 10%);
+//   }
+// }
+
+
+
+
+
+.speechBubbleCircleRight {
+  // position: absolute;
+  // top: 40%;
+  // right: 0%;
+  // transform: translate(-50%, -50%);
+}
+.speechBubbleCircleRight {
+  // position: absolute;
+  // top: 20%;
+  // left: 20%;
+  // transform: translate(-50%, -50%);
+}
+.speechBubbleRectRight {
+  // position: absolute;
+  // top: 20%;
+  // right: 0%;
+  // transform: translate(-50%, -50%);
+}

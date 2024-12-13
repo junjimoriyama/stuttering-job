@@ -1,6 +1,6 @@
 "use client";
 
-import { useActionState, useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 // import { AboutBubble, MainLogo } from "../../../public/svg/svg";
 import Age from "./age/Age";
 import JobDetails from "./details/JobDetails";
@@ -8,7 +8,7 @@ import JobDifficulty from "./jobDifficulty/JobDifficulty";
 import JobHuntDifficulty from "./jobHuntDifficulty/JobHuntDifficulty";
 import Gender from "./gender/Gender";
 import Industry from "./industry/Industry";
-import Toast from "./toast/Toast";
+import Toast from "../components/toast/Toast";
 import UserInfo from "./userInfo/UserInfo";
 import Reason from "./reason/Reason";
 import Employment from "./employment/Employment";
@@ -17,12 +17,12 @@ import Notebook from "./notebook/Notebook";
 import JobStruggles from "./jobStruggles/JobStruggles";
 import JobHuntStruggles from "./jobHuntStruggles/JobHuntStruggles";
 import Free from "./free/Free";
-import Step from "../../step/Step";
+import Step from "../step/Step";
 import { useFormContext } from "react-hook-form";
 
-import { useParams, useRouter, useSearchParams } from "next/navigation";
-import StepContext from "@/app/step/stepContext";
-import InputModal from "./inputModal/InputModal";
+import { useRouter, useSearchParams } from "next/navigation";
+import StepContext from "@/app/form/step/stepContext";
+import InputModal from "../components/inputModal/InputModal";
 
 import "./input.scss";
 
@@ -44,7 +44,7 @@ const input = () => {
   // モーダル
   const [ isOpen, setIsOpen  ] = useState(false)
 
-   useEffect(() => {
+  useEffect(() => {
     const errorParam = params.get("error");
 
     if (errorParam === "EmailAlreadyTaken") {
@@ -94,6 +94,7 @@ const input = () => {
     document.body.style.overflow = 'hidden'
   }
 
+  // localStorage.clear()
 
   return (
     <div 
@@ -104,8 +105,9 @@ const input = () => {
         step={'input'}
         setStep={setStep}
       />
+      {/* <AboutStory /> */}
       <form
-        className={`input-form ${isOpen ? "inActive" : ''}`}
+        className={`input_form ${isOpen ? "inActive" : ''}`}
         onSubmit={handleSubmit(
           // バリデーション成功
           () => {
@@ -123,11 +125,11 @@ const input = () => {
         )}
       >
         <div 
-        className="form-guide-btn"
+        className="form_guide_btn"
         onClick={handleModalOpen}
         // onClick={() => setIsOpen(true)}
         >体験談について</div>
-        <p className="form-prompt">下記にご回答お願いいたします。</p>
+        <p className="form_prompt">下記にご回答お願いいたします。</p>
         <ul>
           {/* 年代 --> */}
           <Age 
@@ -143,7 +145,10 @@ const input = () => {
           />
 
           {/* 業種 --> */}
-          <Industry register={register} errors={errors} />
+          <Industry register={register} 
+          errors={errors}
+          setValue={setValue}
+          />
 
           {/* 具体的な業種 */}
           <JobDetails 
@@ -153,15 +158,24 @@ const input = () => {
           />
 
           {/* 今の仕事を選んだ理由 */}
-          <Reason register={register} errors={errors}/>
+          <Reason 
+          register={register} 
+          errors={errors}
+          setValue={setValue}
+          />
 
           {/* 雇用形態 */}
-          <Employment   register={register} 
+          <Employment   
+          register={register} 
           errors={errors}
           setValue={setValue}
           />
           {/* 勤続年数 */}
-          <Years register={register} errors={errors} />
+          <Years 
+          register={register} 
+          errors={errors}
+          setValue={setValue}
+          />
 
           {/* 仕事の苦労度 */}
           <JobDifficulty
@@ -174,6 +188,7 @@ const input = () => {
           <JobStruggles 
           register={register} 
           errors={errors}
+          setValue={setValue}
           />
 
           {/* 就職活動の苦労度 */}
@@ -185,30 +200,34 @@ const input = () => {
 
           {/* 就職活動で苦労していること */}
           <JobHuntStruggles 
-            register={register} 
+            register={register}
             errors={errors}
+            setValue={setValue}
           />
 
           {/* 手帳の有無 */}
           <Notebook
-            register={register} 
+            register={register}
             errors={errors}
+            setValue={setValue}
           />
 
           {/* 自由記入欄 */}
           <Free 
-          register={register} 
-          errors={errors}
+            register={register} 
+            errors={errors}
+            setValue={setValue}
           />
 
           {/*　ユーザー情報 */}
           <UserInfo
             register={register} 
             errors={errors}
+            setValue={setValue}
           />
         </ul>
 
-        <button className="confirm-step-button" type="submit">
+        <button className="confirm_step_button" type="submit">
           確認画面へ
         </button>
       </form>
@@ -274,13 +293,13 @@ export default input;
 }
 {
   /* <li>
-            <label htmlFor="job-hunt-difficulty">
+            <label htmlFor="job_hunt_difficulty">
               就職活動の苦労度
             <span className="must">必須</span>
             </label>
             <select
-              id="job-hunt-difficulty"
-              name="job-hunt-difficulty"
+              id="job_hunt_difficulty"
+              name="job_hunt_difficulty"
               defaultValue=""
             >
               <option value="" disabled>

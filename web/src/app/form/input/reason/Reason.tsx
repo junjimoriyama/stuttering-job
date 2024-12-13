@@ -1,39 +1,46 @@
 "use client";
 
-import { ChangeEvent, useState } from "react";
+import { ChangeEvent, useEffect, useRef, useState } from "react";
 import "./reason.scss";
-import { BaseFormProps } from "@/app/types/form";
+import { BaseFormProps, FormWithSetValueProps } from "@/app/types/form";
+import { storageTextSaveData } from "@/app/functions/functions";
 
-const Reason = ({
-  register,
-  errors
-}: BaseFormProps) => {
+const Reason = ({ 
+  register, 
+  errors, 
+  setValue 
+}: FormWithSetValueProps) => {
   const maxLength = 1000;
   const [textCount, setTextCount] = useState(maxLength);
 
-  const handleInput = (e: ChangeEvent<HTMLTextAreaElement>) => {
-    setTextCount(maxLength - e.target.value.length);
-    if (e.target.value.length > maxLength) {
-      // 入力を制限する
-      e.target.blur();
-    }
-  };
+  useEffect(() => {
+    const getStorageData = localStorage.getItem("stutter_job_reason") || "";
+    setValue("reason", getStorageData);
+    setTextCount(maxLength - getStorageData.length);
+  }, []);
+
+  const timerRef = useRef<NodeJS.Timeout | null>(null)
+
 
   return (
     <li className="reason">
         <label htmlFor="reason">
           今の仕事を選んだ理由
-          <span className="free-text">自由記入</span>
+          <span className="free_text">自由記入</span>
         </label>
       <textarea
         id="reason"
-        className="reason-textarea"
+        className="reason_textarea"
         maxLength={maxLength}
-        {...register('reason', {
-          onChange: (e) => handleInput(e),
-           // 入力値の前後の空白を削除
-          setValueAs: (value) => value.trim()
-        })}
+        {...register("reason", { 
+          onChange: (e) => storageTextSaveData(
+            e, 
+            "stutter_job_reason", 
+            setValue, 
+            setTextCount,
+            timerRef,
+            maxLength),
+          required: "選択は必須です" })}
       ></textarea>
       <div className="textCount">
         {textCount} / {maxLength}

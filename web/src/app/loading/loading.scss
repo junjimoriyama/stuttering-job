@@ -6,14 +6,21 @@
   align-items: center;
   justify-content: center;
   padding: 20px;
-  background: linear-gradient(120deg, #a3fdd4, #ffffff);
+  // background: linear-gradient(120deg, #a3fdd4, #ffffff);
   background-size: 200% 200%;
   animation: gradientAnimation 5s infinite ease-in-out;
   position: relative;
 
-  .loading-logo {
-    circle {
+  .title_logo {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    .text_database {
     }
+  }
+
+  .lading_chara {
+
 
     @for $i from 1 through 3 {
       .circle-#{$i} {
@@ -21,14 +28,10 @@
         animation-delay: #{($i - 1) * 0.5}s; // 遅延を追加
       }
     }
-  }
 
-  .loading-text {
-    color: #32d4ae;
-    font-size: 24px;
-    font-weight: bold;
-    letter-spacing: 2px;
+    .loading_text {
     animation: changeTextOpacity 1s infinite;
+    }
   }
 }
 

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg 
+id="speechBubbleRectLeft" 
+className="speechBubbleRectLeft" 
+xmlns="http://www.w3.org/2000/svg" width="300" height="240" version="1.1" viewBox="0 0 300 240">
+  <path d="M26.7,7.2h246.6c11.5,0,20.8,7.7,20.8,17.2v140.8c0,9.5-9.3,17.2-20.8,17.2h-46.6s0,50.6,0,50.6l-61.2-50.6H26.7c-11.5,0-20.8-7.7-20.8-17.2V24.3c0-9.5,9.3-17.2,20.8-17.2Z" fill="#1a2c5b" opacity=".1"/>
+</svg>

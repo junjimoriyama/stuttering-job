@@ -3,7 +3,7 @@
 
 
 .step {
-  margin-bottom: var.$stepMarginBottom;
+  margin-bottom: var.$ste_margin_bottom;
   border-bottom: 1px solid #e5e5e5;
   width: 50%;
 
@@ -19,7 +19,7 @@
     display: flex;
     justify-content: center;
     gap: 30px;
-    height: var.$stepItemHeight;
+    height: var.$step_item_height;
     // margin-bottom: 50px;
   
     .stepItem {

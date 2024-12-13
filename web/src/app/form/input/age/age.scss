@@ -2,9 +2,9 @@
 @use "../../../style/variable.scss" as var;
 
 .input {
-  .input-form {
+  .input_form {
     .age {
-      margin-bottom: var.$formMarginBottom;
+      margin-bottom: var.$for_margin_Bottom;
       .age-select {
         &.isInvalid {
           @include mixin.formIsValid;

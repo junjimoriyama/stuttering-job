@@ -13,7 +13,7 @@ $navy: #1a2c5b;
   visibility: hidden;
   opacity: 0;
   z-index: 10;
-
+  
   &.isOpen {
     visibility: visible;
     opacity: 1;
@@ -21,7 +21,7 @@ $navy: #1a2c5b;
   .inputModalCloseBtn {
     position: absolute;
     top: 10px;
-    right: 10px;
+    right: 20px;
     font-size: 24px;
     cursor: pointer;
   }
@@ -47,22 +47,29 @@ $navy: #1a2c5b;
     }
 
     .input_modal_window {
-      max-width: 1000px;
-      margin: 0 auto;
       position: relative;
+      margin: 0 auto;
       padding: 56px 20px 20px 20px;
       background-color: #f4f5f6;
       border-radius: 20px;
       display: flex;
       flex-direction: column;
       gap: 20px;
-
-      .inputModalItem {
-        // padding: 12px;
-        // border: 3px solid $orange;
-        // border-radius: 5px;
-        // background-color: #f4f5f6;
+      width: 50%; /* デフォルト: 1025px以上 */
+      pointer-events: auto;
+      
+      &.inActive {
+        pointer-events: none;
       }
+  
+      @include bp.media(sm, max) {
+        width: 80%; /* 601px〜1024px */
+      }
+  
+      @include bp.media(xs, max) {
+        width: 95%; /* 600px以下 */
+      }
+  
       .heading {
         display: grid;
         place-items: center;
@@ -79,9 +86,9 @@ $navy: #1a2c5b;
           content: "";
           position: absolute;
           top: -5px;
-          left: 5px;
-          width: 250px;
-          height: 100%;
+          left: -5px;
+          width: 255px;
+          height: calc(100% + 5px);
           border-radius: 5px;
           border: 3px solid $navy;
         }
@@ -102,7 +109,7 @@ $navy: #1a2c5b;
         width: 100%;
         // background-color: $orange;
         margin-bottom: 10px;
-        border: 3px solid $orange;
+        border: 2px solid $orange;
         border-radius: 3px;
         // box-shadow: 0 0 0 3px $orange;
       }

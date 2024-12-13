@@ -15,9 +15,9 @@ const Age = ({
   const [saveData, setSaveData] = useState("");
 
   useEffect(() => {
-    const savedAgeData = localStorage.getItem("age") || ''
-    setValue("age",savedAgeData)
-    setSaveData(savedAgeData)
+    const getStorageData = localStorage.getItem("stutter_job_age") || ''
+    setValue("age",getStorageData)
+    setSaveData(getStorageData)
   }, [])
 
   const timerRef = useRef<NodeJS.Timeout | null>(null)
@@ -30,11 +30,10 @@ const Age = ({
       <select
         id="age"
         value={saveData}
-        // defaultValue={saveData}
         {...register("age", { 
           onChange: (e) => storageSelectSaveData(
             e, 
-            "age", 
+            "stutter_job_age", 
             setValue, 
             setSaveData,
             timerRef),

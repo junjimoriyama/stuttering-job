@@ -1,3 +1,6 @@
+@use "@/app/style/variable.scss" as var;
+
+
 @mixin formIsValid() {
   outline: 2px solid #feacb9;
   outline-offset: -2px;
@@ -7,7 +10,7 @@
 
 @mixin formIsActive() {
   outline: none;
-  outline: 3px solid #F9851C;
+  outline: 3px solid var.$form_focus_border_color;
   outline-offset: -2px;
   background-color: #fff;
 }

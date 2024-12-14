@@ -25,9 +25,7 @@ const complete = () => {
     
     // 戻るボタンが押された場合の遷移先
     const handlePopState = (event: PopStateEvent) => {
-      setTimeout(() => {
         router.replace("/form/input"); // 最初のURLを置き換える
-      }, 2000)
     };
 
     window.addEventListener("popstate", handlePopState);

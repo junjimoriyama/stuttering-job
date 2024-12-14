@@ -40,7 +40,7 @@ const JobStruggles = ({
           timerRef,
           maxLength,),
         // 入力値の前後の空白を削除
-        setValueAs: (value) => value.trim(),
+        setValueAs: (value) => value.trim()
       })}
       ></textarea>
       <div className="underTextArea">

@@ -25,6 +25,7 @@ import StepContext from "@/app/form/step/stepContext";
 import InputModal from "../components/inputModal/InputModal";
 
 import "./input.scss";
+import Header from "@/app/components/header/Header";
 
 const input = () => {
   const router = useRouter();
@@ -101,6 +102,7 @@ const input = () => {
     className="input" 
     onClick={() => deleteToast()}>
       <Toast toast={toast} setToast={setToast} />
+      <Header />
       <Step
         step={'input'}
         setStep={setStep}

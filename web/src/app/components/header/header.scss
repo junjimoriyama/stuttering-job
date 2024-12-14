@@ -1,0 +1,161 @@
+@use "@/app/style/breakpoint.scss" as bp;
+@use "@/app/style/variable.scss" as var;
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 80px;
+  padding: 10px;
+  background-color: #fff;
+  border-bottom: 3px solid var.$main_color;
+  // background-color: var.$main_color;
+  z-index: 1000;
+
+  .header_wrap {
+    display: flex;
+    justify-content: space-between;
+      align-items: center;
+
+    .header_main_logo {
+      @include bp.media(xs, max) {
+        width: 150px;
+      }
+    }
+
+    .header_menu {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+      height: 100%;
+  
+      @include bp.media(xs, max) {
+        display: none;
+      }
+      .header_item {
+        color: var.$main_color;
+
+        .header_item_text {
+        }
+      }
+    }
+    .menuIcon {
+      position: relative;
+      display: none;
+
+      @include bp.media(xs, max) {
+        display: block;
+      }
+
+      .menuIconSvg {
+
+        .menuIconPath {
+          &.isShow {
+            fill: #fff;
+          }
+        }
+
+      }
+      span {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        display: block;
+        background-color: #fff;
+        border-radius: 3px;
+        width: 30px;
+        height: 3px;
+        transition: .3s;
+        
+        &:first-of-type {
+          top: calc(50% - 5px);
+          animation: menuIconFirstLineReverse 0.5s forwards;
+        }
+        
+        &:nth-of-type(2) {
+          top: calc(50% + 5px);
+          animation: menuIconSecondLineReverse 0.5s forwards;
+        }
+
+
+        &.isShow {
+          &:first-of-type {
+            top: calc(50% - 5px);
+            animation: menuIconFirstLineChange .5s forwards;
+          }
+  
+          &:nth-of-type(2) {
+            top: calc(50% + 5px);
+            animation: menuIconSecondLineChange .5s forwards;
+          }
+
+
+          @keyframes menuIconFirstLineChange {
+            0% {
+              top: calc(50% - 5px);
+              background-color: #fff;
+            } 50% {
+              top: calc(50%);
+            } 100% {
+              top: calc(50%);
+              transform: translate(-50%, -50%) rotate(45deg);
+              transform-origin: center;
+              background-color: var.$main_color;
+            }
+          }
+          @keyframes menuIconSecondLineChange {
+            0% {
+              top: calc(50% + 5px);
+              background-color: #fff;
+            } 50% {
+              top: calc(50%);
+            } 100% {
+              top: calc(50%);
+              transform: translate(-50%, -50%) rotate(-45deg);
+              transform-origin: center;
+              background-color: var.$main_color;
+            }
+          }
+          @keyframes menuIconFirstLineReverse {
+            0% {
+              top: calc(50%);
+              transform: translate(-50%, -50%) rotate(45deg); /* 回転状態 */
+              background-color: var.$main_color;
+            }
+            50% {
+              top: calc(50%);
+              transform: translate(-50%, -50%) rotate(0); /* 回転を元に戻す途中 */
+            }
+            100% {
+              top: calc(50% - 5px); /* 元の位置 */
+              transform: translate(-50%, -50%);
+              background-color: #fff; /* 元の色 */
+            }
+          }
+          @keyframes menuIconSecondLineReverse {
+            0% {
+              top: calc(50%);
+              transform: translate(-50%, -50%) rotate(-45deg); /* 回転状態 */
+              background-color: var.$main_color;
+            }
+            50% {
+              top: calc(50%);
+              transform: translate(-50%, -50%) rotate(0); /* 回転を元に戻す途中 */
+            }
+            100% {
+              top: calc(50% + 5px); /* 元の位置 */
+              transform: translate(-50%, -50%);
+              background-color: #fff; /* 元の色 */
+            }
+          }
+          
+        }
+      }
+
+    }
+  }
+
+}

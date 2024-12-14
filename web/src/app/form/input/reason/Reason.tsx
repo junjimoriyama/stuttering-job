@@ -40,13 +40,13 @@ const Reason = ({
             setTextCount,
             timerRef,
             maxLength),
-          required: "選択は必須です" })}
+          // 入力値の前後の空白を削除
+        setValueAs: (value) => value.trim()
+      })}
       ></textarea>
       <div className="textCount">
         {textCount} / {maxLength}
       </div>
-
-      
     </li>
   );
 };

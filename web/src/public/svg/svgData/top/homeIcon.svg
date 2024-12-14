@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="homeIcon" data-name="homeIcon" xmlns="http://www.w3.org/2000/svg" width="50" height="50" version="1.1" viewBox="0 0 50 50">
+  <path d="M47.7,24.7L24.8,1.8c-.2-.2-.4-.2-.6,0L1.4,24.7c-.2.2,0,.7.3.7h5.7v21.8c0,.4.3.8.8.8h32.9c.4,0,.8-.3.8-.8v-21.8h5.7c.4,0,.5-.4.3-.7Z" fill="#fff" stroke="#1a2c5d" stroke-miterlimit="10" stroke-width=".2"/>
+  <g>
+    <rect x="18.4" y="28.6" width="5.7" height="5.7" rx=".4" ry=".4" fill="#1a2c5d"/>
+    <rect x="25" y="28.6" width="5.7" height="5.7" rx=".4" ry=".4" fill="#1a2c5d"/>
+    <rect x="18.4" y="35.1" width="5.7" height="5.7" rx=".4" ry=".4" fill="#1a2c5d"/>
+    <rect x="25" y="35.2" width="5.7" height="5.7" rx=".4" ry=".4" fill="#1a2c5d"/>
+  </g>
+</svg>

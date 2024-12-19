@@ -48,6 +48,7 @@ const JobDetails = ({
             maxLength,),
           // 入力値の前後の空白を削除
           setValueAs: (value) => value.trim(),
+          // setValueAs: (value) => value.replace(/\s/g, "").trim(),
         })}
       />
       <div className="underTextArea">

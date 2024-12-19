@@ -14,27 +14,21 @@
   justify-content: center;
   padding: 20px;
   background-color: #fff;
-  position: relative;
   overflow: auto;
-
-
-  &.inActive {
-    pointer-events: none;
-    overflow: hidden;
-  }
 
   @include bp.media(xs, max) {
     padding: 10px;
   }
 
+  .testBtn {
+    position: absolute;
+    top: 90px;
+    right: 10px;
+  }
+
   .input_form {
     width: 50%; /* デフォルト: 1025px以上 */
-    pointer-events: auto;
     
-    &.inActive {
-      pointer-events: none;
-    }
-
     @include bp.media(sm, max) {
       width: 80%; /* 601px〜1024px */
     }
@@ -44,7 +38,7 @@
     }
 
     .form_guide_btn {
-      width: 200px;
+      width: 100%;
       text-align: center;
       justify-self: flex-end;
       display: grid;
@@ -56,6 +50,7 @@
       color: #fff;
       transition: 0.2s;
       margin-bottom: 20px;
+      opacity: 0.7;
       cursor: pointer;
 
       @media (any-hover: hover) {
@@ -86,7 +81,7 @@
       padding: 12px;
       font-size: 14px;
       background-color: var.$form_input_color;
-      outline: 1px solid var.$form_border_color;
+      outline: 2px solid var.$form_border_color;
       outline-offset: -2px;
       border-radius: 5px;
       transition: 0.2s ease;

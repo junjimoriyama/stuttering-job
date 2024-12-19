@@ -1,6 +1,10 @@
 // import { handleInput } from '@/app/functions/functions';
-import { ChangeEvent } from "react";
-import { handleInputPersonalProps, handleInputProps, handleSelectProps } from "../types/form";
+import { ChangeEvent, useEffect } from "react";
+import {
+  handleInputPersonalProps,
+  handleInputProps,
+  handleSelectProps,
+} from "../types/form";
 
 // 選択保存
 export const storageSelectSaveData: handleSelectProps = (
@@ -8,22 +12,21 @@ export const storageSelectSaveData: handleSelectProps = (
   key,
   setValue,
   setSaveData,
-  timerRef,
+  timerRef
 ) => {
-  const value = e.target.value
+  const value = e.target.value;
   // useHookFormに値入れる
-  setValue(key, value)
-  setSaveData(value)
+  setValue(key, value);
+  setSaveData(value);
 
-  if(timerRef.current) {
-    clearTimeout(timerRef.current)
+  if (timerRef.current) {
+    clearTimeout(timerRef.current);
   }
 
   timerRef.current = setTimeout(() => {
-    localStorage.setItem(key, value)
-  }, 250)
-}
-
+    localStorage.setItem(key, value);
+  }, 250);
+};
 
 // 自由記入欄保存
 export const storageTextSaveData: handleInputProps = (
@@ -32,54 +35,80 @@ export const storageTextSaveData: handleInputProps = (
   setValue,
   setTextCount,
   timerRef,
-  maxLength,
+  maxLength
 ) => {
   // 入力された値
-  const value = e.target.value
+  const value = e.target.value;
   // useHookFormに値入れる
-  setValue(key, value)
-  
-  if(value.length > maxLength) {
-    e.target.blur()
+  setValue(key, value);
+
+  if (value.length > maxLength) {
+    e.target.blur();
   }
 
-  setTextCount(value.length)
+  setTextCount(value.length);
 
-  if(timerRef.current) {
-    clearTimeout(timerRef.current)
+  if (timerRef.current) {
+    clearTimeout(timerRef.current);
   }
 
   timerRef.current = setTimeout(() => {
-    localStorage.setItem(key, value)
-  }, 250)
-}
-
+    localStorage.setItem(key, value);
+  }, 250);
+};
 
 // 自由記入欄保存
 export const storagePersonalSaveData: handleInputPersonalProps = (
   e,
   key,
   setValue,
-  timerRef,
+  timerRef
 ) => {
   // 入力された値
-  const value = e.target.value
+  const value = e.target.value;
   // useHookFormに値入れる
-  setValue(key, value)
-  
+  setValue(key, value);
 
-  if(timerRef.current) {
-    clearTimeout(timerRef.current)
+  if (timerRef.current) {
+    clearTimeout(timerRef.current);
   }
 
   timerRef.current = setTimeout(() => {
-    localStorage.setItem(key, value)
-  }, 250)
-}
+    localStorage.setItem(key, value);
+  }, 250);
+};
 
+// インターセクションオブザーバー
+type ObserverOptions = {
+  threshold: number; // IntersectionObserver の threshold
+};
 
-// export const storageSelectSetData = () => {
-//   const savedAgeData = localStorage.getItem("age") || ''
-//   setSaveData(savedAgeData)
-//   setValue("age",savedAgeData)
-// }
+const useIntersectionObserver = (
+  ref: React.RefObject<Element>, // 対象要素の参照
+  setState: React.Dispatch<React.SetStateAction<boolean>>, // 状態を更新する関数
+  options: ObserverOptions // オプション
+) => {
+  useEffect(() => {
+    if (!ref.current) return;
+
+    const observerCallback = (entries: IntersectionObserverEntry[]) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          setState(true); // 一度でも可視状態になったら true にする
+        }
+      });
+    };
+
+    const observer = new IntersectionObserver(observerCallback, {
+      threshold: options.threshold,
+    });
+
+    observer.observe(ref.current);
+
+    return () => {
+      // observer.unobserve(ref.current!); // クリーンアップ
+    };
+  }, [ref, setState, options.threshold]);
+};
+
+export default useIntersectionObserver;

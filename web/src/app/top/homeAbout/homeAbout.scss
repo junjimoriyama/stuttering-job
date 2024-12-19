@@ -1,0 +1,480 @@
+@use "@/app/style/breakpoint.scss" as bp;
+@use "@/app/style/common.scss" as mixin;
+@use "@/app/style/variable.scss" as var;
+
+.home_about {
+  position: relative;
+  padding: 40px 20px;
+  z-index: 10;
+  margin-top: 20px;
+
+  &.isVisible {
+    visibility: visible;
+
+    @keyframes bgAppearance {
+      0% {
+        background-color: rgb(234, 244, 255);
+      }
+      100% {
+        background-color: rgb(244, 249, 255);
+      }
+    }
+  }
+  .home_about_lead_wrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 100px;
+    margin-bottom: 150px;
+
+    @include bp.media(sm, max) {
+      margin-bottom: 70px;
+      gap: 30px;
+    }
+
+    @include bp.media(xs, max) {
+      flex-direction: column;
+      margin-bottom: 50px;
+      font-size: 16px;
+      gap: 0px;
+    }
+    .home_about_lead {
+      font-size: 20px;
+      line-height: 2;
+      color: var.$main_color;
+      visibility: hidden;
+      opacity: 0;
+
+      &.isVisible {
+        animation: textAppearance 2s 1s forwards;
+      }
+
+      @include bp.media(sm, max) {
+        font-size: 18px;
+      }
+
+      @include bp.media(xs, max) {
+        font-size: 16px;
+      }
+
+      @keyframes textAppearance {
+        0% {
+          transform: translateY(100px);
+          visibility: hidden;
+          opacity: 0;
+        }
+        100% {
+          transform: translateY(0);
+          visibility: visible;
+          opacity: 1;
+        }
+      }
+    }
+    .home_about_chara {
+      @include bp.media(sm, max) {
+        align-self: flex-end;
+      }
+
+      .home_about_svg {
+        width: 200px;
+        height: 200px;
+
+        @include bp.media(sm, max) {
+          align-self: flex-end;
+          width: 150px;
+          height: 150px;
+        }
+        @include bp.media(xs, max) {
+          width: 100px;
+          height: 100px;
+        }
+
+        .home_about_block_svg {
+          visibility: hidden;
+          opacity: 0;
+          transition: 1s;
+          &.isVisible {
+            animation: blockAppearance 1s forwards;
+            transform: translateX(500px);
+          }
+
+          @keyframes blockAppearance {
+            0% {
+              visibility: hidden;
+              opacity: 0;
+              transform: translateX(500px);
+            }
+            100% {
+              visibility: visible;
+              opacity: 1;
+              transform: translateX(0px);
+            }
+          }
+        }
+        .home_about_chara_svg {
+          visibility: hidden;
+          opacity: 0;
+          &.isVisible {
+            animation: charaAppearance 1s 1s forwards;
+
+            @keyframes charaAppearance {
+              0% {
+                visibility: hidden;
+                opacity: 0;
+              }
+              100% {
+                visibility: visible;
+                opacity: 1;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  .home_about_description_wrap {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .home_about_overview {
+      position: relative;
+      display: inline-block;
+      text-align: center;
+      margin-bottom: 80px;
+      font-size: 20px;
+      color: var.$main_color;
+      visibility: hidden;
+      opacity: 0;
+
+      &::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        background-color: var.$sub_color;
+      }
+
+      @keyframes writeBorderColor {
+        0% {
+          border-bottom: 3px solid transparent;
+        }
+        100% {
+          border-bottom: 3px solid var.$sub_color; 
+          width: 100%;
+        }
+      }
+
+      &.isVisible {
+        visibility: visible;
+        animation: textAppearance 2s 1s forwards;
+
+        &::after {
+          animation: writeBorderColor 1s  2s forwards
+        }
+      }
+
+      @include bp.media(sm, max) {
+        font-size: 18px;
+      }
+
+      @include bp.media(xs, max) {
+        font-size: 16px;
+      }
+    }
+
+    // 見る
+    .home_about_look {
+      position: relative;
+      display: flex;
+      flex-direction: row-reverse;
+      justify-content: center;
+      align-items: center;
+      gap: 100px;
+      margin-bottom: 120px;
+
+      @include bp.media(sm, max) {
+        margin-bottom: 80px;
+        gap: 30px;
+      }
+
+      @include bp.media(xs, max) {
+        flex-direction: column;
+        margin-bottom: 100px;
+        font-size: 16px;
+        gap: 0px;
+      }
+
+      .home_about_look_bubble {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        width: 500px;
+        gap: 20px;
+        // background-color: rgba(26, 44, 91, 0.2);
+        background-color: #dfe6f4;
+        border-radius: 10px;
+        padding: 10px;
+        visibility: hidden;
+        opacity: 0;
+
+        &.isVisible {
+          visibility: visible;
+          animation: textAppearance 2s 1s forwards;
+        }
+
+        &::after {
+          content: "";
+          position: absolute;
+          bottom: -6px;
+          left: 20%;
+          transform: rotate(-135deg) translateX(-50%);
+          border-width: 20px;
+          border-style: solid;
+          border-color: transparent transparent transparent #dfe6f4;
+        }
+
+        @include bp.media(sm, max) {
+          width: 400px;
+        }
+        @include bp.media(xs, max) {
+          width: 90%;
+        }
+
+        .home_about_look_heading {
+          align-self: center;
+          font-size: 24px;
+          color: var.$main_color;
+        }
+        .home_about_look_Content {
+          font-size: 18px;
+          color: var.$main_color;
+          line-height: 2;
+          word-break: break-word;
+
+          @include bp.media(sm, max) {
+            font-size: 18px;
+          }
+
+          @include bp.media(xs, max) {
+            font-size: 16px;
+          }
+        }
+      }
+
+      .look_chara_svg {
+        top: -40px;
+        left: 0;
+        width: 200px;
+        height: 200px;
+
+        @include bp.media(sm, max) {
+          width: 150px;
+          height: 150px;
+        }
+        @include bp.media(xs, max) {
+          position: absolute;
+          align-self: flex-start;
+          width: 100px;
+          height: 100px;
+        }
+
+        .home_about_look_block_svg {
+          visibility: hidden;
+          opacity: 0;
+          transition: 1s;
+          &.isVisible {
+            animation: blockAppearanceReverse 1s forwards;
+
+            @keyframes blockAppearanceReverse {
+              0% {
+                visibility: hidden;
+                opacity: 0;
+                transform: translateX(-500px);
+              }
+              100% {
+                visibility: visible;
+                opacity: 1;
+                transform: translateX(0px);
+              }
+            }
+          }
+        }
+
+        .home_about_look_chara_svg {
+          visibility: hidden;
+          opacity: 0;
+          &.isVisible {
+            animation: charaAppearance 1s 1s forwards;
+
+            @keyframes charaAppearance {
+              0% {
+                visibility: hidden;
+                opacity: 0;
+              }
+              100% {
+                visibility: visible;
+                opacity: 1;
+              }
+            }
+          }
+        }
+
+        .lookChara_first_text {
+          // opacity: 0;
+          opacity: 1;
+          // animation: textAnimation 1s infinite;
+
+          @keyframes textAnimation {
+            0% {
+              opacity: 0;
+            }
+            100% {
+              opacity: 1;
+            }
+          }
+        }
+      }
+    }
+
+    // 書く
+    .home_about_write {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 100px;
+      margin-bottom: 150px;
+
+      @include bp.media(sm, max) {
+        margin-bottom: 80px;
+        gap: 30px;
+      }
+
+      @include bp.media(xs, max) {
+        flex-direction: column;
+        margin-bottom: 50px;
+        font-size: 16px;
+        gap: 0px;
+      }
+
+      .home_about_write_bubble {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        width: 500px;
+        gap: 20px;
+        background-color: #dfe6f4;
+        // background-color: rgba(26, 44, 91, 0.2);
+        border-radius: 10px;
+        padding: 10px;
+        visibility: hidden;
+        opacity: 0;
+
+        &.isVisible {
+          visibility: visible;
+          animation: textAppearance 2s 1s forwards;
+        }
+
+        &::after {
+          content: "";
+          position: absolute;
+          bottom: -6px;
+          right: 20%;
+          transform: rotate(-135deg) translateX(-50%); /* 反転 */
+          border-width: 20px;
+          border-style: solid;
+          border-color: #dfe6f4 transparent transparent transparent; /* 上側に色を設定 */
+        }
+
+        @include bp.media(sm, max) {
+          width: 400px;
+        }
+
+        @include bp.media(xs, max) {
+          width: 90%;
+        }
+        .home_about_write_heading {
+          align-self: center;
+          font-size: 24px;
+          color: var.$main_color;
+        }
+        .home_about_write_Content {
+          font-size: 18px;
+          color: var.$main_color;
+          line-height: 2;
+          word-break: break-word;
+          @include bp.media(sm, max) {
+            font-size: 18px;
+          }
+
+          @include bp.media(xs, max) {
+            font-size: 16px;
+          }
+        }
+      }
+
+      .write_chara_svg {
+        top: -40px;
+        right: 0;
+        width: 200px;
+        height: 200px;
+
+        @include bp.media(sm, max) {
+          width: 150px;
+          height: 150px;
+        }
+        @include bp.media(xs, max) {
+          position: absolute;
+          align-self: flex-start;
+          width: 100px;
+          height: 100px;
+        }
+
+        .home_about_write_block_svg {
+          visibility: hidden;
+          opacity: 0;
+          transition: 1s;
+          // transform: translateX(500px);
+          &.isVisible {
+            animation: blockAppearance 1s forwards;
+
+            @keyframes blockAppearance {
+              0% {
+                visibility: hidden;
+                opacity: 0;
+                transform: translateX(500px);
+              }
+              100% {
+                visibility: visible;
+                opacity: 1;
+                transform: translateX(0px);
+              }
+            }
+          }
+        }
+
+        .home_about_write_chara_svg {
+          visibility: hidden;
+          opacity: 0;
+          &.isVisible {
+            animation: charaAppearance 1s 1s forwards;
+
+            @keyframes charaAppearance {
+              0% {
+                visibility: hidden;
+                opacity: 0;
+              }
+              100% {
+                visibility: visible;
+                opacity: 1;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

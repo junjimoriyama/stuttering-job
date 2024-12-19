@@ -1,21 +1,21 @@
-import {
-  FirstViewLogo,
-  SpeechBubbleCircleLeft,
-  SpeechBubbleCircleRight,
-  SpeechBubbleRectLeft,
-  SpeechBubbleRectRight,
-} from "@/public/svg/svg";
 import FirstView from "./firstView/FirstView";
 
 import "./top.scss";
-// import Header from "../components/header/Header";
-import TopHeader from "../components/header/TopHeader";
+import Header from "../components/header/Header";
+import BackGroundAnimation from "../components/backgroundAnimation/BackgroundAnimation";
+import HomeAbout from "./homeAbout/HomeAbout";
+import Footer from "../components/footer/Footer";
 
 const page = () => {
   return (
     <div className="top">
-      <TopHeader />
+      <BackGroundAnimation />
+      <Header />
       <FirstView />
+      <HomeAbout />
+      <Footer />
+      {/* <SpMenu /> */}
+      {/* <section></section> */}
     </div>
   );
 };

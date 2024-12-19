@@ -5,8 +5,8 @@ import StepContext from "@/app/form/step/stepContext";
 import React, { useContext, useEffect } from "react";
 import "./complete.scss";
 import { useFormContext } from "react-hook-form";
-import { Thanks } from "@/public/svg/svg";
 import { useRouter } from "next/navigation";
+import { Thanks } from "@/public/svg/other/other";
 
 const complete = () => {
   const { reset } = useFormContext();
@@ -17,11 +17,11 @@ const complete = () => {
     // hooksデータを全てリセット
     reset();
     // localStorageデータを全てリセット
-    Object.keys(localStorage).forEach( key => {
-      if(key.startsWith('stutter_job')) {
-        localStorage.removeItem(key)
-      }
-    })
+    // Object.keys(localStorage).forEach( key => {
+    //   if(key.startsWith('stutter_job')) {
+    //     localStorage.removeItem(key)
+    //   }
+    // })
     
     // 戻るボタンが押された場合の遷移先
     const handlePopState = (event: PopStateEvent) => {

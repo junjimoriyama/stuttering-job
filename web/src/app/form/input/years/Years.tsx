@@ -1,6 +1,6 @@
 import { BaseFormProps, FormWithSetValueProps } from "@/app/types/form";
 import "./years.scss";
-import { SurpriseMark } from "@/public/svg/svg";
+import { SurpriseMark } from "@/public/svg/icon/mark";
 import { storageSelectSaveData } from "@/app/functions/functions";
 import { useEffect, useRef, useState } from "react";
 

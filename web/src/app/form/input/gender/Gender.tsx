@@ -1,8 +1,8 @@
 import { BaseFormProps, formHookProps, FormWithSetValueProps } from "@/app/types/form";
 import "./gender.scss";
-import { SurpriseMark } from "@/public/svg/svg";
 import { useEffect, useRef, useState } from "react";
 import { storageSelectSaveData } from "@/app/functions/functions";
+import { SurpriseMark } from "@/public/svg/icon/mark";
 
 export const Gender = ({ 
   register, 

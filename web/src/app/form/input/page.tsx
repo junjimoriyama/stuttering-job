@@ -45,6 +45,7 @@ const input = () => {
   // モーダル
   const [ isOpen, setIsOpen  ] = useState(false)
 
+
   useEffect(() => {
     const errorParam = params.get("error");
 
@@ -101,15 +102,15 @@ const input = () => {
     <div 
     className="input" 
     onClick={() => deleteToast()}>
+      
       <Toast toast={toast} setToast={setToast} />
-      <Header />
       <Step
         step={'input'}
         setStep={setStep}
       />
       {/* <AboutStory /> */}
       <form
-        className={`input_form ${isOpen ? "inActive" : ''}`}
+        className="input_form"
         onSubmit={handleSubmit(
           // バリデーション成功
           () => {

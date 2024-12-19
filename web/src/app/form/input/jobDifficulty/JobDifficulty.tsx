@@ -5,7 +5,7 @@ import "./jobDifficulty.scss";
 import { register } from "module";
 import { FormWithSetValueProps } from "@/app/types/form";
 import { useFormContext } from "react-hook-form";
-import { SurpriseMark } from "@/public/svg/svg";
+import { SurpriseMark } from "@/public/svg/icon/mark";
 
 const JobDifficulty = ({  
   register, 

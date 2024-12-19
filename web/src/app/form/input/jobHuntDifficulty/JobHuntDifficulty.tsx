@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import "./jobHuntDifficulty.scss";
 import { FormWithSetValueProps } from "@/app/types/form";
-import { SurpriseMark } from "@/public/svg/svg";
+import { SurpriseMark } from "@/public/svg/icon/mark";
 import { useFormContext } from "react-hook-form";
 
 const JobHuntDifficulty = ({

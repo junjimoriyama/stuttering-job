@@ -1,6 +1,6 @@
 import { FormWithSetValueProps } from "@/app/types/form";
 import "./userInfo.scss";
-import { SurpriseMark } from "@/public/svg/svg";
+import { SurpriseMark } from "@/public/svg/icon/mark";
 import { useEffect, useRef } from "react";
 import { storagePersonalSaveData } from "@/app/functions/functions";
 

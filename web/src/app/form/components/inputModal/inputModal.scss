@@ -1,7 +1,9 @@
-@use "../../../style/breakpoint.scss" as bp;
+@use "@/app/style/breakpoint.scss" as bp;
+@use "@/app/style/common.scss" as mixin;
+@use "@/app/style/variable.scss" as var;
 
-$orange: #f9851c;
-$navy: #1a2c5b;
+// $orange: #f9851c;
+// $navy: #1a2c5b;
 
 .modal {
   position: fixed;
@@ -12,7 +14,7 @@ $navy: #1a2c5b;
   transition: 0.3s;
   visibility: hidden;
   opacity: 0;
-  z-index: 10;
+  z-index: 2000;
   
   &.isOpen {
     visibility: visible;
@@ -20,8 +22,9 @@ $navy: #1a2c5b;
   }
   .inputModalCloseBtn {
     position: absolute;
-    top: 10px;
-    right: 20px;
+    top: 5px;
+    right: 15px;
+    color: var.$main_color;
     font-size: 24px;
     cursor: pointer;
   }
@@ -41,9 +44,9 @@ $navy: #1a2c5b;
     z-index: 2;
     @include bp.media(xs, min) {
       &::-webkit-scrollbar {
-        display: none; /* WebKit ブラウザでスクロールバーを非表示 */
+        display: none;
       }
-      scrollbar-width: none; /* Firefox 用 */
+      scrollbar-width: none;
     }
 
     .input_modal_window {
@@ -74,7 +77,7 @@ $navy: #1a2c5b;
         display: grid;
         place-items: center;
         justify-self: center;
-        background-color: $navy; /* Navy */
+        background-color: var.$main_color;
         color: #fff;
         padding: 8px;
         border-radius: 5px;
@@ -82,16 +85,16 @@ $navy: #1a2c5b;
         width: 250px;
         position: relative; /* 擬似要素の基準 */
 
-        &::before {
-          content: "";
-          position: absolute;
-          top: -5px;
-          left: -5px;
-          width: 255px;
-          height: calc(100% + 5px);
-          border-radius: 5px;
-          border: 3px solid $navy;
-        }
+        // &::before {
+        //   content: "";
+        //   position: absolute;
+        //   top: -5px;
+        //   left: -5px;
+        //   width: 255px;
+        //   height: calc(100% + 5px);
+        //   border-radius: 5px;
+        //   border: 3px solid var.$main_color;
+        // }
 
         &::after {
           content: "";
@@ -101,17 +104,15 @@ $navy: #1a2c5b;
           transform: translateX(-50%);
           border-width: 10px;
           border-style: solid;
-          border-color: transparent transparent transparent $navy; /* 上だけ色をつける */
+          border-color: transparent transparent transparent var.$main_color; /* 上だけ色をつける */
         }
       }
 
       .stitch {
         width: 100%;
-        // background-color: $orange;
         margin-bottom: 10px;
-        border: 2px solid $orange;
+        border: 2px solid var.$sub_color;
         border-radius: 3px;
-        // box-shadow: 0 0 0 3px $orange;
       }
     }
   }

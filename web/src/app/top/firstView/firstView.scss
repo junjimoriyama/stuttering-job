@@ -2,604 +2,142 @@
 @use "@/app/style/common.scss" as mixin;
 @use "@/app/style/variable.scss" as var;
 
-.firstView {
+.first_view {
   position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  // width: 100%;
-  height: 100vh;
-  // padding: 20px;
-  overflow: hidden; /* 余計な描画領域を隠す */
+  margin-bottom: 20px;
+  overflow: hidden;
+  min-height: 100vh;
 
+  .first_view_wrap {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    // transform:  translateX(-50%);
 
-  .logo_catch {
-    position: relative; /* 基準点を作る */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    z-index: 100;
+    @include bp.media(sm, max) {
+      width: 80%; /* 601px〜1024px */
+    }
 
+    @include bp.media(xs, max) {
+      width: 95%; /* 600px以下 */
+    }
 
     .main_logo {
       // 画面中央へ
       display: block;
-      margin: 0 auto; 
-  
+      margin: auto;
+      margin-bottom: 50px;
       @include bp.media(sm, max) {
-        width: 80%; /* 601px〜1024px */
+        width: 400px; /* 600px以下 */
       }
-  
       @include bp.media(xs, max) {
-        width: 95%; /* 600px以下 */
+        width: 300px;
       }
-  
-      .bagPath {
-        animation: shakeBag 13s linear infinite;
-        // animation: rotateGear 5s linear infinite;
-        transform-origin: 65px 45px; 
-  
-        @keyframes shakeBag {
-          0% {
-            transform: rotate(0deg);
-          }
-          5% {
-            transform: rotate(-45deg);
-          }
-          10% {
-            transform: rotate(0);
-          }
-          15% {
-            transform: rotate(45deg);
-          }
-          20% {
-            transform: rotate(0deg);
-          }
-          25% {
-            transform: rotate(-45deg);
-          }
-          30% {
-            transform: rotate(0deg);
-          }
-          33% {
-            transform: rotate(30deg);
-          }
-          36% {
-            transform: rotate(0deg);
-          }
-          40% {
-            transform: rotate(-15deg);
-          }
-          45% {
-            transform: rotate(0deg);
-          }
-          100% {
-            transform: rotate(0deg);
-          }
-        }
-      }
-  
-      .gearPath_1 {
-        position: relative;
-        animation: rotateGear 5s linear infinite;
-        transform-origin: 447.5px 12px; 
-        // transform-origin: 407.5px 12px; 
-      }
-      .gearPath_2 {
-        position: relative;
-        animation: rotateGear 5s linear infinite;
-        transform-origin: 461px 29px; 
-        // transform-origin: 421px 29px; 
-      }
-      @keyframes rotateGear {
+    }
+
+    .bagPath {
+      animation: shakeBag 13s linear infinite;
+      // animation: rotateGear 5s linear infinite;
+      transform-origin: 65px 45px;
+
+      @keyframes shakeBag {
         0% {
           transform: rotate(0deg);
         }
+        5% {
+          transform: rotate(-45deg);
+        }
+        10% {
+          transform: rotate(0);
+        }
+        15% {
+          transform: rotate(45deg);
+        }
+        20% {
+          transform: rotate(0deg);
+        }
+        25% {
+          transform: rotate(-45deg);
+        }
+        30% {
+          transform: rotate(0deg);
+        }
+        33% {
+          transform: rotate(30deg);
+        }
+        36% {
+          transform: rotate(0deg);
+        }
+        40% {
+          transform: rotate(-15deg);
+        }
+        45% {
+          transform: rotate(0deg);
+        }
         100% {
-          transform: rotate(360deg);
+          transform: rotate(0deg);
         }
       }
     }
-  
-    .catch {
-      position: absolute;
-      top: calc(100% + 50%); /* ロゴの下辺から画面下部までの50%位置 */
-      text-align: center; 
-      color: var.$main_color;
-      font-size: 24px;
 
-      @include bp.media(xs, max) {
-        font-size: 16px;/* 600px以下 */
-        transform: translateY(-50%);
+    .gearPath_1 {
+      position: relative;
+      animation: rotateGear 5s linear infinite;
+      transform-origin: 447.5px 12px;
+      // transform-origin: 407.5px 12px;
+    }
+    .gearPath_2 {
+      position: relative;
+      animation: rotateGear 5s linear infinite;
+      transform-origin: 461px 29px;
+      // transform-origin: 421px 29px;
+    }
+    @keyframes rotateGear {
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
       }
     }
   }
 
-}
-.speech_bubble {
-  position: absolute;
+  .first_view_Text {
+    text-align: center;
+    color: var.$main_color;
+    font-size: 24px;
+    line-height: 2;
+    margin-top: 400px;
+    transform:  translateY(100px);
+    visibility: hidden;
+    opacity: 0;
+    animation: displayFirstViewText 2s .5s forwards;
+    
+    @include bp.media(sm, max) {
+      font-size: 18px;
+    }
 
-  svg {
-    // width: 100%;
-  }
-  // opacity: 0.7;
-}
+    @include bp.media(xs, max) {
+      font-size: 16px;
+    }
 
-.circleLeft_1 {
-  top: 60vh;
-  left: 15vw;
-  svg {
-    width: 15vw;
-    height: 15vw;
-  }
-}
-.circleLeft_2 {
-  top: 70vh;
-  left: 20vw;
-  svg {
-    width: 20vw;
-    height: 20vw;
-
-    path {
-      fill: #1a2c5b;
+    @keyframes displayFirstViewText {
+      0% {
+        transform:  translateY(100px);
+        visibility: hidden;
+        opacity: 0;
+      }
+      100% {
+        transform:  translateY(0);
+        visibility: visible;
+        opacity: 1;
+      }
     }
   }
 }
-.circleLeft_3 {
-  top: 100vh;
-  left: 30vw;
-  svg {
-    width: 20vw;
-    height: 20vw;
-  }
-}
-.circleLeft_4 {
-  top: 90vh;
-  left: 45vw;
-  svg {
-    width: 15vw;
-    height: 15vw;
-  }
-}
-.circleLeft_5 {
-  top: 95vh;
-  left: 10vw;
-  svg {
-    width: 20vw;
-    height: 20vw;
-  }
-}
-.circleLeft_6 {
-  top: 80vh;
-  left: 15vw;
-  svg {
-    width: 20vw;
-    height: 20vw;
-  }
-}
-.circleLeft_7 {
-  top: 95vh;
-  left: 10vw;
-  svg {
-    width: 20vw;
-    height: 20vw;
-  }
-}
-.circleLeft_8 {
-  top: 70vh;
-  left: 10vw;
-  svg {
-    width: 20vw;
-    height: 20vw;
-  }
-}
-.circleLeft_9 {
-  top: 50vh;
-  left: 10vw;
-  svg {
-    width: 20vw;
-    height: 20vw;
-  }
-}
-.circleLeft_10 {
-  top: 70vh;
-  left: 10vw;
-  svg {
-    width: 20vw;
-    height: 20vw;
-  }
-}
 
-
-
-// 右吹き出し
-.circleRight_1 {
-  top: 100vh;
-  right: 25vw;
-  svg {
-    width: 20vw;
-    height: 20vw;
-  }
-}
-.circleRight_2{
-  top: 60vh;
-  right: -5vw;
-  svg {
-    width: 20vw;
-    height: 20vw;
-  }
-}
-.circleRight_3{
-  top: 80vh;
-  right: 25vw;
-  svg {
-    width: 25vw;
-    height: 25vw;
-  }
-}
-.circleRight_4{
-  top: 90vh;
-  right: 5vw;
-  svg {
-    width: 15vw;
-    height: 15vw;
-  }
-}
-.circleRight_5{
-  top: 100vh;
-  right: 0vw;
-  svg {
-    width: 20vw;
-    height: 20vw;
-  }
-}
-
-
-.rectLeft_1{
-  top: 75vh;
-  left: 25vw;
-  svg {
-    width: 20vw;
-    height: 20vw;
-  }
-}
-.rectLeft_2{
-  top: 95vh;
-  left: -5vw;
-  svg {
-    width: 30vw;
-    height: 30vw;
-  }
-}
-.rectLeft_3{
-  top: 100vh;
-  left: 25vw;
-  svg {
-    width: 25vw;
-    height: 25vw;
-  }
-}
-.rectLeft_4{
-  top: 50vh;
-  left: 5vw;
-  svg {
-    width: 20vw;
-    height: 20vw;
-  }
-}
-.rectLeft_5{
-  top: 90vh;
-  left: 0vw;
-  svg {
-    width: 15vw;
-    height: 15vw;
-  }
-}
-
-.rectRight_1 {
-  top: 100vh;
-  right: 5%;
-  svg {
-    width: 15vw;
-    height: 15vw;
-  }
-}
-
-.rectRight_2 {
-  top: 80vh;
-  right: 10%;
-  svg {
-    width: 15vw;
-    height: 20vw;
-  }
-}
-
-.rectRight_3 {
-  top: 90vh;
-  right: 20%;
-  svg {
-    width: 20vw;
-    height: 20vw;
-  }
-}
-
-.rectRight_4 {
-  top: 80vh;
-  right: 35%;
-  svg {
-    width: 20vw;
-    height: 20vw;
-  }
-}
-
-.rectRight_5 {
-  top: 75vh;
-  right: 0%;
-  svg {
-    width: 20vw;
-    height: 20vw;
-  }
-}
-
-
-@for $i from 1 through 10 {
-  .circleLeft_#{$i} {
-    animation: popUpCircle #{random(5) + 10}s  infinite; // 1s ~ 4s のランダム時間
-    opacity: 0;
-    // transform: translateY(200px);
-  }
-}
-
-@for $i from 1 through 5 {
-  .circleRight_#{$i} {
-    animation: popUpCircle #{random(5) + 10}s ease-in infinite; // 1s ~ 4s のランダム時間
-    animation-delay: #{random(3)}s; // 0s ~ 3s のランダムディレイ
-    opacity: 0;
-    // transform: translateY(200px);
-  }
-}
-
-@for $i from 1 through 5 {
-  .rectLeft_#{$i} {
-    animation: popUpCircle #{random(5) + 10}s ease-in-out infinite; // 2s ~ 5s のランダム時間
-    animation-delay: #{random(4)}s; // 0s ~ 3s のランダムディレイ
-    opacity: 0;
-    // transform: translateY(200px);
-  }
-}
-
-@for $i from 1 through 5 {
-  .rectRight_#{$i} {
-    animation: popUpCircle #{random(5) + 10}s ease-in-out infinite; // 2s ~ 6s のランダム時間
-    animation-delay: #{random(1)}s; // 0s ~ 4s のランダムディレイ
-    opacity: 0;
-    // transform: translateY(200px);
-  }
-}
-
-@keyframes popUpCircle {
-  0% {
-    opacity: 0;
-    // transform: translateY(100px);
-  }
-  50% {
-    opacity: 1;
-    // transform: translateY(0px);
-  } 100% {
-    opacity: 0;
-    top: 0
-    // transform: translateY(0px);
-  }
-}
-
-
-// .circleLeft_1 {
-//   top: 20%;
-//   left: 15%;
-//   transform: translate(-50%, -50%);
-//   svg {
-//     width: 150px;
-//     height: 150px;
-//   }
-// }
-// .circleLeft_2 {
-//   top: 30%;
-//   left: 20%;
-//   transform: translate(-50%, -50%);
-//   svg {
-//     width: 150px;
-//     height: 200px;
-//   }
-// }
-// .circleLeft_3 {
-//   top: 40%;
-//   left: 30%;
-//   transform: translate(-50%, -50%);
-//   svg {
-//     width: 200px;
-//     height: 200px;
-//   }
-// }
-// .circleLeft_4 {
-//   top: 20%;
-//   left: 45%;
-//   transform: translate(-50%, -50%);
-// }
-// .circleLeft_5 {
-//   top: 60%;
-//   left: 10%;
-//   transform: translate(-50%, -50%);
-//   svg {
-//     width: 200px;
-//     height: 200px;
-//   }
-// }
-// // 右吹き出し
-// .circleRight_1 {
-//   top: 55%;
-//   right: 25%;
-//   transform: translate(-50%, -50%);
-//   svg {
-//     width: 200px;
-//     height: 200px;
-//   }
-// }
-// .circleRight_2{
-//   top: 15%;
-//   right: -5%;
-//   svg {
-//     width: 300px;
-//     height: 200px;
-//   }
-// }
-// .circleRight_3{
-//   top: 10%;
-//   right: 25%;
-//   svg {
-//     width: 300px;
-//     height: 300px;
-//   }
-// }
-// .circleRight_4{
-//   top: 30%;
-//   right: 5%;
-// }
-// .circleRight_5{
-//   top: 15%;
-//   right: 0%;
-//   transform: translate(-50%, -50%);
-//   svg {
-//     width: 150px;
-//     height: 150px;
-//   }
-// }
-
-
-// .rectLeft_1{
-//   top: 55%;
-//   left: 25%;
-//   transform: translate(-50%, -50%);
-//   svg {
-//     width: 200px;
-//     height: 200px;
-//   }
-// }
-// .rectLeft_2{
-//   top: 15%;
-//   left: -5%;
-//   svg {
-//     width: 200px;
-//     height: 200px;
-//   }
-// }
-// .rectLeft_3{
-//   top: 10%;
-//   left: 25%;
-//   svg {
-//     width: 300px;
-//     height: 300px;
-//   }
-// }
-// .rectLeft_4{
-//   top: 30%;
-//   left: 5%;
-// }
-// .rectLeft_5{
-//   top: 45%;
-//   left: 0%;
-//   svg {
-//     width: 100px;
-//     height: 100px;
-//   }
-// }
-
-// .rectRight_1 {
-//   top: 15%;
-//   right: 5%;
-//   transform: translate(-50%, -50%);
-//   svg {
-//     width: 150px;
-//     height: 150px;
-//   }
-// }
-
-// .rectRight_2 {
-//   top: 30%;
-//   right: 10%;
-//   transform: translate(-50%, -50%);
-//   svg {
-//     width: 150px;
-//     height: 200px;
-//   }
-// }
-
-// .rectRight_3 {
-//   top: 40%;
-//   right: 20%;
-//   transform: translate(-50%, -50%);
-//   svg {
-//     width: 200px;
-//     height: 200px;
-//   }
-// }
-
-// .rectRight_4 {
-//   top: 20%;
-//   right: 35%;
-//   transform: translate(-50%, -50%);
-// }
-
-// .rectRight_5 {
-//   top: 60%;
-//   right: 0%;
-//   transform: translate(-50%, -50%);
-//   svg {
-//     width: 200px;
-//     height: 200px;
-//   }
-// }
-
-
-
-// @for $i from 1 through 5 {
-//   .circleRight_#{$i} {
-//     top: calc(#{$i} * 20%);
-//     right: calc(#{$i} * 10%);
-//   }
-// }
-// @for $i from 1 through 5 {
-//   .rectLeft_#{$i} {
-//     top: calc(#{$i} * random(2) * 10%);
-//     left: calc(#{$i} * 10%);
-//   }
-// }
-// @for $i from 1 through 5 {
-//   .rectRight_#{$i} {
-//     top: calc(#{$i} * 10% * random(2));
-//     right: calc(#{$i} * 10%);
-//   }
-// }
-
-
-
-
-
-.speechBubbleCircleRight {
-  // position: absolute;
-  // top: 40%;
-  // right: 0%;
-  // transform: translate(-50%, -50%);
-}
-.speechBubbleCircleRight {
-  // position: absolute;
-  // top: 20%;
-  // left: 20%;
-  // transform: translate(-50%, -50%);
-}
-.speechBubbleRectRight {
-  // position: absolute;
-  // top: 20%;
-  // right: 0%;
-  // transform: translate(-50%, -50%);
-}

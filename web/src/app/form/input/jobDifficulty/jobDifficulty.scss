@@ -15,7 +15,7 @@
         padding: 12px;
         font-size: 1rem;
         background-color: var.$form_input_color;
-        outline: 1px solid var.$form_border_color;
+        outline: 2px solid var.$form_border_color;
         outline-offset: -2px;
         border-radius: 5px;
 
@@ -36,7 +36,7 @@
           width: 30px;
           height: 30px;
           background-color: #fff;
-          border: 1px solid #e5e5e5;
+          border: 2px solid #e5e5e5;
           transition: 0.2s;
           padding-left: 3px;
           cursor: pointer;

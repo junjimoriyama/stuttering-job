@@ -1,8 +1,8 @@
 import { BaseFormProps, formHookProps } from "@/app/types/form";
 import "./employment.scss";
-import { SurpriseMark } from "@/public/svg/svg";
 import { storageSelectSaveData } from "@/app/functions/functions";
 import { useEffect, useRef, useState } from "react";
+import { SurpriseMark } from "@/public/svg/icon/mark";
 
 const Employment = ({
   register,

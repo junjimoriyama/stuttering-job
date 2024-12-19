@@ -1,0 +1,559 @@
+@use "@/app/style/breakpoint.scss" as bp;
+@use "@/app/style/common.scss" as mixin;
+@use "@/app/style/variable.scss" as var;
+
+// 関数
+@function bubble_svg_scale($size, $factor) {
+  @return $size * $factor;
+}
+
+$svg_sizes: (
+  xSmall: (
+    width: 12vw,
+    height: 12vw,
+  ),
+  small: (
+    width: 15vw,
+    height: 15vh,
+  ),
+  medium: (
+    width: 17vw,
+    height: 17vh,
+  ),
+  large: (
+    width: 20vw,
+    height: 20vh,
+  ),
+  xLarge: (
+    width: 23vw,
+    height: 23vh,
+  ),
+);
+
+// $size_keyはxSmall,small等
+@mixin set_svg_size($size_key, $factor) {
+  // xSmall,small等に合わせた横縦の長さを取得
+  $size: map-get($svg_sizes, $size_key);
+  width: map-get($size , width);
+  height: map-get($size , height);
+  
+  @include bp.media(xs, max) {
+    width: bubble_svg_scale(map-get($size, width), $factor);
+    height: bubble_svg_scale(map-get($size, height), $factor);
+  }
+}
+$scale_factor: 1.5;
+
+.backgroundAnimation {
+  position: fixed;
+  top: 0;
+  overflow: hidden;
+  width: 100vw;
+  height: 100vh;
+  z-index: 0;
+  .speech_bubble {
+    position: absolute;
+    opacity: 0.7;
+    // transform: translate(-50%, -50%);
+  }
+
+  .circleLeft_1 {
+    top: 20vh;
+    left: 5vw;
+    svg {
+      @include set_svg_size(xSmall, $scale_factor);
+      path {
+        fill: #eef3ff;
+      }
+    }
+  }
+  .circleLeft_2 {
+    top: 40vh;
+    left: 40vw;
+    svg {
+      @include set_svg_size(small, $scale_factor);
+      path {
+        fill: #ebf0f7;
+      }
+    }
+  }
+  .circleLeft_3 {
+    top: 60vh;
+    left: 10vw;
+    svg {
+      @include set_svg_size(medium, $scale_factor);
+      path: {
+        fill: #e4f2f9;
+      }
+    }
+  }
+  .circleLeft_4 {
+    top: 80vh;
+    left: 30vw;
+    svg {
+      @include set_svg_size(large, $scale_factor);
+      path: {
+        fill: #e1f4ff;
+      }
+    }
+  }
+  .circleLeft_5 {
+    top: 90vh;
+    left: 0vw;
+    svg {
+      @include set_svg_size(xLarge, $scale_factor);
+      path: {
+        fill: #ebfcfc;
+      }
+    }
+  }
+  .circleLeft_6 {
+    top: 110vh;
+    left: 40vw;
+    svg {
+      @include set_svg_size(xLarge, $scale_factor);
+      path: {
+        fill: #ebfcfc;
+      }
+    }
+  }
+  .circleLeft_7 {
+    top: 150vh;
+    left: 10vw;
+    svg {
+      @include set_svg_size(xLarge, $scale_factor);
+      path {
+        fill: #ebfcfc;
+      }
+    }
+  }
+  .circleLeft_8 {
+    top: 170vh;
+    left: 20vw;
+    svg {
+      @include set_svg_size(xLarge, $scale_factor);
+      path {
+        fill: #ebfcfc;
+      }
+    }
+  }
+
+  // 右吹き出し
+  .circleRight_1 {
+    top: 20vh;
+    right: 5vw;
+    svg {
+      @include set_svg_size(xSmall, $scale_factor);
+      path {
+        fill: #eef3ff;
+      }
+    }
+  }
+  .circleRight_2 {
+    top: 40vh;
+    right: 40vw;
+    svg {
+      @include set_svg_size(small, $scale_factor);
+      path {
+        fill: #ebf0f7;
+      }
+    }
+  }
+  .circleRight_3 {
+    top: 60vh;
+    right: 10vw;
+    svg {
+      @include set_svg_size(medium, $scale_factor);
+      path {
+        fill: #e4f2f9;
+      }
+    }
+  }
+  .circleRight_4 {
+    top: 80vh;
+    right: 30vw;
+    svg {
+      @include set_svg_size(large, $scale_factor);
+      path {
+        fill: #e1f4ff;
+      }
+    }
+  }
+  .circleRight_5 {
+    top: 90vh;
+    right: 0vw;
+    svg {
+      @include set_svg_size(xLarge, $scale_factor);
+      path {
+        fill: #ebfcfc;
+      }
+    }
+  }
+  .circleRight_6 {
+    top: 110vh;
+    right: 40vw;
+    svg {
+      @include set_svg_size(xLarge, $scale_factor);
+      path {
+        fill: #ebfcfc;
+      }
+    }
+  }
+  .circleRight_7 {
+    top: 150vh;
+    right: 10vw;
+    svg {
+      @include set_svg_size(xLarge, $scale_factor);
+      path {
+        fill: #ebfcfc;
+      }
+    }
+  }
+  .circleRight_8 {
+    top: 170vh;
+    right: 20vw;
+    svg {
+      @include set_svg_size(xLarge, $scale_factor);
+      path {
+        fill: #ebfcfc;
+      }
+    }
+  }
+
+  // 左側四角吹き出し
+  .rectLeft_1 {
+    top: 30vh;
+    left: 5vw;
+    svg {
+      @include set_svg_size(xSmall, $scale_factor); // xSmallサイズ
+      path {
+        fill: #eef3ff;
+      }
+    }
+  }
+
+  .rectLeft_2 {
+    top: 50vh;
+    left: 40vw;
+    svg {
+      @include set_svg_size(small, $scale_factor); // smallサイズ
+      path {
+        fill: #ebf0f7;
+      }
+    }
+  }
+
+  .rectLeft_3 {
+    top: 70vh;
+    left: 10vw;
+    svg {
+      @include set_svg_size(medium, $scale_factor); // mediumサイズ
+      path {
+        fill: #e4f2f9;
+      }
+    }
+  }
+
+  .rectLeft_4 {
+    top: 90vh;
+    left: 30vw;
+    svg {
+      @include set_svg_size(large, $scale_factor); // largeサイズ
+      path {
+        fill: #e1f4ff;
+      }
+    }
+  }
+
+  .rectLeft_5 {
+    top: 110vh;
+    left: 0vw;
+    svg {
+      @include set_svg_size(xLarge, $scale_factor); // xLargeサイズ
+      path {
+        fill: #ebfcfc;
+      }
+    }
+  }
+  .rectLeft_6 {
+    top: 130vh;
+    left: 40vw;
+    svg {
+      @include set_svg_size(xLarge, $scale_factor);
+      path {
+        fill: #ebfcfc;
+      }
+    }
+  }
+  .rectLeft_7 {
+    top: 150vh;
+    left: 10vw;
+    svg {
+      @include set_svg_size(xLarge, $scale_factor);
+      path {
+        fill: #ebfcfc;
+      }
+    }
+  }
+  .rectLeft_8 {
+    top: 170vh;
+    left: 20vw;
+    svg {
+      @include set_svg_size(xLarge, $scale_factor);
+      path {
+        fill: #ebfcfc;
+      }
+    }
+  }
+
+  // 右側四角吹き出し
+  .rectRight_1 {
+    top: 50vh;
+    right: 5vw;
+    svg {
+      @include set_svg_size(xSmall, $scale_factor); // xSmallサイズ
+      path {
+        fill: #eef3ff;
+      }
+    }
+  }
+
+  .rectRight_2 {
+    top: 60vh;
+    right: 20vw;
+    svg {
+      @include set_svg_size(small, $scale_factor); // smallサイズ
+      path {
+        fill: #ebf0f7;
+      }
+    }
+  }
+
+  .rectRight_3 {
+    top: 70vh;
+    right: 30vw;
+    svg {
+      @include set_svg_size(medium, $scale_factor); // mediumサイズ
+      path {
+        fill: #e4f2f9;
+      }
+    }
+  }
+
+  .rectRight_4 {
+    top: 80vh;
+    right: 45vw;
+    svg {
+      @include set_svg_size(large, $scale_factor); // largeサイズ
+      path {
+        fill: #e1f4ff;
+      }
+    }
+  }
+
+  .rectRight_5 {
+    top: 90vh;
+    right: -5vw;
+    svg {
+      @include set_svg_size(xLarge, $scale_factor); // xLargeサイズ
+      path {
+        fill: #ebfcfc;
+      }
+    }
+  }
+  .rectRight_6 {
+    top: 100vh;
+    left: -10vw;
+    svg {
+      @include set_svg_size(xLarge, $scale_factor);
+      path {
+        fill: #ebfcfc;
+      }
+    }
+  }
+   .rectRight_7 {
+    top: 150vh;
+    right: 10vw;
+    svg {
+      @include set_svg_size(xLarge, $scale_factor);
+      path {
+        fill: #ebfcfc;
+      }
+    }
+  }
+  .rectRight_8 {
+    top: 170vh;
+    right: 20vw;
+    svg {
+      @include set_svg_size(xLarge, $scale_factor);
+      path {
+        fill: #ebfcfc;
+      }
+    }
+  }
+
+
+  @for $i from 1 through 10 {
+    .circleLeft_#{$i} {
+      animation: popUpCircle
+        #{random(1) +
+        10}s
+        ease-in
+        infinite; // 1s ~ 4s のランダム時間
+      // animation-delay: #{random(0)}s; // 0s ~ 3s のランダムディレイ
+      opacity: 0;
+    }
+  }
+
+  @for $i from 1 through 10 {
+    .circleRight_#{$i} {
+      animation: popUpCircle
+        #{random(2) +
+        10}s
+        ease-in
+        infinite; // 1s ~ 4s のランダム時間
+      animation-delay: 3s;
+      // animation-delay: #{random(3)}s;
+      opacity: 0;
+      // transform: translateY(200px);
+    }
+  }
+
+  @for $i from 1 through 10 {
+    .rectLeft_#{$i} {
+      animation: popUpCircle
+        #{random(3) +
+        10}s
+        ease-in-out
+        infinite; // 2s ~ 5s のランダム時間
+      animation-delay: 6s;
+      // animation-delay: #{random(4)}s;
+      opacity: 0;
+      // transform: translateY(200px);
+    }
+  }
+
+  @for $i from 1 through 10 {
+    .rectRight_#{$i} {
+      animation: popUpCircle
+        #{random(4) +
+        10}s
+        ease-in-out
+        infinite; // 2s ~ 6s のランダム時間
+      animation-delay: 9s;
+      // animation-delay: #{random(1)}s;
+      opacity: 0;
+      // transform: translateY(200px);
+    }
+  }
+
+  @keyframes popUpCircle {
+    0% {
+      opacity: 0;
+      // transform: translateY(100px);
+    }
+    50% {
+      opacity: 0.7;
+      // transform: translateY(0px);
+    }
+    100% {
+      opacity: 0;
+      top: 0;
+      // transform: translateY(0px);
+    }
+  }
+}
+
+// }
+
+// .circleLeft_6 {
+//   top: 100vh;
+//   left: -5vw;
+//   svg {
+//     width: 20vw;
+//     height: 20vw;
+//     path: {
+//       fill: #ebfcfc;
+//     }
+//   }
+// }
+// .circleLeft_7 {
+//   top: 100vh;
+//   left: 10vw;
+//   svg {
+//     width: 12vw;
+//     height: 12vw;
+
+//     path {
+//       fill: #ebf0f7;
+//     }
+//   }
+// }
+// .circleLeft_8 {
+//   top: 95vh;
+//   left: 10vw;
+//   svg {
+//     width: 15vw;
+//     height: 15vw;
+//     path: {
+//       fill: #e4f2f9;
+//     }
+//   }
+// }
+// .circleLeft_9 {
+//   top: 90vh;
+//   left: 10vw;
+//   svg {
+//     width: 17vw;
+//     height: 17vw;
+//     path: {
+//       fill: #e1f4ff;
+//     }
+//   }
+// }
+// .circleLeft_10 {
+//   top: 80vh;
+//   left: 10vw;
+//   svg {
+//     width: 20vw;
+//     height: 20vw;
+//     path: {
+//       fill: #ebfcfc;
+//     }
+//   }
+// }
+
+// // 吹き出しの拡大
+// @function bubbleSvgScale($size, $factor) {
+//   @return $size * $factor;
+// }
+
+// $svg_sizes: (
+//   xSmall: (width: 10vw, height: 10vw),
+//   small: (width: 12vw, height: 12vh),
+//   medium: (width: 15vw, height: 15vh),
+//   large: (width: 17vw, height: 17vh),
+//   xLarge: (width: 20vw, height: 20vh)
+// );
+
+// $svg_sizes: (
+//   xSmall: (width: 13vw, height: 13vw),
+//   small: (width: 15vw, height: 15vh),
+//   medium: (width: 18vw, height: 18vh),
+//   large: (width: 20vw, height: 20vh),
+//   xLarge: (width: 23vw, height: 23vh)
+// );
+
+// // 吹き出しの倍率
+// $scale_factor: 1.5;
+
+// @mixin set_svg_size($size_key, $scale_factor) {
+//   $size: map-get($svg_sizes, $size_key);
+//   width: map-get($size, width);
+//   height: map-get($size, height);
+
+//   @include bp.media(xs, max) {
+//     width: bubbleSvgScale(map-get($size, width), $scale_factor);
+//     height: bubbleSvgScale(map-get($size, height), $scale_factor);
+//   }
+// }

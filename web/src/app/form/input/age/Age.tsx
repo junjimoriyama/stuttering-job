@@ -2,8 +2,8 @@ import React, { ChangeEvent, useEffect, useRef, useState } from "react";
 import { UseFormRegister, FieldErrors, UseFormSetValue } from "react-hook-form";
 import "./age.scss";
 import { BaseFormProps, FormWithSetValueProps } from "@/app/types/form";
-import { SurpriseMark } from "../../../../public/svg/svg";
 import { storageSelectSaveData } from "@/app/functions/functions";
+import { SurpriseMark } from "@/public/svg/icon/mark";
 
 const Age = ({ 
   register, 

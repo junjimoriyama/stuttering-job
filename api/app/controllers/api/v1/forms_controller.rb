@@ -13,6 +13,8 @@ class Api::V1::FormsController < ApplicationController
   def create
     @form = Form.new(form_params)
     if @form.save
+      #　自動メール送信
+      RegisterMailer.register_story(@form.email, @form.username).deliver_now
       render json: @form, status: :created
     else
       render json: {errors: @form.errors.full_messages }, status: :unprocessable_entity

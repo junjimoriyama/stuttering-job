@@ -7,24 +7,19 @@ $completePadding: 20px;
 .complete {
   position: relative;
   width: 100%;
+  height: 100vh;
+  // height: calc(
+  //   100vh - (var.$step_margin_bottom + var.$step_item_height + $completePadding)
+  // );
   display: flex;
   flex-direction: column;
   align-items: center;
-  // justify-content: center;
   padding: $completePadding;
+  // overflow: scroll;
 
   .complete_message {
-    height: calc(
-      100vh -
-        (var.$ste_margin_bottom + var.$step_item_height + $completePadding * 2)
-    );
-    // height: 1000px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-
-    .thank_chara {
+    margin-top: 30px;
+    .thanks_chara {
       position: relative;
       display: flex;
       flex-direction: column;
@@ -35,63 +30,71 @@ $completePadding: 20px;
         align-items: center;
         justify-content: center;
         font-size: 36px;
-        width: 250px;
-        height: 120px;
+        width: 200px;
+        height: 100px;
+        margin-bottom: 20px;
         border-radius: 10px;
         background-color: #1a2c5b;
         color: #fff;
-        animation: displayRectAndText 3s;
+        animation: displayRectAndText 1s, scaleMessageBox 1s infinite;
+
+        @include bp.media(xs, max) {
+          width: 100px;
+          height: 50px;
+        }
 
         .message_box_text {
-          // opacity: 0; /* 初期状態で非表示 */
-          // animation: displayRectAndText 0.5s ease-out forwards;
-          @include mixin.typingText();
+          // @include mixin.typingText();
           margin-bottom: 0;
+
+          @include bp.media(xs, max) {
+            font-size: 16px;
+          }
         }
       }
 
-      .chara_svg {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-      }
-    }
+      .thanks_chara_svg {
+        width: 150px;
+        height: 150px;
+        margin-bottom: 30px;
 
-    .thanks_chara_line {
-      animation: displayLine 1s ease-in-out infinite;
-      opacity: 0;
+        @include bp.media(xs, max) {
+          width: 100px;
+          height: 100px;
+        }
+      }
     }
 
     .thanks_chara_rect,
     .thanks_chara_message {
-      animation: displayRectAndText 2s ease-in-out forwards;
-      animation-delay: 1s;
+      animation-delay: 0.1s;
       opacity: 0;
-
-      @keyframes displayLine {
-        0% {
-          opacity: 0;
-        }
-        100% {
-          opacity: 1; /* 全体の終了時に消える */
-        }
-      }
 
       @keyframes displayRectAndText {
         0% {
           opacity: 0;
         }
-        80% {
-          opacity: 0;
+        100% {
+          opacity: 1;
+        }
+      }
+      @keyframes scaleMessageBox {
+        0% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.1);
         }
         100% {
-          opacity: 1; /* 全体の終了時に消える */
+          transform: scale(1);
         }
       }
     }
-    .text {
-      @include mixin.typingText();
-      animation-delay: 3s;
+    .complete_text {
+      text-align: center;
+      // display: flex;
+      // justify-content: center;
+      // align-items: center;
     }
   }
 }

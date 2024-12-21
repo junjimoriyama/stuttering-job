@@ -87,7 +87,7 @@ export const Thanks = () => {
                 height="68.5"
                 rx="13.1"
                 ry="13.1"
-                fill="#cefffd"
+                fill="#daf4f7"
                 stroke="#000"
                 strokeMiterlimit="10"
               />

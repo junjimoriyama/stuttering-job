@@ -4,7 +4,7 @@ import Step from "@/app/form/step/Step";
 import "./confirm.scss";
 import Link from "next/link";
 import { useFormContext } from "react-hook-form";
-import { useActionState, useContext } from "react";
+import { useActionState, useContext, useEffect } from "react";
 import { sendAction } from "./actionConfirm";
 import StepContext from "@/app/form/step/stepContext";
 import { useRouter } from "next/navigation";
@@ -35,6 +35,10 @@ const confirm = () => {
     username: "ユーザー名",
     email: "連絡用メールアドレス",
   };
+
+  useEffect(() => {
+    console.log("confirm")
+  }, [])
 
   // formの値を配列に
   const formArray = Object.entries(formValues);

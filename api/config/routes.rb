@@ -6,5 +6,10 @@ Rails.application.routes.draw do
       resources :forms, only: [:index, :show, :create, :update, :destroy]
     end
   end
+
+  # Letter Opener Webのルーティング (開発環境のみ)
+  if Rails.env.development?
+    mount LetterOpenerWeb::Engine, at: "/letter_opener"
+  end
 end
 

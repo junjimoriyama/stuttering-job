@@ -7,6 +7,7 @@ import "./complete.scss";
 import { useFormContext } from "react-hook-form";
 import { useRouter } from "next/navigation";
 import { Thanks } from "@/public/svg/other/other";
+import { ThanksChara } from "@/public/svg/character/characterSvg";
 
 const complete = () => {
   const { reset } = useFormContext();
@@ -14,6 +15,10 @@ const complete = () => {
   const router = useRouter(); 
 
   useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      // behavior: "smooth",
+    });
     // hooksデータを全てリセット
     reset();
     // localStorageデータを全てリセット
@@ -25,25 +30,30 @@ const complete = () => {
     
     // 戻るボタンが押された場合の遷移先
     const handlePopState = (event: PopStateEvent) => {
-        router.replace("/form/input"); // 最初のURLを置き換える
+      router.replace("/top"); // 最初のURLを置き換える
+      console.log('test_1')
     };
-
+    
     window.addEventListener("popstate", handlePopState);
-
+    
     return () => {
+      console.log('test_2')
       window.removeEventListener("popstate", handlePopState);
     };
-  }, [reset, router]);
+  }, [reset]);
 
   return (
     <div className="complete">
       <Step step={"complete"} setStep={setStep} />
       <div className="complete_message">
-      <Thanks />
-      <div className="text">
+      {/* <Thanks /> */}
+      <ThanksChara />
+      <div className="complete_text">
         <p>体験談のご記入</p>
         <p>ありがとうございます。</p>
-        <p>準備でき次第、掲載いたします。</p>
+        <p>投稿欄にあるメールアドレスに</p>
+        <p>自動メールを送信しました。</p>
+        <p>ご確認お願いいたします。</p>
       </div>
       </div>
     </div>

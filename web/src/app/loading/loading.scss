@@ -1,4 +1,6 @@
 .loading {
+  position: fixed;
+  inset: 0;
   width: 100%;
   height: 100vh;
   display: flex;
@@ -6,26 +8,35 @@
   align-items: center;
   justify-content: center;
   padding: 20px;
-  // background: linear-gradient(120deg, #a3fdd4, #ffffff);
-  background-size: 200% 200%;
-  animation: gradientAnimation 5s infinite ease-in-out;
-  position: relative;
-
+  pointer-events: none;
+  background-color: #fff;
+  z-index: 3000;
+  
+  @keyframes displayLoading {
+    0% {
+      opacity: 0;
+    } 100% { 
+      opacity: 1;
+    }
+  }
+  
   .main_logo {
     position: absolute;
     top: 10px;
     left: 10px;
     width: 200px;
     height: 100px;
+    animation: displayLoading 1s forwards;
     .text_database {
     }
   }
 
-  .lading_chara_svg {
-
-
+  .loading_chara_svg {
+    width: 200px;
+    height: 200px;
+    animation: displayLoading 0.5s forwards;
     @for $i from 1 through 3 {
-      .circle-#{$i} {
+      .circle_#{$i} {
         animation: changeCircleOpacity 2s infinite;
         animation-delay: #{($i - 1) * 0.5}s; // 遅延を追加
       }

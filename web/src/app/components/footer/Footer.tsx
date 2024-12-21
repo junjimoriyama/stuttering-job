@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import { FooterMainLogo, HeaderMainLogo } from "@/public/svg/logo/logoSvg";
 import { HomeIcon, HomeIconWhite, LookIcon, LookIconWhite, MenuIcon, WriteIcon, WriteIconWhite } from "@/public/svg/icon/menuIcon";
+import { SilhouetteChara } from "@/public/svg/character/characterSvg";
 
 const Footer = () => {
 
@@ -45,6 +46,7 @@ const Footer = () => {
             <span className="sp_footer_item_text">書く</span>
           </li>
         </ul>
+        <SilhouetteChara />
         <small className="copyRight">&copy; 2025 ⚪︎⚪︎ All rights reserved.</small>
       </div>
     </footer>

@@ -172,7 +172,11 @@
         animation: textAppearance 2s 1s forwards;
 
         &::after {
-          animation: writeBorderColor 1s  2s forwards
+          animation: writeBorderColor 1s  2s forwards;
+
+          @include bp.media(xs, max) {
+            animation: none;
+          }
         }
       }
 

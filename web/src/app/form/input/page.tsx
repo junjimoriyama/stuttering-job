@@ -131,7 +131,8 @@ const input = () => {
         className="form_guide_btn"
         onClick={handleModalOpen}
         // onClick={() => setIsOpen(true)}
-        >体験談について</div>
+        >体験談について
+        <span>→</span></div>
         <p className="form_prompt">下記にご回答お願いいたします。</p>
         <ul>
           {/* 年代 --> */}

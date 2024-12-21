@@ -20,38 +20,41 @@
     padding: 10px;
   }
 
-  .testBtn {
-    position: absolute;
-    top: 90px;
-    right: 10px;
-  }
-
   .input_form {
-    width: 50%; /* デフォルト: 1025px以上 */
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 800px;
     
     @include bp.media(sm, max) {
-      width: 80%; /* 601px〜1024px */
+      // width: 80%; /* 601px〜1024px */
     }
 
     @include bp.media(xs, max) {
-      width: 95%; /* 600px以下 */
+      // width: 95%; /* 600px以下 */
     }
 
     .form_guide_btn {
-      width: 100%;
-      text-align: center;
-      justify-self: flex-end;
-      display: grid;
-      place-items: center;
-      padding: 5px 10px;
-      background-color: var.$form_btn_color;
-      border-radius: 3px;
-      box-shadow: #fff 0px 3px 0 0, var.$form_btn_color 0px 7px 0 0px;
+      align-self: center;
+      // align-self: end;
+      width: 200px;
+      height: 50px;
+      background-color: var.$main_color;
+      border-radius: 50px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
       color: #fff;
+      box-shadow: #fff 0px 3px 0 0, var.$form_btn_color 0px 7px 0 0px;
       transition: 0.2s;
-      margin-bottom: 20px;
-      opacity: 0.7;
+      margin-bottom: 32px;
       cursor: pointer;
+
+      @include bp.media(xs, max) {
+        align-self: center;
+        height: 40px;
+      }
 
       @media (any-hover: hover) {
         &:hover {

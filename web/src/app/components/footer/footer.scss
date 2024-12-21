@@ -32,26 +32,6 @@ footer {
         grid-row: 1/2;
       }
     }
-
-    // .footer_menu {
-    //   display: flex;
-    //   justify-content: center;
-    //   align-items: center;
-    //   gap: 20px;
-    //   height: 100%;
-
-    //   @include bp.media(xs, max) {
-    //     display: none;
-    //   }
-    //   .footer_item {
-    //     color: var.$main_color;
-
-    //     .footer_item_text {
-    //       mix-blend-mode: difference;
-    //     }
-    //   }
-    // }
-
     .sp_footer_menu {
       display: none;
       align-items: center;
@@ -75,6 +55,16 @@ footer {
           // color: var.$main_color;
           color: #fff;
         }
+      }
+    }
+
+    .silhouette_chara_svg {
+      position: absolute;
+      right: 20px;
+      width: 80px;
+      height: 80px;
+      @include bp.media(xs, max) {
+        display: none;
       }
     }
     .copyRight {

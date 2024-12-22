@@ -46,7 +46,7 @@ export const storageTextSaveData: handleInputProps = (
     e.target.blur();
   }
 
-  setTextCount(value.length);
+  setTextCount(maxLength - value.length);
 
   if (timerRef.current) {
     clearTimeout(timerRef.current);
@@ -112,3 +112,19 @@ const useIntersectionObserver = (
 };
 
 export default useIntersectionObserver;
+
+// データの取得
+export const fetchDatabaseData = async() => {
+  const res = await fetch("http://localhost:3000/api/v1/forms", {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+  if(res.ok) {
+  const data = await res.json();
+  return data
+  } else {
+    console.log("error")
+  }
+}

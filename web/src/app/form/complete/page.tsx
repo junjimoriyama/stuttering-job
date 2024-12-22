@@ -31,13 +31,11 @@ const complete = () => {
     // 戻るボタンが押された場合の遷移先
     const handlePopState = (event: PopStateEvent) => {
       router.replace("/top"); // 最初のURLを置き換える
-      console.log('test_1')
     };
     
     window.addEventListener("popstate", handlePopState);
     
     return () => {
-      console.log('test_2')
       window.removeEventListener("popstate", handlePopState);
     };
   }, [reset]);

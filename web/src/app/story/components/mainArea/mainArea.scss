@@ -1,0 +1,30 @@
+.main_area {
+  flex: 1;
+  max-width: 900px;
+  // background-color: #b37878;
+  height: 100%;
+
+  .main_area_contents {
+    .story_lists {
+      .story_item {
+        .accordion {
+          .accordion_heading {
+            .accordion_details {
+              display: flex;
+              .accordion_detail {
+
+              }
+            }
+          }
+          .story_item_contents {
+            .story_item_details {
+              .story_item_detail {
+
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

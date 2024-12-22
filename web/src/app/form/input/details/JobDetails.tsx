@@ -3,7 +3,6 @@
 import { ChangeEvent, useEffect, useState, useRef } from "react";
 import "./jobDetails.scss";
 import { BaseFormProps, FormWithSetValueProps } from "@/app/types/form";
-import { CheckMark } from "@/public/svg/svg";
 import { storageTextSaveData } from "@/app/functions/functions";
 // import { handleInput } from '@/app/functions/functions'
 
@@ -51,10 +50,8 @@ const JobDetails = ({
           // setValueAs: (value) => value.replace(/\s/g, "").trim(),
         })}
       />
-      <div className="underTextArea">
         <div className="textCount">
           {textCount} / {maxLength}
-        </div>
       </div>
     </li>
   );

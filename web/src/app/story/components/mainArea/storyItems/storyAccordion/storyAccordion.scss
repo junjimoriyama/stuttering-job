@@ -1,0 +1,52 @@
+.accordion {
+  padding: 10px;
+  .accordion_header {
+    display: flex;
+    gap: 20px;
+    .accordion_summary {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .accordion_btn {
+      .accordion_minus_btn,
+      .accordion_plus_btn {
+        font-size: 24px;
+      }
+    }
+  }
+  .accordion_content {
+    .accordion_stories {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.5s ease;
+      .accordion_story_item {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        .accordion_story_level {
+          display: flex;
+          align-items: center;
+          gap: 5px;
+          .accordion_story_level_difficulty {
+            display: grid;
+            place-items: center;
+            width: 30px;
+            height: 30px;
+            background-color: #fff;
+            border: 2px solid #e5e5e5;
+            transition: 0.2s;
+            padding-left: 3px;
+  
+            &.isActive {
+              color: #333;
+              background-color: #e5e5e5;
+            }
+          }
+
+        }
+      }
+    }
+  }
+}

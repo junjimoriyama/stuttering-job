@@ -17,6 +17,7 @@ const Reason = ({
     const getStorageData = localStorage.getItem("stutter_job_reason") || "";
     setValue("reason", getStorageData);
     setTextCount(maxLength - getStorageData.length);
+    console.log(textCount)
   }, []);
 
   const timerRef = useRef<NodeJS.Timeout | null>(null)
@@ -43,7 +44,7 @@ const Reason = ({
           // 入力値の前後の空白を削除
         setValueAs: (value) => value.trim()
       })}
-      ></textarea>
+      />
       <div className="textCount">
         {textCount} / {maxLength}
       </div>

@@ -47,7 +47,8 @@ const JobDifficulty = ({
       >
         <span className="job_difficulty_level_text">小</span>
         {[...Array(5)].map((_, i) => {
-          const value = `${i + 1}`;
+          const value = i + 1
+          // const value = `${i + 1}`
           return (
             <span
               key={value}

@@ -1,42 +1,90 @@
+// 'use client'
+
+import { useEffect, useState } from 'react'
+import { getStoryItems } from '../getStoryItems'
 import StoryAccordion from './storyAccordion/StoryAccordion'
 import './storyItems.scss'
+import Client from './Client'
 
 const StoryItems = async() => {
 
-  const res = await fetch("http://localhost:3000/api/v1/forms", {
-    method: "GET"
-  })
-
-  if(!res) {
-    console.log('error')
-  }
-
-  const allDatabaseData = await res.json()
+  const data = await getStoryItems();
+  
 
   return (
-    <div className='storyItems'> 
-    {
-      allDatabaseData.map((data:any, index:number) => {
-        return(
-          <StoryAccordion 
-          data={data}
-          />
-        )
-      })
-    }
-    </div>
+    <Client data={data}/>
   )
 }
 
 export default StoryItems
+// 'use client'
+
+// import { useEffect, useState } from 'react'
+// import { getStoryItems } from '../getStoryItems'
+// import StoryAccordion from './storyAccordion/StoryAccordion'
+// import './storyItems.scss'
+
+// const StoryItems = () => {
+//   const [allDatabaseData, setAllDatabaseData] = useState<any[]>([]);
+
+//   const fetchData = async () => {
+//     try {
+//       const data = await getStoryItems(); // サーバーアクションを呼び出す
+//       setAllDatabaseData(data);
+//     } catch (error) {
+//       console.error('Error fetching data:', error);
+//     }
+//   };
+
+//   useEffect(() => {
+//     fetchData()
+//   }, [])
+
+//   console.log(allDatabaseData)
+
+
+//   return (
+//     <div className='storyItems'> 
+//     {allDatabaseData?.map((data:any, index:number) => {
+//         return(
+//           <StoryAccordion 
+//           data={data}
+//           />
+//         )
+//       })
+//     }
+//     </div>
+//   )
+// }
+
+// export default StoryItems
+
+// <div className='storyItems'> 
+// {
+//   allDatabaseData.map((data:any, index:number) => {
+//     return(
+//       <StoryAccordion 
+//       data={data}
+//       />
+//     )
+//   })
+// }
+// </div>
+
+// const allDatabaseData = await getStoryItems()
 
 
 
 
+// const res = await fetch("http://localhost:3000/api/v1/forms", {
+//   method: "GET"
+// })
 
+// if(!res) {
+//   console.log('error')
+// }
 
-
-
+// const allDatabaseData = await res.json()
 
 
 

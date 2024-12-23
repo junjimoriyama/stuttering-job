@@ -1,3 +1,4 @@
+import Footer from '../components/footer/Footer'
 import Header from '../components/header/Header'
 import MainArea from './layouts/mainArea/MainArea'
 import Sidebar from './layouts/sideBar/SideBar'
@@ -9,7 +10,7 @@ const story = () => {
       <Header/>
       <Sidebar />
       <MainArea />
-      
+      {/* <Footer/> */}
       
       </div>
   )

@@ -4,26 +4,14 @@
   // background-color: #f8f8f8;
   height: 100%;
   padding: 10px;
-
-  .main_area_contents {
+  .storyItems {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
     .story_lists {
-      .story_items {
-        .accordion {
-          .accordion_heading {
-            .accordion_details {
-              display: flex;
-              .accordion_detail {
-
-              }
-            }
-          }
-          .story_item_contents {
-            .story_item_details {
-              .story_item_detail {
-
-              }
-            }
-          }
+      .accordion {
+        .story_item_contents {
+          display: none;
         }
       }
     }

@@ -9,7 +9,10 @@ const Pagination = () => {
         <div className="page_prev_btn">←</div>
         <ul className="page_numbers">
           {[...Array(5)].map((_, i) => {
-            return <li className="page_number">{i + 1}</li>;
+            const value = i + 1
+            return <li 
+            key={value}
+            className="page_number">{value}</li>;
           })}
         </ul>
         <div className="page_next_btn">→</div>

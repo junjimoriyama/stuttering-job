@@ -8,15 +8,11 @@ const StoryAccordion = ({ data }: { data: any }) => {
   const [maxHeight, setMaxHeight] = useState<number | undefined>(0);
 
   const accordionContentRef = useRef<HTMLDivElement>(null);
-  // const accordionStoriesRef = useRef<HTMLUListElement>(null);
 
   const handleAccordionBtnClick = () => {
     setIsAccordionOpen(!isAccordionOpen);
     setMaxHeight(accordionContentRef.current?.scrollHeight);
-    // setMaxHeight(accordionStoriesRef.current?.scrollHeight);
   };
-  // console.log(isAccordionOpen)
-  console.log(isAccordionOpen);
 
   return (
     <div className="accordion">

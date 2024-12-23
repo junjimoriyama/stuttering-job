@@ -1,0 +1,42 @@
+@use "@/app/style/breakpoint.scss" as bp;
+@use "@/app/style/common.scss" as mixin;
+@use "@/app/style/variable.scss" as var;
+
+$page_each_width: 30px;
+
+.pagination {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  
+  .pagination_controls {
+    display: flex;
+    cursor: pointer;
+    // flex-direction: column;
+    // gap: 10px;
+    .page_prev_btn,.page_number , .page_next_btn {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: 1px solid #333;
+      width: $page_each_width;
+      height: 30px;
+      color: var.$main_color;
+    }
+    .page_prev_btn {
+  
+    }
+    .page_numbers {
+      display: flex;
+      .page_number {
+        // align-items: center;
+        // width: $page_each_width;
+      }
+    }
+  
+    .page_next_btn {
+      
+    }
+  }
+}

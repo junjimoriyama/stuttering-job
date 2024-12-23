@@ -58,12 +58,15 @@ const Header = () => {
               <span className="header_item_text">ホーム</span>
             </li>
           </Link>
+          <Link href="/story">
           <li className="header_item">
             <span>
               <LookIcon />
             </span>
-            <span className="header_item_text">見る</span>
+            <span>{/* <LookIcon /> */}</span>
+            <span className="sp_header_item_text">見る</span>
           </li>
+          </Link>
           <Link href="/form/input">
             <li className="header_item">
               <span>
@@ -82,10 +85,12 @@ const Header = () => {
               <span className="sp_header_item_text">ホーム</span>
             </li>
           </Link>
+          <Link href="/story">
           <li className="sp_header_item">
             <span>{/* <LookIcon /> */}</span>
             <span className="sp_header_item_text">見る</span>
           </li>
+          </Link>
           <Link href="/form/input">
             <li className="sp_header_item">
               <span>{/* <WriteIcon /> */}</span>

@@ -1,12 +1,13 @@
 .main_area {
   flex: 1;
   max-width: 900px;
-  // background-color: #b37878;
+  // background-color: #f8f8f8;
   height: 100%;
+  padding: 10px;
 
   .main_area_contents {
     .story_lists {
-      .story_item {
+      .story_items {
         .accordion {
           .accordion_heading {
             .accordion_details {

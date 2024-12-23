@@ -1,8 +1,10 @@
 .sidebar {
   flex: 0 0 250px;
+  display: flex;
+  justify-content: center;
   // background-color: #333;
   height: 100%;
-
+  padding: 20px 10px;
   .sidebar_contents {
     .pagination {
 

@@ -1,3 +1,4 @@
+import Pagination from '../../components/pagination/Pagination'
 import './sideBar.scss'
 
 import React from 'react'
@@ -6,7 +7,7 @@ const Sidebar = () => {
   return (
     <div className='sidebar'>
       <div className="sidebar_contents">
-        <div className="pagination"></div>
+      <Pagination />
         <div className="search">
 
         </div>

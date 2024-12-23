@@ -1,0 +1,143 @@
+@use "@/app/style/breakpoint.scss" as bp;
+@use "@/app/style/common.scss" as mixin;
+@use "@/app/style/variable.scss" as var;
+
+// $accordion_width:
+// アコーディオンヘッダーの高さ
+$accordion_header_height: 70px;
+$accordion_btn_width: 20px;
+$accordion_border_thickness: 3px;
+
+.accordion {
+  width: 100%;
+  padding: 0 10px;
+  .accordion_header {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    height: $accordion_header_height;
+    gap: 20px;
+    padding: 16px;
+    border: $accordion_border_thickness solid #333;
+    .accordion_summary {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+
+      .accordion_summary_item {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        span {
+          background-color: var.$main_color;
+          color: #fff;
+          padding: 5px 10px;
+          border-radius: 20px;
+        }
+      }
+    }
+
+    .accordion_btn {
+      position: absolute;
+      top: 50%;
+      right: 0px;
+      transform: translateY(-50%);
+      width: 50px;
+      height: calc(
+        $accordion_header_height - $accordion_border_thickness - 2px
+      );
+      background-color: var.$main_color;
+      transition: 0.3s;
+      &.isOpen {
+        background-color: var.$sub_color;
+      }
+      .accordion_minus_btn,
+      .accordion_plus_btn {
+        span {
+          position: absolute;
+          display: inline-block;
+          width: $accordion_btn_width;
+          height: 2px;
+          background-color: #fff;
+        }
+      }
+      .accordion_minus_btn {
+      }
+      .accordion_plus_btn {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+        transition: transform 0.3s;
+        span {
+          &:first-of-type {
+            transform: rotate(0deg); // 横線
+          }
+          &:nth-of-type(2) {
+            transform: rotate(90deg); // 縦線
+          }
+        }
+        &.isOpen {
+          transform: rotate(315deg);
+        }
+      }
+    }
+  }
+  .accordion_content {
+    // padding: 16px;
+    border: $accordion_border_thickness solid #333;
+    border-top: none;
+    padding: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease;
+    &.isOpen {
+      // padding: 10px;
+      // padding: 0;
+    }
+    .accordion_stories {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      .accordion_story_item {
+        display: flex;
+        flex-direction: column;
+        // align-items: center;
+        padding: 8px;
+        gap: 5px;
+        .accordion_story_label {
+          background-color: var.$main_color;
+          color: #fff;
+          padding: 2px 10px;
+          border-radius: 20px;
+        }
+
+        .accordion_story_value {
+          padding: 0 12px;
+        }
+        .accordion_story_level {
+          display: flex;
+          align-items: center;
+          gap: 5px;
+          .accordion_story_level_difficulty {
+            display: grid;
+            place-items: center;
+            width: 30px;
+            height: 30px;
+            background-color: #fff;
+            border: 2px solid #e5e5e5;
+            transition: 0.2s;
+            padding-left: 3px;
+
+            &.isActive {
+              color: #333;
+              background-color: #e5e5e5;
+            }
+          }
+        }
+      }
+    }
+  }
+}

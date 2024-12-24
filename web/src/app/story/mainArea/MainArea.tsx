@@ -1,21 +1,18 @@
 import React from "react";
-// import StoryItems from "./storyItems/StoryItems";
-import './mainArea.scss'
+import "./mainArea.scss";
 import StoryItems from "./storyItems/StoryItems";
-import { getStoryItems } from "./getStoryItems";
+import Pagination from "./components/pagination/Pagination";
 
-const MainArea = async() => {
-  // const data = await getStoryItems();
-
+const MainArea = async () => {
   return (
     <div className="main_area">
-       <StoryItems /> 
+      <StoryItems />
+      {/* <Pagination /> */}
     </div>
-  )
+  );
 };
 
 export default MainArea;
-
 
 // import "./mainArea.scss";
 
@@ -33,11 +30,11 @@ export default MainArea;
 
 //   return (
 //     <div className="main_area">
-//       <div className='storyItems'> 
+//       <div className='storyItems'>
 //     {
 //       allDatabaseData.map((data:any, index:number) => {
 //         return(
-//           <StoryAccordion 
+//           <StoryAccordion
 //           data={data}
 //           />
 //         )
@@ -50,4 +47,3 @@ export default MainArea;
 
 // export default MainArea;
 // import "./mainArea.scss";
-

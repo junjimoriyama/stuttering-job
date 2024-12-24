@@ -30,6 +30,11 @@ $page_each_width: 30px;
     .page_numbers {
       display: flex;
       .page_number {
+
+        &.isActive {
+          background-color: var.$main_color;
+          color: #fff;
+        }
         // align-items: center;
         // width: $page_each_width;
       }

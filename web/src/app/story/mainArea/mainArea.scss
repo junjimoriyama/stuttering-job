@@ -2,8 +2,8 @@
   flex: 1;
   max-width: 900px;
   // background-color: #f8f8f8;
-  height: 100%;
-  padding: 10px;
+  min-height: 100%;
+  padding: 30px 10px;
   .storyItems {
     display: flex;
     flex-direction: column;

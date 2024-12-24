@@ -1,6 +1,6 @@
-import StoryItems from "./storyItems/StoryItems"
 
-// 'use server'
+
+'use server'
 
 export const getStoryItems = async () => {
   const res = await fetch("http://localhost:3000/api/v1/forms", {
@@ -15,7 +15,10 @@ export const getStoryItems = async () => {
 
   return allDatabaseData
 }
+
 // import StoryItems from "./storyItems/StoryItems"
+
+// // 'use server'
 
 // export const getStoryItems = async () => {
 //   const res = await fetch("http://localhost:3000/api/v1/forms", {
@@ -29,6 +32,6 @@ export const getStoryItems = async () => {
 //   const allDatabaseData = await res.json()
 
 //   return (
-//     <StoryItems data={allDatabaseData} />
+//     < StoryItems data={allDatabaseData} />
 //   )
 // }

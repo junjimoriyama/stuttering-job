@@ -8,7 +8,7 @@ const Pagination = (
     onPageChange
   }: 
   { 
-    totalPage: number,
+    totalPage: number | null,
     currentPage: number,
     onPageChange: (page: number) => void
 
@@ -38,7 +38,7 @@ const Pagination = (
         </ul>
         <button 
         className="page_next_btn"
-        onClick={() => currentPage < totalPage && onPageChange(currentPage + 1) }
+        onClick={() => currentPage < totalPage! && onPageChange(currentPage + 1) }
         >→</button>
       </div>
       <div className="current_page">

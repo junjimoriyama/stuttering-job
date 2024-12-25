@@ -36,10 +36,6 @@ const confirm = () => {
     email: "連絡用メールアドレス",
   };
 
-  useEffect(() => {
-    console.log("confirm")
-  }, [])
-
   // formの値を配列に
   const formArray = Object.entries(formValues);
 

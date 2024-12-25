@@ -1,20 +1,20 @@
 
 
-'use server'
+// 'use server'
 
-export const getStoryItems = async () => {
-  const res = await fetch("http://localhost:3000/api/v1/forms", {
-    method: "GET"
-  })
+// export const getStoryItems = async () => {
+//   const res = await fetch("http://localhost:3000/api/v1/forms", {
+//     method: "GET"
+//   })
 
-  if(!res) {
-    console.log('error')
-  }
+//   if(!res) {
+//     console.log('error')
+//   }
 
-  const allDatabaseData = await res.json()
+//   const allDatabaseData = await res.json()
 
-  return allDatabaseData
-}
+//   return allDatabaseData
+// }
 
 // import StoryItems from "./storyItems/StoryItems"
 

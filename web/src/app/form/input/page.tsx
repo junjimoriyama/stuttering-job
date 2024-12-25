@@ -2,7 +2,7 @@
 
 import { useContext, useEffect, useState } from "react";
 // import { AboutBubble, MainLogo } from "../../../public/svg/svg";
-import Age from "./age/Age";
+import { Age } from "./age/Age";
 import JobDetails from "./details/JobDetails";
 import JobDifficulty from "./jobDifficulty/JobDifficulty";
 import JobHuntDifficulty from "./jobHuntDifficulty/JobHuntDifficulty";

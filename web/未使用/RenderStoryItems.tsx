@@ -1,44 +1,46 @@
-"use client";
+// "use client";
 
-import { useState, useEffect } from "react";
+// import { useState, useEffect } from "react";
+// // import Pagination from "../components/pagination/Pagination";
+// import StoryAccordion from "../storyAccordion/StoryAccordion";
 // import Pagination from "../components/pagination/Pagination";
-import StoryAccordion from "../storyAccordion/StoryAccordion";
-import Pagination from "../components/pagination/Pagination";
 
-const RenderStoryItems = ({ data }: { data: { id: number; title: string; content: string }[] }) => {
-  // データの量
-  const displayNumber = 2
+// const RenderStoryItems = ({ data }: { data: { id: number; title: string; content: string }[] }) => {
+//   // データの量
+//   const displayNumber = 2
 
-  // 合計のページ数
-  const [ totalPage, setTotalPage  ] = useState(0)
+//   // 合計のページ数
+//   const [ totalPage, setTotalPage  ] = useState(0)
 
-  // 現在のページ
-  const [ currentPage, setCurrentPage  ] = useState(1)
+//   // 現在のページ
+//   const [ currentPage, setCurrentPage  ] = useState(1)
 
-  useEffect(() => {
-    setTotalPage(Math.ceil(data.length / displayNumber))
-  }, [])
+//   useEffect(() => {
+//     setTotalPage(Math.ceil(data.length / displayNumber))
+//   }, [])
 
-  const startPage = (currentPage - 1) * displayNumber
-  const endPage = currentPage * displayNumber
+//   const startPage = (currentPage - 1) * displayNumber
+//   const endPage = currentPage * displayNumber
 
-  return (
-    <div className="storyItems">
-      {/* 表示するデータ */}
-      {data.slice(startPage, endPage).map((item) => (
-        <StoryAccordion key={item.id} data={item} />
-      ))}
-      {/* ページネーション */}
-      <Pagination
-      totalPage={totalPage}
-      currentPage={currentPage}
-      onPageChange={(page) => setCurrentPage(page)}
-      />
-    </div>
-  );
-};
+//   console.log(data)
 
-export default RenderStoryItems
+//   return (
+//     <div className="storyItems">
+//       {/* 表示するデータ */}
+//       {data.slice(startPage, endPage).map((item) => (
+//         <StoryAccordion key={item.id} data={item} />
+//       ))}
+//       {/* ページネーション */}
+//       <Pagination
+//       totalPage={totalPage}
+//       currentPage={currentPage}
+//       onPageChange={(page) => setCurrentPage(page)}
+//       />
+//     </div>
+//   );
+// };
+
+// export default RenderStoryItems
 
 // 0 2
 // 2 4

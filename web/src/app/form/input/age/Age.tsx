@@ -5,7 +5,7 @@ import { BaseFormProps, FormWithSetValueProps } from "@/app/types/form";
 import { storageSelectSaveData } from "@/app/functions/functions";
 import { SurpriseMark } from "@/public/svg/icon/mark";
 
-const Age = ({ 
+export const Age = ({ 
   register, 
   errors, 
   setValue 
@@ -62,7 +62,7 @@ const Age = ({
   );
 };
 
-export default Age;
+// export default Age;
 
 // "use client";
 

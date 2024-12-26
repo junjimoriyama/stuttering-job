@@ -15,15 +15,34 @@
   .search_list {
     display: flex;
     flex-direction: column;
+    
     gap: 10px;
+
+    @include bp.media(sm, max) {
+      flex-direction: row;
+      justify-content: center;
+      gap: 30px;
+    }
+    @include bp.media(xs, max) {
+      flex-direction: column;
+      align-items: center;
+    }
+    
 
     .search_item {
       display: flex;
       flex-direction: column;
       justify-content: center;
-      width: 150px;
+      width: 200px;
       border-radius: 10px;
       font-size: 14px;
+
+      @include bp.media(sm, max) {
+        justify-content: start;
+      }
+      @include bp.media(xs, max) {
+        width: 250px;
+      }
 
       .search_item_label {
         position: relative;
@@ -77,9 +96,7 @@
         overflow: hidden;
         transition: max-height 0.5s ease;
         border-top: 2px solid #333;
-        // background-color: #f0f1f8;
         background-color: #fff;
-        // border-bottom: 2px solid #333;
 
         .search_item_option {
           width: 100%;

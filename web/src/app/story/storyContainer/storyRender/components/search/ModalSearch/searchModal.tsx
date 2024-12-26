@@ -1,8 +1,8 @@
 import React from 'react'
+import { Search } from '../Search'
 import { useStoryContext } from '@/app/story/StoreContext'
 
 import './searchModal.scss'
-import { Search } from '../../../components/search/Search';
 
 export const ModalSearch = () => {
   

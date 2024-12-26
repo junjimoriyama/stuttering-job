@@ -21,7 +21,7 @@ export const StoryItems = ({ data }: { data: any}) => {
     );
 
   // データの量
-  const displayNumber = 2
+  const displayNumber = 5
 
   // 合計のページ数
   const [ totalPage, setTotalPage  ] = useState<number | null>(null)

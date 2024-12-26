@@ -6,7 +6,7 @@ import "./mainArea.scss";
 import { StoryItems } from "./storyItems/StoryItems";
 import { Search } from "../components/search/Search";
 import { useStoryContext } from "@/app/story/StoreContext";
-import { ModalSearch } from "./components/ModalSearch/searchModal";
+import { ModalSearch } from "../components/search/ModalSearch/searchModal";
 
 export const MainArea = ({ data }: { data: any }) => {
 

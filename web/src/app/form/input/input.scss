@@ -15,6 +15,7 @@
   padding: 20px;
   background-color: #fff;
   overflow: auto;
+  @include mixin.graduallyPage();
 
   @include bp.media(xs, max) {
     padding: 10px;

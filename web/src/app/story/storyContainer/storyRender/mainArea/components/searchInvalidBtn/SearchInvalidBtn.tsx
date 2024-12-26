@@ -18,7 +18,6 @@ export const SearchInvalidBtn = (
 
   
   const handleClickSearchInvalidBtn = () => {
-    console.log('click')
     setAge(0)
     setGender('')
     setIndustry('')
@@ -28,9 +27,6 @@ export const SearchInvalidBtn = (
       }, 0); 
     setIsSearchModalOpen(false)
     }
-    useEffect(() => {
-      console.log(isAllClose)
-    }, [isAllClose])
 
   return (
     <button 

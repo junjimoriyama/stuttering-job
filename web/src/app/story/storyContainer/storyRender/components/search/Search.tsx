@@ -1,11 +1,11 @@
 import { useStoryContext } from "@/app/story/StoreContext";
 import React from "react";
-import { AgeSearch } from "./age/AgeSearch";
-import { GenderSearch } from "./gender/GenderSearch";
-import { SearchInvalidBtn } from "../../sidebar/components/searchInvalidBtn/SearchInvalidBtn";
+import { AgeSearch } from "./conditions/age/AgeSearch";
+import { GenderSearch } from "./conditions/gender/GenderSearch";
+import { SearchInvalidBtn } from "../../mainArea/components/searchInvalidBtn/SearchInvalidBtn";
 
 import "./search.scss"
-import { IndustrySearch } from "./industry/IndustrySearch";
+import { IndustrySearch } from "./conditions/industry/IndustrySearch";
 
 export const Search = () => {
   return (

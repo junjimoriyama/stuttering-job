@@ -8,24 +8,17 @@ import { useStoryContext } from "@/app/story/StoreContext";
 
 export const StoryItems = ({ data }: { data: any}) => {
 
-  // const [ displayData, setDisplayData  ] = useState([data])
-
-  // useEffect(() => {
-  //   setDisplayData(data)
-  // }, [])
-
    // 選択された値
-   const {age, gender} = useStoryContext()
+   const {age, gender, industry} = useStoryContext()
    
-  const displayData = (!age && !gender) 
+  //  絞り込み
+  const displayData = (!age && !gender && !industry) 
   ? data // 全て未選択の場合は全データを表示
   : data.filter((item: any) => 
       (!age || item.age === age) &&
-      (!gender || item.gender === gender)
+      (!gender || item.gender === gender) &&
+      (!industry || item.industry === industry)
     );
-
-    console.log(displayData.length)
-
 
   // データの量
   const displayNumber = 2
@@ -45,10 +38,6 @@ export const StoryItems = ({ data }: { data: any}) => {
   // ページの終わり
   const endPage = currentPage * displayNumber
 
- 
-  
-
-  // const displayData = data.filter(((item: any) => item.age === age && item.gender === gender) )
 
   return (
     <div className="storyItems">

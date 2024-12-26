@@ -5,28 +5,28 @@ import { useStoryContext } from "@/app/story/StoreContext";
 import "./sidebar.scss";
 
 import React, { useState } from "react";
-import { AgeSearch } from "./age/AgeSearch";
-import { GenderSearch } from "./gender/genderSearch";
+import { AgeSearch } from "../components/search/age/AgeSearch";
+import { GenderSearch } from "../components/search/gender/GenderSearch";
+import { SearchInvalidBtn } from "./components/searchInvalidBtn/SearchInvalidBtn";
+import { Search } from "../components/search/Search";
 
-export const Sidebar = ({ data }: { data: any }) => {
-  const { 
-    age, 
-    setAge, 
-    gender, 
-    setGender 
-  } = useStoryContext();
+export const Sidebar = () => {
 
 
   return (
     <div className="sidebar">
       <div className="sidebar_contents">
-        {/* <Pagination /> */}
-        <div className="search">
+        <Search />
+        {/* <div className="search">
           <ul>
             <AgeSearch age={age} setAge={setAge} />
             <GenderSearch gender={gender} setGender={setGender} />
           </ul>
-        </div>
+          <SearchInvalidBtn
+          age={age} setAge={setAge} 
+          gender={gender} setGender={setGender}
+          />
+        </div> */}
       </div>
     </div>
   );

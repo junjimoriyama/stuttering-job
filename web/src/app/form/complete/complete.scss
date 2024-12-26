@@ -7,7 +7,7 @@ $completePadding: 20px;
 .complete {
   position: relative;
   width: 100%;
-  height: 100vh;
+  // height: 100vh;
   // height: calc(
   //   100vh - (var.$step_margin_bottom + var.$step_item_height + $completePadding)
   // );
@@ -54,8 +54,8 @@ $completePadding: 20px;
       }
 
       .thanks_chara_svg {
-        width: 150px;
-        height: 150px;
+        width: 120px;
+        height: 120px;
         margin-bottom: 30px;
 
         @include bp.media(xs, max) {

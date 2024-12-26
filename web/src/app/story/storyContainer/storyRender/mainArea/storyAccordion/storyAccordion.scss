@@ -19,6 +19,7 @@ $accordion_border_thickness: 3px;
     gap: 20px;
     padding: 16px;
     border: $accordion_border_thickness solid #333;
+    cursor: pointer;
     .accordion_summary {
       display: flex;
       align-items: center;
@@ -60,8 +61,6 @@ $accordion_border_thickness: 3px;
           height: 2px;
           background-color: #fff;
         }
-      }
-      .accordion_minus_btn {
       }
       .accordion_plus_btn {
         position: relative;

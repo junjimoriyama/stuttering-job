@@ -1,0 +1,103 @@
+@use "@/app/style/breakpoint.scss" as bp;
+@use "@/app/style/common.scss" as mixin;
+@use "@/app/style/variable.scss" as var;
+
+.search {
+  background-color: #eff4ff;
+  padding: 10px;
+  border-radius: 5px;
+
+  .search_heading {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .search_list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    .search_item {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      width: 150px;
+      border-radius: 10px;
+      font-size: 14px;
+
+      .search_item_label {
+        position: relative;
+        display: flex;
+        align-items: center;
+        height: 40px;
+        padding: 8px;
+        cursor: pointer;
+
+        &:hover {
+          opacity: 0.7;
+        }
+
+        .search_plus_btn {
+          position: absolute;
+          right: 20px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          background-color: #fff;
+          transition: transform 0.3s;
+
+          span {
+            position: absolute;
+            display: inline-block;
+            width: 10px;
+            height: 2px;
+            background-color: var.$main_color;
+
+            &:first-of-type {
+              transform: rotate(0deg); // 横線
+            }
+
+            &:nth-of-type(2) {
+              transform: rotate(90deg); // 縦線
+            }
+          }
+
+          &.isOpen {
+            transform: rotate(315deg);
+          }
+        }
+      }
+
+      .search_item_list {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        align-items: center;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.5s ease;
+        border-top: 2px solid #333;
+        // background-color: #f0f1f8;
+        background-color: #fff;
+        // border-bottom: 2px solid #333;
+
+        .search_item_option {
+          width: 100%;
+          text-align: center;
+          padding: 2px 4px;
+          transition: 0.3s;
+          cursor: pointer;
+
+          &.isActive {
+            color: #fff;
+            background-color: var.$main_color;
+          }
+
+          &:hover {
+            opacity: 0.8;
+          }
+        }
+      }
+    }
+  }
+}

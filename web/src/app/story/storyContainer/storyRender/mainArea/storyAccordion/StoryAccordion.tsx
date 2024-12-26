@@ -16,7 +16,9 @@ const StoryAccordion = ({ data }: { data: any }) => {
 
   return (
     <div className="accordion">
-      <div className="accordion_header">
+      <div className="accordion_header"
+       onClick={handleAccordionBtnClick}
+      >
         <ul className="accordion_summary">
           <li className="accordion_summary_item">
             <span>年代</span>
@@ -33,7 +35,7 @@ const StoryAccordion = ({ data }: { data: any }) => {
         </ul>
         <button
           className={`accordion_btn ${isAccordionOpen ? "isOpen" : ""}`}
-          onClick={handleAccordionBtnClick}
+          // onClick={handleAccordionBtnClick}
         >
           <div
             className={`accordion_plus_btn ${isAccordionOpen ? "isOpen" : ""}`}

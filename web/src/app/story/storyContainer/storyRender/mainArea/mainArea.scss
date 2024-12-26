@@ -1,9 +1,19 @@
+@use "@/app/style/breakpoint.scss" as bp;
+@use "@/app/style/common.scss" as mixin;
+@use "@/app/style/variable.scss" as var;
+
 .main_area {
   flex: 1;
   max-width: 900px;
   // background-color: #f8f8f8;
   min-height: 100%;
   padding: 30px 10px;
+  .main_heading {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+    font-size: 24px;
+  }
   .storyItems {
     display: flex;
     flex-direction: column;
@@ -14,6 +24,24 @@
           display: none;
         }
       }
+    }
+  }
+
+  .modalSearchBtn {
+    position: fixed;
+    right: 10px;
+    bottom: 10px;
+    display: grid;
+    place-items: center;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background-color: var.$main_color;
+    color: #fff;
+    font-size: 14px;
+
+    @include bp.media(sm, min) {
+      display: none;
     }
   }
 }

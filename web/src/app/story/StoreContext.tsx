@@ -1,82 +1,61 @@
-'use client';
+"use client";
 
-import React, { createContext, useContext, useState } from 'react';
+import React, { createContext, useContext, useState } from "react";
 
 const storyContext = createContext<{
-  age: number,
-  setAge: (value: number) => void,
-  gender: string,
-  setGender: (value: string) => void
+  age: number;
+  setAge: (value: number) => void;
+  gender: string;
+  setGender: (value: string) => void;
+  industry: string;
+  setIndustry: (value: string) => void;
+  isSearchModalOpen: boolean, 
+  setIsSearchModalOpen: (value: boolean) => void;
+  isAllClose: boolean;
+  setIsAllClose: (value: boolean) => void;
 }>({
   age: 0,
   setAge: () => {},
-  gender: '',
+  gender: "",
   setGender: () => {},
-})
+  industry: "",
+  setIndustry:() => {},
+  isSearchModalOpen: false, 
+  setIsSearchModalOpen: () => {},
+  isAllClose: false,
+  setIsAllClose: () => {},
+});
 
-export const StoryProvider = ({children}: {children: React.ReactNode}) => {
-  const [ age, setAge ] = useState(0)
-  const [ gender, setGender ] = useState('')
+export const StoryProvider = ({ children }: { children: React.ReactNode }) => {
+  const [age, setAge] = useState(0);
+  const [gender, setGender] = useState("");
+  const [industry, setIndustry] = useState("");
+  const [isAllClose, setIsAllClose] = useState(false);
+
+  // モーダル
+  const [isSearchModalOpen, setIsSearchModalOpen] = useState(false);
 
   return (
-  <storyContext.Provider value={{
-    age, 
-    setAge,
-    gender,
-    setGender
-    }}>
-    {children}
-  </storyContext.Provider>
-  )
-}
+    <storyContext.Provider
+      value={{
+        age,
+        setAge,
+        gender,
+        setGender,
+        industry,
+        setIndustry,
+        isSearchModalOpen, 
+        setIsSearchModalOpen,
+        isAllClose,
+        setIsAllClose,
+      }}
+    >
+      {children}
+    </storyContext.Provider>
+  );
+};
 
-
-export const useStoryContext = () => useContext(storyContext)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+export const useStoryContext = () => useContext(storyContext);
 
 // 'use client';
 

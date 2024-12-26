@@ -16,7 +16,7 @@ export const storageSelectSaveData: handleSelectProps = (
 ) => {
   const value = e.target.value;
   // useHookFormに値入れる
-  setValue(key, value);
+  // setValue(key, value);
   setSaveData(value);
 
   if (timerRef.current) {
@@ -40,7 +40,7 @@ export const storageTextSaveData: handleInputProps = (
   // 入力された値
   const value = e.target.value;
   // useHookFormに値入れる
-  setValue(key, value);
+  // setValue(key, value);
 
   if (value.length > maxLength) {
     e.target.blur();
@@ -67,7 +67,7 @@ export const storagePersonalSaveData: handleInputPersonalProps = (
   // 入力された値
   const value = e.target.value;
   // useHookFormに値入れる
-  setValue(key, value);
+  // setValue(key, value);
 
   if (timerRef.current) {
     clearTimeout(timerRef.current);

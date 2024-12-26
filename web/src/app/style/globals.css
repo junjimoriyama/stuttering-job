@@ -13,13 +13,13 @@ li {
   list-style: none;
 }
 
-/* テーマカラー：　#32D4AE; */
-/* 背景色：　#f9f9f9; */
-/* ピンク：　rgb(255, 141, 160); */
-/* ブルー：　rgb(141, 170, 255); */
-/* 下線：　#e5e5e5; */
+input:focus,
+select:focus {
+  outline: none;
+}
 
-
+select {
+}
 
 
 /* :root {

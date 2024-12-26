@@ -13,7 +13,6 @@ export const StoryContainer = async() => {
   }
 
   const data = await res.json()
-  //  const data = await getStoryItems();
 
   return (
     <>

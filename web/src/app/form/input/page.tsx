@@ -25,7 +25,6 @@ import StepContext from "@/app/form/step/stepContext";
 import InputModal from "../components/inputModal/InputModal";
 
 import "./input.scss";
-import Header from "@/app/components/header/Header";
 
 const input = () => {
   const router = useRouter();
@@ -78,6 +77,8 @@ const input = () => {
     formState: { errors },
     // 特定のフィールドの値をプログラムで設定する
     setValue,
+    getValues,
+    reset
   } = useFormContext();
 
   // トースト消す
@@ -96,7 +97,12 @@ const input = () => {
     document.body.style.overflow = 'hidden'
   }
 
-  // localStorage.clear()
+  useEffect(() => {
+    console.log("フォームの状態がリセットされました");
+    const savedValues = getValues();
+    console.log("現在のフォーム値:", savedValues);
+    reset(savedValues);
+  }, [getValues, reset]);
 
   return (
     <div 

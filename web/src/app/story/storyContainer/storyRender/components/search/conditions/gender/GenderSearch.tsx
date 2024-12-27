@@ -8,7 +8,11 @@ export const GenderSearch = () => {
   const [isOpen, setIsOpen] = useState(false);
    // 選択されている場所
   const [activeIndex, setActiveIndex] = useState(0);
+  // アコーディオンの高さ
   const [maxHeight, setMaxHeight] = useState<number | undefined>(0);
+  // 現在のラベル表示
+  const [ currentLabel, setCurrentLabel  ] = useState<string | null>(null)
+
 
   const searchItemGenderListRef = useRef<HTMLDivElement>(null);
 
@@ -40,6 +44,7 @@ export const GenderSearch = () => {
       if (isAllClose) {
         setIsOpen(false)
         setActiveIndex(0)
+        setCurrentLabel(null)
       }
     }, [isAllClose]);
   
@@ -50,6 +55,10 @@ export const GenderSearch = () => {
     >
       <div className="search_item_label" onClick={handleSearchItemClick}>
         性別
+        {currentLabel &&
+        <span 
+        className="search_item_current_label">{currentLabel}</span>
+        }
         <div className={`search_plus_btn ${isOpen ? "isOpen" : ""}`}>
           <span></span>
           <span></span>
@@ -68,7 +77,10 @@ export const GenderSearch = () => {
             activeIndex === value ? "isActive" : ""
           }`}
           key={value}
-          onClick={() => handleGenderClick(item, value)}
+          onClick={() => {
+            handleGenderClick(item, value)
+            setCurrentLabel(item)
+          }}
           >
             {item}
           </span>
@@ -81,6 +93,7 @@ export const GenderSearch = () => {
           onClick={() => {
             setGender("");
             setActiveIndex(0);
+            setCurrentLabel(null)
           }}
         >
           クリア

@@ -9,8 +9,10 @@ export const IndustrySearch = () => {
     const [isOpen, setIsOpen] = useState(false);
      // 選択されている場所
     const [activeIndex, setActiveIndex] = useState(0);
-    
+    // アコーディオンの高さ
     const [maxHeight, setMaxHeight] = useState<number | undefined>(0);
+    // 現在のラベル表示
+      const [ currentLabel, setCurrentLabel  ] = useState<string | null>(null)
 
     // 配列のリスト
     const industrySearchList = [
@@ -29,7 +31,7 @@ export const IndustrySearch = () => {
       "医療",
       "福祉",
       "教育、学習支援業",
-      "公務(他に分類されないもの)",
+      // "公務(他に分類されないもの)",
       "その他",
     ];
     
@@ -54,6 +56,7 @@ export const IndustrySearch = () => {
       if(isAllClose) {
         setIsOpen(false)
         setActiveIndex(0)
+        setCurrentLabel(null)
       }
     }, [isAllClose])
   
@@ -63,6 +66,10 @@ export const IndustrySearch = () => {
     >
       <div className="search_item_label" onClick={handleSearchItemClick}>
         業種
+        {currentLabel &&
+        <span 
+        className="search_item_current_label">{currentLabel}</span>
+        }
         <div className={`search_plus_btn ${isOpen ? "isOpen" : ""}`}>
           <span></span>
           <span></span>
@@ -81,7 +88,10 @@ export const IndustrySearch = () => {
             activeIndex === value ? "isActive" : ""
           }`}
           key={value}
-          onClick={() => handleIndustryClick(item, value)}
+          onClick={() =>{ 
+            handleIndustryClick(item, value)
+            setCurrentLabel(item)
+          }}
           >
             {item}
           </span>
@@ -94,6 +104,7 @@ export const IndustrySearch = () => {
           onClick={() => {
             setIndustry("");
             setActiveIndex(0);
+            setCurrentLabel(null)
           }}
         >
           クリア

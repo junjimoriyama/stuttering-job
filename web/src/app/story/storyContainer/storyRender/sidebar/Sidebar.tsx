@@ -17,16 +17,6 @@ export const Sidebar = () => {
     <div className="sidebar">
       <div className="sidebar_contents">
         <Search />
-        {/* <div className="search">
-          <ul>
-            <AgeSearch age={age} setAge={setAge} />
-            <GenderSearch gender={gender} setGender={setGender} />
-          </ul>
-          <SearchInvalidBtn
-          age={age} setAge={setAge} 
-          gender={gender} setGender={setGender}
-          />
-        </div> */}
       </div>
     </div>
   );

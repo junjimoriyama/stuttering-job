@@ -56,6 +56,19 @@
           opacity: 0.7;
         }
 
+        .search_item_current_label {
+          display: grid;
+          place-items: center;
+          max-width: 120px;
+          margin: 0 10px;
+          padding: 0 10px;
+          background-color: #808080;
+          border-radius: 30px;
+          color: #fff;
+          font-size: 12px;
+          overflow-y: hidden;
+        }
+
         .search_plus_btn {
           position: absolute;
           right: 20px;

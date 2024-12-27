@@ -18,7 +18,7 @@ import JobStruggles from "./jobStruggles/JobStruggles";
 import JobHuntStruggles from "./jobHuntStruggles/JobHuntStruggles";
 import Free from "./free/Free";
 import Step from "../step/Step";
-import { useFormContext } from "react-hook-form";
+import { FormProvider, useForm, useFormContext } from "react-hook-form";
 
 import { useRouter, useSearchParams } from "next/navigation";
 import StepContext from "@/app/form/step/stepContext";
@@ -32,18 +32,17 @@ const input = () => {
   // トースト
   const [toast, setToast] = useState({
     display: false,
-    text: ''
+    text: "",
   });
 
   // ステップ
-  const {step, setStep} = useContext(StepContext)
+  const { step, setStep } = useContext(StepContext);
 
   // params
-  const params = useSearchParams()
+  const params = useSearchParams();
 
   // モーダル
-  const [ isOpen, setIsOpen  ] = useState(false)
-
+  const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
     const errorParam = params.get("error");
@@ -61,9 +60,9 @@ const input = () => {
       });
 
       // クエリパラメータを削除
-      const currentUrl = new URL(window.location.href)
-      currentUrl.searchParams.delete('error')
-      router.replace(currentUrl.toString())
+      const currentUrl = new URL(window.location.href);
+      currentUrl.searchParams.delete("error");
+      router.replace(currentUrl.toString());
     }
   }, [params, router]);
 
@@ -78,7 +77,7 @@ const input = () => {
     // 特定のフィールドの値をプログラムで設定する
     setValue,
     getValues,
-    reset
+    reset,
   } = useFormContext();
 
   // トースト消す
@@ -86,16 +85,17 @@ const input = () => {
     if (toast) {
       setToast({
         display: false,
-        text: ''});
+        text: "",
+      });
     }
   };
 
   // モーダル開いたら
   const handleModalOpen = () => {
-    setIsOpen(true)
+    setIsOpen(true);
     // 背景固定
-    document.body.style.overflow = 'hidden'
-  }
+    document.body.style.overflow = "hidden";
+  };
 
   useEffect(() => {
     console.log("フォームの状態がリセットされました");
@@ -105,148 +105,117 @@ const input = () => {
   }, [getValues, reset]);
 
   return (
-    <div 
-    className="input" 
-    onClick={() => deleteToast()}>
-      
-      <Toast toast={toast} setToast={setToast} />
-      <Step
-        step={'input'}
-        setStep={setStep}
-      />
-      {/* <AboutStory /> */}
-      <form
-        className="input_form"
-        onSubmit={handleSubmit(
-          // バリデーション成功
-          () => {
-            setToast({
-              display: false,
-              text: ""});
-            router.push("/form/confirm");
-          },
-          // バリデーション失敗
-          () => {
-            setToast({
-              display: true,
-              text: "notAnswered"});
-          }
-        )}
-      >
-        <div 
-        className="form_guide_btn"
-        onClick={handleModalOpen}
-        // onClick={() => setIsOpen(true)}
-        >体験談について
-        <span>→</span></div>
-        <p className="form_prompt">下記にご回答お願いいたします。</p>
-        <ul>
-          {/* 年代 --> */}
-          <Age 
-          register={register} 
-          errors={errors} 
-          setValue={setValue}
-          />
+    <>
+      <div className="input" onClick={() => deleteToast()}>
+        <Toast toast={toast} setToast={setToast} />
+        <Step step={"input"} setStep={setStep} />
+        {/* <AboutStory /> */}
+        <form
+          className="input_form"
+          onSubmit={handleSubmit(
+            // バリデーション成功
+            () => {
+              setToast({
+                display: false,
+                text: "",
+              });
+              router.push("/form/confirm");
+            },
+            // バリデーション失敗
+            () => {
+              setToast({
+                display: true,
+                text: "notAnswered",
+              });
+            }
+          )}
+        >
+          <div
+            className="form_guide_btn"
+            onClick={handleModalOpen}
+            // onClick={() => setIsOpen(true)}
+          >
+            体験談について
+            <span>→</span>
+          </div>
+          <p className="form_prompt">下記にご回答お願いいたします。</p>
+          <ul>
+            {/* 年代 --> */}
+            <Age register={register} errors={errors} setValue={setValue} />
 
-          {/* 性別 --> Ï*/}
-          <Gender register={register} 
-          errors={errors}
-          setValue={setValue}
-          />
+            {/* 性別 --> Ï*/}
+            <Gender register={register} errors={errors} setValue={setValue} />
 
-          {/* 業種 --> */}
-          <Industry register={register} 
-          errors={errors}
-          setValue={setValue}
-          />
+            {/* 業種 --> */}
+            <Industry register={register} errors={errors} setValue={setValue} />
 
-          {/* 具体的な業種 */}
-          <JobDetails 
-          register={register} 
-          errors={errors}
-          setValue={setValue}
-          />
+            {/* 具体的な業種 */}
+            <JobDetails
+              register={register}
+              errors={errors}
+              setValue={setValue}
+            />
 
-          {/* 今の仕事を選んだ理由 */}
-          <Reason 
-          register={register} 
-          errors={errors}
-          setValue={setValue}
-          />
+            {/* 今の仕事を選んだ理由 */}
+            <Reason register={register} errors={errors} setValue={setValue} />
 
-          {/* 雇用形態 */}
-          <Employment   
-          register={register} 
-          errors={errors}
-          setValue={setValue}
-          />
-          {/* 勤続年数 */}
-          <Years 
-          register={register} 
-          errors={errors}
-          setValue={setValue}
-          />
+            {/* 雇用形態 */}
+            <Employment
+              register={register}
+              errors={errors}
+              setValue={setValue}
+            />
+            {/* 勤続年数 */}
+            <Years register={register} errors={errors} setValue={setValue} />
 
-          {/* 仕事の苦労度 */}
-          <JobDifficulty
-            register={register}
-            errors={errors}
-            setValue={setValue}
-          />
+            {/* 仕事の苦労度 */}
+            <JobDifficulty
+              register={register}
+              errors={errors}
+              setValue={setValue}
+            />
 
-          {/* 現在の仕事で苦労していること */}
-          <JobStruggles 
-          register={register} 
-          errors={errors}
-          setValue={setValue}
-          />
+            {/* 現在の仕事で苦労していること */}
+            <JobStruggles
+              register={register}
+              errors={errors}
+              setValue={setValue}
+            />
 
-          {/* 就職活動の苦労度 */}
-          <JobHuntDifficulty
-            register={register}
-            errors={errors}
-            setValue={setValue}
-          />
+            {/* 就職活動の苦労度 */}
+            <JobHuntDifficulty
+              register={register}
+              errors={errors}
+              setValue={setValue}
+            />
 
-          {/* 就職活動で苦労していること */}
-          <JobHuntStruggles 
-            register={register}
-            errors={errors}
-            setValue={setValue}
-          />
+            {/* 就職活動で苦労していること */}
+            <JobHuntStruggles
+              register={register}
+              errors={errors}
+              setValue={setValue}
+            />
 
-          {/* 手帳の有無 */}
-          <Notebook
-            register={register}
-            errors={errors}
-            setValue={setValue}
-          />
+            {/* 手帳の有無 */}
+            <Notebook register={register} errors={errors} setValue={setValue} />
 
-          {/* 自由記入欄 */}
-          <Free 
-            register={register} 
-            errors={errors}
-            setValue={setValue}
-          />
+            {/* 自由記入欄 */}
+            <Free register={register} errors={errors} setValue={setValue} />
 
-          {/*　ユーザー情報 */}
-          <UserInfo
-            register={register} 
-            errors={errors}
-            setValue={setValue}
-          />
-        </ul>
+            {/*　ユーザー情報 */}
+            <UserInfo register={register} errors={errors} setValue={setValue} />
+          </ul>
 
-        <button className="confirm_step_button" type="submit">
-          確認画面へ
-        </button>
-      </form>
-      <InputModal
-      isOpen={isOpen}
-      setIsOpen={setIsOpen}
-      />
-      {/* </FormProvider> */}
-    </div>
+          <button className="confirm_step_button" type="submit">
+            確認画面へ
+          </button>
+        </form>
+
+        {/* </FormProvider> */}
+      </div>
+
+      <InputModal isOpen={isOpen} setIsOpen={setIsOpen} />
+    </>
   );
 };
 
@@ -332,13 +301,12 @@ export default input;
 // useActionState
 // const [formState, formAction] = useActionState(sendAction, null);
 
-
 // inputやselectをして何秒後かにローカルストレージに保存
 // 最後にinputされたら保存（途中のinputはイベント発生させない
 // フォームにonChange（input）したら処理する
 // let scrollTimer;
 // let flag = 0;
-    
+
 // window.onscroll = () => {
 //     flag = 1;
 //     ～スクロール中に走らせたい処理～

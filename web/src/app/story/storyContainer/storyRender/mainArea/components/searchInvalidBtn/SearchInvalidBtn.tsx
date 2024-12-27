@@ -18,7 +18,7 @@ export const SearchInvalidBtn = (
 
   
   const handleClickSearchInvalidBtn = () => {
-    setAge(0)
+    setAge([])
     setGender('')
     setIndustry('')
     setIsAllClose(true); 

@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 // import Pagination from "../components/pagination/Pagination";
-import StoryAccordion from "../storyAccordion/StoryAccordion";
+import StoryAccordion from "./storyAccordion/StoryAccordion";
 import Pagination from "../components/pagination/Pagination";
 import { useStoryContext } from "@/app/story/StoreContext";
 
@@ -12,13 +12,20 @@ export const StoryItems = ({ data }: { data: any}) => {
    const {age, gender, industry} = useStoryContext()
    
   //  絞り込み
-  const displayData = (!age && !gender && !industry) 
+  const displayData = (age.length === 0 && !gender && !industry) 
   ? data // 全て未選択の場合は全データを表示
   : data.filter((item: any) => 
-      (!age || item.age === age) &&
+      (age.length === 0 || age.includes(item.age)) &&
       (!gender || item.gender === gender) &&
       (!industry || item.industry === industry)
     );
+  // const displayData = (!age && !gender && !industry) 
+  // ? data // 全て未選択の場合は全データを表示
+  // : data.filter((item: any) => 
+  //     (!age || item.age === age) &&
+  //     (!gender || item.gender === gender) &&
+  //     (!industry || item.industry === industry)
+  //   );
 
   // データの量
   const displayNumber = 5

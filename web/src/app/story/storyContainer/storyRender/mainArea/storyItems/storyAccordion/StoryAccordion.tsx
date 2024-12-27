@@ -21,6 +21,10 @@ const StoryAccordion = ({ data }: { data: any }) => {
       >
         <ul className="accordion_summary">
           <li className="accordion_summary_item">
+            <span>番号</span>
+            {data.id}
+          </li>
+          <li className="accordion_summary_item">
             <span>年代</span>
             {data.age}代
           </li>

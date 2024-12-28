@@ -25,16 +25,11 @@ export const AgeSearch = () => {
   };
 
   const handleAgeClick = (value: number) => {
-    //  // 絞り込み
-    // setAge(value);
+    // 絞り込み
     // 選択した場所に色つける
     if (!age.includes(value)) {
-      // setActiveIndexes((prev: number[]) => [...prev, value]);
       setAge((prev: number[]) => [...prev, value]);
     } else {
-      // setActiveIndexes((prev: number[]) =>
-      //   prev.filter((index) => index !== value)
-      // ),
       setAge((prev: number[]) => prev.filter((index) => index !== value));
     }
   };
@@ -72,7 +67,7 @@ export const AgeSearch = () => {
           return (
             <span
               className={`search_item_option ${
-                age.includes(value) ? "isActive" : ""
+                Array.isArray(age) && age.includes(value) ? "isActive" : ""
               }`}
               key={value}
               onClick={() => {
@@ -94,7 +89,7 @@ export const AgeSearch = () => {
             setCurrentLabel(null);
           }}
         >
-          クリア
+          選択しない
         </span>
       </div>
     </li>

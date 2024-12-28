@@ -4,7 +4,7 @@ import { useStoryContext } from '@/app/story/StoreContext'
 
 import './searchModal.scss'
 
-export const ModalSearch = () => {
+export const SearchModal = () => {
   
   const { 
     setAge, 
@@ -17,9 +17,9 @@ export const ModalSearch = () => {
   } = useStoryContext();
 
   const handleClickCloseBtn = () => {
-    setAge(0)
-    setGender('')
-    setIndustry('')
+    setAge([])
+    setGender([])
+    setIndustry([])
     setIsAllClose(true); 
     setTimeout(() => {
         setIsAllClose(false); // 状態をリセット

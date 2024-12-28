@@ -1,6 +1,6 @@
 import { BaseFormProps, FormWithSetValueProps } from "@/app/types/form";
 import "./industry.scss";
-import { SurpriseMark } from "@/public/svg/icon/mark";
+import { surprise_mark } from "@/public/svg/icon/mark";
 import { useEffect, useRef, useState } from "react";
 import { storageSelectSaveData } from "@/app/functions/functions";
 
@@ -72,7 +72,7 @@ export const Industry = ({
       </select>
         {errors.industry && typeof errors.industry.message === 'string' && (
             <p className="error">
-            <SurpriseMark />
+            <surprise_mark />
             {errors.industry.message}
           </p>
         )}

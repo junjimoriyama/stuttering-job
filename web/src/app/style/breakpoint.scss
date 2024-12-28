@@ -2,9 +2,13 @@
 
 // ブレークポイント用のmap
 $breakpoints: (
-  xs: 600px,
+  xxxxs: 330px,
+  xxxs: 390px,
+  xxs: 600px,
+  xs: 810px,
   sm: 1024px,
-  md: 1440px
+  md: 1440px,
+  lg: 1920px
 );
 
 // メディアクエリ生成

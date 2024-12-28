@@ -23,7 +23,7 @@
           @include mixin.formIsValid;
         }
 
-        @include bp.media(sm, max) {
+        @include bp.media(xs, max) {
           justify-content: center;
         }
 

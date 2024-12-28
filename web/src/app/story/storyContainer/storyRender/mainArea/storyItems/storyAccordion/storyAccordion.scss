@@ -20,20 +20,78 @@ $accordion_border_thickness: 3px;
     padding: 16px;
     border: $accordion_border_thickness solid #333;
     cursor: pointer;
+
+    @include bp.media(sm, max) {
+      height: auto;
+    }
+    
+    @include bp.media(xs, max) {
+      display: grid;
+      height: auto;
+    }
+    @include bp.media(xxs, max) {
+      display: flex;
+      padding: 8px;
+    }
+
     .accordion_summary {
       display: flex;
       align-items: center;
       gap: 10px;
+      // overflow: hidden; /* はみ出し部分を隠す */
+      // max-width: 100%; /* 必要に応じて制限 */
+      @include bp.media(sm, max) {
+        display: grid;
+      }
+      @include bp.media(xs, max) {
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+      }
 
       .accordion_summary_item {
         display: flex;
         align-items: center;
-        gap: 10px;
+        gap: 8px;
+
+        @include bp.media(sm, max) {
+          &:first-of-type {
+            grid-column: 1/2;
+            grid-row: 1/4;
+          }
+          &:nth-of-type(2) {
+            grid-column: 2/2;
+            grid-row: 1/2;
+          }
+          &:nth-of-type(3) {
+            grid-column: 2/2;
+            grid-row: 2/3;
+          }
+          &:nth-of-type(4) {
+            grid-column: 2/2;
+            grid-row: 3/4;
+          }
+        }
+        @include bp.media(xxxxs, max) {
+          display: flex;
+          flex-direction: column;
+          align-items: start;
+        }
+
+        &:first-of-type {
+          gap: 2px;
+        }
         span {
           background-color: var.$main_color;
           color: #fff;
           padding: 5px 10px;
           border-radius: 20px;
+          font-size: 14px;
+        }
+        .accordion_summary_item_number {
+          background-color: #acacac;
+          color: #fff;
+          padding: 5px;
         }
       }
     }
@@ -52,6 +110,22 @@ $accordion_border_thickness: 3px;
       &.isOpen {
         background-color: var.$sub_color;
       }
+
+      @include bp.media(sm, max) {
+        position: absolute;
+        top: 0;
+        right: 0;
+        transform: translateY(0%);
+        height: 100%;
+        width: 100px;
+      }
+      @include bp.media(xxs, max) {
+        width: 50px;
+      }
+      @include bp.media(xxxs, max) {
+        height: 50px;
+      }
+
       .accordion_minus_btn,
       .accordion_plus_btn {
         span {
@@ -92,6 +166,7 @@ $accordion_border_thickness: 3px;
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.5s ease;
+    // min-width: 500px;
     &.isOpen {
       // padding: 10px;
       // padding: 0;

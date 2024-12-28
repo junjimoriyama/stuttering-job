@@ -1,6 +1,6 @@
 import { BaseFormProps, FormWithSetValueProps } from "@/app/types/form";
 import "./years.scss";
-import { SurpriseMark } from "@/public/svg/icon/mark";
+import { surprise_mark } from "@/public/svg/icon/mark";
 import { storageSelectSaveData } from "@/app/functions/functions";
 import { useEffect, useRef, useState } from "react";
 
@@ -49,7 +49,7 @@ const Years = ({
       </select>
       { errors.years && typeof errors.years.message === "string" && (
         <p className="error">
-          <SurpriseMark />
+          <surprise_mark />
           {errors.years.message}
         </p>
       )}

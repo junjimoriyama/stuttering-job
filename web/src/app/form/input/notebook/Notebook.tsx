@@ -1,6 +1,6 @@
 import { BaseFormProps, FormWithSetValueProps } from "@/app/types/form";
 import "./notebook.scss";
-import { SurpriseMark } from "@/public/svg/icon/mark";
+import { surprise_mark } from "@/public/svg/icon/mark";
 import { useEffect, useRef, useState } from "react";
 import { storageSelectSaveData } from "@/app/functions/functions";
 
@@ -50,7 +50,7 @@ const Notebook = ({
       {
         errors.notebook && typeof errors.notebook.message === 'string' && (
           <p className="error">
-            <SurpriseMark />
+            <surprise_mark />
             {errors.notebook.message}
           </p>
         )

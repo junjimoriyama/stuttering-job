@@ -3,7 +3,7 @@ import { UseFormRegister, FieldErrors, UseFormSetValue } from "react-hook-form";
 import "./age.scss";
 import { BaseFormProps, FormWithSetValueProps } from "@/app/types/form";
 import { storageSelectSaveData } from "@/app/functions/functions";
-import { SurpriseMark } from "@/public/svg/icon/mark";
+import { surprise_mark } from "@/public/svg/icon/mark";
 
 export const Age = ({ 
   register, 
@@ -54,7 +54,7 @@ export const Age = ({
       </select>
       { errors.age && typeof errors.age.message === "string" && (
         <p className="error">
-          <SurpriseMark />
+          <surprise_mark />
           {errors.age.message}
         </p>
       )}
@@ -67,7 +67,7 @@ export const Age = ({
 // import "./age.scss";
 // import { BaseFormProps, FormWithSetValueProps } from "@/app/types/form";
 // import { storageSelectSaveData } from "@/app/functions/functions";
-// import { SurpriseMark } from "@/public/svg/icon/mark";
+// import { surprise_mark } from "@/public/svg/icon/mark";
 
 // export const Age = ({ 
 //   register, 
@@ -117,7 +117,7 @@ export const Age = ({
 //       </select>
 //       { errors.age && typeof errors.age.message === "string" && (
 //         <p className="error">
-//           <SurpriseMark />
+//           <surprise_mark />
 //           {errors.age.message}
 //         </p>
 //       )}

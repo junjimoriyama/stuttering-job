@@ -5,7 +5,7 @@ import "./jobDifficulty.scss";
 import { register } from "module";
 import { FormWithSetValueProps } from "@/app/types/form";
 import { useFormContext } from "react-hook-form";
-import { SurpriseMark } from "@/public/svg/icon/mark";
+import { surprise_mark } from "@/public/svg/icon/mark";
 
 const JobDifficulty = ({  
   register, 
@@ -68,7 +68,7 @@ const JobDifficulty = ({
       </div>
       {errors.job_difficulty && typeof errors.job_difficulty.message === "string" && (
         <p className="error">
-          <SurpriseMark />
+          <surprise_mark />
           {errors.job_difficulty.message}
         </p>
       )}

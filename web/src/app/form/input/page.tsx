@@ -1,14 +1,21 @@
 "use client";
 
+// next
+import { useRouter, useSearchParams } from "next/navigation";
+// react
 import { useContext, useEffect, useState } from "react";
-// import { AboutBubble, MainLogo } from "../../../public/svg/svg";
+import { useFormContext } from "react-hook-form";
+import StepContext from "@/app/form/step/stepContext";
+// components
+import Toast from "../components/toast/Toast";
+import InputModal from "../components/inputModal/InputModal";
+import Step from "../step/Step";
 import { Age } from "./age/Age";
 import JobDetails from "./details/JobDetails";
 import JobDifficulty from "./jobDifficulty/JobDifficulty";
 import JobHuntDifficulty from "./jobHuntDifficulty/JobHuntDifficulty";
 import Gender from "./gender/Gender";
 import Industry from "./industry/Industry";
-import Toast from "../components/toast/Toast";
 import UserInfo from "./userInfo/UserInfo";
 import Reason from "./reason/Reason";
 import Employment from "./employment/Employment";
@@ -17,34 +24,26 @@ import Notebook from "./notebook/Notebook";
 import JobStruggles from "./jobStruggles/JobStruggles";
 import JobHuntStruggles from "./jobHuntStruggles/JobHuntStruggles";
 import Free from "./free/Free";
-import Step from "../step/Step";
-import { FormProvider, useForm, useFormContext } from "react-hook-form";
-
-import { useRouter, useSearchParams } from "next/navigation";
-import StepContext from "@/app/form/step/stepContext";
-import InputModal from "../components/inputModal/InputModal";
-
+// style
 import "./input.scss";
 
 const input = () => {
   const router = useRouter();
 
-  // トースト
+  // params
+  const params = useSearchParams();
+  // step
+  const { step, setStep } = useContext(StepContext);
+  // toast
   const [toast, setToast] = useState({
     display: false,
     text: "",
   });
-
-  // ステップ
-  const { step, setStep } = useContext(StepContext);
-
-  // params
-  const params = useSearchParams();
-
-  // モーダル
+  // modal
   const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
+    // 登録メール重複時に表示
     const errorParam = params.get("error");
 
     if (errorParam === "EmailAlreadyTaken") {
@@ -97,19 +96,11 @@ const input = () => {
     document.body.style.overflow = "hidden";
   };
 
-  useEffect(() => {
-    console.log("フォームの状態がリセットされました");
-    const savedValues = getValues();
-    console.log("現在のフォーム値:", savedValues);
-    reset(savedValues);
-  }, [getValues, reset]);
-
   return (
     <>
       <div className="input" onClick={() => deleteToast()}>
         <Toast toast={toast} setToast={setToast} />
         <Step step={"input"} setStep={setStep} />
-        {/* <AboutStory /> */}
         <form
           className="input_form"
           onSubmit={handleSubmit(
@@ -133,7 +124,6 @@ const input = () => {
           <div
             className="form_guide_btn"
             onClick={handleModalOpen}
-            // onClick={() => setIsOpen(true)}
           >
             体験談について
             <span>→</span>

@@ -17,9 +17,9 @@ export const ModalSearch = () => {
   } = useStoryContext();
 
   const handleClickCloseBtn = () => {
-    setAge(0)
-    setGender('')
-    setIndustry('')
+    setAge([])
+    setGender([])
+    setIndustry([])
     setIsAllClose(true); 
     setTimeout(() => {
         setIsAllClose(false); // 状態をリセット

@@ -6,7 +6,8 @@ import "./mainArea.scss";
 import { StoryItems } from "./storyItems/StoryItems";
 import { Search } from "../components/search/Search";
 import { useStoryContext } from "@/app/story/StoreContext";
-import { ModalSearch } from "../components/search/ModalSearch/searchModal";
+import { SearchModal } from "../components/search/searchModal/searchModal";
+import { FilterIcon } from "@/public/svg/icon/filter";
 
 export const MainArea = ({ data }: { data: any }) => {
 
@@ -17,11 +18,13 @@ export const MainArea = ({ data }: { data: any }) => {
       <div className="main_heading">体験談一覧</div>
       <StoryItems data={data} />
 
-      <ModalSearch />
+      <SearchModal/>
       <div 
       className="modalSearchBtn"
       onClick={() => setIsSearchModalOpen(!isSearchModalOpen)}
-      >絞り込み</div>
+      >
+        <FilterIcon/>
+      </div>
     </div>
   );
 };

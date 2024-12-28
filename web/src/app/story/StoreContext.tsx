@@ -11,8 +11,10 @@ const storyContext = createContext<{
   setGender: React.Dispatch<React.SetStateAction<string[]>>
   // gender: string;
   // setGender: (value: string) => void;
-  industry: string;
-  setIndustry: (value: string) => void;
+  industry: string[];
+  setIndustry: React.Dispatch<React.SetStateAction<string[]>>
+  // industry: string;
+  // setIndustry: (value: string) => void;
   isSearchModalOpen: boolean, 
   setIsSearchModalOpen: (value: boolean) => void;
   isAllClose: boolean;
@@ -24,7 +26,7 @@ const storyContext = createContext<{
   // setAge: () => {},
   gender: [],
   setGender: () => {},
-  industry: "",
+  industry: [],
   setIndustry:() => {},
   isSearchModalOpen: false, 
   setIsSearchModalOpen: () => {},
@@ -37,7 +39,8 @@ export const StoryProvider = ({ children }: { children: React.ReactNode }) => {
   // const [age, setAge] = useState(0);
   const [gender, setGender] = useState<string[]>([]);
   // const [gender, setGender] = useState("");
-  const [industry, setIndustry] = useState("");
+  const [industry, setIndustry] = useState<string[]>([]);
+  // const [industry, setIndustry] = useState("");
   const [isAllClose, setIsAllClose] = useState(false);
 
   // モーダル

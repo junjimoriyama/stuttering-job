@@ -2,7 +2,7 @@ import { BaseFormProps, formHookProps, FormWithSetValueProps } from "@/app/types
 import "./gender.scss";
 import { useEffect, useRef, useState } from "react";
 import { storageSelectSaveData } from "@/app/functions/functions";
-import { SurpriseMark } from "@/public/svg/icon/mark";
+import { surprise_mark } from "@/public/svg/icon/mark";
 
 export const Gender = ({ 
   register, 
@@ -51,7 +51,7 @@ export const Gender = ({
       </select>
       {errors.gender && typeof errors.gender.message === "string" && (
         <p className="error">
-          <SurpriseMark />
+          <surprise_mark />
           {errors.gender.message}
         </p>
       )}

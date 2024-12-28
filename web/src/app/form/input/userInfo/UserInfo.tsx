@@ -1,6 +1,6 @@
 import { FormWithSetValueProps } from "@/app/types/form";
 import "./userInfo.scss";
-import { SurpriseMark } from "@/public/svg/icon/mark";
+import { surprise_mark } from "@/public/svg/icon/mark";
 import { useEffect, useRef } from "react";
 import { storagePersonalSaveData } from "@/app/functions/functions";
 
@@ -50,7 +50,7 @@ const UserInfo = ({
         />
         {errors.username && typeof errors.username.message === 'string' && (
           <p className="error">
-          <SurpriseMark />
+          <surprise_mark />
           {errors.username.message}
           </p>
         )}
@@ -78,7 +78,7 @@ const UserInfo = ({
         />
         {errors.email && typeof errors.email.message === 'string' && (
           <p className="error">
-          <SurpriseMark />
+          <surprise_mark />
           {errors.email.message}
           </p>
         )}

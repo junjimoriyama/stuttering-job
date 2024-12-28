@@ -14,7 +14,7 @@
   transition: 0.3s;
   visibility: hidden;
   opacity: 0;
-  z-index: 300;
+  z-index: 3000;
   
   &.isOpen {
     visibility: visible;
@@ -65,11 +65,11 @@
         pointer-events: none;
       }
   
-      @include bp.media(sm, max) {
+      @include bp.media(xs, max) {
         width: 80%; /* 601px〜1024px */
       }
   
-      @include bp.media(xs, max) {
+      @include bp.media(xxs, max) {
         width: 95%; /* 600px以下 */
       }
   

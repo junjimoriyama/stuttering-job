@@ -27,12 +27,12 @@
     gap: 100px;
     margin-bottom: 150px;
 
-    @include bp.media(sm, max) {
+    @include bp.media(xs, max) {
       margin-bottom: 70px;
       gap: 30px;
     }
 
-    @include bp.media(xs, max) {
+    @include bp.media(xxs, max) {
       flex-direction: column;
       margin-bottom: 50px;
       font-size: 16px;
@@ -49,11 +49,11 @@
         animation: textAppearance 2s 1s forwards;
       }
 
-      @include bp.media(sm, max) {
+      @include bp.media(xs, max) {
         font-size: 18px;
       }
 
-      @include bp.media(xs, max) {
+      @include bp.media(xxs, max) {
         font-size: 16px;
       }
 
@@ -71,7 +71,7 @@
       }
     }
     .home_about_chara {
-      @include bp.media(sm, max) {
+      @include bp.media(xs, max) {
         align-self: flex-end;
       }
 
@@ -79,12 +79,12 @@
         width: 200px;
         height: 200px;
 
-        @include bp.media(sm, max) {
+        @include bp.media(xs, max) {
           align-self: flex-end;
           width: 150px;
           height: 150px;
         }
-        @include bp.media(xs, max) {
+        @include bp.media(xxs, max) {
           width: 100px;
           height: 100px;
         }
@@ -174,17 +174,17 @@
         &::after {
           animation: writeBorderColor 1s  2s forwards;
 
-          @include bp.media(xs, max) {
+          @include bp.media(xxs, max) {
             animation: none;
           }
         }
       }
 
-      @include bp.media(sm, max) {
+      @include bp.media(xs, max) {
         font-size: 18px;
       }
 
-      @include bp.media(xs, max) {
+      @include bp.media(xxs, max) {
         font-size: 16px;
       }
     }
@@ -199,12 +199,12 @@
       gap: 100px;
       margin-bottom: 120px;
 
-      @include bp.media(sm, max) {
+      @include bp.media(xs, max) {
         margin-bottom: 80px;
         gap: 30px;
       }
 
-      @include bp.media(xs, max) {
+      @include bp.media(xxs, max) {
         flex-direction: column;
         margin-bottom: 100px;
         font-size: 16px;
@@ -240,10 +240,10 @@
           border-color: transparent transparent transparent #dfe6f4;
         }
 
-        @include bp.media(sm, max) {
+        @include bp.media(xs, max) {
           width: 400px;
         }
-        @include bp.media(xs, max) {
+        @include bp.media(xxs, max) {
           width: 90%;
         }
 
@@ -258,11 +258,11 @@
           line-height: 2;
           word-break: break-word;
 
-          @include bp.media(sm, max) {
+          @include bp.media(xs, max) {
             font-size: 18px;
           }
 
-          @include bp.media(xs, max) {
+          @include bp.media(xxs, max) {
             font-size: 16px;
           }
         }
@@ -274,11 +274,11 @@
         width: 200px;
         height: 200px;
 
-        @include bp.media(sm, max) {
+        @include bp.media(xs, max) {
           width: 150px;
           height: 150px;
         }
-        @include bp.media(xs, max) {
+        @include bp.media(xxs, max) {
           position: absolute;
           align-self: flex-start;
           width: 100px;
@@ -352,12 +352,12 @@
       gap: 100px;
       margin-bottom: 150px;
 
-      @include bp.media(sm, max) {
+      @include bp.media(xs, max) {
         margin-bottom: 80px;
         gap: 30px;
       }
 
-      @include bp.media(xs, max) {
+      @include bp.media(xxs, max) {
         flex-direction: column;
         margin-bottom: 50px;
         font-size: 16px;
@@ -393,11 +393,11 @@
           border-color: #dfe6f4 transparent transparent transparent; /* 上側に色を設定 */
         }
 
-        @include bp.media(sm, max) {
+        @include bp.media(xs, max) {
           width: 400px;
         }
 
-        @include bp.media(xs, max) {
+        @include bp.media(xxs, max) {
           width: 90%;
         }
         .home_about_write_heading {
@@ -410,11 +410,11 @@
           color: var.$main_color;
           line-height: 2;
           word-break: break-word;
-          @include bp.media(sm, max) {
+          @include bp.media(xs, max) {
             font-size: 18px;
           }
 
-          @include bp.media(xs, max) {
+          @include bp.media(xxs, max) {
             font-size: 16px;
           }
         }
@@ -426,11 +426,11 @@
         width: 200px;
         height: 200px;
 
-        @include bp.media(sm, max) {
+        @include bp.media(xs, max) {
           width: 150px;
           height: 150px;
         }
-        @include bp.media(xs, max) {
+        @include bp.media(xxs, max) {
           position: absolute;
           align-self: flex-start;
           width: 100px;

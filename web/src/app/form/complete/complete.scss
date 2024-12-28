@@ -38,7 +38,7 @@ $completePadding: 20px;
         color: #fff;
         animation: displayRectAndText 1s, scaleMessageBox 1s infinite;
 
-        @include bp.media(xs, max) {
+        @include bp.media(xxs, max) {
           width: 100px;
           height: 50px;
         }
@@ -47,7 +47,7 @@ $completePadding: 20px;
           // @include mixin.typingText();
           margin-bottom: 0;
 
-          @include bp.media(xs, max) {
+          @include bp.media(xxs, max) {
             font-size: 16px;
           }
         }
@@ -58,7 +58,7 @@ $completePadding: 20px;
         height: 120px;
         margin-bottom: 30px;
 
-        @include bp.media(xs, max) {
+        @include bp.media(xxs, max) {
           width: 100px;
           height: 100px;
         }

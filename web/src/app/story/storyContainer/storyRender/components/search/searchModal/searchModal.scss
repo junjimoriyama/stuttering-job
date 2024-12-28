@@ -42,13 +42,13 @@
     overflow: scroll;
     overscroll-behavior: contain;
     z-index: 2;
-    @include bp.media(xs, min) {
+    @include bp.media(sm, min) {
       &::-webkit-scrollbar {
         display: none;
       }
       scrollbar-width: none;
     }
-    .search_modal_window {
+     .search_modal_window  {
       position: relative;
       margin: 0 auto;
       padding: 56px 20px 20px 20px;

@@ -14,6 +14,8 @@ const StoryAccordion = ({ data }: { data: any }) => {
     setMaxHeight(accordionContentRef.current?.scrollHeight);
   };
 
+  
+
   return (
     <div className="accordion">
       <div className="accordion_header"
@@ -21,7 +23,7 @@ const StoryAccordion = ({ data }: { data: any }) => {
       >
         <ul className="accordion_summary">
           <li className="accordion_summary_item">
-            <span>番号</span>
+            <span className="accordion_summary_item_number">No</span>
             {data.id}
           </li>
           <li className="accordion_summary_item">
@@ -140,6 +142,10 @@ const StoryAccordion = ({ data }: { data: any }) => {
           <li className="accordion_story_item">
             <span className="accordion_story_label">見ている人に向けて</span>
             <span className="accordion_story_value">{data.free}</span>
+          </li>
+          <li className="accordion_story_item">
+            <span className="accordion_story_label">投稿日</span>
+            <span className="accordion_story_value">{new Date(data.created_at).toLocaleDateString('ja-JP')}</span>
           </li>
         </ul>
       </div>

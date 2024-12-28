@@ -1,11 +1,11 @@
 
 // ビックリマーク
-export const SurpriseMark = () => {
+export const surprise_mark = () => {
   return (
     <svg
-      id="surpriseMark"
-      className="surpriseMark"
-      data-name="surpriseMark"
+      id="surprise_mark"
+      className="surprise_mark"
+      data-name="surprise_mark"
       xmlns="http://www.w3.org/2000/svg"
       width="100"
       height="100"

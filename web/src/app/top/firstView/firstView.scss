@@ -19,11 +19,11 @@
     transform: translate(-50%, -50%);
     // transform:  translateX(-50%);
 
-    @include bp.media(sm, max) {
+    @include bp.media(xs, max) {
       width: 80%; /* 601px〜1024px */
     }
 
-    @include bp.media(xs, max) {
+    @include bp.media(xxs, max) {
       width: 95%; /* 600px以下 */
     }
 
@@ -32,10 +32,10 @@
       display: block;
       margin: auto;
       margin-bottom: 50px;
-      @include bp.media(sm, max) {
+      @include bp.media(xs, max) {
         width: 400px; /* 600px以下 */
       }
-      @include bp.media(xs, max) {
+      @include bp.media(xxs, max) {
         width: 300px;
       }
     }
@@ -118,11 +118,11 @@
     opacity: 0;
     animation: displayFirstViewText 2s .5s forwards;
     
-    @include bp.media(sm, max) {
+    @include bp.media(xs, max) {
       font-size: 18px;
     }
 
-    @include bp.media(xs, max) {
+    @include bp.media(xxs, max) {
       font-size: 16px;
     }
 

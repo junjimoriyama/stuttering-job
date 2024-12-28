@@ -2,7 +2,7 @@ import { BaseFormProps, formHookProps } from "@/app/types/form";
 import "./employment.scss";
 import { storageSelectSaveData } from "@/app/functions/functions";
 import { useEffect, useRef, useState } from "react";
-import { SurpriseMark } from "@/public/svg/icon/mark";
+import { surprise_mark } from "@/public/svg/icon/mark";
 
 const Employment = ({
   register,
@@ -51,7 +51,7 @@ const Employment = ({
       </select>
       { errors.employment && typeof errors.employment.message === 'string' && (
         <p className="error">
-        <SurpriseMark />
+        <surprise_mark />
         {errors.employment.message}
       </p>
       )}

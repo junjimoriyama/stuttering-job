@@ -35,6 +35,7 @@
     place-items: center;
     width: 70px;
     height: 70px;
+    border: 3px solid #fff;
     border-radius: 50%;
     background-color: var.$main_color;
     color: #fff;
@@ -42,6 +43,21 @@
 
     @include bp.media(sm, min) {
       display: none;
+    }
+
+    @include bp.media(xxs, max) {
+      width: 50px;
+      height: 50px;
+    }
+
+    .filter_svg {
+      width: 50px;
+      height: 50px;
+
+      @include bp.media(xxs, max) {
+        width: 30px;
+        height: 30px;
+      }
     }
   }
 }

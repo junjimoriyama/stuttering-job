@@ -1,19 +1,25 @@
 "use client";
 
+import { useStoryContext } from '@/app/story/StoreContext';
 import './pagination.scss'
+import { useEffect } from 'react';
 
-const Pagination = (
+export const Pagination = (
   { totalPage,
     currentPage,
+    setCurrentPage,
     onPageChange
   }: 
   { 
     totalPage: number | null,
     currentPage: number,
+    setCurrentPage :any,
     onPageChange: (page: number) => void
 
   }) => {
 
+    // useContext管理の状態
+      const { age, setAge, isAllClose } = useStoryContext();
 
   return (
     <div className="pagination">
@@ -21,7 +27,6 @@ const Pagination = (
         <button 
         className="page_prev_btn"
         onClick={() => currentPage > 1 && onPageChange(currentPage - 1) }
-        // disabled={currentPage <= 1}
         >←</button>
         <ul className="page_numbers">
           {[...Array(totalPage)].map((_, i) => {
@@ -47,9 +52,6 @@ const Pagination = (
     </div>
   );
 };
-
-export default Pagination;
-
 // export default Pagination;
 // "use client";
 

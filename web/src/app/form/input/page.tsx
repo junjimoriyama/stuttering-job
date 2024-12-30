@@ -5,25 +5,25 @@ import { useRouter, useSearchParams } from "next/navigation";
 // react
 import { useContext, useEffect, useState } from "react";
 import { useFormContext } from "react-hook-form";
-import StepContext from "@/app/form/step/stepContext";
+import {StepContext} from "@/app/form/step/stepContext";
 // components
-import Toast from "../components/toast/Toast";
-import InputModal from "../components/inputModal/InputModal";
-import Step from "../step/Step";
+import {Toast} from "../components/toast/Toast";
+import {InputModal} from "../components/inputModal/InputModal";
+import {Step} from "../step/Step";
 import { Age } from "./age/Age";
-import JobDetails from "./details/JobDetails";
-import JobDifficulty from "./jobDifficulty/JobDifficulty";
-import JobHuntDifficulty from "./jobHuntDifficulty/JobHuntDifficulty";
-import Gender from "./gender/Gender";
-import Industry from "./industry/Industry";
-import UserInfo from "./userInfo/UserInfo";
-import Reason from "./reason/Reason";
-import Employment from "./employment/Employment";
-import Years from "./years/Years";
-import Notebook from "./notebook/Notebook";
-import JobStruggles from "./jobStruggles/JobStruggles";
-import JobHuntStruggles from "./jobHuntStruggles/JobHuntStruggles";
-import Free from "./free/Free";
+import {JobDetails} from "./details/JobDetails";
+import {JobDifficulty} from "./jobDifficulty/JobDifficulty";
+import {JobHuntDifficulty} from "./jobHuntDifficulty/JobHuntDifficulty";
+import {Gender} from "./gender/Gender";
+import {Industry} from "./industry/Industry";
+import {UserInfo} from "./userInfo/UserInfo";
+import {Reason} from "./reason/Reason";
+import {Employment} from "./employment/Employment";
+import {Years} from "./years/Years";
+import {Notebook} from "./notebook/Notebook";
+import {JobStruggles} from "./jobStruggles/JobStruggles";
+import {JobHuntStruggles} from "./jobHuntStruggles/JobHuntStruggles";
+import {Free} from "./free/Free";
 // style
 import "./input.scss";
 
@@ -75,8 +75,6 @@ const input = () => {
     formState: { errors },
     // 特定のフィールドの値をプログラムで設定する
     setValue,
-    getValues,
-    reset,
   } = useFormContext();
 
   // トースト消す
@@ -200,21 +198,14 @@ const input = () => {
             確認画面へ
           </button>
         </form>
-
-        {/* </FormProvider> */}
       </div>
-
+        {/* 体験談説明 */}
       <InputModal isOpen={isOpen} setIsOpen={setIsOpen} />
     </>
   );
 };
 
 export default input;
-
-// 入力画面と確認画面はクライアント上で遷移
-// クッキーに入力したデータを保存。有効期限設定できる
-// クッキーでフォーム内容を判別して確認画面に表示
-//
 
 {
   /* 副業 */

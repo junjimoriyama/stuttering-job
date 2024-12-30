@@ -13,7 +13,7 @@
         gap: 10px;
         width: 100%;
         padding: 12px;
-        font-size: 1rem;
+        font-size: 14px;
         background-color: var.$form_input_color;
         outline: 2px solid var.$form_border_color;
         outline-offset: -2px;
@@ -35,10 +35,9 @@
           place-items: center;
           width: 30px;
           height: 30px;
+          padding-left: 3px;
           background-color: #fff;
           border: 2px solid #e5e5e5;
-          transition: 0.2s;
-          padding-left: 3px;
           cursor: pointer;
 
           &.isClicked {

@@ -1,25 +1,32 @@
-import { FormWithSetValueProps } from "@/app/types/form";
-import "./userInfo.scss";
-import { surprise_mark } from "@/public/svg/icon/mark";
+// react
 import { useEffect, useRef } from "react";
+// type
+import { FormWithSetValueProps } from "@/app/types/form";
+// functions
 import { storagePersonalSaveData } from "@/app/functions/functions";
+// svg
+import { SurpriseMark } from "@/public/svg/icon/mark";
+// style
+import "./userInfo.scss";
 
-const UserInfo = ({
+export const UserInfo = ({
   register,
   errors,
   setValue
 }: FormWithSetValueProps) => {
 
   useEffect(() => {
+    // username
     const getStorageUsernameData = localStorage.getItem("stutter_job_username") || "";
-    const getStorageEmailData = localStorage.getItem("stutter_job_email") || "";
     setValue("username", getStorageUsernameData);
+    // email
+    const getStorageEmailData = localStorage.getItem("stutter_job_email") || "";
     setValue("email", getStorageEmailData);
   }, []);
 
+  // 遅延処理用のタイマーを保持する参照
   const timerRef = useRef<NodeJS.Timeout | null>(null)
 
-  // localStorage.clear()
   
   return (
     <li className="userInfo">
@@ -43,14 +50,14 @@ const UserInfo = ({
             setValueAs: (value) => value.trim(),
           })}
           {...register("username", {
-            required: '記入は必須です',
+            required: "記入は必須です",
             maxLength: 225,
             setValueAs: (value) => value.trim()
           })}
         />
-        {errors.username && typeof errors.username.message === 'string' && (
+        {errors.username && typeof errors.username.message === "string" && (
           <p className="error">
-          <surprise_mark />
+          <SurpriseMark />
           {errors.username.message}
           </p>
         )}
@@ -76,9 +83,9 @@ const UserInfo = ({
             setValueAs: (value) => value.trim(),
           })}
         />
-        {errors.email && typeof errors.email.message === 'string' && (
+        {errors.email && typeof errors.email.message === "string" && (
           <p className="error">
-          <surprise_mark />
+          <SurpriseMark />
           {errors.email.message}
           </p>
         )}
@@ -86,5 +93,3 @@ const UserInfo = ({
     </li>
   );
 };
-
-export default UserInfo;

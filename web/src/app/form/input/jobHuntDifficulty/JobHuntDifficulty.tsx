@@ -1,12 +1,14 @@
-"use client";
-
-import { useEffect, useState } from "react";
-import "./jobHuntDifficulty.scss";
-import { FormWithSetValueProps } from "@/app/types/form";
-import { surprise_mark } from "@/public/svg/icon/mark";
+// react
+import { useState, useEffect, useRef } from "react";
 import { useFormContext } from "react-hook-form";
+// type
+import { FormWithSetValueProps } from "@/app/types/form";
+// svg
+import { SurpriseMark } from "@/public/svg/icon/mark";
+// style
+import "./jobHuntDifficulty.scss";
 
-const JobHuntDifficulty = ({
+export const JobHuntDifficulty = ({
   register,
   errors,
   setValue
@@ -16,17 +18,21 @@ const JobHuntDifficulty = ({
   const { getValues } = useFormContext()
   const values = getValues()
 
+   // クリックした番号
   const [clickIndex, setClickedIndex] = useState<number | null>(values.job_hunt_difficulty || null);
+   // フォーカスの状態
   const [onFocus, setOnFocus] = useState(false);
 
   useEffect(() => {
-    const getStorageData = localStorage.getItem("stutter_job_job_hunt_difficulty") || ''
+    const getStorageData = localStorage.getItem("stutter_job_job_hunt_difficulty") || ""
+    // 画面遷移から戻った時にストレージデータを反映
     setValue("job_hunt_difficulty",Number(getStorageData))
     setClickedIndex(Number(getStorageData))
   }, [])
 
   const handleClick = (value: number) => {
     setOnFocus(true)
+    // フォームの状態に値を設定し、必要に応じて即時バリデーションを実行
     setValue("job_hunt_difficulty", value, { shouldValidate: true }); 
     setClickedIndex(value)
     localStorage.setItem("stutter_job_job_hunt_difficulty", String(value)) 
@@ -66,12 +72,10 @@ const JobHuntDifficulty = ({
       </div>
       {errors.job_hunt_difficulty && typeof errors.job_hunt_difficulty.message === "string" && (
         <p className="error">
-          <surprise_mark />
+          <SurpriseMark />
           {errors.job_hunt_difficulty.message}
         </p>
       )}
-
-
       <input
         id="job_hunt_difficulty"
         type="hidden"

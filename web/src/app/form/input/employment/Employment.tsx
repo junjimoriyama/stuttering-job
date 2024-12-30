@@ -1,24 +1,31 @@
-import { BaseFormProps, formHookProps } from "@/app/types/form";
-import "./employment.scss";
-import { storageSelectSaveData } from "@/app/functions/functions";
+// react
 import { useEffect, useRef, useState } from "react";
-import { surprise_mark } from "@/public/svg/icon/mark";
+// type
+import { FormWithSetValueProps } from "@/app/types/form";
+// functions
+import { storageSelectSaveData } from "@/app/functions/functions";
+// svg
+import { SurpriseMark } from "@/public/svg/icon/mark";
+// style
+import "./employment.scss";
 
-const Employment = ({
+export const Employment = ({
   register,
   errors,
   setValue
-} : formHookProps) => {
+} : FormWithSetValueProps) => {
 
-  // 表示用state 
+  // 選択されている値
   const [saveData, setSaveData] = useState("");
 
   useEffect(() => {
-    const getStorageData = localStorage.getItem("stutter_job_employment") || ''
+    const getStorageData = localStorage.getItem("stutter_job_employment") || ""
+     // 画面遷移から戻った時にストレージデータを反映
     setValue("employment",getStorageData)
     setSaveData(getStorageData)
   }, [])
 
+  // 遅延処理用のタイマーを保持する参照
   let timerRef = useRef<NodeJS.Timeout | null>(null)
 
   return (
@@ -30,14 +37,14 @@ const Employment = ({
       <select 
       id="employment"
       value={saveData}
-      {...register('employment', {
+      {...register("employment", {
         onChange: (e) => storageSelectSaveData(
           e, 
           "stutter_job_employment", 
-          setValue, 
+          // setValue, 
           setSaveData,
           timerRef),
-        required: '選択は必須です'}
+        required: "選択は必須です"}
       )}
       >
         <option value="" disabled>
@@ -49,9 +56,9 @@ const Employment = ({
         <option value="自営業＆フリーランス">自営業＆フリーランス</option>
         <option value="その他">その他</option>
       </select>
-      { errors.employment && typeof errors.employment.message === 'string' && (
+      { errors.employment && typeof errors.employment.message === "string" && (
         <p className="error">
-        <surprise_mark />
+        <SurpriseMark />
         {errors.employment.message}
       </p>
       )}

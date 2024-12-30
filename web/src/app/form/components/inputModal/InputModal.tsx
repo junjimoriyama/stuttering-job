@@ -1,6 +1,8 @@
 "use client";
 
+// react
 import { Dispatch, SetStateAction } from "react";
+// style
 import "./inputModal.scss";
 
 export const InputModal = ({

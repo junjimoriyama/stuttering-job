@@ -1,13 +1,14 @@
-"use client";
-
-import { useEffect, useState } from "react";
-import "./jobDifficulty.scss";
-import { register } from "module";
-import { FormWithSetValueProps } from "@/app/types/form";
+// react
+import { useState, useEffect, useRef } from "react";
 import { useFormContext } from "react-hook-form";
-import { surprise_mark } from "@/public/svg/icon/mark";
+// type
+import { FormWithSetValueProps } from "@/app/types/form";
+// svg
+import { SurpriseMark } from "@/public/svg/icon/mark";
+// style
+import "./jobDifficulty.scss";
 
-const JobDifficulty = ({  
+export const JobDifficulty = ({  
   register, 
   errors, 
   setValue 
@@ -15,19 +16,23 @@ const JobDifficulty = ({
   // useFormより値取得
   const { getValues } = useFormContext();
   const values = getValues()
+
   // クリックした番号
   const [clickIndex, setClickedIndex] = useState<number | null>(values.job_difficulty || null);
+  // フォーカスの状態
   const [onFocus, setOnFocus] = useState(false);
 
 
   useEffect(() => {
-    const getStorageData = localStorage.getItem("stutter_job_job_difficulty") || ''
+    const getStorageData = localStorage.getItem("stutter_job_job_difficulty") || ""
+     // 画面遷移から戻った時にストレージデータを反映
     setValue("job_difficulty",Number(getStorageData))
     setClickedIndex(Number(getStorageData))
   }, [])
 
   const handleClick = (value: number) => {
     setOnFocus(true)
+    // フォームの状態に値を設定し、必要に応じて即時バリデーションを実行
     setValue("job_difficulty", value, { shouldValidate: true }); 
     setClickedIndex(value)
     localStorage.setItem("stutter_job_job_difficulty", String(value)) 
@@ -48,7 +53,6 @@ const JobDifficulty = ({
         <span className="job_difficulty_level_text">小</span>
         {[...Array(5)].map((_, i) => {
           const value = i + 1
-          // const value = `${i + 1}`
           return (
             <span
               key={value}
@@ -57,7 +61,6 @@ const JobDifficulty = ({
               } `}
               onClick={() => {
                 handleClick(i + 1); 
-                // setClickedIndex(i + 1)
               }}
             >
               {value}
@@ -68,27 +71,16 @@ const JobDifficulty = ({
       </div>
       {errors.job_difficulty && typeof errors.job_difficulty.message === "string" && (
         <p className="error">
-          <surprise_mark />
+          <SurpriseMark />
           {errors.job_difficulty.message}
         </p>
       )}
-
       <input
         id="job_difficulty"
         type="hidden"
-        // name="job_difficulty"
         value={clickIndex !== null ? clickIndex : ""}
         {...register("job_difficulty", { required: "選択してください" })}
       />
     </li>
   );
 };
-
-export default JobDifficulty;
-
-// const handleClick = (value: number) => {
-//   setOnFocus(true)
-//   setValue("job_difficulty", value, { shouldValidate: true }); 
-//   setClickedIndex(value)
-  
-// };

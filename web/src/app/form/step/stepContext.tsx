@@ -6,7 +6,7 @@ import {
   useState,
 } from "react";
 
-const StepContext = createContext<{
+export const StepContext = createContext<{
   step: string;
   setStep: Dispatch<SetStateAction<string>>;
 }>({
@@ -15,13 +15,13 @@ const StepContext = createContext<{
 });
 
 export const StepProvider = ({ children }: { children: ReactNode }) => {
+  // ステップ状態
   const [step, setStep] = useState("input");
 
+  // StepContext.Provider を使用して子コンポーネントにステップ情報を渡す
   return (
     <StepContext.Provider value={{ step, setStep }}>
       {children}
     </StepContext.Provider>
   );
 };
-
-export default StepContext;

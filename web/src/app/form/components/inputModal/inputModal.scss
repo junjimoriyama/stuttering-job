@@ -2,9 +2,6 @@
 @use "@/app/style/common.scss" as mixin;
 @use "@/app/style/variable.scss" as var;
 
-// $orange: #f9851c;
-// $navy: #1a2c5b;
-
 .modal {
   position: fixed;
   top: 0;
@@ -15,17 +12,18 @@
   visibility: hidden;
   opacity: 0;
   z-index: 3000;
-  
+
   &.isOpen {
     visibility: visible;
     opacity: 1;
   }
+
   .inputModalCloseBtn {
     position: absolute;
     top: 5px;
     right: 15px;
-    color: var.$main_color;
     font-size: 24px;
+    color: var.$main_color;
     cursor: pointer;
   }
 
@@ -35,6 +33,7 @@
     background-color: #000000;
     opacity: 0.7;
   }
+
   .input_modal_body {
     position: relative;
     height: 100%;
@@ -42,6 +41,7 @@
     overflow: scroll;
     overscroll-behavior: contain;
     z-index: 2;
+
     @include bp.media(xs, min) {
       &::-webkit-scrollbar {
         display: none;
@@ -52,59 +52,47 @@
     .input_modal_window {
       position: relative;
       margin: 0 auto;
-      padding: 56px 20px 20px 20px;
-      background-color: #f4f5f6;
-      border-radius: 20px;
       display: flex;
       flex-direction: column;
       gap: 20px;
-      width: 50%; /* デフォルト: 1025px以上 */
+      width: 50%;
+      padding: 56px 20px 20px 20px;
+      background-color: #f4f5f6;
+      border-radius: 20px;
       pointer-events: auto;
-      
+
       &.inActive {
         pointer-events: none;
       }
-  
+
       @include bp.media(xs, max) {
-        width: 80%; /* 601px〜1024px */
+        width: 80%;
       }
-  
+
       @include bp.media(xxs, max) {
-        width: 95%; /* 600px以下 */
+        width: 95%;
       }
-  
+
       .heading {
+        position: relative;
         display: grid;
         place-items: center;
-        justify-self: center;
         background-color: var.$main_color;
         color: #fff;
         padding: 8px;
         border-radius: 5px;
         margin-bottom: 16px;
         width: 250px;
-        position: relative; /* 擬似要素の基準 */
-
-        // &::before {
-        //   content: "";
-        //   position: absolute;
-        //   top: -5px;
-        //   left: -5px;
-        //   width: 255px;
-        //   height: calc(100% + 5px);
-        //   border-radius: 5px;
-        //   border: 3px solid var.$main_color;
-        // }
 
         &::after {
           content: "";
           position: absolute;
-          bottom: -10px; /* 吹き出しの三角形の位置 */
+          bottom: -10px;
           left: 50%;
           transform: translateX(-50%);
           border-width: 10px;
           border-style: solid;
-          border-color: transparent transparent transparent var.$main_color; /* 上だけ色をつける */
+          border-color: transparent transparent transparent var.$main_color;
         }
       }
 

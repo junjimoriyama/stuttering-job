@@ -1,24 +1,26 @@
 import { BaseFormProps, FormWithSetValueProps } from "@/app/types/form";
 import "./notebook.scss";
-import { surprise_mark } from "@/public/svg/icon/mark";
+import { SurpriseMark } from "@/public/svg/icon/mark";
 import { useEffect, useRef, useState } from "react";
 import { storageSelectSaveData } from "@/app/functions/functions";
 
-const Notebook = ({
+export const Notebook = ({
   register,
   errors, 
   setValue 
 }: FormWithSetValueProps) => {
 
-    // 表示用state 
+   // 選択されている値
     const [saveData, setSaveData] = useState("");
 
   useEffect(() => {
-    const getStorageData = localStorage.getItem("stutter_job_notebook") || ''
+    const getStorageData = localStorage.getItem("stutter_job_notebook") || ""
+    // 画面遷移から戻った時にストレージデータを反映
     setValue("notebook",getStorageData)
     setSaveData(getStorageData)
   }, [])
 
+  // 遅延処理用のタイマーを保持する参照
   const timerRef = useRef<NodeJS.Timeout | null>(null)
 
   return (
@@ -29,13 +31,12 @@ const Notebook = ({
       </label>
       <select 
       id="notebook"
-      // className={`notebook-select ${isNotebookInvalid ? "isInvalid" : ""}`}
       value={saveData}
       {...register("notebook", { 
         onChange: (e) => storageSelectSaveData(
           e, 
           "stutter_job_notebook", 
-          setValue, 
+          // setValue, 
           setSaveData,
           timerRef),
         required: "選択は必須です" })}
@@ -48,16 +49,13 @@ const Notebook = ({
         <option value="無回答">無回答</option>
       </select>
       {
-        errors.notebook && typeof errors.notebook.message === 'string' && (
+        errors.notebook && typeof errors.notebook.message === "string" && (
           <p className="error">
-            <surprise_mark />
+            <SurpriseMark />
             {errors.notebook.message}
           </p>
         )
       }
-      
     </li>
   );
 };
-
-export default Notebook;

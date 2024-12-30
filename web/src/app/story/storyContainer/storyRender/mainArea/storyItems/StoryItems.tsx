@@ -1,14 +1,15 @@
 "use client";
 
+// react
 import { useState, useEffect } from "react";
-// import Pagination from "../components/pagination/Pagination";
-import StoryAccordion from "./storyAccordion/StoryAccordion";
-import Pagination from "../components/pagination/Pagination";
 import { useStoryContext } from "@/app/story/StoreContext";
+// components
+import { StoryAccordion } from "./storyAccordion/StoryAccordion";
+import {Pagination} from "../components/pagination/Pagination";
 
 export const StoryItems = ({ data }: { data: any }) => {
   // 選択された値
-  const { age, gender, industry } = useStoryContext();
+  const { age, gender, industry, currentPage, setCurrentPage } = useStoryContext();
 
   //  絞り込み
   const displayData =
@@ -16,17 +17,12 @@ export const StoryItems = ({ data }: { data: any }) => {
       ? data // 全て未選択の場合は全データを表示
       : data.filter(
           (item: any) =>
-            (age.length === 0 || Array.isArray(age) && age.includes(item.age)) &&
+            (age.length === 0 ||
+              (Array.isArray(age) && age.includes(item.age))) &&
             (gender.length === 0 || gender.includes(item.gender)) &&
             (industry.length === 0 || industry.includes(item.industry))
         );
-  // const displayData = (!age && !gender && !industry)
-  // ? data // 全て未選択の場合は全データを表示
-  // : data.filter((item: any) =>
-  //     (!age || item.age === age) &&
-  //     (!gender || item.gender === gender) &&
-  //     (!industry || item.industry === industry)
-  //   );
+        
 
   // データの量
   const displayNumber = 5;
@@ -35,7 +31,7 @@ export const StoryItems = ({ data }: { data: any }) => {
   const [totalPage, setTotalPage] = useState<number | null>(null);
 
   // 現在のページ
-  const [currentPage, setCurrentPage] = useState(1);
+  // const [currentPage, setCurrentPage] = useState(1);
 
   useEffect(() => {
     setTotalPage(Math.ceil(displayData.length / displayNumber));
@@ -46,17 +42,32 @@ export const StoryItems = ({ data }: { data: any }) => {
   // ページの終わり
   const endPage = currentPage * displayNumber;
 
+ useEffect(() => {
+  // displayDataが更新されるとトータルページを再計算
+  const newTotalPage = Math.ceil(displayData.length / displayNumber)
+  setTotalPage(newTotalPage)
+
+  // 現在のページが新しいトータルページを下回れば1ページにする
+  if(currentPage > newTotalPage!) {
+    setCurrentPage(1)
+  }
+ }, [displayData])
+
   return (
     <div className="storyItems">
       {/* 表示するデータ */}
       {displayData && displayData.length > 0 ? (
         <>
-          {displayData.slice(startPage, endPage).map((item: any, i: number) => (
-            <StoryAccordion key={i} data={item} />
-          ))}
+          {displayData.slice(startPage, endPage).map((item: any, i: number) => {
+            const value = i
+            return (
+              <StoryAccordion key={i} data={item} index={value} />
+            );
+          })}
           <Pagination
             totalPage={totalPage}
             currentPage={currentPage}
+            setCurrentPage={setCurrentPage}
             onPageChange={(page) => setCurrentPage(page)}
           />
         </>

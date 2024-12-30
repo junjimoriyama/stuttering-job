@@ -1,8 +1,9 @@
-
-import { Dispatch, SetStateAction, useContext } from "react";
+// react
+import { Dispatch, SetStateAction} from "react";
+// style
 import "./step.scss";
 
-const Step = ({
+export const Step = ({
   step,
   setStep
 } : {
@@ -13,12 +14,10 @@ const Step = ({
   return (
     <div className="step">
       <ul className="stepList">
-        <li className={`stepItem ${step === 'input' ? "current" : ''}`}>入力</li>
-        <li className={`stepItem ${step === 'confirm' ? "current" : ''}`}>確認</li>
-        <li className={`stepItem  ${step === 'complete' ? "current" : ''}`}>完了</li>
+        <li className={`stepItem ${step === "input" ? "current" : ""}`}>入力</li>
+        <li className={`stepItem ${step === "confirm" ? "current" : ""}`}>確認</li>
+        <li className={`stepItem  ${step === "complete" ? "current" : ""}`}>完了</li>
       </ul>
     </div>
   );
 };
-
-export default Step;

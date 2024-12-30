@@ -1,23 +1,31 @@
-import { BaseFormProps, FormWithSetValueProps } from "@/app/types/form";
-import "./years.scss";
-import { surprise_mark } from "@/public/svg/icon/mark";
-import { storageSelectSaveData } from "@/app/functions/functions";
+// react
 import { useEffect, useRef, useState } from "react";
+// type
+import { FormWithSetValueProps } from "@/app/types/form";
+// functions
+import { storageSelectSaveData } from "@/app/functions/functions";
+// svg
+import { SurpriseMark } from "@/public/svg/icon/mark";
+// style
+import "./years.scss";
 
-const Years = ({
+export const Years = ({
   register,
   errors, 
   setValue 
 }: FormWithSetValueProps) => {
-  // 表示用state 
+  
+  // 選択されている値
   const [saveData, setSaveData] = useState("");
 
   useEffect(() => {
-    const getStorageData = localStorage.getItem("stutter_job_years") || ''
-    setValue("years",getStorageData)
-    setSaveData(getStorageData)
+    const getStorageData = localStorage.getItem("stutter_job_years") || "";
+    // 画面遷移から戻った時にストレージデータを反映
+    setValue("years",getStorageData);
+    setSaveData(getStorageData);
   }, [])
 
+  // 遅延処理用のタイマーを保持する参照
   const timerRef = useRef<NodeJS.Timeout | null>(null)
 
   return (
@@ -33,7 +41,7 @@ const Years = ({
         onChange: (e) => storageSelectSaveData(
           e, 
           "stutter_job_years", 
-          setValue, 
+          // setValue, 
           setSaveData,
           timerRef),
         required: "選択は必須です" })}
@@ -49,7 +57,7 @@ const Years = ({
       </select>
       { errors.years && typeof errors.years.message === "string" && (
         <p className="error">
-          <surprise_mark />
+          <SurpriseMark />
           {errors.years.message}
         </p>
       )}

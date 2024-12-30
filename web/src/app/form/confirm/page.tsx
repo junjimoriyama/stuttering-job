@@ -1,13 +1,19 @@
 "use client";
 
-import Step from "@/app/form/step/Step";
-import "./confirm.scss";
-import Link from "next/link";
+// next
+import {useRouter} from "next/navigation";
+// react
+import { useContext } from "react";
 import { useFormContext } from "react-hook-form";
-import { useActionState, useContext, useEffect } from "react";
-import { sendAction } from "./actionConfirm";
-import StepContext from "@/app/form/step/stepContext";
-import { useRouter } from "next/navigation";
+// dataLists
+import { industryList } from "@/app/dataLists/industryList";
+// functions
+import {sendAction} from "./actionConfirm";
+// components
+import {Step} from "@/app/form/step/Step";
+import {StepContext} from "@/app/form/step/stepContext";
+// style
+import "./confirm.scss";
 
 // サーバーからデータを取得
 const confirm = () => {

@@ -6,19 +6,16 @@ $completePadding: 20px;
 
 .complete {
   position: relative;
-  width: 100%;
-  // height: 100vh;
-  // height: calc(
-  //   100vh - (var.$step_margin_bottom + var.$step_item_height + $completePadding)
-  // );
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 100%;
+  height: 100vh;
   padding: $completePadding;
-  // overflow: scroll;
 
   .complete_message {
     margin-top: 30px;
+
     .thanks_chara {
       position: relative;
       display: flex;
@@ -29,27 +26,23 @@ $completePadding: 20px;
         display: flex;
         align-items: center;
         justify-content: center;
-        font-size: 36px;
         width: 200px;
         height: 100px;
         margin-bottom: 20px;
         border-radius: 10px;
         background-color: #1a2c5b;
         color: #fff;
+        font-size: 36px;
         animation: displayRectAndText 1s, scaleMessageBox 1s infinite;
 
         @include bp.media(xxs, max) {
           width: 100px;
           height: 50px;
+          font-size: 16px;
         }
 
         .message_box_text {
-          // @include mixin.typingText();
           margin-bottom: 0;
-
-          @include bp.media(xxs, max) {
-            font-size: 16px;
-          }
         }
       }
 
@@ -67,8 +60,8 @@ $completePadding: 20px;
 
     .thanks_chara_rect,
     .thanks_chara_message {
-      animation-delay: 0.1s;
       opacity: 0;
+      animation-delay: 0.1s;
 
       @keyframes displayRectAndText {
         0% {
@@ -78,6 +71,7 @@ $completePadding: 20px;
           opacity: 1;
         }
       }
+
       @keyframes scaleMessageBox {
         0% {
           transform: scale(1);
@@ -90,11 +84,9 @@ $completePadding: 20px;
         }
       }
     }
+
     .complete_text {
       text-align: center;
-      // display: flex;
-      // justify-content: center;
-      // align-items: center;
     }
   }
 }

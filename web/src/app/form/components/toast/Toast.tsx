@@ -2,7 +2,7 @@ import "./toast.scss";
 
 import React from "react";
 
-const Toast = ({
+export const Toast = ({
   toast,
   setToast,
 }: {
@@ -20,8 +20,9 @@ const Toast = ({
       text: "",
     });
   };
-
+  
   return (
+      // エラー文により表示文章を分ける
     <div className={`toast ${toast.text === "" ? "" : "isDisplay"}`}>
       <button className="deleteToastBtn" onClick={handleDelete}>
         ×
@@ -39,5 +40,3 @@ const Toast = ({
     </div>
   );
 };
-
-export default Toast;

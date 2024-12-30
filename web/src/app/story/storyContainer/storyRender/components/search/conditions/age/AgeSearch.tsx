@@ -1,6 +1,7 @@
 "use client";
 
 import { useStoryContext } from "@/app/story/StoreContext";
+import { CheckMark } from "@/public/svg/icon/mark";
 import { useRef, useState, useEffect } from "react";
 
 export const AgeSearch = () => {
@@ -14,8 +15,6 @@ export const AgeSearch = () => {
   const [currentLabel, setCurrentLabel] = useState<number | null>(null);
 
   const searchItemAgeListRef = useRef<HTMLDivElement>(null);
-
-  // const [activeIndexes, setActiveIndexes] = useState<number[]>([]);
 
   const handleSearchItemClick = () => {
     // モーダル開閉
@@ -66,29 +65,30 @@ export const AgeSearch = () => {
           const value = (i + 1) * 10;
           return (
             <span
-              className={`search_item_option ${
-                Array.isArray(age) && age.includes(value) ? "isActive" : ""
-              }`}
+              className="search_item_option"
+              // className={`search_item_option ${
+              //   Array.isArray(age) && age.includes(value) ? "isActive" : ""
+              // }`}
               key={value}
               onClick={() => {
                 handleAgeClick(value);
                 setCurrentLabel(value);
               }}
             >
+              {Array.isArray(age) && age.includes(value) && <CheckMark />}
               {value}代
             </span>
           );
         })}
         <span
-          className={`search_item_option ${
-            age.length === 0 ? "isActive" : ""
-          }`}
+          className={`search_item_option ${age.length === 0 ? "isActive" : ""}`}
           onClick={() => {
             setAge([]);
             // setActiveIndexes([]);
             setCurrentLabel(null);
           }}
         >
+          {age.length === 0 && <CheckMark />}
           選択しない
         </span>
       </div>

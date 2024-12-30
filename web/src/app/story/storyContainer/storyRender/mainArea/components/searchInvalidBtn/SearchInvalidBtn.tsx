@@ -1,11 +1,16 @@
 'use client'
 
+// react
 import { useStoryContext } from '@/app/story/StoreContext';
+// style
 import './searchInvalidBtn.scss'
-import { useEffect } from 'react';
 
 export const SearchInvalidBtn = (
 ) => {
+
+// 選択された値
+const { setCurrentPage } = useStoryContext();
+
   const { 
     setAge, 
     setGender, 
@@ -17,21 +22,23 @@ export const SearchInvalidBtn = (
   } = useStoryContext();
 
   
-  const handleClickSearchInvalidBtn = () => {
+  // 絞り込みを全てリセット
+  const handleResetFilters = () => {
     setAge([])
-    setGender('')
-    setIndustry('')
+    setGender([])
+    setIndustry([])
     setIsAllClose(true); 
     setTimeout(() => {
-        setIsAllClose(false); // 状態をリセット
+        setIsAllClose(false); 
       }, 0); 
     setIsSearchModalOpen(false)
+    setCurrentPage(1)
     }
 
   return (
     <button 
     className="search_invalid_btn"
-    onClick={handleClickSearchInvalidBtn}
+    onClick={handleResetFilters}
     >
       全てクリア
     </button>

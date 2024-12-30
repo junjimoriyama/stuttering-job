@@ -5,17 +5,22 @@
   .input_form {
     .job_struggles {
       margin-bottom: var.$for_margin_Bottom;
+
       .job_struggles_heading {
         display: flex;
         justify-content: space-between;
       }
+
       .textCount {
         display: flex;
         align-items: center;
+        justify-content: flex-end;
       }
+
       .job_struggles-textarea {
         min-height: 40px;
       }
+
       .underTextArea {
         display: flex;
         align-items: center;
@@ -32,6 +37,8 @@
               visibility: hidden;
               opacity: 0;
               transform: translateY(-50px);
+              transition: opacity 1s, transform 1s;
+
               &.isCheck {
                 animation: checkMarkDisplay 1s;
 
@@ -60,6 +67,7 @@
               }
             }
           }
+
           .textCount {
             justify-content: flex-end;
           }
@@ -67,4 +75,5 @@
       }
     }
   }
-} 
+}
+

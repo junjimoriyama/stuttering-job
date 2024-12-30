@@ -112,16 +112,22 @@
         background-color: #fff;
 
         .search_item_option {
+          position: relative;
           width: 100%;
           text-align: center;
           padding: 2px 4px;
           transition: 0.3s;
           cursor: pointer;
 
-          &.isActive {
-            color: #fff;
-            background-color: var.$main_color;
+          .check_mark {
+            position: absolute;
+            left: 5px;
           }
+
+          // &.isActive {
+          //   color: #fff;
+          //   background-color: var.$main_color;
+          // }
 
           &:hover {
             opacity: 0.8;

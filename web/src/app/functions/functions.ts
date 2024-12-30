@@ -10,19 +10,19 @@ import {
 export const storageSelectSaveData: handleSelectProps = (
   e,
   key,
-  setValue,
+  // setValue,
   setSaveData,
   timerRef
 ) => {
   const value = e.target.value;
   // useHookFormに値入れる
-  // setValue(key, value);
   setSaveData(value);
 
   if (timerRef.current) {
     clearTimeout(timerRef.current);
   }
 
+   // 250ms後にlocalStorageに値を保存
   timerRef.current = setTimeout(() => {
     localStorage.setItem(key, value);
   }, 250);
@@ -32,15 +32,13 @@ export const storageSelectSaveData: handleSelectProps = (
 export const storageTextSaveData: handleInputProps = (
   e,
   key,
-  setValue,
+  // setValue,
   setTextCount,
   timerRef,
   maxLength
 ) => {
   // 入力された値
   const value = e.target.value;
-  // useHookFormに値入れる
-  // setValue(key, value);
 
   if (value.length > maxLength) {
     e.target.blur();
@@ -52,6 +50,7 @@ export const storageTextSaveData: handleInputProps = (
     clearTimeout(timerRef.current);
   }
 
+   // 250ms後にlocalStorageに値を保存
   timerRef.current = setTimeout(() => {
     localStorage.setItem(key, value);
   }, 250);
@@ -72,7 +71,7 @@ export const storagePersonalSaveData: handleInputPersonalProps = (
   if (timerRef.current) {
     clearTimeout(timerRef.current);
   }
-
+   // 250ms後にlocalStorageに値を保存
   timerRef.current = setTimeout(() => {
     localStorage.setItem(key, value);
   }, 250);

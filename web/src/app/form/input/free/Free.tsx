@@ -1,23 +1,31 @@
-import { ChangeEvent, useEffect, useRef, useState } from "react";
-import "./free.scss";
-import { BaseFormProps, formHookProps } from "@/app/types/form";
+// react
+import { useEffect, useRef, useState } from "react";
+// type
+import { FormWithSetValueProps } from "@/app/types/form";
+// functions
 import { storageTextSaveData } from "@/app/functions/functions";
+// style
+import "./free.scss";
 
-const Free = ({ 
+export const Free = ({ 
   register, 
   errors,
   setValue
-}: formHookProps) => {
+}: FormWithSetValueProps) => {
+  
+  // 制限文字数
   const maxLength = 1000;
-
+  // 文字カウント
   const [textCount, setTextCount] = useState(maxLength);
+  
+  useEffect(() => {
+    const getStorageData = localStorage.getItem('stutter_job_free') || ""
+    setValue("free", getStorageData)
+    setTextCount(maxLength - getStorageData.length);
+  }, [])
 
+  // 遅延処理用のタイマーを保持する参照
   const timerRef = useRef<NodeJS.Timeout | null>(null)
-
-useEffect(() => {
-  const getStorageData = localStorage.getItem('stutter_job_free') || ""
-  setValue("free", getStorageData)
-}, [])
 
   return (
     <li className="free">
@@ -34,7 +42,7 @@ useEffect(() => {
           onChange: (e) => storageTextSaveData( 
             e,
             "stutter_job_free",
-            setValue,
+            // setValue,
             setTextCount,
             timerRef,
             maxLength,),
@@ -43,19 +51,6 @@ useEffect(() => {
       ></textarea>
       <div className="underTextArea">
         <div className="temporarySave">
-          {/* <button
-            className={`temporarySaveBtn ${isSave ? 'isCheck' : ''}`}
-            type="button"
-            onClick={handleSave}
-          >
-            一時保存
-          <span 
-          className={`CheckMark ${isSave ? 'isCheck' : ''}`}
-          onAnimationEnd={handleAnimationEnd}
-          >
-            <CheckMark />
-          </span>
-          </button> */}
         </div>
         <div className="textCount">
           {textCount} / {maxLength}

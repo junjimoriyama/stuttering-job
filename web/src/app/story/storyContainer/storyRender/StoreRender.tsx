@@ -14,7 +14,6 @@ const StoreRender = ({ data }: { data: any }) => {
     <StoryProvider>
       <div className="story_render">
         <Sidebar />
-        {/* <Sidebar data={data} /> */}
         <MainArea data={data} />
       </div>
     </StoryProvider>

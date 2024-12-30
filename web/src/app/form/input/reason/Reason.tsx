@@ -1,25 +1,32 @@
-"use client";
-
-import { ChangeEvent, useEffect, useRef, useState } from "react";
-import "./reason.scss";
-import { BaseFormProps, FormWithSetValueProps } from "@/app/types/form";
+// react
+import { useEffect, useRef, useState } from "react";
+// type
+import { FormWithSetValueProps } from "@/app/types/form";
+// functions
 import { storageTextSaveData } from "@/app/functions/functions";
+// style
+import "./reason.scss";
 
-const Reason = ({ 
+export const Reason = ({ 
   register, 
   errors, 
   setValue 
 }: FormWithSetValueProps) => {
+
+  // 制限文字数
   const maxLength = 1000;
+  // 文字カウント
   const [textCount, setTextCount] = useState(maxLength);
 
   useEffect(() => {
     const getStorageData = localStorage.getItem("stutter_job_reason") || "";
+    // 画面遷移から戻った時にストレージデータを反映
     setValue("reason", getStorageData);
     setTextCount(maxLength - getStorageData.length);
     console.log(textCount)
   }, []);
 
+  // 遅延処理用のタイマーを保持する参照
   const timerRef = useRef<NodeJS.Timeout | null>(null)
 
 
@@ -37,7 +44,7 @@ const Reason = ({
           onChange: (e) => storageTextSaveData(
             e, 
             "stutter_job_reason", 
-            setValue, 
+            // setValue, 
             setTextCount,
             timerRef,
             maxLength),

@@ -1,13 +1,17 @@
 "use client";
 
-import Step from "@/app/form/step/Step";
-import StepContext from "@/app/form/step/stepContext";
-import React, { useContext, useEffect } from "react";
-import "./complete.scss";
-import { useFormContext } from "react-hook-form";
+// next
 import { useRouter } from "next/navigation";
-import { Thanks } from "@/public/svg/other/other";
+// react
+import React, { useEffect, useContext } from "react";
+import { useFormContext } from "react-hook-form";
+// components
+import {Step} from "@/app/form/step/Step";
+import {StepContext} from "@/app/form/step/stepContext";
+// svg
 import { ThanksChara } from "@/public/svg/character/characterSvg";
+// style
+import "./complete.scss";
 
 const complete = () => {
   const { reset } = useFormContext();
@@ -15,6 +19,7 @@ const complete = () => {
   const router = useRouter(); 
 
   useEffect(() => {
+    // スクロールを一番上に
     window.scrollTo({
       top: 0,
       // behavior: "smooth",
@@ -44,7 +49,6 @@ const complete = () => {
     <div className="complete">
       <Step step={"complete"} setStep={setStep} />
       <div className="complete_message">
-      {/* <Thanks /> */}
       <ThanksChara />
       <div className="complete_text">
         <p>体験談のご記入</p>

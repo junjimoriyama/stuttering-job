@@ -1,24 +1,30 @@
-import { BaseFormProps, formHookProps, FormWithSetValueProps } from "@/app/types/form";
-import "./gender.scss";
-import { useEffect, useRef, useState } from "react";
+// react
+import React, { useState, useEffect, useRef } from "react";
+// type
+import { FormWithSetValueProps } from "@/app/types/form";
+// functions
 import { storageSelectSaveData } from "@/app/functions/functions";
-import { surprise_mark } from "@/public/svg/icon/mark";
+// svg
+import { SurpriseMark } from "@/public/svg/icon/mark";
+// style
+import "./gender.scss";
 
 export const Gender = ({ 
   register, 
   errors, 
   setValue 
 } : FormWithSetValueProps) => {
-  // 表示用state
+  // 選択されている値
   const [saveData, setSaveData] = useState("");
 
-  // 初期値の設定
   useEffect(() => {
     const getStorageData = localStorage.getItem("stutter_job_gender") || "";
-    setValue("gender", getStorageData); // react-hook-form にセット
-    setSaveData(getStorageData); // 表示用にセット
+    // 画面遷移から戻った時にストレージデータを反映
+    setValue("gender", getStorageData);
+    setSaveData(getStorageData);
   }, [setValue]);
 
+  // 遅延処理用のタイマーを保持する参照
   const timerRef = useRef<NodeJS.Timeout | null>(null);
 
   return (
@@ -35,7 +41,7 @@ export const Gender = ({
             storageSelectSaveData(
               e, 
               "stutter_job_gender", 
-              setValue, 
+              // setValue, 
               setSaveData, 
               timerRef),
           required: "選択は必須です",
@@ -51,7 +57,7 @@ export const Gender = ({
       </select>
       {errors.gender && typeof errors.gender.message === "string" && (
         <p className="error">
-          <surprise_mark />
+          <SurpriseMark />
           {errors.gender.message}
         </p>
       )}

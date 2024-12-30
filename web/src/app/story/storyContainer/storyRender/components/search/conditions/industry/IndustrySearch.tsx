@@ -1,4 +1,6 @@
+import { industryList } from "@/app/dataLists/industryList";
 import { useStoryContext } from "@/app/story/StoreContext";
+import { CheckMark } from "@/public/svg/icon/mark";
 import React, { useEffect, useRef, useState } from "react";
 
 export const IndustrySearch = () => {
@@ -12,27 +14,6 @@ export const IndustrySearch = () => {
   const [maxHeight, setMaxHeight] = useState<number | undefined>(0);
   // 現在のラベル表示
   const [currentLabel, setCurrentLabel] = useState<string | null>(null);
-
-  // 配列のリスト
-  const industrySearchList = [
-    "製造業",
-    "農林水産漁業",
-    "金融保険業",
-    "物流、運送",
-    "広告、マスコミ",
-    "建築",
-    "IT、ソフトウェア",
-    "不動産業",
-    "サービス業",
-    "エンターテインメント業",
-    "エネルギー、資源業",
-    "研究開発業",
-    "医療",
-    "福祉",
-    "教育、学習支援業",
-    // "公務(他に分類されないもの)",
-    "その他",
-  ];
 
   const searchItemIndustryListRef = useRef<HTMLDivElement>(null);
 
@@ -50,61 +31,63 @@ export const IndustrySearch = () => {
     } else {
       setIndustry((prev) => prev.filter((option) => option !== item));
     }
-  }
-
-    useEffect(() => {
-      if (isAllClose) {
-        setIsOpen(false);
-        setCurrentLabel(null);
-      }
-    }, [isAllClose]);
-
-    return (
-      <li className="search_item">
-        <div className="search_item_label" onClick={handleSearchItemClick}>
-          業種
-          {currentLabel && (
-            <span className="search_item_current_label">{currentLabel}</span>
-          )}
-          <div className={`search_plus_btn ${isOpen ? "isOpen" : ""}`}>
-            <span></span>
-            <span></span>
-          </div>
-        </div>
-        <div
-          className="search_item_list search_item_industry_list"
-          ref={searchItemIndustryListRef}
-          style={{ maxHeight: isOpen ? `${maxHeight}px` : "0px" }}
-        >
-          {industrySearchList.map((item, i) => {
-            const value = i + 1;
-            return (
-              <span
-                className={`search_item_option ${
-                  industry.includes(item) ? "isActive" : ""
-                }`}
-                key={value}
-                onClick={() => {
-                  handleIndustryClick(item, value);
-                  setCurrentLabel(item);
-                }}
-              >
-                {item}
-              </span>
-            );
-          })}
-          <span
-            className={`search_item_option ${
-              industry.length === 0 ? "isActive" : ""
-            }`}
-            onClick={() => {
-              setIndustry([]);
-              setCurrentLabel(null);
-            }}
-          >
-            選択しない
-          </span>
-        </div>
-      </li>
-    );
   };
+
+  useEffect(() => {
+    if (isAllClose) {
+      setIsOpen(false);
+      setCurrentLabel(null);
+    }
+  }, [isAllClose]);
+
+  return (
+    <li className="search_item">
+      <div className="search_item_label" onClick={handleSearchItemClick}>
+        業種
+        {currentLabel && (
+          <span className="search_item_current_label">{currentLabel}</span>
+        )}
+        <div className={`search_plus_btn ${isOpen ? "isOpen" : ""}`}>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+      <div
+        className="search_item_list search_item_industry_list"
+        ref={searchItemIndustryListRef}
+        style={{ maxHeight: isOpen ? `${maxHeight}px` : "0px" }}
+      >
+        {industryList.map((item, i) => {
+          const value = i + 1;
+          return (
+            <span
+              className="search_item_option"
+              key={value}
+              onClick={() => {
+                handleIndustryClick(item.label, value);
+                setCurrentLabel(item.label);
+              }}
+            >
+              {Array.isArray(industry) && industry.includes(item.label) && (
+                <CheckMark />
+              )}
+              {item.label}
+            </span>
+          );
+        })}
+        <span
+          className={`search_item_option ${
+            industry.length === 0 ? "isActive" : ""
+          }`}
+          onClick={() => {
+            setIndustry([]);
+            setCurrentLabel(null);
+          }}
+        >
+          {industry.length === 0 && <CheckMark />}
+          選択しない
+        </span>
+      </div>
+    </li>
+  );
+};

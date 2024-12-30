@@ -4,19 +4,19 @@
 
 .toast {
   position: fixed;
+  top: var.$header_Height;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+  display: none;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  top: var.$header_Height;
-  left: 50%;
   width: 250px;
-  transform: translateX(-50%);
   height: 150px;
   background-color: #ffffff;
   border: 3px solid #feacb9;
   border-radius: 5px;
-  display: none;
-  z-index: 10;
 
   &.isDisplay {
     display: flex;
@@ -30,6 +30,7 @@
 
   .toastBox {
     display: none;
+
     &.isDisplay {
       display: flex;
       flex-direction: column;
@@ -39,9 +40,10 @@
   }
 
   .toast_text {
-    margin-bottom: 10px; /* 各段落の下に10pxの間隔を設定 */
+    margin-bottom: 10px;
+
     &:last-child {
-      margin-bottom: 0; /* 最後の段落には余分なスペースを作らない */
+      margin-bottom: 0;
     }
   }
 }

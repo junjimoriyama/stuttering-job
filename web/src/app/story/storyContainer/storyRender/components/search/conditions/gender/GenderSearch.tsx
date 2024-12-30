@@ -1,28 +1,28 @@
 import { useStoryContext } from "@/app/story/StoreContext";
+import { CheckMark } from "@/public/svg/icon/mark";
 import React, { useEffect, useRef, useState } from "react";
 
 export const GenderSearch = () => {
   // useContext管理の状態
-  const { gender, setGender, isAllClose} = useStoryContext()
-   // アコーディン開閉
+  const { gender, setGender, isAllClose } = useStoryContext();
+  // アコーディン開閉
   const [isOpen, setIsOpen] = useState(false);
-   // 選択されている場所
+  // 選択されている場所
   // const [activeIndex, setActiveIndex] = useState(0);
   // アコーディオンの高さ
   const [maxHeight, setMaxHeight] = useState<number | undefined>(0);
   // 現在のラベル表示
-  const [ currentLabel, setCurrentLabel  ] = useState<string | null>(null)
-
+  const [currentLabel, setCurrentLabel] = useState<string | null>(null);
 
   const searchItemGenderListRef = useRef<HTMLDivElement>(null);
 
   // 配列のリスト
   const genderSearchList = [
     "男性",
-    "女性", 
-    "どちらでもない", 
+    "女性",
+    "どちらでもない",
     // "無回答"
-  ]
+  ];
   const handleSearchItemClick = () => {
     // モーダル開閉
     setIsOpen(!isOpen);
@@ -30,41 +30,31 @@ export const GenderSearch = () => {
     setMaxHeight(searchItemGenderListRef.current?.scrollHeight);
   };
 
-
   const handleGenderClick = (item: string, value: number) => {
     // 絞り込み
-    if(!gender.includes(item)) {
-      setGender(prev => 
-      [...prev, item]
-      );
+    if (!gender.includes(item)) {
+      setGender((prev) => [...prev, item]);
     } else {
-      setGender(prev => 
-        prev.filter(option => option !== item)
-      )
+      setGender((prev) => prev.filter((option) => option !== item));
     }
     // 選択した場所に色つける
   };
 
-
-    // 全てクリアボタン押されたらアコーディオン閉じ、選択をクリアに戻す
-    useEffect(() => {
-      if (isAllClose) {
-        setIsOpen(false)
-        setCurrentLabel(null)
-      }
-    }, [isAllClose]);
-  
+  // 全てクリアボタン押されたらアコーディオン閉じ、選択をクリアに戻す
+  useEffect(() => {
+    if (isAllClose) {
+      setIsOpen(false);
+      setCurrentLabel(null);
+    }
+  }, [isAllClose]);
 
   return (
-    <li
-      className="search_item"
-    >
+    <li className="search_item">
       <div className="search_item_label" onClick={handleSearchItemClick}>
         性別
-        {currentLabel &&
-        <span 
-        className="search_item_current_label">{currentLabel}</span>
-        }
+        {currentLabel && (
+          <span className="search_item_current_label">{currentLabel}</span>
+        )}
         <div className={`search_plus_btn ${isOpen ? "isOpen" : ""}`}>
           <span></span>
           <span></span>
@@ -76,21 +66,20 @@ export const GenderSearch = () => {
         style={{ maxHeight: isOpen ? `${maxHeight}px` : "0px" }}
       >
         {genderSearchList.map((item, i) => {
-          const value = (i + 1)
+          const value = i + 1;
           return (
-          <span
-          className={`search_item_option ${
-            gender.includes(item) ? "isActive" : ""
-          }`}
-          key={value}
-          onClick={() => {
-            handleGenderClick(item, value)
-            setCurrentLabel(item)
-          }}
-          >
-            {item}
-          </span>
-          )
+            <span
+              className="search_item_option"
+              key={value}
+              onClick={() => {
+                handleGenderClick(item, value);
+                setCurrentLabel(item);
+              }}
+            >
+              {Array.isArray(gender) && gender.includes(item) && <CheckMark />}
+              {item}
+            </span>
+          );
         })}
         <span
           className={`search_item_option ${
@@ -98,9 +87,10 @@ export const GenderSearch = () => {
           }`}
           onClick={() => {
             setGender([]);
-            setCurrentLabel(null)
+            setCurrentLabel(null);
           }}
         >
+          {gender.length === 0 && <CheckMark />}
           選択しない
         </span>
       </div>
@@ -122,14 +112,13 @@ export const GenderSearch = () => {
 //   // 現在のラベル表示
 //   const [ currentLabel, setCurrentLabel  ] = useState<string | null>(null)
 
-
 //   const searchItemGenderListRef = useRef<HTMLDivElement>(null);
 
 //   // 配列のリスト
 //   const genderSearchList = [
 //     "男性",
-//     "女性", 
-//     "どちらでもない", 
+//     "女性",
+//     "どちらでもない",
 //     // "無回答"
 //   ]
 //   const handleSearchItemClick = () => {
@@ -139,14 +128,12 @@ export const GenderSearch = () => {
 //     setMaxHeight(searchItemGenderListRef.current?.scrollHeight);
 //   };
 
-
 //   const handleGenderClick = (item: string, value: number) => {
 //     // 絞り込み
 //     setGender(item);
 //     // 選択した場所に色つける
 //     setActiveIndex(value);
 //   };
-
 
 //     // 全てクリアボタン押されたらアコーディオン閉じ、選択をクリアに戻す
 //     useEffect(() => {
@@ -156,7 +143,6 @@ export const GenderSearch = () => {
 //         setCurrentLabel(null)
 //       }
 //     }, [isAllClose]);
-  
 
 //   return (
 //     <li
@@ -165,7 +151,7 @@ export const GenderSearch = () => {
 //       <div className="search_item_label" onClick={handleSearchItemClick}>
 //         性別
 //         {currentLabel &&
-//         <span 
+//         <span
 //         className="search_item_current_label">{currentLabel}</span>
 //         }
 //         <div className={`search_plus_btn ${isOpen ? "isOpen" : ""}`}>

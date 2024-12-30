@@ -32,7 +32,7 @@ const storyContext = createContext<{
   setIsSearchModalOpen: () => {},
   isAllClose: false,
   setIsAllClose: () => {},
-  isAllAccordionOpen: false,
+  isAllAccordionOpen: true,
   setIsAllAccordionOpen: () => {},
   isAccordionOpenArray: [],
   setIsAccordionOpenArray: () => {},

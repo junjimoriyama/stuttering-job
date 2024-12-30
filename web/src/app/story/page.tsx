@@ -10,7 +10,7 @@ const story = () => {
       <Header/>
       <StoryContainer />
       {/* <Footer/> */}
-      
+      <Footer />
       </div>
   )
 }

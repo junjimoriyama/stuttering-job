@@ -249,8 +249,14 @@
 
         .home_about_look_heading {
           align-self: center;
-          font-size: 24px;
+          font-size: 20px;
           color: var.$main_color;
+
+          .link_look_btn {
+            @include mixin.actionBtn(var.$main_color);
+            padding: 5px 10px; 
+            width: 100px;
+          }
         }
         .home_about_look_Content {
           font-size: 18px;
@@ -402,8 +408,14 @@
         }
         .home_about_write_heading {
           align-self: center;
-          font-size: 24px;
+          font-size: 20px;
           color: var.$main_color;
+
+          .link_write_btn {
+            @include mixin.actionBtn(var.$main_color);
+            padding: 5px 10px; 
+            width: 100px;
+          }
         }
         .home_about_write_Content {
           font-size: 18px;

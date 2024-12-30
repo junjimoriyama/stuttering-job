@@ -151,7 +151,7 @@
   }
 
   .confirm_step_button {
-    @include mixin.formActionBtn(var.$form_btn_color);
+    @include mixin.actionBtn(var.$form_btn_color);
     width: 100%;
   }
 }

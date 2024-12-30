@@ -6,6 +6,7 @@ import { MainArea } from "./mainArea/MainArea";
 
 import './storyRender.scss'
 import { StoryProvider, useStoryContext } from "../../StoreContext";
+import Footer from "@/app/components/footer/Footer";
 
 
 const StoreRender = ({ data }: { data: any }) => {
@@ -17,6 +18,7 @@ const StoreRender = ({ data }: { data: any }) => {
         <MainArea data={data} />
       </div>
     </StoryProvider>
+    
   );
 };
 

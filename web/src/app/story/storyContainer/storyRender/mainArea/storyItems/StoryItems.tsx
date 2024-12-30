@@ -6,8 +6,12 @@ import { useStoryContext } from "@/app/story/StoreContext";
 // components
 import { StoryAccordion } from "./storyAccordion/StoryAccordion";
 import {Pagination} from "../components/pagination/Pagination";
+import { ToggleAllStoryBtn } from "../components/toggleAllStoryBtn/ToggleAllStoryBtn";
 
-export const StoryItems = ({ data }: { data: any }) => {
+// style
+import './storyItems.scss'
+
+export const StoryItems = ({ data }: { data: [] }) => {
   // 選択された値
   const { age, gender, industry, currentPage, setCurrentPage } = useStoryContext();
 
@@ -29,9 +33,6 @@ export const StoryItems = ({ data }: { data: any }) => {
 
   // 合計のページ数
   const [totalPage, setTotalPage] = useState<number | null>(null);
-
-  // 現在のページ
-  // const [currentPage, setCurrentPage] = useState(1);
 
   useEffect(() => {
     setTotalPage(Math.ceil(displayData.length / displayNumber));
@@ -58,6 +59,7 @@ export const StoryItems = ({ data }: { data: any }) => {
       {/* 表示するデータ */}
       {displayData && displayData.length > 0 ? (
         <>
+        <ToggleAllStoryBtn/>
           {displayData.slice(startPage, endPage).map((item: any, i: number) => {
             const value = i
             return (
@@ -72,7 +74,7 @@ export const StoryItems = ({ data }: { data: any }) => {
           />
         </>
       ) : (
-        <p>条件に合う投稿はありません</p>
+        <p className="notItem">条件に合う投稿はありません</p>
       )}
     </div>
   );

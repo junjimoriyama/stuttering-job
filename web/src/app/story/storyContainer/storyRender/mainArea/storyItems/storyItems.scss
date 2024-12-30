@@ -1,10 +1,15 @@
 .storyItems {
- margin-bottom: 30px;
-  .story_lists {
-    .accordion {
-      .story_item_contents {
-        display: none;
-      }
-    }
-  }
+//  margin-bottom: 30px;
+ .notItem {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+ }
+  // .story_lists {
+  //   .accordion {
+  //     .story_item_contents {
+  //       display: none;
+  //     }
+  //   }
+  // }
 }

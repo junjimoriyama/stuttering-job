@@ -31,9 +31,8 @@ export const InputModal = ({
               <div className="inner">対象者について</div>
             </div>
             <p className="text">
-              現在お仕事されている吃音ある方、過去にお仕事されていた吃音ある方
+              現在お仕事されている吃音ある方、過去にお仕事されていた吃音ある方（学生アルバイトの方も対象です。）
             </p>
-            <p className="text">（学生アルバイトの方も対象です。）</p>
           </div>
 
           <div className="stitch"></div>

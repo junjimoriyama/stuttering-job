@@ -31,7 +31,7 @@ const { setCurrentPage } = useStoryContext();
     setTimeout(() => {
         setIsAllClose(false); 
       }, 0); 
-    setIsSearchModalOpen(false)
+    // setIsSearchModalOpen(false)
     setCurrentPage(1)
     }
 

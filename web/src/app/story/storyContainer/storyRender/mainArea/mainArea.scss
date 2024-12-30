@@ -3,10 +3,15 @@
 @use "@/app/style/variable.scss" as var;
 
 .main_area {
+  position: relative;
   flex: 1;
   max-width: 900px;
   min-height: 100%;
   padding: 30px 10px;
+
+  @include bp.media(sm, max) {
+    padding: 0px 10px;
+  }
   .main_heading {
     display: flex;
     justify-content: center;
@@ -27,7 +32,8 @@
   }
 
   .modalSearchBtn {
-    position: fixed;
+    position: sticky;
+    margin-left: auto; /* 右寄せ */
     right: 10px;
     bottom: 10px;
     display: grid;

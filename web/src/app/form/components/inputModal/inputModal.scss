@@ -37,7 +37,7 @@
   .input_modal_body {
     position: relative;
     height: 100%;
-    padding: 20px;
+    padding: 20px 0;
     overflow: scroll;
     overscroll-behavior: contain;
     z-index: 2;
@@ -54,6 +54,7 @@
       margin: 0 auto;
       display: flex;
       flex-direction: column;
+      justify-content: center;
       gap: 20px;
       width: 50%;
       padding: 56px 20px 20px 20px;
@@ -72,36 +73,44 @@
       @include bp.media(xxs, max) {
         width: 95%;
       }
+      .inputModalItem {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
 
-      .heading {
-        position: relative;
-        display: grid;
-        place-items: center;
-        background-color: var.$main_color;
-        color: #fff;
-        padding: 8px;
-        border-radius: 5px;
-        margin-bottom: 16px;
-        width: 250px;
-
-        &::after {
-          content: "";
-          position: absolute;
-          bottom: -10px;
-          left: 50%;
-          transform: translateX(-50%);
-          border-width: 10px;
-          border-style: solid;
-          border-color: transparent transparent transparent var.$main_color;
+        .heading {
+          position: relative;
+          display: grid;
+          place-items: center;
+          text-align: center;
+          background-color: var.$main_color;
+          color: #fff;
+          padding: 8px;
+          border-radius: 5px;
+          margin-bottom: 16px;
+          width: 250px;
+  
+          &::after {
+            content: "";
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-width: 10px;
+            border-style: solid;
+            border-color: transparent transparent transparent var.$main_color;
+          }
         }
+  
       }
-
       .stitch {
         width: 100%;
         margin-bottom: 10px;
         border: 2px solid var.$sub_color;
         border-radius: 3px;
       }
+
     }
   }
 }

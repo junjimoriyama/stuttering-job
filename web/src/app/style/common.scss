@@ -26,11 +26,11 @@
   font-size: 12px;
 }
 
-@mixin formActionBtn($color) {
+@mixin actionBtn($color) {
   display: grid;
   place-items: center;
-  padding: 12px;
-  margin-bottom: 30px;
+  // padding: 12px;
+  // margin-bottom: 30px;
   background-color: $color;
   border-radius: 3px;
   box-shadow: #fff 0px 3px 0 0, $color 0px 7px 0 0px;

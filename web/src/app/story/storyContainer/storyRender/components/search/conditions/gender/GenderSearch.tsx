@@ -52,9 +52,9 @@ export const GenderSearch = () => {
     <li className="search_item">
       <div className="search_item_label" onClick={handleSearchItemClick}>
         性別
-        {currentLabel && (
+        {/* {currentLabel && (
           <span className="search_item_current_label">{currentLabel}</span>
-        )}
+        )} */}
         <div className={`search_plus_btn ${isOpen ? "isOpen" : ""}`}>
           <span></span>
           <span></span>

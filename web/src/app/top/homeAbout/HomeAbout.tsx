@@ -1,16 +1,22 @@
 "use client";
 
-// import HomeAboutChara from '@/public/svg/character/characterSvg'
-import "./homeAbout.scss";
-import { useEffect, useRef, useState } from "react";
+// react
+import { useState, useRef } from "react";
+// functions
 import useIntersectionObserver from "@/app/functions/functions";
+// svg
 import {
   HomeAboutChara,
   LookChara,
   WriteChara,
 } from "@/public/svg/character/characterSvg";
+// style
+import "./homeAbout.scss";
+import { useRouter } from "next/navigation";
 
 const HomeAbout = () => {
+  // useRouter
+  const router = useRouter()
   // 説明
   const homeAboutRef = useRef<HTMLDivElement>(null);
   const homeAboutTextRef = useRef<HTMLDivElement>(null);
@@ -122,7 +128,15 @@ const HomeAbout = () => {
             }`}
             ref={homeAboutLookBubbleRef}
           >
-            <div className="home_about_look_heading">「見る」</div>
+            <div 
+            className="home_about_look_heading">
+              <div 
+              className="link_look_btn"
+              onClick={() => router.push('/form/input')}
+              >
+            見る
+              </div>
+            </div>
             <div className="home_about_look_Content">
               うまく話せずに苦労したことや日々の工夫など、さまざまな人の体験談を見ることができます。年代、性別や業種などを通じて仕事に対するイメージにつながれば嬉しいです。
             </div>
@@ -141,7 +155,14 @@ const HomeAbout = () => {
             }`}
             ref={homeAboutWriteBubbleRef}
           >
-            <div className="home_about_write_heading">「書く」</div>
+            <div className="home_about_write_heading">
+              <div 
+              className="link_write_btn"
+              onClick={() => router.push('/story')}
+              >
+              書く
+              </div>
+              </div>
             <div className="home_about_write_Content">
               自身の体験投稿にご協力お願いいたします。一つひとつの貴重な投稿が、同じ悩みがある誰かにとって新たな気づきや安心感につながるかもしれません。
             </div>

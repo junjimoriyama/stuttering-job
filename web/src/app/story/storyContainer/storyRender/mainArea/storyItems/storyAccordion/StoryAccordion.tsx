@@ -1,12 +1,13 @@
 import React, { useEffect, useRef, useState } from "react";
 import "./storyAccordion.scss";
 import { useStoryContext } from "@/app/story/StoreContext";
+import { allDataType } from "@/app/types/story";
 
 export const StoryAccordion = ({
   data,
   index,
 }: {
-  data: any;
+  data: allDataType
   index: number;
 }) => {
   const {
@@ -15,8 +16,6 @@ export const StoryAccordion = ({
     isAccordionOpenArray,
     setIsAccordionOpenArray,
   } = useStoryContext();
-
-  // const [isAccordionOpen, setIsAccordionOpen] = useState([]);
 
   // アコーディンの縦幅
   const [maxHeight, setMaxHeight] = useState<number | undefined>(0);

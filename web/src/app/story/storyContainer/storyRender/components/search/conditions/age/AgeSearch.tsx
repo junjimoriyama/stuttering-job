@@ -48,9 +48,9 @@ export const AgeSearch = () => {
     <li className="search_item">
       <div className="search_item_label" onClick={handleSearchItemClick}>
         年代
-        {currentLabel && (
+        {/* {currentLabel && (
           <span className="search_item_current_label">{currentLabel}代</span>
-        )}
+        )} */}
         <div className={`search_plus_btn ${isOpen ? "isOpen" : ""}`}>
           <span></span>
           <span></span>

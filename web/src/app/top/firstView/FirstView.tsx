@@ -1,5 +1,7 @@
-import "./firstView.scss";
+// svg
 import { MainLogo } from "@/public/svg/logo/logoSvg";
+// style
+import "./firstView.scss";
 
 const FirstView = () => {
   return (

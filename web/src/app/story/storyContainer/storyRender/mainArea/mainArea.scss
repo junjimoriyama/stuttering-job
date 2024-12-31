@@ -18,18 +18,18 @@
     margin-bottom: 20px;
     font-size: 24px;
   }
-  .storyItems {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    .story_lists {
-      .accordion {
-        .story_item_contents {
-          display: none;
-        }
-      }
-    }
-  }
+  // .storyItems {
+  //   display: flex;
+  //   flex-direction: column;
+  //   gap: 20px;
+  //   .story_lists {
+  //     .accordion {
+  //       .story_item_contents {
+  //         display: none;
+  //       }
+  //     }
+  //   }
+  // }
 
   .modalSearchBtn {
     position: sticky;

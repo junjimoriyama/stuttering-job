@@ -29,7 +29,7 @@ export const StoryItems = ({ data }: { data: [] }) => {
         
 
   // データの量
-  const displayNumber = 5;
+  const displayNumber = 10;
 
   // 合計のページ数
   const [totalPage, setTotalPage] = useState<number | null>(null);
@@ -59,19 +59,21 @@ export const StoryItems = ({ data }: { data: [] }) => {
       {/* 表示するデータ */}
       {displayData && displayData.length > 0 ? (
         <>
+        <div className="story_controls">
+        <Pagination
+          totalPage={totalPage}
+          currentPage={currentPage}
+          setCurrentPage={setCurrentPage}
+          onPageChange={(page) => setCurrentPage(page)}
+        />
         <ToggleAllStoryBtn/>
+        </div>
           {displayData.slice(startPage, endPage).map((item: any, i: number) => {
             const value = i
             return (
               <StoryAccordion key={i} data={item} index={value} />
             );
           })}
-          <Pagination
-            totalPage={totalPage}
-            currentPage={currentPage}
-            setCurrentPage={setCurrentPage}
-            onPageChange={(page) => setCurrentPage(page)}
-          />
         </>
       ) : (
         <p className="notItem">条件に合う投稿はありません</p>

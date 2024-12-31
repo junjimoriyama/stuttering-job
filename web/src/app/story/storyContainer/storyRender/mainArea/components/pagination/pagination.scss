@@ -13,8 +13,6 @@ $page_each_width: 30px;
   .pagination_controls {
     display: flex;
     cursor: pointer;
-    // flex-direction: column;
-    // gap: 10px;
     .page_prev_btn,.page_number , .page_next_btn {
       display: flex;
       justify-content: center;

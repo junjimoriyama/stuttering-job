@@ -1,15 +1,27 @@
+@use "@/app/style/breakpoint.scss" as bp;
+@use "@/app/style/common.scss" as mixin;
+@use "@/app/style/variable.scss" as var;
+
 .storyItems {
-//  margin-bottom: 30px;
- .notItem {
   display: flex;
-  align-items: center;
-  justify-content: center;
- }
-  // .story_lists {
-  //   .accordion {
-  //     .story_item_contents {
-  //       display: none;
-  //     }
-  //   }
-  // }
+  flex-direction: column;
+  gap: 40px;
+  margin-bottom: 10px;
+
+  .story_controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    @include bp.media(xxs, max) {
+      justify-content: space-between;
+    }
+
+  }
+  .notItem {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 50px 0;
+  }
 }

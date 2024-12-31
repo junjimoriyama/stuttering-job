@@ -7,7 +7,7 @@ export const StoryAccordion = ({
   data,
   index,
 }: {
-  data: allDataType
+  data: allDataType;
   index: number;
 }) => {
   const {
@@ -28,27 +28,27 @@ export const StoryAccordion = ({
       // 現在の状態を保存
       const updated = [...prev];
       // 変更箇所を反映
-      updated[index] = !updated[index]
+      updated[index] = !updated[index];
       // 変更された値を返す
-      return updated
-    })
+      return updated;
+    });
     // isAccordionOpenArrayの中でtrueのものだけ
-    setMaxHeight(accordionContentRef.current?.scrollHeight || 0)
+    setMaxHeight(accordionContentRef.current?.scrollHeight || 0);
   };
 
   useEffect(() => {
     setIsAccordionOpenArray((prev: boolean[]) => {
-       // 現在の状態を保存
-      const updated = [...prev]
+      // 現在の状態を保存
+      const updated = [...prev];
       // 該当のアコーディオンの開閉状態を全体の開閉状態に合わせる
-      updated[index] = isAllAccordionOpen
-      return updated
-    })
+      updated[index] = isAllAccordionOpen;
+      return updated;
+    });
 
     setMaxHeight(
       // 全体がtrueであればアコーディオン広げる
       isAllAccordionOpen ? accordionContentRef.current?.scrollHeight || 0 : 0
-    )
+    );
   }, [isAllAccordionOpen, index]);
 
   return (
@@ -73,7 +73,9 @@ export const StoryAccordion = ({
           </li>
         </ul>
         <button
-          className={`accordion_btn ${isAccordionOpenArray[index] ? "isOpen" : ""}
+          className={`accordion_btn ${
+            isAccordionOpenArray[index] ? "isOpen" : ""
+          }
               ? "isOpen"
               : ""
           }`}
@@ -81,9 +83,6 @@ export const StoryAccordion = ({
           <div
             className={`accordion_plus_btn ${
               isAccordionOpenArray[index] ? "isOpen" : ""
-            }
-                ? "isOpen"
-                : ""
             }`}
           >
             <span></span>

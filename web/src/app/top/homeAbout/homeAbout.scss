@@ -217,8 +217,7 @@
         flex-direction: column;
         width: 500px;
         gap: 20px;
-        // background-color: rgba(26, 44, 91, 0.2);
-        background-color: #dfe6f4;
+        background-color: var.$story_bubble_color;
         border-radius: 10px;
         padding: 10px;
         visibility: hidden;
@@ -368,16 +367,14 @@
         margin-bottom: 50px;
         font-size: 16px;
         gap: 0px;
-      }
-
+      };
       .home_about_write_bubble {
         position: relative;
         display: flex;
         flex-direction: column;
         width: 500px;
         gap: 20px;
-        background-color: #dfe6f4;
-        // background-color: rgba(26, 44, 91, 0.2);
+        background-color: var.$story_bubble_color;
         border-radius: 10px;
         padding: 10px;
         visibility: hidden;

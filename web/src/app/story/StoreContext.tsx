@@ -49,7 +49,7 @@ export const StoryProvider = ({ children }: { children: React.ReactNode }) => {
   const [isAccordionOpenArray, setIsAccordionOpenArray] = useState<boolean[]>([]);
 
   // アコーディン開閉
-  const [isAllAccordionOpen, setIsAllAccordionOpen] = useState(false);
+  const [isAllAccordionOpen, setIsAllAccordionOpen] = useState(true);
 
   // モーダル開閉
   const [isSearchModalOpen, setIsSearchModalOpen] = useState(false);

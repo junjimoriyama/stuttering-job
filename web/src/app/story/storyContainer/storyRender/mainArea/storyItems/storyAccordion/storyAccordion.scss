@@ -11,6 +11,7 @@ $accordion_border_thickness: 3px;
 .accordion {
   width: 100%;
   padding: 0 10px;
+
   .accordion_header {
     position: relative;
     display: flex;
@@ -18,8 +19,21 @@ $accordion_border_thickness: 3px;
     height: $accordion_header_height;
     gap: 20px;
     padding: 16px;
-    border: $accordion_border_thickness solid #333;
+    // border: $accordion_border_thickness solid #333;
+    border-radius: 10px 10px 10px 10px;
+    background-color: var.$story_bubble_color;
     cursor: pointer;
+
+     &::after {
+      content: "";
+      position: absolute;
+      bottom: -6px;
+      left: 10%;
+      transform: rotate(-135deg) translateX(-50%);
+      border-width: 20px;
+      border-style: solid;
+      border-color: transparent transparent transparent var.$story_bubble_color;
+    }
 
     @include bp.media(sm, max) {
       height: auto;
@@ -99,43 +113,34 @@ $accordion_border_thickness: 3px;
     .accordion_btn {
       position: absolute;
       top: 50%;
-      right: 0px;
+      right: 5px;
       transform: translateY(-50%);
       width: 50px;
       height: calc(
-        $accordion_header_height - $accordion_border_thickness - 2px
+        $accordion_header_height - 10px
       );
-      background-color: var.$main_color;
+      background-color: #fff;
+      border-radius: 10px;
       transition: 0.3s;
       &.isOpen {
-        background-color: var.$sub_color;
+        background-color: var.$main_color;
       }
 
       @include bp.media(sm, max) {
-        position: absolute;
-        top: 0;
-        right: 0;
-        transform: translateY(0%);
-        height: 100%;
-        width: 100px;
+        height: calc(
+        $accordion_header_height - 15px
+      );
       }
-      @include bp.media(xxs, max) {
-        width: 50px;
+      @include bp.media(xs, max) {
+        height: calc(
+          100% - 10px
+        );
       }
       @include bp.media(xxxs, max) {
+        top: 30px;
         height: 50px;
       }
 
-      .accordion_minus_btn,
-      .accordion_plus_btn {
-        span {
-          position: absolute;
-          display: inline-block;
-          width: $accordion_btn_width;
-          height: 2px;
-          background-color: #fff;
-        }
-      }
       .accordion_plus_btn {
         position: relative;
         display: flex;
@@ -144,33 +149,66 @@ $accordion_border_thickness: 3px;
         width: 100%;
         height: 100%;
         transition: transform 0.3s;
+      
         span {
+          position: absolute;
+          display: inline-block;
+          width: $accordion_btn_width; // ボタンの幅に合わせた変数
+          height: 2px; // 線の太さ
+          background-color: var.$main_color;
+          transition: .3s;
+      
           &:first-of-type {
             transform: rotate(0deg); // 横線
           }
+      
           &:nth-of-type(2) {
             transform: rotate(90deg); // 縦線
           }
         }
+      
         &.isOpen {
-          transform: rotate(315deg);
+          span {
+            &:first-of-type {
+              transform: rotate(315deg); // バツの右上線
+              background-color: #fff;
+            }
+            &:nth-of-type(2) {
+              transform: rotate(405deg); // バツの左上線
+              background-color: #fff;
+            }
+          }
         }
       }
+      
     }
   }
   .accordion_content {
-    // padding: 16px;
-    border: $accordion_border_thickness solid #333;
-    border-top: none;
-    padding: 0;
-    max-height: 0;
+    position: relative;
     overflow: hidden;
+    max-height: 0;
+    padding: 0;
+    // border: $accordion_border_thickness solid #333;
+    background-color: #fbfbfb;
+    border-top: none;
+    border-bottom: none;
     transition: max-height 0.5s ease;
-    // min-width: 500px;
+    border-radius: 0 0 10px 10px;
     &.isOpen {
-      // padding: 10px;
-      // padding: 0;
+      // border-bottom: $accordion_border_thickness solid #333;
     }
+
+    // &::after {
+    //   content: "";
+    //   position: absolute;
+    //   bottom: -6px;
+    //   left: 20%;
+    //   transform: rotate(-135deg) translateX(-50%);
+    //   border-width: 20px;
+    //   border-style: solid;
+    //   border-color: transparent transparent transparent #a3c1fe;
+    // }
+
     .accordion_stories {
       display: flex;
       flex-direction: column;
@@ -179,7 +217,7 @@ $accordion_border_thickness: 3px;
         display: flex;
         flex-direction: column;
         // align-items: center;
-        padding: 8px;
+        padding: 16px 8px;
         gap: 5px;
         .accordion_story_label {
           background-color: var.$story_subject_color;

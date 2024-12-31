@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import { Sidebar } from "./sidebar/Sidebar";
 import { MainArea } from "./mainArea/MainArea";
 
@@ -10,6 +10,8 @@ import Footer from "@/app/components/footer/Footer";
 
 
 const StoreRender = ({ data }: { data: any }) => {
+
+  // const [clientData, setClientData] = useState(data);
 
   return (
     <StoryProvider>

@@ -99,7 +99,7 @@ export const StoryAccordion = ({
           maxHeight: isAccordionOpenArray[index] ? `${maxHeight}px` : "0px",
         }}
       >
-        <ul className="accordion_stories">
+        {/* <ul className="accordion_stories">
           <li className="accordion_story_item">
             <span className="accordion_story_label">ニックネーム</span>
             <span className="accordion_story_value">{data.username}</span>
@@ -192,43 +192,67 @@ export const StoryAccordion = ({
               {new Date(data.created_at).toLocaleDateString("ja-JP")}
             </span>
           </li>
-        </ul>
+        </ul> */}
       </div>
     </div>
   );
 };
 
-// export default StoryAccordion;
+
+
 
 // import React, { useEffect, useRef, useState } from "react";
 // import "./storyAccordion.scss";
 // import { useStoryContext } from "@/app/story/StoreContext";
+// import { allDataType } from "@/app/types/story";
 
-// const StoryAccordion = ({ data, totalAccordions}: { data: any, totalAccordions: number }) => {
-//   const { isAllAccordionOpen, setIsAllAccordionOpen } = useStoryContext();
+// export const StoryAccordion = ({
+//   data,
+//   index,
+// }: {
+//   data: allDataType;
+//   index: number;
+// }) => {
+//   const {
+//     isAllAccordionOpen,
+//     setIsAllAccordionOpen,
+//     isAccordionOpenArray,
+//     setIsAccordionOpenArray,
+//   } = useStoryContext();
 
-//   const [isAccordionOpen, setIsAccordionOpen] = useState(false);
+//   // アコーディンの縦幅
 //   const [maxHeight, setMaxHeight] = useState<number | undefined>(0);
 
 //   const accordionContentRef = useRef<HTMLDivElement>(null);
 
 //   // 各アコーディオンクリックしたら
 //   const handleAccordionBtnClick = () => {
-//     // アコーディオン開閉の状態を変更
-//     setIsAccordionOpen(!isAccordionOpen);
-//      // trueであれば個別で開き、falseであれば個別で閉じる
+//     setIsAccordionOpenArray((prev: boolean[]) => {
+//       // 現在の状態を保存
+//       const updated = [...prev];
+//       // 変更箇所を反映
+//       updated[index] = !updated[index];
+//       // 変更された値を返す
+//       return updated;
+//     });
+//     // isAccordionOpenArrayの中でtrueのものだけ
 //     setMaxHeight(accordionContentRef.current?.scrollHeight || 0);
 //   };
 
 //   useEffect(() => {
-//     // 全てのアコーディオンの状態をセット
-//     setIsAccordionOpen(isAllAccordionOpen);
-//     // trueであれば全て開き、falseであれば全て閉じる
+//     setIsAccordionOpenArray((prev: boolean[]) => {
+//       // 現在の状態を保存
+//       const updated = [...prev];
+//       // 該当のアコーディオンの開閉状態を全体の開閉状態に合わせる
+//       updated[index] = isAllAccordionOpen;
+//       return updated;
+//     });
+
 //     setMaxHeight(
+//       // 全体がtrueであればアコーディオン広げる
 //       isAllAccordionOpen ? accordionContentRef.current?.scrollHeight || 0 : 0
 //     );
-
-//   }, [isAllAccordionOpen]);
+//   }, [isAllAccordionOpen, index]);
 
 //   return (
 //     <div className="accordion">
@@ -253,16 +277,15 @@ export const StoryAccordion = ({
 //         </ul>
 //         <button
 //           className={`accordion_btn ${
-//             isAccordionOpen || (isAccordionOpen && isAllAccordionOpen)
+//             isAccordionOpenArray[index] ? "isOpen" : ""
+//           }
 //               ? "isOpen"
 //               : ""
 //           }`}
 //         >
 //           <div
 //             className={`accordion_plus_btn ${
-//               isAccordionOpen || (isAccordionOpen && isAllAccordionOpen)
-//                 ? "isOpen"
-//                 : ""
+//               isAccordionOpenArray[index] ? "isOpen" : ""
 //             }`}
 //           >
 //             <span></span>
@@ -272,18 +295,11 @@ export const StoryAccordion = ({
 //       </div>
 //       <div
 //         className={`accordion_content ${
-//           isAccordionOpen || (isAccordionOpen && isAllAccordionOpen)
-//             ? "isOpen"
-//             : ""
+//           isAccordionOpenArray[index] ? "isOpen" : ""
 //         }`}
 //         ref={accordionContentRef}
 //         style={{
-//           maxHeight:
-//             isAccordionOpen
-//             ||
-//             (isAccordionOpen && isAllAccordionOpen)
-//               ? `${maxHeight}px`
-//               : "0px",
+//           maxHeight: isAccordionOpenArray[index] ? `${maxHeight}px` : "0px",
 //         }}
 //       >
 //         <ul className="accordion_stories">
@@ -384,33 +400,3 @@ export const StoryAccordion = ({
 //     </div>
 //   );
 // };
-
-// export default StoryAccordion;
-
-//  // 各アコーディオンクリックしたら
-//  const handleAccordionBtnClick = () => {
-//   // 現在の配列をコピーして該当インデックスの値をトグル
-//   setIsAccordionOpen((prev: boolean[]) => {
-//     const updated = [...prev];
-//     updated[index] = !updated[index];
-//     return updated;
-//   });
-
-//   // 高さを設定
-//   setMaxHeight(
-//     accordionContentRef.current?.scrollHeight || 0
-//   );
-// };
-
-// useEffect(() => {
-//   // 全体開閉の状態に応じて変更
-//   setIsAccordionOpen((prev: boolean[]) => {
-//     const updated = [...prev];
-//     updated[index] = isAllAccordionOpen;
-//     return updated;
-//   });
-
-//   setMaxHeight(
-//     isAllAccordionOpen ? accordionContentRef.current?.scrollHeight || 0 : 0
-//   );
-// }, [isAllAccordionOpen, index, setIsAccordionOpen]);

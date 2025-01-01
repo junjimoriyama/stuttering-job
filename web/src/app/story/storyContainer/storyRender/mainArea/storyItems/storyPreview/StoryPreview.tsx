@@ -6,23 +6,23 @@ import { useRouter } from "next/navigation";
 
 export const StoryPreview = ({
   data,
-  index,
 }: {
   data: allDataType;
-  index: number;
 }) => {
 
   const router = useRouter()
 
-  // const handleLinkItem = (id: number) => {
-  //   router.push(`/storyItem/${id}`)
-  // }
+  const handleLinkItem = (id: number) => {
+    router.push(`/story/storyItem/${id}`)
+  }
+
+console.log(data)
 
 
   return (
     <div className="story_preview">
       <div className="story_preview_contents" 
-      // onClick={() => handleLinkItem(data.id)}
+      onClick={() => handleLinkItem(data.id)}
       >
         <ul className="story_preview_List">
           <li className="story_preview_item_number">

@@ -11,11 +11,14 @@ import { ToggleAllStoryBtn } from "../components/toggleAllStoryBtn/ToggleAllStor
 // style
 import "./storyItems.scss";
 import { StoryPreview } from "./storyPreview/StoryPreview";
+import { allDataArrayType } from "@/app/types/story";
 
-export const StoryItems = ({ data }: { data: [] }) => {
+export const StoryItems = ({ data }: { data: allDataArrayType }) => {
   // 選択された値
   const { age, gender, industry, currentPage, setCurrentPage } =
     useStoryContext();
+
+    console.log(data)
 
   //  絞り込み
   const displayData =
@@ -75,7 +78,7 @@ export const StoryItems = ({ data }: { data: [] }) => {
               .map((item: any, i: number) => {
                 const value = i;
                 return (
-                  <StoryPreview key={i} data={item} index={value} />
+                  <StoryPreview key={i} data={item} />
                   // <StoryAccordion key={i} data={item} index={value} />
                 );
               })}

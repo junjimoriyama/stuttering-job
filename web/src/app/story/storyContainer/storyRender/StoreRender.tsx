@@ -7,11 +7,10 @@ import { MainArea } from "./mainArea/MainArea";
 import './storyRender.scss'
 import { StoryProvider, useStoryContext } from "../../StoreContext";
 import Footer from "@/app/components/footer/Footer";
+import { allDataType } from "@/app/types/story";
 
 
-const StoreRender = ({ data }: { data: any }) => {
-
-  // const [clientData, setClientData] = useState(data);
+const StoreRender = ({ data }: { data: allDataType }) => {
 
   return (
     <StoryProvider>

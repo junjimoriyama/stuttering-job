@@ -8,10 +8,6 @@ export const StoryContainer = async() => {
     method: "GET"
   })
 
-  if(!res) {
-    console.log('error')
-  }
-
   const data = await res.json()
 
   return (

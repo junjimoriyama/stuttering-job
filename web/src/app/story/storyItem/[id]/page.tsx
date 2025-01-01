@@ -14,6 +14,7 @@ const page = ({
 
   return (
     <div>
+      test
       {/* <ul className="accordion_stories">
           <li className="accordion_story_item">
             <span className="accordion_story_label">ニックネーム</span>

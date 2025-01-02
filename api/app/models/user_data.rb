@@ -1,4 +1,4 @@
-class Form < ApplicationRecord
+class UserData < ApplicationRecord
 
   # バリデーション: 必須項目
   validates :age, :gender, :industry, :employment, :years, 

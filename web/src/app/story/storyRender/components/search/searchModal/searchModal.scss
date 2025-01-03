@@ -1,0 +1,97 @@
+@use "@/app/style/breakpoint.scss" as bp;
+@use "@/app/style/common.scss" as mixin;
+@use "@/app/style/variable.scss" as var;
+
+
+.modal_search {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  // transform: translate(-50%, -50%);
+  transition: 0.3s;
+  visibility: hidden;
+  opacity: 0;
+  z-index: 2000;
+  &.isOpen {
+    visibility: visible;
+    opacity: 1;
+  }
+  @include bp.media(sm, min) {
+    display: none;
+    
+    &.isOpen {
+      display: flex;
+    }
+  }
+  
+  .search_modal_mask {
+   position: fixed;
+    inset: 0;
+    background-color: #000000;
+    opacity: 0.7;
+    z-index: 1; // マスクを背景扱い
+    &.isOpen {
+      display: block;
+    }
+  }
+  .search_modal_body {
+    position: relative;
+    height: 100%;
+    padding: 20px;
+    overflow: scroll;
+    overscroll-behavior: contain;
+    overflow-y: auto; // コンテンツが長い場合スクロール
+    z-index: 2; // マスクより上に配置
+    @include bp.media(sm, min) {
+      &::-webkit-scrollbar {
+        display: none;
+      }
+      scrollbar-width: none;
+    }
+    .search_modal_window {
+      position: relative;
+      margin: 0 auto;
+      padding: 56px 20px 20px 20px;
+      background-color: #fff;
+      border-radius: 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      width: 50%; /* デフォルト: 1025px以上 */
+      pointer-events: auto;
+
+      .search_modal_closeBtn {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+      }
+
+      // &.inActive {
+      //   pointer-events: none;
+      // }
+
+      @include bp.media(sm, max) {
+        width: 80%; /* 601px〜1024px */
+      }
+
+      @include bp.media(xs, max) {
+        width: 95%; /* 600px以下 */
+      }
+
+      .search_modal_decision_btn {
+        width: 100px;
+        display: flex;
+        justify-content: center;
+        align-self: end;
+        background-color: var.$sub_color;
+        color: #fff;
+        margin: 10px;
+        padding: 10px;
+        border-radius: 5px;
+        margin-bottom: 10px;
+      }
+    }
+  }
+}

@@ -15,6 +15,6 @@ export const industryList = [
   { value: "medical", label: "医療" },
   { value: "welfare", label: "福祉" },
   { value: "education", label: "教育、学習支援業" },
-  { value: "government", label: "公務(他に分類されないもの)" },
+  // { value: "government", label: "公務(他に分類されないもの)" },
   { value: "other", label: "その他" },
 ];

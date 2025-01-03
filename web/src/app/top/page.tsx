@@ -12,10 +12,10 @@ const page = () => {
     <div className="top">
       {/* <Loading /> */}
       <BackGroundAnimation />
-      {/* <Header /> */}
+      <Header />
       <FirstView />
       <HomeAbout />
-      {/* <Footer /> */}
+      <Footer />
       {/* <SpMenu /> */}
       {/* <section></section> */}
     </div>

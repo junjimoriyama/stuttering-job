@@ -1,0 +1,19 @@
+@use "@/app/style/breakpoint.scss" as bp;
+@use "@/app/style/common.scss" as mixin;
+@use "@/app/style/variable.scss" as var;
+
+.sidebar {
+  flex: 0 0 250px;
+  display: flex;
+  justify-content: center;
+  // background-color: #333;
+  height: 100%;
+  padding: 100px 10px 50px 10px;
+  @include mixin.graduallyPage();
+
+  @include bp.media(sm, max) {
+    display: none;
+  }
+  .sidebar_contents {
+  }
+}

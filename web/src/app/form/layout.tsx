@@ -12,9 +12,9 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
 
   return (
     <StepProvider>
-      {/* <Header /> */}
+      <Header />
       <FormProvider {...method}>{children}</FormProvider>
-      {/* <Footer /> */}
+      <Footer />
     </StepProvider>
   );
 };

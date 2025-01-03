@@ -8,7 +8,7 @@ export const sendAction = async (formData: FormData) => {
   // エラー表示
   let hasError = false;
   // try {
-    const res = await fetch("http://localhost:3000/api/v1/forms", {
+    const res = await fetch("http://localhost:3000/api/v1/user_data", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -23,8 +23,9 @@ export const sendAction = async (formData: FormData) => {
       hasError = true;
       // エラーメッセージ
       const errorMessage = await res.json()
+      console.log('errorMessage', errorMessage)
       // メールアドレスが重複していたら
-      if(errorMessage.errors.includes('Email has already been taken')) {
+      if(errorMessage.errors && errorMessage.errors.includes('Email has already been taken')) {
         redirect("/form/input?error=EmailAlreadyTaken");
       }
     }

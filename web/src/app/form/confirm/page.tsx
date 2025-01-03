@@ -20,6 +20,8 @@ const confirm = () => {
   const { getValues } = useFormContext<Record<string, string>>();
   const formValues = getValues();
 
+  console.log("formValues", formValues)
+
   const { step, setStep } = useContext(StepContext);
 
   const router = useRouter();
@@ -44,6 +46,7 @@ const confirm = () => {
 
   // formの値を配列に
   const formArray = Object.entries(formValues);
+  console.log(formArray)
 
   return (
     <div className="confirm">

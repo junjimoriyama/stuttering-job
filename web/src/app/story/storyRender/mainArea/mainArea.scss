@@ -1,0 +1,64 @@
+@use "@/app/style/breakpoint.scss" as bp;
+@use "@/app/style/common.scss" as mixin;
+@use "@/app/style/variable.scss" as var;
+
+.main_area {
+  position: relative;
+  flex: 1;
+  max-width: 900px;
+  margin-bottom: 50px;
+  padding: 30px 10px;
+  
+  @include bp.media(sm, max) {
+    padding: 0px 10px;
+    margin-bottom: 10px;
+  }
+
+  @include mixin.graduallyPage(); // 背景などのアニメーション処理
+
+  .main_heading {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 48px;
+
+    font-size: 24px;
+  }
+
+  .searchModalBtn {
+    position: sticky;
+    right: 10px;
+    bottom: 10px;
+    display: grid;
+    place-items: center;
+    width: 70px;
+    height: 70px;
+    margin-left: auto;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    border-radius: 50%;
+
+    background-color: var.$main_color;
+    color: #fff;
+    font-size: 14px;
+    border: 3px solid #fff;
+
+    @include bp.media(sm, min) {
+      display: none;
+    }
+
+    @include bp.media(xxs, max) {
+      width: 50px;
+      height: 50px;
+    }
+
+    .filter_svg {
+      width: 50px;
+      height: 50px;
+
+      @include bp.media(xxs, max) {
+        width: 30px;
+        height: 30px;
+      }
+    }
+  }
+}

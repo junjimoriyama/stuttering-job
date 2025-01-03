@@ -1,0 +1,39 @@
+@use "@/app/style/breakpoint.scss" as bp;
+@use "@/app/style/common.scss" as mixin;
+@use "@/app/style/variable.scss" as var;
+
+.search_invalid_btn {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 3px;
+  background-color: var.$main_color;
+  color: #fff;
+  border-radius: 5px;
+
+  &.isClicked {
+    animation: clickedSearchInvalidBtn 0.5s;
+  }
+
+  @include bp.media(xxs, max) {
+    width: 250px;
+    justify-self: center;
+  }
+}
+
+// クリックされたボタンに効果
+@keyframes clickedSearchInvalidBtn {
+  0% {
+    background-color: var.$main_color;
+    color: #fff;
+  }
+  50% {
+    background-color: #fff;
+    color: var.$main_color;
+  }
+  100% {
+    background-color: var.$main_color;
+    color: #fff;
+  }
+}

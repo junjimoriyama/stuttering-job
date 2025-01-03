@@ -12,8 +12,6 @@ header {
   background-color: transparent;
   transition: 0.5s;
   z-index: 1000;
-  //spメニュー開いたとき
-  // background-color: transparent;
 
   &.isTopPage {
     background-color: transparent;
@@ -43,7 +41,6 @@ header {
       }
     }
 
-
     .header_main_logo {
       @include bp.media(xxs, max) {
         width: 150px;
@@ -64,23 +61,27 @@ header {
     .header_menu {
       display: flex;
       justify-content: center;
-      // align-items: center;
       align-items: flex-start;
       align-self: start;
-
+      
       gap: 20px;
       height: 100%;
-
+      
       @include bp.media(xxs, max) {
         display: none;
       }
       .header_item {
         color: var.$main_color;
-
+        
         .header_item_text {
-          // mix-blend-mode: difference;
+          transition: color 0.3s;
+
+          &.top, &.story, &.form {
+            color: var.$sub_color
+          }
         }
       }
+
     }
 
     .sp_header_menu {
@@ -105,6 +106,9 @@ header {
 
         .sp_header_item_text {
           color: #fff;
+          &.top, &.story, &.form {
+            color: var.$sub_color
+          }
         }
       }
     }

@@ -23,7 +23,6 @@ export const Reason = ({
     // 画面遷移から戻った時にストレージデータを反映
     setValue("reason", getStorageData);
     setTextCount(maxLength - getStorageData.length);
-    console.log(textCount)
   }, []);
 
   // 遅延処理用のタイマーを保持する参照

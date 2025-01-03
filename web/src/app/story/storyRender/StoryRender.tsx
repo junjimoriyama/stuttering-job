@@ -1,0 +1,29 @@
+"use client";
+
+import React, { useState } from "react";
+import { Sidebar } from "./sidebar/Sidebar";
+import { MainArea } from "./mainArea/MainArea";
+
+import './storyRender.scss'
+import { StoryProvider, useStoryContext } from "../StoreContext";
+import Footer from "@/app/components/footer/Footer";
+import { allDataArrayType } from "@/app/types/story";
+import { SearchModal } from "./components/search/searchModal/SearchModal";
+import Header from "@/app/components/header/Header";
+
+
+export const StoryRender = ({ fetchData }: { fetchData: allDataArrayType }) => {
+
+  return (
+    <StoryProvider>
+      <div className="story_render">
+        <Header/>
+        <SearchModal fetchData={fetchData}/>
+        <Sidebar fetchData={fetchData}/>
+        <MainArea fetchData={fetchData} />
+      </div>
+        <Footer />
+    </StoryProvider>
+    
+  );
+};

@@ -1,12 +1,19 @@
-import Footer from "../components/footer/Footer";
-import Header from "../components/header/Header";
+// components
+import { StoryRender } from "./storyRender/StoryRender";
+// style
 import "./story.scss";
-import { StoryContainer } from "./storyContainer/StoryContainer";
 
-const story = () => {
+const story = async() => {
+
+    // データ取得
+    const res = await fetch("http://localhost:3000/api/v1/user_data", {
+      method: "GET"
+    })
+  
+    const fetchData = await res.json()
   return (
     <div className="story">
-      <StoryContainer />
+      <StoryRender fetchData={fetchData}/>
     </div>
   );
 };

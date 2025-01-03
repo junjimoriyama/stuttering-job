@@ -39,10 +39,10 @@ export default function RootLayout({
     // <StepProvider>
     <html lang="ja">
       <body className={MPlus1p.className}>
-      <Header />
+      {/* <Header /> */}
       {/* <body className={ZenMaruGothic.className}> */}
         {children}
-      <Footer />
+      {/* <Footer /> */}
       </body>
     </html>
     // </StepProvider>

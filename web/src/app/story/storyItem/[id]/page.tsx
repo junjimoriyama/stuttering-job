@@ -1,7 +1,7 @@
 import { allDataType } from '@/app/types/story';
 import './storyItem.scss'
-import Header from '@/app/components/header/Header';
-import Footer from '@/app/components/footer/Footer';
+import Header from '@/components/header/Header';
+import Footer from '@/components/footer/Footer';
 import { BackStoryBtn } from '../components/backStoryBtn/BackStoryBtn';
 
 

@@ -4,6 +4,7 @@ import {
   handleInputPersonalProps,
   handleInputProps,
   handleSelectProps,
+  handleSelectPropsNumber,
 } from "../types/form";
 
 // 選択保存
@@ -25,6 +26,28 @@ export const storageSelectSaveData: handleSelectProps = (
    // 250ms後にlocalStorageに値を保存
   timerRef.current = setTimeout(() => {
     localStorage.setItem(key, value);
+  }, 250);
+};
+
+// 選択保存
+export const storageSelectSaveDataAge: handleSelectPropsNumber = (
+  e,
+  key,
+  // setValue,
+  setSaveData,
+  timerRef
+) => {
+  const value = Number(e.target.value);
+  // useHookFormに値入れる
+  setSaveData(value);
+
+  if (timerRef.current) {
+    clearTimeout(timerRef.current);
+  }
+
+   // 250ms後にlocalStorageに値を保存
+  timerRef.current = setTimeout(() => {
+    localStorage.setItem(key, value.toString());
   }, 250);
 };
 

@@ -1,11 +1,13 @@
-import FirstView from "./firstView/FirstView";
 
-import "./top.scss";
-import Header from "../components/header/Header";
-import BackGroundAnimation from "../components/backgroundAnimation/BackgroundAnimation";
+// components
+import Header from "../../components/header/Header";
+import BackGroundAnimation from "../../components/backgroundAnimation/BackgroundAnimation";
+import FirstView from "./firstView/FirstView";
 import HomeAbout from "./homeAbout/HomeAbout";
-import Footer from "../components/footer/Footer";
+import Footer from "../../components/footer/Footer";
 import Loading from "../loading/Loading";
+// style
+import "./top.scss";
 
 const page = () => {
   return (
@@ -16,8 +18,6 @@ const page = () => {
       <FirstView />
       <HomeAbout />
       <Footer />
-      {/* <SpMenu /> */}
-      {/* <section></section> */}
     </div>
   );
 };

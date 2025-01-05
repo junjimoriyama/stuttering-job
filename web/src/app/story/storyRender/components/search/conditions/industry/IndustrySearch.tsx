@@ -1,24 +1,26 @@
 "use client";
-
-import { industryList } from "@/app/dataLists/industryList";
+// react
+import { useState, useEffect, useRef } from "react";
 import { useStoryContext } from "@/app/story/StoreContext";
+// dataList
+import { industryList } from "@/app/dataLists/industryList";
+// svg
 import { CheckMark } from "@/public/svg/icon/mark";
-import React, { useEffect, useRef, useState } from "react";
 
 export const IndustrySearch = () => {
   // useContext管理の状態
   const { industry, setIndustry, isAllClose } = useStoryContext();
   // アコーディン開閉
   const [isOpen, setIsOpen] = useState(false);
-  // 選択されている場所
-  // const [activeIndex, setActiveIndex] = useState(0);
   // アコーディオンの高さ
   const [maxHeight, setMaxHeight] = useState<number | undefined>(0);
   // 現在のラベル表示
   const [currentLabel, setCurrentLabel] = useState<string | null>(null);
 
+
   const searchItemIndustryListRef = useRef<HTMLDivElement>(null);
 
+  // アコーディオン開閉ボタンクリック
   const handleSearchItemClick = () => {
     // モーダル開閉
     setIsOpen(!isOpen);
@@ -26,6 +28,7 @@ export const IndustrySearch = () => {
     setMaxHeight(searchItemIndustryListRef.current?.scrollHeight);
   };
 
+ // 選択した場所クリック
   const handleIndustryClick = (item: string, value: number) => {
     // 絞り込み
     if (!industry.includes(item)) {
@@ -35,6 +38,7 @@ export const IndustrySearch = () => {
     }
   };
 
+  // 全てクリアボタン押されたらアコーディオン閉じ、選択をクリアに戻す
   useEffect(() => {
     setMaxHeight(searchItemIndustryListRef.current?.scrollHeight);
     if (isAllClose) {

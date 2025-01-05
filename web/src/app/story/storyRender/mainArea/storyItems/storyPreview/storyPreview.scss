@@ -2,18 +2,14 @@
 @use "@/app/style/common.scss" as mixin;
 @use "@/app/style/variable.scss" as var;
 
-// $accordion_width:
-// アコーディオンヘッダーの高さ
-// $accordion_header_height: 70px;
-// $accordion_btn_width: 15px;
-// $accordion_border_thickness: 3px;
-
+// =====================================
+// コンテナ
+// =====================================
 .story_preview_item {
   width: 100%;
   padding: 0 10px;
   display: flex;
   flex-direction: column;
-  // opacity: 0;
 
   &.isChange {
     @for $i from 1 through var.$display_story_max_length {
@@ -31,122 +27,114 @@
       opacity: 1;
     }
   }
+}
 
-  .story_preview_contents {
-    position: relative;
+// =====================================
+// コンテンツ部分
+// =====================================
+.story_preview_contents {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 24px 16px;
+  border-radius: 10px;
+  background-color: var.$story_bubble_color;
+  cursor: pointer;
+  transition: 0.3s;
+
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: -6px;
+    left: 10%;
+    transform: rotate(-135deg) translateX(-50%);
+    border-width: 20px;
+    border-style: solid;
+    border-color: transparent transparent transparent var.$story_bubble_color;
+  }
+
+  @media (hover: hover) {
+    &:hover {
+      transform: scale(1.03);
+    }
+  }
+
+  @include bp.media(sm, max) {
+    height: auto;
+  }
+  @include bp.media(xs, max) {
+    display: grid;
+    padding: 18px 12px;
+  }
+  @include bp.media(xxs, max) {
+    display: flex;
+    padding: 18px;
+  }
+  // =====================================
+  // 情報リスト
+  // =====================================
+  .story_preview_info_list {
     display: flex;
     flex-direction: column;
-    padding: 24px 16px;
-    border-radius: 10px 10px 10px 10px;
-    background-color: var.$story_bubble_color;
-    cursor: pointer;
-    transition: 0.3s;
-
-    &::after {
-      content: "";
+    gap: 8px;
+    width: 100%;
+  .story_preview_info_icon {
+  
+    .bag_svg {
       position: absolute;
-      bottom: -6px;
-      left: 10%;
-      transform: rotate(-135deg) translateX(-50%);
-      border-width: 20px;
-      border-style: solid;
-      border-color: transparent transparent transparent var.$story_bubble_color;
+    top: 0;   // 必要に応じて調整
+    left: 0;  // 必要に応じて調整
+    width: 30px;
+    height: 30px;
     }
-
-    @media (hover: hover) {
-      &:hover {
-        transform: scale(1.03);
-      }
+  }
+  
+    .story_preview_item_label {
+      width: 100%;
+      margin-left: 30px;
+      font-size: 14px;
     }
-
-    @include bp.media(sm, max) {
-      height: auto;
-    }
-    @include bp.media(xs, max) {
+  
+    .story_preview_item_value {
       display: grid;
-      height: auto;
-      padding: 18px 12px;
+      place-items: center;
+      margin: 0 20px;
+      padding: 5px 8px;
+      background-color: #fff;
+      border-radius: 5px;
     }
-    @include bp.media(xxs, max) {
-      display: flex;
-      padding: 18px;
-    }
-
-    .story_preview_list {
-      // position: relative;
-      // display: flex;
-      // align-items: center;
-      // flex-direction: column;
-      // gap: 10px;
-      // width: 100%;
-      // @include bp.media(sm, max) {
-      // }
-      // @include bp.media(xs, max) {
-      //   display: grid;
-      // }
-
-      .story_preview_item_info {
-        display: flex;
-        flex-direction: column;
-        gap: 8px;
-        width: 100%;
-
-        @include bp.media(xxxxs, max) {
-          display: flex;
-          flex-direction: column;
-          align-items: flex-start;
-        }
-
-        &:first-of-type {
-          gap: 2px;
-        }
-        .story_preview_item_label {
-          width: 100%;
-          margin-left: 30px;
-          font-size: 14px;
-        }
-        .story_preview_item_value {
-          display: grid;
-          place-items: center;
-          margin: 0px 20px;
-          padding: 5px 8px;
-          background-color: #fff;
-          border-radius: 5px;
-        }
-        .accordion_summary_item_number {
-          padding: 5px;
-          background-color: var.$story_subject_color;
-          color: #fff;
-        }
+  
+    .story_preview_info_number {
+      position: absolute;
+      top: -30px;
+      right: -70px;
+      transform: translate(-50%, -50%);
+      width: 50px;
+      height: 50px;
+      padding: 5px;
+      background-color: #fff;
+      border: 3px solid var.$main_color;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+  
+      @include bp.media(xs, max) {
+        right: -45px;
       }
-
-      .story_preview_item_label_number {
-        position: absolute;
-        top: -30px;
-        right: -70px;
-        transform: translate(-50%, -50%);
-        display: grid;
-        place-items: center;
-        width: 50px;
-        height: 50px;
-        padding: 5px;
-        background-color: #fff;
-        border: 3px solid var.$main_color;
-        border-radius: 50%;
-
-        @include bp.media(xs, max) {
-          right: -45px;
-        }
-
-        .story_preview_item_name_number {
-          display: flex;
-          font-size: 12px;
-          line-height: 1;
-        }
+  
+      .story_preview_item_name_number {
+        display: flex;
+        font-size: 12px;
+        line-height: 1;
       }
     }
   }
 }
+
+
+
+
+
 // .accordion_btn {
 //   position: absolute;
 //   top: 50%;

@@ -23,11 +23,16 @@
     flex-direction: column;
     width: 100%;
     max-width: 800px;
+    margin-bottom: 50px;
+    padding: 20px;
+    background-color: var.$story_bubble_color;
+    border-radius: 10px;
 
     @include bp.media(xs, max) {
     }
 
     @include bp.media(xxs, max) {
+      padding: 20px 10px;
     }
 
     .form_guide_btn {
@@ -152,6 +157,9 @@
 
   .confirm_step_button {
     @include mixin.actionBtn(var.$form_btn_color);
+    margin: 0 auto;
     width: 100%;
+    height: 40px;
+    margin-bottom: 50px;
   }
 }

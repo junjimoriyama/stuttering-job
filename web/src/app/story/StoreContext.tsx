@@ -53,12 +53,12 @@ export const StoryProvider = ({ children }: { children: React.ReactNode }) => {
   const [industry, setIndustry] = useState<string[]>(savedFilters.industry || []);
   // 絞り込み開閉
   const [isAllClose, setIsAllClose] = useState(true);
-  // 表示するデータ
-  const [ displayData, setDisplayData  ] = useState<allDataType[]>([])
   // モーダル開閉
   const [isSearchModalOpen, setIsSearchModalOpen] = useState(false);
   // 現在のページ
   const [currentPage, setCurrentPage] = useState(savedFilters.currentPage || 1);
+  // 表示するデータ
+  const [ displayData, setDisplayData  ] = useState<allDataType[]>([])
   // ページ変更による効果
   const [ isPageChangeEffect, setIsPageChangeEffect  ] = useState(false)
 

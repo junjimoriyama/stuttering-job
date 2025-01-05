@@ -1,31 +1,33 @@
 "use client";
 
+// react
+import { useState, useEffect, useRef } from "react";
 import { useStoryContext } from "@/app/story/StoreContext";
+// svg
 import { CheckMark } from "@/public/svg/icon/mark";
-import { useRef, useState, useEffect } from "react";
 
 export const AgeSearch = () => {
   const searchItemAgeListRef = useRef<HTMLDivElement>(null);
   // useContext管理の状態
   const { age, setAge, isAllClose } = useStoryContext();
   // アコーディン開閉
-  const [isOpen, setIsOpen] = useState(true);
+  const [isAccordionOpen, setIsOAccordionOpen] = useState(true);
   // アコーディオンの高さ
   const [maxHeight, setMaxHeight] = useState<number | undefined>(0);
   // 現在のラベル表示
   const [currentLabel, setCurrentLabel] = useState<number | null>(null);
 
-
+  // アコーディオン開閉ボタンクリック
   const handleSearchItemClick = () => {
-    // モーダル開閉
-    setIsOpen(!isOpen);
+    // アコーディオン開閉
+    setIsOAccordionOpen(!isAccordionOpen);
     // リストの高さ取得
     setMaxHeight(searchItemAgeListRef.current?.scrollHeight);
   };
 
+  // 選択した場所クリック
   const handleAgeClick = (value: number) => {
-    // 絞り込み
-    // 選択した場所に色つける
+    // 選択した場所にチェックマーク
     if (!age.includes(value)) {
       setAge((prev: number[]) => [...prev, value]);
     } else {
@@ -37,22 +39,16 @@ export const AgeSearch = () => {
   useEffect(() => {
     setMaxHeight(searchItemAgeListRef.current?.scrollHeight);
     if (isAllClose) {
-      setIsOpen(true);
-      // setActiveIndexes([]);
+      setIsOAccordionOpen(true);
       setCurrentLabel(null);
     }
   }, [isAllClose]);
-
-  // 現在のラベル表示
 
   return (
     <li className="search_item">
       <div className="search_item_label" onClick={handleSearchItemClick}>
         年代
-        {/* {currentLabel && (
-          <span className="search_item_current_label">{currentLabel}代</span>
-        )} */}
-        <div className={`search_plus_btn ${isOpen ? "isOpen" : ""}`}>
+        <div className={`search_plus_btn ${isAccordionOpen ? "isOpen" : ""}`}>
           <span></span>
           <span></span>
         </div>
@@ -60,16 +56,13 @@ export const AgeSearch = () => {
       <div
         className="search_item_age_list search_item_list"
         ref={searchItemAgeListRef}
-        style={{ maxHeight: isOpen ? `${maxHeight}px` : "0px" }}
+        style={{ maxHeight: isAccordionOpen ? `${maxHeight}px` : "0px" }}
       >
         {[...Array(9)].map((_, i) => {
           const value = (i + 1) * 10;
           return (
             <span
               className="search_item_option"
-              // className={`search_item_option ${
-              //   Array.isArray(age) && age.includes(value) ? "isActive" : ""
-              // }`}
               key={value}
               onClick={() => {
                 handleAgeClick(value);
@@ -105,7 +98,7 @@ export const AgeSearch = () => {
 //   // useContext管理の状態
 //   const { age, setAge, isAllClose } = useStoryContext();
 //    // アコーディン開閉
-//   const [isOpen, setIsOpen] = useState(false);
+//   const [isOpen, setIsOAccordionOpen] = useState(false);
 //   // 選択されている場所
 //   const [activeIndex, setActiveIndex] = useState(0);
 //   // アコーディオンの高さ
@@ -117,7 +110,7 @@ export const AgeSearch = () => {
 
 //   const handleSearchItemClick = () => {
 //     // モーダル開閉
-//     setIsOpen(!isOpen);
+//     setIsOAccordionOpen(!isOpen);
 //     // リストの高さ取得
 //     setMaxHeight(searchItemAgeListRef.current?.scrollHeight);
 //   };
@@ -132,7 +125,7 @@ export const AgeSearch = () => {
 //   // 全てクリアボタン押されたらアコーディオン閉じ、選択をクリアに戻す
 //   useEffect(() => {
 //     if (isAllClose) {
-//       setIsOpen(false)
+//       setIsOAccordionOpen(false)
 //       setActiveIndex(0)
 //       setCurrentLabel(null)
 //     }

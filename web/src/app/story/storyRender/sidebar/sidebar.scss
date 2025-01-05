@@ -6,14 +6,11 @@
   flex: 0 0 250px;
   display: flex;
   justify-content: center;
-  // background-color: #333;
   height: 100%;
   padding: 100px 10px 50px 10px;
   @include mixin.graduallyPage();
 
   @include bp.media(sm, max) {
     display: none;
-  }
-  .sidebar_contents {
   }
 }

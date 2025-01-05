@@ -17,6 +17,15 @@ export type handleSelectProps = (
   timerRef: React.MutableRefObject<NodeJS.Timeout | null>,
 ) => void
 
+// selectタグlocalStorage保存(age用)
+export type handleSelectPropsNumber = (
+  e: ChangeEvent<HTMLSelectElement>,
+  key: string,
+  // setValue: (key: string, value:string) => void,
+  setSaveData: (key: number) => void,
+  timerRef: React.MutableRefObject<NodeJS.Timeout | null>,
+) => void
+
 
 // selectタグlocalStorage保存
 export type handleInputProps = (

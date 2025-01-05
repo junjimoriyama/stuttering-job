@@ -14,10 +14,11 @@ import "./mainArea.scss";
 export const MainArea = ({ fetchData }: { fetchData: allDataArrayType}) => {
 
   // sp用絞り込みモーダル開閉
-  const {isSearchModalOpen, setIsSearchModalOpen} = useStoryContext()
+  const {setIsAllClose, setIsSearchModalOpen} = useStoryContext()
   // sp用絞り込みモーダル開く
   const handleSearchModalOpen = () => {
     setIsSearchModalOpen(true)
+    setIsAllClose(true)
     // 背景固定
     document.body.style.overflow = "hidden"
   }

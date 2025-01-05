@@ -11,11 +11,11 @@ import { Pagination } from "../components/pagination/Pagination";
 // import { StoryPreview } from "./storyPreview/StoryPreview";
 // style
 import "./storyItems.scss";
+import { BagIcon } from "@/public/svg/icon/bag";
 
 export const StoryItems = ({ fetchData }: { fetchData: allDataArrayType }) => {
-
   // router
-  const router = useRouter()
+  const router = useRouter();
   // useContext
   const {
     age,
@@ -26,7 +26,7 @@ export const StoryItems = ({ fetchData }: { fetchData: allDataArrayType }) => {
     displayData,
     setDisplayData,
     isPageChangeEffect,
-    setIsPageChangeEffect
+    setIsPageChangeEffect,
   } = useStoryContext();
 
   // 表示件数
@@ -68,8 +68,8 @@ export const StoryItems = ({ fetchData }: { fetchData: allDataArrayType }) => {
 
   // 各体験談にページ遷移
   const handleLinkStoryItem = (id: number) => {
-        router.push(`/story/storyItem/${id}`)
-      }
+    router.push(`/story/storyItem/${id}`);
+  };
 
   return (
     <div className="storyItems">
@@ -80,34 +80,48 @@ export const StoryItems = ({ fetchData }: { fetchData: allDataArrayType }) => {
         />
       </div>
       {displayData.length > 0 ? (
-        <ul 
-        className={`story_preview_list ${isPageChangeEffect ? 'isChange' : ""}`}
-        // onAnimationEnd={() => setIsPageChangeEffect(false)}
+        <ul
+          className={`story_preview_list ${
+            isPageChangeEffect ? "isChange" : ""
+          }`}
+          // onAnimationEnd={() => setIsPageChangeEffect(false)}
         >
           {displayData.slice(startPage, endPage).map((item: allDataType) => (
             <li key={item.id} className="story_preview_item">
-              <div 
-              className="story_preview_contents"
-              onClick={() => handleLinkStoryItem(item.id)}
+              <div
+                className="story_preview_contents"
+                onClick={() => handleLinkStoryItem(item.id)}
               >
                 <ul className="story_preview_info_list">
+                  <li className="story_preview_info_icon">
+                    <BagIcon />
+                  </li>
                   <li className="story_preview_info_number">
                     <span className="story_preview_item_label_number">No</span>
-                    <span className="story_preview_item_value_number">{item.id}</span>
+                    <span className="story_preview_item_value_number">
+                      {item.id}
+                    </span>
                   </li>
                   <li className="story_preview_info">
                     <span className="story_preview_item_label">年代</span>
-                    <span className="story_preview_item_value">{item.age}代</span>
+                    <span className="story_preview_item_value">
+                      {item.age}代
+                    </span>
                   </li>
                   <li className="story_preview_info">
                     <span className="story_preview_item_label">性別</span>
-                    <span className="story_preview_item_value">{item.gender}</span>
+                    <span className="story_preview_item_value">
+                      {item.gender}
+                    </span>
                   </li>
                   <li className="story_preview_info">
                     <span className="story_preview_item_label">業種</span>
-                    <span className="story_preview_item_value">{item.industry}</span>
+                    <span className="story_preview_item_value">
+                      {item.industry}
+                    </span>
                   </li>
                 </ul>
+                <div className="arrow"></div>
               </div>
             </li>
           ))}

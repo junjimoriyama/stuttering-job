@@ -13,7 +13,10 @@ import { SearchInvalidBtn } from "../../mainArea/components/searchInvalidBtn/Sea
 import "./search.scss";
 
 export const Search = ({ fetchData }: { fetchData: allDataArrayType }) => {
+
+  // useContextの状態
   const { displayData } = useStoryContext();
+  
   return (
     <div className="search">
       <div className="search_heading">絞り込み</div>

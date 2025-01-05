@@ -130,16 +130,15 @@ const HomeAbout = () => {
           >
             <div 
             className="home_about_look_heading">
-              <div 
-              className="link_look_btn"
-              onClick={() => router.push('/form/input')}
-              >
-            見る
-              </div>
+            「見る」
             </div>
             <div className="home_about_look_Content">
               うまく話せずに苦労したことや日々の工夫など、さまざまな人の体験談を見ることができます。年代、性別や業種などを通じて仕事に対するイメージにつながれば嬉しいです。
             </div>
+            <button 
+            className="link_look_btn"
+            onClick={() => router.push('/story')}
+            >見るページへ</button>
           </div>
           <LookChara
             isLookBlockVisible={isLookBlockVisible}
@@ -156,16 +155,15 @@ const HomeAbout = () => {
             ref={homeAboutWriteBubbleRef}
           >
             <div className="home_about_write_heading">
-              <div 
-              className="link_write_btn"
-              onClick={() => router.push('/story')}
-              >
-              書く
-              </div>
+              「書く」
               </div>
             <div className="home_about_write_Content">
-              自身の体験投稿にご協力お願いいたします。一つひとつの貴重な投稿が、同じ悩みがある誰かにとって新たな気づきや安心感につながるかもしれません。
+              ご自身の体験投稿にご協力お願いいたします。一つひとつの貴重な体験談が、仕事に対して悩みがある誰かにとって新たな気づきや安心感につながるかもしれません。
             </div>
+            <button 
+            className="link_write_btn"
+            onClick={() => router.push('/form/input')}
+            >書くページへ</button>
           </div>
           <WriteChara
             isWriteBlockVisible={isWriteBlockVisible}

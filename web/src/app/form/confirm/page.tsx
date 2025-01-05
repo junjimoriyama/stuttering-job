@@ -1,17 +1,17 @@
 "use client";
 
 // next
-import {useRouter} from "next/navigation";
+import { useRouter } from "next/navigation";
 // react
 import { useContext } from "react";
 import { useFormContext } from "react-hook-form";
 // dataLists
 import { industryList } from "@/app/dataLists/industryList";
 // functions
-import {sendAction} from "./actionConfirm";
+import { sendAction } from "./actionConfirm";
 // components
-import {Step} from "@/app/form/step/Step";
-import {StepContext} from "@/app/form/step/stepContext";
+import { Step } from "@/app/form/step/Step";
+import { StepContext } from "@/app/form/step/stepContext";
 // style
 import "./confirm.scss";
 
@@ -20,7 +20,7 @@ const confirm = () => {
   const { getValues } = useFormContext<Record<string, string>>();
   const formValues = getValues();
 
-  console.log("formValues", formValues)
+  console.log("formValues", formValues);
 
   const { step, setStep } = useContext(StepContext);
 
@@ -46,7 +46,7 @@ const confirm = () => {
 
   // formの値を配列に
   const formArray = Object.entries(formValues);
-  console.log(formArray)
+  console.log(formArray);
 
   return (
     <div className="confirm">
@@ -67,17 +67,19 @@ const confirm = () => {
           ))}
         </ul>
 
-        <button
-          className="back-_fill_out_button"
-          type="button"
-          onClick={() => router.push("/form/input")}
-        >
-          戻る
-        </button>
+        <div className="confirm_buttons">
+          <button
+            className="back_fill_out_button"
+            type="button"
+            onClick={() => router.push("/form/input")}
+          >
+            戻る
+          </button>
 
-        <button className="complete_step_button" type="submit">
-          送信する
-        </button>
+          <button className="complete_step_button" type="submit">
+            送信する
+          </button>
+        </div>
 
         {/* </Link> */}
       </form>

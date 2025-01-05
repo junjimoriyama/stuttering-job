@@ -7,16 +7,17 @@
   top: var.$header_Height;
   left: 50%;
   transform: translateX(-50%);
-  z-index: 10;
   display: none;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   width: 250px;
   height: 150px;
+  padding: 15px;
   background-color: #ffffff;
   border: 3px solid #feacb9;
   border-radius: 5px;
+  z-index: 10;
 
   &.isDisplay {
     display: flex;
@@ -24,18 +25,18 @@
 
   .deleteToastBtn {
     position: absolute;
-    top: 5px;
-    right: 15px;
+    top: 0px;
+    right: 10px;
   }
 
   .toastBox {
     display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 
     &.isDisplay {
       display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
     }
   }
 

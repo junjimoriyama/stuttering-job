@@ -1,12 +1,13 @@
 "use client";
 
+// type
+import { allDataArrayType } from "@/app/types/story";
+// components
+import { Search } from "../components/search/Search";
+// style
 import "./sidebar.scss";
 
-import { Search } from "../components/search/Search";
-import { allDataArrayType } from "@/app/types/story";
-
 export const Sidebar = ({ fetchData }: { fetchData: allDataArrayType }) => {
-
 
   return (
     <div className="sidebar">

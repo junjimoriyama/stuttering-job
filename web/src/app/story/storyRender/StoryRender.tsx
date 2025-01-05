@@ -6,10 +6,10 @@ import { MainArea } from "./mainArea/MainArea";
 
 import './storyRender.scss'
 import { StoryProvider, useStoryContext } from "../StoreContext";
-import Footer from "@/app/components/footer/Footer";
+import Footer from "@/components/footer/Footer";
 import { allDataArrayType } from "@/app/types/story";
 import { SearchModal } from "./components/search/searchModal/SearchModal";
-import Header from "@/app/components/header/Header";
+import Header from "@/components/header/Header";
 
 
 export const StoryRender = ({ fetchData }: { fetchData: allDataArrayType }) => {

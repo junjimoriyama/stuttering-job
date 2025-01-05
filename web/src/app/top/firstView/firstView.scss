@@ -8,33 +8,31 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  min-height: 100vh;
   margin-bottom: 20px;
   overflow: hidden;
-  min-height: 100vh;
 
   .first_view_wrap {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    // transform:  translateX(-50%);
 
     @include bp.media(xs, max) {
-      width: 80%; /* 601px〜1024px */
+      width: 80%;
     }
 
     @include bp.media(xxs, max) {
-      width: 95%; /* 600px以下 */
+      width: 95%;
     }
-
+  }
     .main_logo {
       // 画面中央へ
       display: block;
       margin: auto;
       margin-bottom: 50px;
       @include bp.media(xs, max) {
-        width: 400px; /* 600px以下 */
-      }
+        width: 400px;
       @include bp.media(xxs, max) {
         width: 300px;
       }
@@ -42,9 +40,9 @@
 
     .bagPath {
       animation: shakeBag 13s linear infinite;
-      // animation: rotateGear 5s linear infinite;
       transform-origin: 65px 45px;
 
+      // カバンsvgのアニメーション
       @keyframes shakeBag {
         0% {
           transform: rotate(0deg);
@@ -87,16 +85,16 @@
 
     .gearPath_1 {
       position: relative;
-      animation: rotateGear 5s linear infinite;
       transform-origin: 447.5px 12px;
-      // transform-origin: 407.5px 12px;
+      animation: rotateGear 5s linear infinite;
     }
     .gearPath_2 {
       position: relative;
-      animation: rotateGear 5s linear infinite;
       transform-origin: 461px 29px;
-      // transform-origin: 421px 29px;
+      animation: rotateGear 5s linear infinite;
     }
+
+    // 歯車svgのアニメーション
     @keyframes rotateGear {
       0% {
         transform: rotate(0deg);
@@ -109,11 +107,11 @@
 
   .first_view_Text {
     text-align: center;
+    margin-top: 400px;
+    transform:  translateY(100px);
     color: var.$main_color;
     font-size: 24px;
     line-height: 2;
-    margin-top: 400px;
-    transform:  translateY(100px);
     visibility: hidden;
     opacity: 0;
     animation: displayFirstViewText 2s .5s forwards;

@@ -1,16 +1,16 @@
 "use client";
 
+// react
+import { useState, useEffect, useRef } from "react";
 import { useStoryContext } from "@/app/story/StoreContext";
+// svg
 import { CheckMark } from "@/public/svg/icon/mark";
-import React, { useEffect, useRef, useState } from "react";
 
 export const GenderSearch = () => {
   // useContext管理の状態
   const { gender, setGender, isAllClose } = useStoryContext();
   // アコーディン開閉
   const [isOpen, setIsOpen] = useState(false);
-  // 選択されている場所
-  // const [activeIndex, setActiveIndex] = useState(0);
   // アコーディオンの高さ
   const [maxHeight, setMaxHeight] = useState<number | undefined>(0);
   // 現在のラベル表示
@@ -25,6 +25,8 @@ export const GenderSearch = () => {
     "どちらでもない",
     // "無回答"
   ];
+
+  // アコーディオン開閉ボタンクリック
   const handleSearchItemClick = () => {
     // モーダル開閉
     setIsOpen(!isOpen);
@@ -32,6 +34,7 @@ export const GenderSearch = () => {
     setMaxHeight(searchItemGenderListRef.current?.scrollHeight);
   };
 
+   // 選択した場所クリック
   const handleGenderClick = (item: string, value: number) => {
     // 絞り込み
     if (!gender.includes(item)) {
@@ -39,7 +42,6 @@ export const GenderSearch = () => {
     } else {
       setGender((prev) => prev.filter((option) => option !== item));
     }
-    // 選択した場所に色つける
   };
 
   // 全てクリアボタン押されたらアコーディオン閉じ、選択をクリアに戻す

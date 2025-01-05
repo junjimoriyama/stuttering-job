@@ -3,11 +3,9 @@
 import { redirect } from "next/navigation";
 
 export const sendAction = async (formData: FormData) => {
-  // formData.entries() は FormData を [[key, value], ...] の形式に変換し、Object.fromEntries() はそれを {key: value} の形式に変換する。
   const allData = Object.fromEntries(formData.entries());
-  // エラー表示
-  let hasError = false;
-  // try {
+
+  try {
     const res = await fetch("http://localhost:3000/api/v1/user_data", {
       method: "POST",
       headers: {
@@ -17,25 +15,21 @@ export const sendAction = async (formData: FormData) => {
       body: JSON.stringify(allData),
     });
 
-    if (res.ok) {
-      hasError = false;
-    } else {
-      hasError = true;
-      // エラーメッセージ
-      const errorMessage = await res.json()
-      console.log('errorMessage', errorMessage)
-      // メールアドレスが重複していたら
-      if(errorMessage.errors && errorMessage.errors.includes('Email has already been taken')) {
-        redirect("/form/input?error=EmailAlreadyTaken");
+    if (!res.ok) {
+      const errorMessage = await res.json();
+      // メールアドレスが重複していたらリダイレクト
+      if (errorMessage.errors?.includes("Email has already been taken")) {
+        redirect("/form/input?error=EmailAlreadyTaken"); // ここで処理終了
+        // return; // redirectの後に処理を続行しないようにreturnで終了
       }
+      // その他のエラー
+      throw new Error(JSON.stringify(errorMessage));
     }
-  // } catch (error) {
-  //   hasError = true;
-  // }
-
-  if (!hasError) {
+    // 成功時リダイレクト
     redirect("/form/complete");
-  } else {
-    // redirect("/");
+
+  } catch (error) {
+     // Error.tsxページに遷移
+    throw error;
   }
 };

@@ -3,13 +3,13 @@
 import "./header.scss";
 import { useEffect, useMemo, useState } from "react";
 import { usePathname } from "next/navigation";
-import { HeaderMainLogo } from "@/public/svg/logo/logoSvg";
+import { HeaderMainLogo } from "@/assets/svg/logo/logoSvg";
 import {
   HomeIcon,
   LookIcon,
   MenuIcon,
   WriteIcon,
-} from "@/public/svg/icon/menuIcon";
+} from "@/assets/svg/icon/menuIcon";
 import Link from "next/link";
 
 const Header = () => {

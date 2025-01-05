@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import "./storyAccordion.scss";
 import { useStoryContext } from "@/app/story/StoreContext";
-import { allDataType } from "@/app/types/story";
+import { allDataType } from "@/types/story";
 
 export const StoryAccordion = ({
   data,

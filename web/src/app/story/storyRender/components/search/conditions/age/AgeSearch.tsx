@@ -4,12 +4,12 @@
 import { useState, useEffect, useRef } from "react";
 import { useStoryContext } from "@/app/story/StoreContext";
 // svg
-import { CheckMark } from "@/public/svg/icon/mark";
+import { CheckMark } from "@/assets/svg/icon/mark";
 
 export const AgeSearch = () => {
   const searchItemAgeListRef = useRef<HTMLDivElement>(null);
   // useContext管理の状態
-  const { age, setAge, isAllClose } = useStoryContext();
+  const { age, setAge, gender, industry, isAllClose } = useStoryContext();
   // アコーディン開閉
   const [isAccordionOpen, setIsOAccordionOpen] = useState(true);
   // アコーディオンの高さ
@@ -25,16 +25,39 @@ export const AgeSearch = () => {
     setMaxHeight(searchItemAgeListRef.current?.scrollHeight);
   };
 
+  // 更新されたデータのみsessionStorageに保存する関数
+  const updateSessionStorage = (data : number[]) => {
+    const updatedData = {
+      age: data,
+      gender,
+      industry
+    }
+    // sessionに保存
+    sessionStorage.setItem("stutter_job_searchFilters", JSON.stringify(updatedData))
+  }
+
   // 選択した場所クリック
   const handleAgeClick = (value: number) => {
-    // 選択した場所にチェックマーク
-    if (!age.includes(value)) {
-      setAge((prev: number[]) => [...prev, value]);
-    } else {
-      setAge((prev: number[]) => prev.filter((index) => index !== value));
-    }
+    // 変更があったデータ
+    let updatedAge = age.includes(value) ? age.filter(index => index !== value) : [...age, value]
+    // sessionにセット
+    updateSessionStorage(updatedAge)
+    // 状態にセット
+    setAge(updatedAge)
   };
 
+
+  // 選択しないボタンをクリック
+  const handleStorageClear = () => {
+    let updatedAge = {
+      age: [],
+      gender,
+      industry
+    }
+    sessionStorage.setItem("stutter_job_searchFilters", JSON.stringify(updatedAge))
+    setAge([])
+  }
+  
   // 全てクリアボタン押されたらアコーディオン閉じ、選択をクリアに戻す
   useEffect(() => {
     setMaxHeight(searchItemAgeListRef.current?.scrollHeight);
@@ -76,11 +99,7 @@ export const AgeSearch = () => {
         })}
         <span
           className={`search_item_option ${age.length === 0 ? "isActive" : ""}`}
-          onClick={() => {
-            setAge([]);
-            // setActiveIndexes([]);
-            setCurrentLabel(null);
-          }}
+          onClick={() => {handleStorageClear();}}
         >
           {age.length === 0 && <CheckMark />}
           選択しない

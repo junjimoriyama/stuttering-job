@@ -3,7 +3,7 @@ import {
   SpeechBubbleCircleRight,
   SpeechBubbleRectLeft,
   SpeechBubbleRectRight,
-} from "@/public/svg/icon/speechBubbuleSvg";
+} from "@/assets/svg/icon/speechBubbuleSvg";
 
 import './backgroundAnimation.scss'
 

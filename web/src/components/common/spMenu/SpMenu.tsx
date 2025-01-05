@@ -1,4 +1,4 @@
-import { HomeIcon, LookIcon, WriteIcon } from "@/public/svg/svg";
+import { HomeIcon, LookIcon, WriteIcon } from "@/assets/svg/icon/menuIcon";
 import React from "react";
 
 const SpMenu = () => {

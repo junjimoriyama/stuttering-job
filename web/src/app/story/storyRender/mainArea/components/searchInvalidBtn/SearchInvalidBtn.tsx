@@ -12,18 +12,24 @@ export const SearchInvalidBtn = (
 // 選択された値
 const { setCurrentPage } = useStoryContext();
 
-  const { 
+  const {
+    age,
+    gender,
+    industry,
     setAge, 
     setGender, 
     setIndustry,
-    // isAllClose, 
-    // setIsAllClose,
-    // isSearchModalOpen, 
-    // setIsSearchModalOpen
   } = useStoryContext();
 
   // クリックしたボタン効果の状態
   const [ isClicked, setIsClicked  ] = useState(false)
+
+  // sessionで無効化するデータ
+  const updatedInValidStorageData = {
+    age: [],
+    gender: [],
+    industry: [],
+  }
   
   // 絞り込みを全てリセット
   const handleResetFilters = () => {
@@ -35,6 +41,8 @@ const { setCurrentPage } = useStoryContext();
     setCurrentPage(1)
     // ボタン効果をオン
     setIsClicked(true)
+
+    sessionStorage.setItem("stutter_job_searchFilters", JSON.stringify(updatedInValidStorageData))
     // setIsAllClose(true); 
     // setTimeout(() => {
     //     setIsAllClose(false); 

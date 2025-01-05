@@ -1,6 +1,6 @@
-@use "@/app/style/breakpoint.scss" as bp;
-@use "@/app/style/common.scss" as mixin;
-@use "@/app/style/variable.scss" as var;
+@use "@/style/breakpoint.scss" as bp;
+@use "@/style/common.scss" as mixin;
+@use "@/style/variable.scss" as var;
 
 .main_area {
   position: relative;
@@ -19,8 +19,8 @@
   .main_heading {
     display: flex;
     justify-content: center;
+    align-items: center;
     margin-bottom: 48px;
-
     font-size: 24px;
   }
 

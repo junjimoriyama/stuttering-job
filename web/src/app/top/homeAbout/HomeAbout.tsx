@@ -9,7 +9,7 @@ import {
   HomeAboutChara,
   LookChara,
   WriteChara,
-} from "@/public/svg/character/characterSvg";
+} from "@/assets/svg/character/characterSvg";
 // style
 import "./homeAbout.scss";
 import { useRouter } from "next/navigation";

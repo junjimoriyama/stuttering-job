@@ -1,7 +1,7 @@
 // react
 import { useEffect, useRef, useState } from "react";
 // type
-import { FormWithSetValueProps } from "@/app/types/form";
+import { FormWithSetValueProps } from "@/types/form";
 // functions
 import { storageTextSaveData } from "@/app/functions/functions";
 // style

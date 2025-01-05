@@ -9,7 +9,7 @@ import { useFormContext } from "react-hook-form";
 import {Step} from "@/app/form/step/Step";
 import {StepContext} from "@/app/form/step/stepContext";
 // svg
-import { ThanksChara } from "@/public/svg/character/characterSvg";
+import { ThanksChara } from "@/assets/svg/character/characterSvg";
 // style
 import "./complete.scss";
 

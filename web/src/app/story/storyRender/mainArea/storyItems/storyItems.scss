@@ -1,5 +1,5 @@
-@use "@/app/style/breakpoint.scss" as bp;
-@use "@/app/style/variable.scss" as var;
+@use "@/style/breakpoint.scss" as bp;
+@use "@/style/variable.scss" as var;
 
 .storyItems {
   .story_controls {
@@ -23,18 +23,6 @@
     @include bp.media(sm, max) {
       grid-gap: 20px;
       padding: 0px;
-    }
-
-    &.isChange {
-      // animation: storyPageChange 1s  forwards;
-
-      // .story_preview_item {
-      //   @for $i from 1 through var.$display_story_max_length {
-      //     &:nth-child(#{$i}) {
-      //       animation: storyPageChange 1s #{$i * 0.1}s forwards;
-      //     }
-      //   }
-      // }
     }
 
     @keyframes storyPageChange {
@@ -110,7 +98,7 @@
           .bag_svg {
             position: absolute;
             top: 0px;
-            right: 5px;
+            right: 25px;
             transform: translate(-50%, -50%) rotate(-45deg);
             width: 40px;
             height: 40px;
@@ -120,7 +108,7 @@
         .story_preview_info_number {
           position: absolute;
           top: 0;
-          right: -50px;
+          right: -30px;
           transform: translate(-30%, -50%);
           display: grid;
           place-items: center;
@@ -131,10 +119,6 @@
           border: 3px solid var.$main_color;
           border-radius: 50%;
           line-height: 0.8;
-
-          @include bp.media(xs, max) {
-            right: -45px;
-          }
         }
 
         .story_preview_info {

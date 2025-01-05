@@ -5,13 +5,13 @@ import { useEffect, useCallback, useMemo, useState } from "react";
 import { useStoryContext } from "@/app/story/StoreContext";
 import { useRouter } from "next/navigation";
 // type
-import { allDataArrayType, allDataType } from "@/app/types/story";
+import { allDataArrayType, allDataType } from "@/types/story";
 // components
 import { Pagination } from "../components/pagination/Pagination";
 // import { StoryPreview } from "./storyPreview/StoryPreview";
 // style
 import "./storyItems.scss";
-import { BagIcon } from "@/public/svg/icon/bag";
+import { BagIcon } from "@/assets/svg/icon/bag";
 
 export const StoryItems = ({ fetchData }: { fetchData: allDataArrayType }) => {
   // router

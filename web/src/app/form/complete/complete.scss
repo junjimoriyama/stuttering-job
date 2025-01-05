@@ -1,6 +1,6 @@
-@use "@/app/style/breakpoint.scss" as bp;
-@use "@/app/style/common.scss" as mixin;
-@use "@/app/style/variable.scss" as var;
+@use "@/style/breakpoint.scss" as bp;
+@use "@/style/common.scss" as mixin;
+@use "@/style/variable.scss" as var;
 
 $completePadding: 20px;
 
@@ -47,8 +47,8 @@ $completePadding: 20px;
       }
 
       .thanks_chara_svg {
-        width: 120px;
-        height: 120px;
+        width: 200px;
+        height: 200px;
         margin-bottom: 30px;
 
         @include bp.media(xxs, max) {

@@ -1,5 +1,5 @@
 // svg
-import { MainLogo } from "@/public/svg/logo/logoSvg";
+import { MainLogo } from "@/assets/svg/logo/logoSvg";
 // style
 import "./firstView.scss";
 

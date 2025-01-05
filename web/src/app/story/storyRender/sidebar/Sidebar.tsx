@@ -1,7 +1,7 @@
 "use client";
 
 // type
-import { allDataArrayType } from "@/app/types/story";
+import { allDataArrayType } from "@/types/story";
 // components
 import { Search } from "../components/search/Search";
 // style

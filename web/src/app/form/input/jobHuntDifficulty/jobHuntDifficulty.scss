@@ -1,6 +1,6 @@
-@use "../../../style/breakpoint.scss" as bp;
-@use "../../../style/common.scss" as mixin;
-@use "../../../style/variable.scss" as var;
+@use "@/style/breakpoint.scss" as bp;
+@use "@/style/common.scss" as mixin;
+@use "@/style/variable.scss" as var;
 
 .input {
   .input_form {

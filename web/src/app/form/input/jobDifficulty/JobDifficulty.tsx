@@ -2,9 +2,9 @@
 import { useState, useEffect, useRef } from "react";
 import { useFormContext } from "react-hook-form";
 // type
-import { FormWithSetValueProps } from "@/app/types/form";
+import { FormWithSetValueProps } from "@/types/form";
 // svg
-import { SurpriseMark } from "@/public/svg/icon/mark";
+import { SurpriseMark } from "@/assets/svg/icon/mark";
 // style
 import "./jobDifficulty.scss";
 

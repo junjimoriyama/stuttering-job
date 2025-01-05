@@ -1,11 +1,71 @@
-// import { handleInput } from '@/app/functions/functions';
+
 import { ChangeEvent, useEffect } from "react";
 import {
   handleInputPersonalProps,
   handleInputProps,
   handleSelectProps,
   handleSelectPropsNumber,
-} from "../types/form";
+} from "../../types/form";
+
+
+// topページ ==================================================================
+
+// インターセクションオブザーバー
+type ObserverOptions = {
+  threshold: number; // IntersectionObserver の threshold
+};
+
+const useIntersectionObserver = (
+  ref: React.RefObject<Element>, // 対象要素の参照
+  setState: React.Dispatch<React.SetStateAction<boolean>>, // 状態を更新する関数
+  options: ObserverOptions // オプション
+) => {
+  useEffect(() => {
+    if (!ref.current) return;
+
+    const observerCallback = (entries: IntersectionObserverEntry[]) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          setState(true); // 一度でも可視状態になったら true にする
+        }
+      });
+    };
+
+    const observer = new IntersectionObserver(observerCallback, {
+      threshold: options.threshold,
+    });
+
+    observer.observe(ref.current);
+
+    return () => {
+      // observer.unobserve(ref.current!); // クリーンアップ
+    };
+  }, [ref, setState, options.threshold]);
+};
+
+export default useIntersectionObserver;
+
+// データの取得
+export const fetchDatabaseData = async() => {
+  const res = await fetch("http://localhost:3000/api/v1/forms", {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+  if(res.ok) {
+  const data = await res.json();
+  return data
+  } else {
+    console.log("error")
+  }
+}
+
+// storyページ ==================================================================
+
+
+
+// formページ ==================================================================
 
 // 選択保存
 export const storageSelectSaveData: handleSelectProps = (
@@ -100,53 +160,3 @@ export const storagePersonalSaveData: handleInputPersonalProps = (
   }, 250);
 };
 
-// インターセクションオブザーバー
-type ObserverOptions = {
-  threshold: number; // IntersectionObserver の threshold
-};
-
-const useIntersectionObserver = (
-  ref: React.RefObject<Element>, // 対象要素の参照
-  setState: React.Dispatch<React.SetStateAction<boolean>>, // 状態を更新する関数
-  options: ObserverOptions // オプション
-) => {
-  useEffect(() => {
-    if (!ref.current) return;
-
-    const observerCallback = (entries: IntersectionObserverEntry[]) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          setState(true); // 一度でも可視状態になったら true にする
-        }
-      });
-    };
-
-    const observer = new IntersectionObserver(observerCallback, {
-      threshold: options.threshold,
-    });
-
-    observer.observe(ref.current);
-
-    return () => {
-      // observer.unobserve(ref.current!); // クリーンアップ
-    };
-  }, [ref, setState, options.threshold]);
-};
-
-export default useIntersectionObserver;
-
-// データの取得
-export const fetchDatabaseData = async() => {
-  const res = await fetch("http://localhost:3000/api/v1/forms", {
-    method: "GET",
-    headers: {
-      "Content-Type": "application/json",
-    },
-  });
-  if(res.ok) {
-  const data = await res.json();
-  return data
-  } else {
-    console.log("error")
-  }
-}

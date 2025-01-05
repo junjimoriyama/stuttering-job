@@ -3,7 +3,7 @@
 // react
 import { createContext, useContext, useState } from "react";
 // type
-import { allDataType } from "../types/story";
+import { allDataType } from "../../types/story";
 
 // story内で共有の状態
 const storyContext = createContext<{

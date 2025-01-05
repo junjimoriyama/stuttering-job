@@ -1,7 +1,9 @@
-// import { TitleLogo } from "../../public/svg/svg";
-import { LoadingChara } from "../../public/svg/character/characterSvg";
-import "./loading.scss";
-import { MainLogo } from "@/public/svg/logo/logoSvg";
+// svg
+import { MainLogo } from "@/assets/svg/logo/logoSvg";
+import { LoadingChara } from "@/assets/svg/character/characterSvg";
+// style
+import "./loading.scss"; 
+
 
 const Loading = () => {
   return (

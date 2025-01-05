@@ -3,9 +3,9 @@
 import "./footer.scss";
 import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
-import { FooterMainLogo, HeaderMainLogo } from "@/public/svg/logo/logoSvg";
-import { HomeIcon, HomeIconWhite, LookIcon, LookIconWhite, MenuIcon, WriteIcon, WriteIconWhite } from "@/public/svg/icon/menuIcon";
-import { SilhouetteChara } from "@/public/svg/character/characterSvg";
+import { FooterMainLogo, HeaderMainLogo } from "@/assets/svg/logo/logoSvg";
+import { HomeIcon, HomeIconWhite, LookIcon, LookIconWhite, MenuIcon, WriteIcon, WriteIconWhite } from "@/assets/svg/icon/menuIcon";
+import { SilhouetteChara } from "@/assets/svg/character/characterSvg";
 
 const Footer = () => {
 

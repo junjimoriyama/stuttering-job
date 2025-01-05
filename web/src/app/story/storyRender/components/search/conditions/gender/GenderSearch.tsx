@@ -4,11 +4,11 @@
 import { useState, useEffect, useRef } from "react";
 import { useStoryContext } from "@/app/story/StoreContext";
 // svg
-import { CheckMark } from "@/public/svg/icon/mark";
+import { CheckMark } from "@/assets/svg/icon/mark";
 
 export const GenderSearch = () => {
   // useContext管理の状態
-  const { gender, setGender, isAllClose } = useStoryContext();
+  const { age, gender, industry, setGender, isAllClose } = useStoryContext();
   // アコーディン開閉
   const [isOpen, setIsOpen] = useState(false);
   // アコーディオンの高さ
@@ -34,15 +34,40 @@ export const GenderSearch = () => {
     setMaxHeight(searchItemGenderListRef.current?.scrollHeight);
   };
 
-   // 選択した場所クリック
-  const handleGenderClick = (item: string, value: number) => {
-    // 絞り込み
-    if (!gender.includes(item)) {
-      setGender((prev) => [...prev, item]);
-    } else {
-      setGender((prev) => prev.filter((option) => option !== item));
+    // 更新されたデータのみsessionStorageに保存する関数
+  const updateSessionStorage = (data: string[]) => {
+    const updatedGenderData = {
+      age,
+      gender: data,
+      industry
     }
+    // sessionに保存
+    sessionStorage.setItem("stutter_job_searchFilters", JSON.stringify(updatedGenderData))
+  }
+
+   // 選択した場所クリック
+  const handleGenderClick = (value: string) => {
+    // 変更があったデータ
+    let updateGender = 
+    gender.includes(value) 
+    ? gender.filter(item => item !== value) 
+    : [...gender, value]
+    // sessionにセット
+    updateSessionStorage(updateGender)
+    // 状態にセット
+    setGender(updateGender)
   };
+
+  // 選択しないボタンをクリック
+  const handleStorageClear = () => {
+    const updatedData = {
+      age,
+      gender: [],
+      industry
+    }
+    sessionStorage.setItem("stutter_job_searchFilters", JSON.stringify(updatedData))
+    setGender([])
+  }
 
   // 全てクリアボタン押されたらアコーディオン閉じ、選択をクリアに戻す
   useEffect(() => {
@@ -77,7 +102,7 @@ export const GenderSearch = () => {
               className="search_item_option"
               key={value}
               onClick={() => {
-                handleGenderClick(item, value);
+                handleGenderClick(item);
                 setCurrentLabel(item);
               }}
             >
@@ -90,10 +115,7 @@ export const GenderSearch = () => {
           className={`search_item_option ${
             gender.length === 0 ? "isActive" : ""
           }`}
-          onClick={() => {
-            setGender([]);
-            setCurrentLabel(null);
-          }}
+          onClick={() => {handleStorageClear();}}
         >
           {gender.length === 0 && <CheckMark />}
           選択しない

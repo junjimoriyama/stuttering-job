@@ -5,7 +5,6 @@ export const LoadingChara = () => {
     <svg
       id="loading_chara_svg"
       className="loading_chara_svg"
-      data-name="loading_chara_svg"
       xmlns="http://www.w3.org/2000/svg"
       width="300"
       height="300"
@@ -14,17 +13,17 @@ export const LoadingChara = () => {
     >
       <g>
         <g className="loading_text">
-          <path d="M111.9,275.1v2.2h-12.1v-12.2h4.6v10h7.4Z" fill="#1a2c5b" />
+          <path d="M111.9,275.1v2.2h-12.1v-12.2h4.6v10h7.5Z" fill="#1a2c5b" />
           <path
             d="M129.7,271.2c0,4.4-3.4,6.2-8.3,6.2s-8.3-1.9-8.3-6.2,3.4-6.2,8.3-6.2,8.3,1.9,8.3,6.2ZM124.8,271.2c0-3.1-1.2-4.2-3.4-4.2s-3.4,1.1-3.4,4.2,1.2,4.2,3.4,4.2,3.4-1.1,3.4-4.2Z"
             fill="#1a2c5b"
           />
           <path
-            d="M147.7,277.3h-4.6l-1.1-2.9h-6l-1.1,2.9h-4.3l5-12.2h7.1l5,12.2ZM139.7,268.4c-.2-.5-.4-1.1-.5-1.7h-.1c-.1.6-.3,1.1-.6,1.7l-1.5,3.9h4.3l-1.5-3.9Z"
+            d="M147.7,277.3h-4.6l-1.1-2.9h-6l-1.1,2.9h-4.3l5-12.2h7.1l5,12.2h0ZM139.7,268.4c-.2-.5-.4-1.1-.5-1.7h-.1c-.1.6-.3,1.1-.6,1.7l-1.5,3.9h4.3l-1.5-3.9h0Z"
             fill="#1a2c5b"
           />
           <path
-            d="M156.5,265.1c5.4,0,8.8,1.9,8.8,5.9s-3.7,6.2-9,6.2h-6.3v-12.2h6.5ZM156.5,275.3c2.5,0,4.2-1.1,4.2-4.1s-1.7-4.1-4.6-4.1h-1.5v8.1h2Z"
+            d="M156.5,265.1c5.4,0,8.8,1.9,8.8,5.9s-3.7,6.2-9,6.2h-6.3v-12.2h6.5ZM156.5,275.3c2.5,0,4.2-1.1,4.2-4.1s-1.7-4.1-4.6-4.1h-1.5v8.1h2,0Z"
             fill="#1a2c5b"
           />
           <path d="M172.9,277.3h-4.6v-12.2h4.6v12.2Z" fill="#1a2c5b" />
@@ -33,306 +32,198 @@ export const LoadingChara = () => {
             fill="#1a2c5b"
           />
           <path
-            d="M211.5,270.6c0,.5,0,.9,0,1.3,0,3.5-2.7,5.5-7.7,5.5s-8.4-2.1-8.4-6.3,3.1-6.2,8.2-6.2,6.7,1.4,7.4,3.9l-4.6.7c-.2-1.7-1.1-2.5-2.8-2.5s-3.4,1.5-3.4,4.1,1.3,4.4,3.9,4.4,2.9-1,3-2.9h-3.6v-1.9h8Z"
+            d="M211.5,270.6v1.3c0,3.5-2.7,5.5-7.7,5.5s-8.4-2.1-8.4-6.3,3.1-6.2,8.2-6.2,6.7,1.4,7.4,3.9l-4.6.7c-.2-1.7-1.1-2.5-2.8-2.5s-3.4,1.5-3.4,4.1,1.3,4.4,3.9,4.4,2.9-1,3-2.9h-3.6v-1.9h8Z"
             fill="#1a2c5b"
           />
         </g>
       </g>
+      {/* <path
+        d="M213.1,13.8h-121.3c-4.5,0-8.2,3.7-8.2,8.2v39.5c0,4.5,3.7,8.2,8.2,8.2h54.3l6.3,10.9,6.3-10.9h54.3c4.5,0,8.2-3.7,8.2-8.2V22c0-4.5-3.7-8.2-8.2-8.2h0Z"
+        fill="#1a2c5b"
+      /> */}
+      <circle cx="124.5" cy="42.6" r="4.6" fill="#fff" />
+      <circle cx="153.7" cy="42.6" r="4.6" fill="#fff" />
+      <circle cx="182.9" cy="42.6" r="4.6" fill="#fff" />
       <g>
         <path
-          d="M131.5,168.8h43.9s30.4,61.2-22,60.7-22-60.7-22-60.7h.1Z"
-          fill="#ddddd0"
-          stroke="#000"
-          strokeMiterlimit="10"
-        />
-        <path
-          d="M133.2,188.9h41.5s28.8,41-20.8,40.7-20.8-40.7-20.8-40.7h.1Z"
-          fill="#ddddd0"
-          stroke="#000"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-        <path
-          d="M197.8,139.7s14.3-31.7-3.7-57.8c0,0-28.5,13.4-30.1,26.9,0,0,17.1,9.3,17.3,11.9.2,2.7,16.5,18.9,16.5,18.9h0Z"
+          d="M194.5,190c2.7-4.6,10.5-12.5,23.7-9.7,0,0-2.5,5-2.4,9.7,0,1.9.4,7.1-.2,13.2-.8,8.8-3.6,19-13.1,20.7-16.1,2.8-24.7.1-23.1-2s3.5-11.5,3.5-11.5c0,0,4.6-3.6,7.5-8.6,2.9-5,1.4-7.1,4.1-11.7Z"
           fill="#f9851c"
-          stroke="#000"
-          strokeMiterlimit="10"
         />
         <path
-          d="M195.8,121.1c.2-.4,5.2-18.2-2.7-30.6,0,0-19.3,9.2-20.8,19.6,0,0,13.1,1.8,13.7,4.3s9.7,6.6,9.7,6.6h.1Z"
-          fill="#fbfbec"
-          stroke="#000"
-          strokeMiterlimit="10"
+          d="M218.2,180.3c-13.1-2.8-21,5-23.7,9.7h0s0,0,0,0c0,0,0,0,0,0h0c-.4,1.2,1,2.6,3,3.2.8.3,1.3.6,1.7.4.4-.2.4.2.3.4-.9,2.3,2,5.5,6.5,7.1,4.5,1.6,7.8,3.9,9.5,2,.9-6.2.4-10.5.3-13.1-.1-4.7,2.4-9.7,2.4-9.7Z"
+          fill="#f2f0de"
+        />
+      </g>
+      <g>
+        <path
+          d="M131.3,172h43.9s30.4,61.2-22,60.7-22-60.7-22-60.7h.1Z"
+          fill="#ddddd0"
         />
         <path
-          d="M108.7,139.7s-14.2-31.7,3.8-57.8c0,0,28.5,13.4,30.1,27,0,0-17.1,9.2-17.3,11.9s-16.6,18.9-16.6,18.9Z"
+          d="M132.9,192.1h41.5s28.8,41-20.8,40.7-20.8-40.7-20.8-40.7h.1Z"
+          fill="#c1c1bc"
+        />
+        <path
+          d="M197.6,142.9s14.3-31.7-3.7-57.8c0,0-28.5,13.4-30.1,26.9,0,0,17.1,9.3,17.3,11.9.2,2.7,16.5,18.9,16.5,18.9h0Z"
           fill="#f9851c"
-          stroke="#000"
-          strokeMiterlimit="10"
         />
         <path
-          d="M110.7,121.1c-.2-.4-5.2-18.2,2.7-30.6,0,0,19.2,9.2,20.8,19.6,0,0-13.1,1.8-13.7,4.3s-9.7,6.6-9.7,6.6h-.1Z"
-          fill="#fbfbec"
-          stroke="#000"
-          strokeMiterlimit="10"
+          d="M195.6,124.3c.2-.4,5.2-18.2-2.7-30.6,0,0-19.3,9.2-20.8,19.6,0,0,13.1,1.8,13.7,4.3s9.7,6.6,9.7,6.6h.1Z"
+          fill="#f2f0de"
+        />
+        <path
+          d="M108.4,142.9s-14.2-31.7,3.8-57.8c0,0,28.5,13.4,30.1,27,0,0-17.1,9.2-17.3,11.9s-16.6,18.9-16.6,18.9Z"
+          fill="#f9851c"
+        />
+        <path
+          d="M110.4,124.3c-.2-.4-5.2-18.2,2.7-30.6,0,0,19.2,9.2,20.8,19.6,0,0-13.1,1.8-13.7,4.3s-9.7,6.6-9.7,6.6h-.1Z"
+          fill="#f2f0de"
         />
         <rect
-          x="107.5"
-          y="109"
+          x="107.3"
+          y="112.2"
           width="92.9"
           height="64.1"
           rx="21.9"
           ry="21.9"
-          fill="#f2f0de"
-          stroke="#000"
-          strokeMiterlimit="10"
+          fill="#ddddd0"
         />
         <rect
-          x="113.4"
-          y="116"
+          x="113.2"
+          y="119.2"
           width="78.1"
           height="50.1"
           rx="17.1"
           ry="17.1"
           fill="#daf4f7"
-          stroke="#000"
-          strokeMiterlimit="10"
         />
         <circle
-          cx="172.9"
-          cy="136.3"
+          cx="172.6"
+          cy="139.5"
           r="6.6"
           stroke="#000"
           strokeMiterlimit="10"
         />
         <circle
-          cx="172.9"
-          cy="133.5"
+          cx="172.6"
+          cy="136.7"
           r="2.8"
           fill="#fff"
           stroke="#000"
           strokeMiterlimit="10"
         />
         <circle
-          cx="131"
-          cy="135.9"
+          cx="130.8"
+          cy="139.1"
           r="6.6"
           stroke="#000"
           strokeMiterlimit="10"
         />
         <circle
-          cx="131"
-          cy="133.2"
+          cx="130.8"
+          cy="136.4"
           r="2.8"
           fill="#fff"
           stroke="#000"
           strokeMiterlimit="10"
         />
         <path
-          d="M161.9,149c0,4.7-3.8,8.4-8.4,8.4s-8.4-3.8-8.4-8.4"
+          d="M161.6,152.2c0,4.7-3.8,8.4-8.4,8.4s-8.4-3.8-8.4-8.4"
           fill="none"
-          stroke="#000"
+          stroke="#000333"
           strokeLinecap="round"
           strokeMiterlimit="10"
         />
-        <ellipse
-          cx="128.3"
-          cy="152.4"
-          rx="5.4"
-          ry="3.4"
-          fill="#f9851c"
-          stroke="#000"
-          strokeMiterlimit="10"
-        />
-        <ellipse
-          cx="175.4"
-          cy="153.3"
-          rx="5.4"
-          ry="3.4"
-          fill="#f9851c"
-          stroke="#000"
-          strokeMiterlimit="10"
-        />
+        <ellipse cx="128.1" cy="155.6" rx="5.4" ry="3.4" fill="#f9851c" />
+        <ellipse cx="175.1" cy="156.5" rx="5.4" ry="3.4" fill="#f9851c" />
         <circle
-          cx="133.7"
-          cy="205.1"
+          className="circle_1"
+          cx="133.4"
+          cy="208.3"
           r="3.4"
           fill="#f9851c"
-          stroke="#000"
-          strokeMiterlimit="10"
         />
         <circle
-          cx="154"
-          cy="205.1"
+          className="circle_2"
+          cx="153.8"
+          cy="208.3"
           r="3.4"
           fill="#f9851c"
-          stroke="#000"
-          strokeMiterlimit="10"
         />
         <circle
-          cx="172.4"
-          cy="205.7"
+          className="circle_3"
+          cx="172.1"
+          cy="208.9"
           r="3.4"
           fill="#f9851c"
-          stroke="#000"
-          strokeMiterlimit="10"
         />
         <path
-          d="M138.5,173.1h29.9s-1.3,11.6-13.4,11.9c-12.1.4-16.5-11.9-16.5-11.9Z"
-          fill="#ddddd0"
-          stroke="#000"
-          strokeMiterlimit="10"
+          d="M138.3,176.3h29.9s-1.3,11.6-13.4,11.9c-12.1.4-16.5-11.9-16.5-11.9Z"
+          fill="#c1c1bc"
         />
+        <path d="M152.1,96.4l-5.2,15.8h10.5l-5.3-15.8Z" fill="#f9851c" />
+        <circle cx="151.9" cy="96.9" r="3.2" fill="#f9851c" />
         <path
-          d="M152.4,93.2l-5.2,15.8h10.5l-5.3-15.8Z"
-          fill="#f9851c"
-          stroke="#000"
-          strokeMiterlimit="10"
-        />
-        <circle
-          cx="152.2"
-          cy="93.7"
-          r="3.2"
-          fill="#f9851c"
-          stroke="#000"
-          strokeMiterlimit="10"
-        />
-        <path
-          d="M196,188c2.8-4.8,11-13,24.7-10.1,0,0-2.6,5.2-2.5,10.1,0,2,.4,7.4-.2,13.7-.8,9.2-3.7,19.8-13.7,21.5-16.8,2.9-25.7.1-24-2.1s3.6-12,3.6-12c0,0,4.8-3.8,7.8-9s1.5-7.4,4.3-12.2h0Z"
-          fill="#f9851c"
-          stroke="#000"
-          strokeMiterlimit="10"
-        />
-        <path
-          d="M196.1,188c2.8-4.8,11-13,24.7-10.1,0,0-2.6,5.2-2.5,10.1,0,2.7.7,7.2-.3,13.6"
-          fill="#fff"
-          stroke="#000"
-          strokeMiterlimit="10"
-        />
-        <path
-          d="M196.4,187.6c-.4,1.2,1,2.7,3.1,3.4.9.3,1.4.7,1.8.4s.4.2.3.4c-1,2.4,2,5.7,6.7,7.4s8,4.2,9.8,2.2"
-          fill="#fff"
-          stroke="#000"
-          strokeMiterlimit="10"
-        />
-        <path
-          d="M138.1,227.5c2.5.9,8,1.7,8,1.7v14.7c0,0-4.6-2.6-7.5-2.6s-6.9,2.6-6.9,2.6l.3-18.8s3.7,1.5,6.1,2.4Z"
+          d="M137.9,230.7c2.5.9,8,1.7,8,1.7v14.7s-4.6-2.6-7.5-2.6-6.9,2.6-6.9,2.6l.3-18.8s3.7,1.5,6.1,2.4h0Z"
           fill="#f2f0de"
-          stroke="#000"
-          strokeMiterlimit="10"
         />
         <path
-          d="M138.3,227.5c2.5.9,8,1.7,8,1.7v14.7c0,0-4.6-2.6-7.5-2.6s-6.8,2.6-6.8,2.6v-18.7c.1,0,3.9,1.3,6.3,2.2Z"
+          d="M127.9,255.2c0-6,4.7-10.8,10.5-10.8s10.5,4.8,10.5,10.8"
+          fill="#c1c1bc"
+        />
+        <path d="M127.9,255.2h21" fill="#c1c1bc" />
+        <path
+          d="M171.9,230.1c-2.5.9-8.2,2-8.2,2v15.3s1.5-2.6,7.3-3.1,6.8,3.2,6.8,3.2v-20.8s-3.5,2.5-5.9,3.4h0Z"
           fill="#f2f0de"
-          stroke="#000"
-          strokeMiterlimit="10"
         />
         <path
-          d="M128.2,252c0-6,4.7-10.8,10.5-10.8s10.5,4.8,10.5,10.8"
-          fill="#f2f0de"
-          stroke="#000"
-          strokeMiterlimit="10"
+          d="M181.4,255.2c0-6-4.7-10.8-10.5-10.8s-10.5,4.9-10.5,10.8"
+          fill="#c1c1bc"
         />
-        <path
-          d="M128.2,252h21"
-          fill="none"
-          stroke="#000"
-          strokeLinecap="round"
-          strokeMiterlimit="10"
-        />
-        <path
-          d="M172.1,226.9c-2.5.9-8.2,2-8.2,2v15.3s1.5-2.6,7.3-3.1,6.8,3.2,6.8,3.2v-20.8s-3.5,2.5-5.9,3.4Z"
-          fill="#f2f0de"
-          stroke="#000"
-          strokeMiterlimit="10"
-        />
-        <path
-          d="M181.6,252c0-6-4.7-10.8-10.5-10.8s-10.5,4.9-10.5,10.8"
-          fill="#f2f0de"
-          stroke="#000"
-          strokeMiterlimit="10"
-        />
-        <path
-          d="M181.6,252h-21"
-          fill="none"
-          stroke="#000"
-          strokeLinecap="round"
-          strokeMiterlimit="10"
-        />
-      </g>
-      <g>
-        <g>
-          <path d="M145.7,220.5c.3,1.3,1.1,2.1,2.9,2.1s1.7-.4,1.7-1.1-.7-1.2-3.3-1.8c-3-.8-4.6-1.8-4.6-3.6s2.2-3.6,5.6-3.6,5.5,1.2,5.9,3.5l-3.8.6c-.1-1.4-.9-2.2-2.3-2.2s-1.7.5-1.7,1.2.8,1.2,3.2,1.8c3.5.8,5,1.7,5,3.7s-2.2,3.6-6,3.6-6.1-1.3-6.6-3.7l3.9-.3Z" />
-          <path d="M168.1,214.8h-4.5v9.6h-3.8v-9.6h-4.5v-2.2h12.7v2.2Z" />
-        </g>
+        <path d="M181.4,255.2h-21" fill="#c1c1bc" />
       </g>
       <rect
-        x="132.9"
-        y="231.8"
+        x="132.6"
+        y="235"
         width="12.3"
         height="7.6"
         rx="2.6"
         ry="2.6"
         fill="#ddddd0"
-        stroke="#000"
-        strokeLinecap="round"
-        strokeLinejoin="round"
       />
       <rect
-        x="164.9"
-        y="231.8"
+        x="164.6"
+        y="235"
         width="12.3"
         height="7.6"
         rx="2.6"
         ry="2.6"
         fill="#ddddd0"
-        stroke="#000"
-        strokeLinecap="round"
-        strokeLinejoin="round"
       />
       <path
-        d="M184,195.9l-3.2-13.6s12.9.5,16.1,13.4l-7.1,3.7-5.9-3.4h0Z"
+        d="M183.8,199.1l-3.2-13.6s12.9.5,16.1,13.4l-7.1,3.7-5.9-3.4h0Z"
+        fill="#c1c1bc"
+      />
+      <path
+        d="M193.4,198.1s-7.2-.7-5.3,11.5,7.6,10.4,7.6,10.4c0,0,6.5-.3,5.3-11.6-1.3-11.3-7.6-10.2-7.6-10.2h0Z"
         fill="#ddddd0"
-        stroke="#000"
-        strokeMiterlimit="10"
       />
       <path
-        d="M193.7,194.9s-7.2-.7-5.3,11.5,7.6,10.4,7.6,10.4c0,0,6.5-.3,5.3-11.6-1.3-11.3-7.6-10.2-7.6-10.2h0Z"
+        d="M201.1,230.1l3.4-.3s-1.4-10.9-9.7-10.6c-8.4.3-8.2,11.6-8.2,11.6h3.2c0-.1-.7-8.3,5.4-8.6,6.1-.4,5.9,8,5.9,8h0Z"
+        fill="#c1c1bc"
+      />
+      <path
+        d="M122.9,199.2l2.8-13.7s-12.9.8-15.8,13.8l7.1,3.5,5.8-3.6h0Z"
+        fill="#c1c1bc"
+      />
+      <path
+        d="M113.2,198.4s7.2-.9,5.6,11.4c-1.6,12.2-7.4,10.5-7.4,10.5,0,0-6.6-.2-5.6-11.5s7.4-10.4,7.4-10.4Z"
         fill="#ddddd0"
-        stroke="#000"
-        strokeMiterlimit="10"
       />
       <path
-        d="M201.3,226.9l3.4-.3s-1.4-10.9-9.7-10.6c-8.4.3-8.2,11.6-8.2,11.6h3.2c0-.1-.7-8.3,5.4-8.6,6.1-.4,5.9,8,5.9,8h0Z"
-        fill="#ddddd0"
-        stroke="#000"
-        strokeMiterlimit="10"
+        d="M106.3,230.6l-3.4-.3s1.1-11,9.5-10.9,8.5,11.4,8.5,11.4h-3.2s.5-8.2-5.7-8.4-5.7,8.1-5.7,8.1h0Z"
+        fill="#c1c1bc"
       />
-      <path
-        d="M123.2,196l2.8-13.7s-12.9.8-15.8,13.8l7.1,3.5,5.8-3.6h0Z"
-        fill="#ddddd0"
-        stroke="#000"
-        strokeMiterlimit="10"
-      />
-      <path
-        d="M113.4,195.2s7.2-.9,5.6,11.4c-1.6,12.2-7.4,10.5-7.4,10.5,0,0-6.6-.2-5.6-11.5s7.4-10.4,7.4-10.4Z"
-        fill="#ddddd0"
-        stroke="#000"
-        strokeMiterlimit="10"
-      />
-      <path
-        d="M106.6,227.4l-3.4-.3s1.1-11,9.5-10.9,8.5,11.4,8.5,11.4h-3.2s.5-8.2-5.7-8.4-5.7,8.1-5.7,8.1h0Z"
-        fill="#ddddd0"
-        stroke="#000"
-        strokeMiterlimit="10"
-      />
-      <path
-        d="M213.1,13.8h-121.3c-4.5,0-8.2,3.7-8.2,8.2v39.5c0,4.5,3.7,8.2,8.2,8.2h54.3l6.3,10.9,6.3-10.9h54.3c4.5,0,8.2-3.7,8.2-8.2V22c0-4.5-3.7-8.2-8.2-8.2h0Z"
-        fill="#1a2c5b"
-      />
-      <circle className="circle_1" cx="124.5" cy="42.6" r="4.6" fill="#fff" />
-      <circle className="circle_2" cx="153.7" cy="42.6" r="4.6" fill="#fff" />
-      <circle className="circle_3" cx="182.9" cy="42.6" r="4.6" fill="#fff" />
     </svg>
   );
 };
@@ -354,101 +245,48 @@ export const ThanksChara = () => {
         <g>
           <g>
             <path
-              d="M108.6,151.3h70.8s49.1,98.7-35.4,97.9c-84.5-.8-35.4-97.9-35.4-97.9Z"
+              d="M212.3,182c4.4-7.7,17.6-20.8,39.6-16.2,0,0-4.2,8.3-3.9,16.2,0,3.2.6,11.9-.3,22-1.3,14.7-6,31.8-21.9,34.5-26.9,4.6-41.2.2-38.5-3.4,2.7-3.6,5.8-19.2,5.8-19.2,0,0,7.7-6.1,12.5-14.4,4.8-8.3,2.4-11.8,6.8-19.6Z"
+              fill="#f9851c"
+            />
+            <path
+              d="M251.8,165.8c-22-4.6-35.1,8.4-39.6,16.2h0s0,0,0,0c0,0,0,0,0,0h0c-.6,1.9,1.6,4.3,5,5.3,1.4.4,2.2,1,2.8.7.7-.4.7.3.5.7-1.5,3.9,3.4,9.1,10.9,11.8,7.5,2.7,13.1,6.4,15.9,3.4,1.5-10.4.6-17.5.5-21.8-.2-7.9,3.9-16.2,3.9-16.2Z"
+              fill="#f2f0de"
+            />
+          </g>
+          <g>
+            <path
+              d="M108.6,151.3h70.8s49.1,98.7-35.4,97.9c-84.5-.8-35.4-97.9-35.4-97.9h0Z"
               fill="#ddddd0"
-              stroke="#000"
-              strokeMiterlimit="10"
-              strokeWidth="1.2"
             />
             <path
               d="M111.3,183.6h67s46.4,66.1-33.5,65.6c-79.9-.5-33.5-65.6-33.5-65.6Z"
-              fill="#ddddd0"
-              stroke="#000"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="1.2"
+              fill="#c1c1bc"
             />
             <g>
               <path
-                d="M215.4,104.2s23-51.1-6-93.2c0,0-46,21.6-48.6,43.4,0,0,27.6,14.9,27.9,19.3.3,4.3,26.7,30.5,26.7,30.5Z"
+                d="M215.4,104.2s23-51.1-6-93.2c0,0-46,21.6-48.6,43.4,0,0,27.6,14.9,27.9,19.3.3,4.3,26.7,30.5,26.7,30.5h0Z"
                 fill="#f9851c"
-                stroke="#000"
-                strokeMiterlimit="10"
-                strokeWidth="1.2"
               />
               <path
-                d="M212.2,74.3c.2-.7,8.4-29.3-4.3-49.3,0,0-31,14.9-33.5,31.6,0,0,21.2,3,22.2,6.9,1,4,15.6,10.7,15.6,10.7Z"
-                fill="#fbfbec"
-                stroke="#000"
-                strokeMiterlimit="10"
-                strokeWidth="1.2"
+                d="M212.2,74.3c.2-.7,8.4-29.3-4.3-49.3,0,0-31,14.9-33.5,31.6,0,0,21.2,3,22.2,6.9,1,4,15.6,10.7,15.6,10.7h0Z"
+                fill="#f2f0de"
               />
             </g>
             <g>
               <path
-                d="M71.8,104.2s-23-51.1,6.1-93.2c0,0,45.9,21.6,48.6,43.5,0,0-27.6,14.9-27.9,19.2-.3,4.3-26.7,30.5-26.7,30.5Z"
+                d="M71.8,104.2s-23-51.1,6.1-93.2c0,0,45.9,21.6,48.6,43.5,0,0-27.6,14.9-27.9,19.2-.3,4.3-26.7,30.5-26.7,30.5h0Z"
                 fill="#f9851c"
-                stroke="#000"
-                strokeMiterlimit="10"
-                strokeWidth="1.2"
               />
               <path
                 d="M75,74.3c-.2-.7-8.4-29.3,4.3-49.3,0,0,31,14.9,33.5,31.7,0,0-21.2,3-22.2,6.9s-15.6,10.7-15.6,10.7Z"
-                fill="#fbfbec"
-                stroke="#000"
-                strokeMiterlimit="10"
-                strokeWidth="1.2"
+                fill="#f2f0de"
               />
             </g>
-            <rect
-              x="69.9"
-              y="54.7"
-              width="149.7"
-              height="103.4"
-              rx="20.3"
-              ry="20.3"
-              fill="#f2f0de"
-              stroke="#000"
-              strokeMiterlimit="10"
-              strokeWidth="1.2"
-            />
-            <rect
-              x="81"
-              y="72.1"
-              width="125.9"
-              height="80.7"
-              rx="15.8"
-              ry="15.8"
-              fill="#daf4f7"
-              stroke="#000"
-              strokeMiterlimit="10"
-              strokeWidth="1.2"
-            />
             <path
-              d="M155.9,131.7c0,7.5-6.1,13.6-13.6,13.6s-13.6-6.1-13.6-13.6"
+              d="M142.3,145.3"
               fill="none"
               stroke="#000"
               strokeLinecap="round"
-              strokeMiterlimit="10"
-              strokeWidth="1.2"
-            />
-            <ellipse
-              cx="106"
-              cy="129.5"
-              rx="8.7"
-              ry="5.5"
-              fill="#f9851c"
-              stroke="#000"
-              strokeMiterlimit="10"
-              strokeWidth="1.2"
-            />
-            <ellipse
-              cx="181.9"
-              cy="131"
-              rx="8.7"
-              ry="5.5"
-              fill="#f9851c"
-              stroke="#000"
               strokeMiterlimit="10"
               strokeWidth="1.2"
             />
@@ -461,15 +299,7 @@ export const ThanksChara = () => {
               strokeMiterlimit="10"
               strokeWidth="1.2"
             />
-            <circle
-              cx="144.7"
-              cy="209.8"
-              r="5.5"
-              fill="#f9851c"
-              stroke="#000"
-              strokeMiterlimit="10"
-              strokeWidth="1.2"
-            />
+            <circle cx="144.7" cy="209.8" r="5.5" fill="#f9851c" />
             <circle
               cx="174.4"
               cy="210.7"
@@ -481,41 +311,13 @@ export const ThanksChara = () => {
             />
             <path
               d="M119.9,158.1h48.2s-2.1,18.6-21.7,19.2c-19.5.6-26.5-19.2-26.5-19.2Z"
-              fill="#ddddd0"
-              stroke="#000"
-              strokeMiterlimit="10"
-              strokeWidth="1.2"
+              fill="#c1c1bc"
             />
             <polygon
               points="142.3 29.2 133.8 54.7 150.8 54.7 142.3 29.2"
               fill="#f9851c"
-              stroke="#000"
-              strokeMiterlimit="10"
-              strokeWidth="1.2"
             />
-            <circle
-              cx="141.9"
-              cy="30.2"
-              r="5.2"
-              fill="#f9851c"
-              stroke="#000"
-              strokeMiterlimit="10"
-              strokeWidth="1.2"
-            />
-            <path
-              d="M212.5,182.1c4.5-7.8,17.7-21,39.8-16.3,0,0-4.2,8.4-4,16.3,0,3.2.6,12-.3,22.1-1.3,14.8-6,31.9-22,34.7-27,4.7-41.4.2-38.7-3.4,2.7-3.6,5.8-19.3,5.8-19.3,0,0,7.7-6.1,12.5-14.5,4.8-8.4,2.4-11.9,6.9-19.7Z"
-              fill="#f9851c"
-              stroke="#000"
-              strokeMiterlimit="10"
-              strokeWidth="1.2"
-            />
-            <path
-              d="M212.6,182.2c4.5-7.8,17.7-21,39.8-16.3,0,0-4.2,8.4-4,16.3.1,4.4,1.1,11.5-.5,22"
-              fill="#fff"
-              stroke="#000"
-              strokeMiterlimit="10"
-              strokeWidth="1.2"
-            />
+            <circle cx="141.9" cy="30.2" r="5.2" fill="#f9851c" />
             <path
               d="M273.6,198.1"
               fill="red"
@@ -523,160 +325,82 @@ export const ThanksChara = () => {
               strokeMiterlimit="10"
               strokeWidth="1.2"
             />
-            <path
-              d="M213.1,181.5c-.7,1.9,1.5,4.4,5,5.5,1.4.4,2.2,1.1,2.9.7s.7.3.5.7c-1.6,3.9,3.3,9.2,10.9,12,7.6,2.7,12.9,6.7,15.7,3.6"
-              fill="#fff"
-              stroke="#000"
-              strokeMiterlimit="10"
-              strokeWidth="1.2"
-            />
             <g>
               <path
-                d="M109.4,241.5s5.8,2.9,9.7,4.4c4,1.5,13.4,2.7,13.4,2.7l-.7,23.9s-7.2-4.1-12-4.2c-4.8-.1-11.1,4.2-11.1,4.2l.6-31Z"
+                d="M109.4,241.5s5.8,2.9,9.7,4.4c4,1.5,13.4,2.7,13.4,2.7l-.7,23.9s-7.2-4.1-12-4.2-11.1,4.2-11.1,4.2l.6-31h0Z"
                 fill="#f2f0de"
-                stroke="#000"
-                strokeMiterlimit="10"
-                strokeWidth="1.2"
               />
               <g>
                 <path
                   d="M103.2,285.4c0-9.6,7.6-17.4,16.9-17.4s16.9,7.8,16.9,17.4"
-                  fill="#f2f0de"
-                  stroke="#000"
-                  strokeMiterlimit="10"
-                  strokeWidth="1.2"
+                  fill="#c1c1bc"
                 />
                 <line
                   x1="103.2"
                   y1="285.4"
                   x2="137.1"
                   y2="285.4"
-                  fill="none"
-                  stroke="#000"
-                  strokeLinecap="round"
-                  strokeMiterlimit="10"
-                  strokeWidth="1.2"
+                  fill="#c1c1bc"
                 />
               </g>
             </g>
             <g>
               <path
-                d="M182.9,240.1s-5.1,3.3-9.1,4.9c-4,1.5-13.2,3.3-13.2,3.3v24.4s7.2-4.7,12-4.8c4.8-.1,10.8,4.1,10.8,4.1l-.4-31.9Z"
+                d="M182.9,240.1s-5.1,3.3-9.1,4.9c-4,1.5-13.2,3.3-13.2,3.3v24.4s7.2-4.7,12-4.8c4.8-.1,10.8,4.1,10.8,4.1l-.4-31.9h-.1Z"
                 fill="#f2f0de"
-                stroke="#000"
-                strokeMiterlimit="10"
-                strokeWidth="1.2"
               />
               <g>
                 <path
-                  d="M189.6,285.3c0-9.6-7.6-17.4-17-17.4-9.4,0-16.9,7.8-16.9,17.5"
-                  fill="#f2f0de"
-                  stroke="#000"
-                  strokeMiterlimit="10"
-                  strokeWidth="1.2"
+                  d="M189.6,285.3c0-9.6-7.6-17.4-17-17.4s-16.9,7.8-16.9,17.5"
+                  fill="#c1c1bc"
                 />
                 <line
                   x1="189.5"
                   y1="285.3"
                   x2="155.7"
                   y2="285.3"
-                  fill="none"
-                  stroke="#000"
-                  strokeLinecap="round"
-                  strokeMiterlimit="10"
-                  strokeWidth="1.2"
+                  fill="#c1c1bc"
                 />
               </g>
             </g>
           </g>
           <g>
-            <path d="M135.2,234.9c.3,1.4,1.2,2.1,3,2.1s1.8-.4,1.8-1.1-.8-1.2-3.5-1.9c-3.2-.8-4.8-1.8-4.8-3.7s2.3-3.6,5.8-3.6,5.8,1.2,6.2,3.6l-4,.6c-.2-1.5-1-2.2-2.5-2.2s-1.8.5-1.8,1.2.8,1.3,3.3,1.8c3.7.8,5.3,1.8,5.3,3.8s-2.3,3.7-6.3,3.7-6.4-1.3-6.9-3.8l4.1-.4Z" />
-            <path d="M158.7,229.1h-4.7v9.8h-4v-9.8h-4.7v-2.2h13.4v2.2Z" />
-          </g>
-          <g>
             <path
-              d="M172.7,189.2l14.4-18.7s11.9,16.5-.3,34.1l-12-4.6-2.1-10.8Z"
-              fill="#ddddd0"
-              stroke="#000"
-              strokeMiterlimit="10"
-              strokeWidth="1.2"
+              d="M172.7,189.2l14.4-18.7s11.9,16.5-.3,34.1l-12-4.6-2.1-10.8h0Z"
+              fill="#d1d1c3"
             />
             <path
-              d="M184.3,199.9s-6.8-9.4-19.6,5.8c-12.7,15.3-4.4,20.3-4.4,20.3,0,0,7.4,7.6,19.7-6,12.3-13.6,4.3-20.1,4.3-20.1Z"
+              d="M184.3,199.9s-6.8-9.4-19.6,5.8c-12.7,15.3-4.4,20.3-4.4,20.3,0,0,7.4,7.6,19.7-6s4.3-20.1,4.3-20.1Z"
               fill="#ddddd0"
-              stroke="#000"
-              strokeMiterlimit="10"
-              strokeWidth="1.2"
             />
             <path
-              d="M153.7,243.2l4,3.7s11.8-13.3,2.5-23.1c-9.3-9.8-22.8,2.5-22.8,2.5l3.6,3.7s9.1-9.5,16.1-2.4c7,7-3.4,15.7-3.4,15.7Z"
-              fill="#ddddd0"
-              stroke="#000"
-              strokeMiterlimit="10"
-              strokeWidth="1.2"
+              d="M153.7,243.2l4,3.7s11.8-13.3,2.5-23.1-22.8,2.5-22.8,2.5l3.6,3.7s9.1-9.5,16.1-2.4c7,7-3.4,15.7-3.4,15.7h0Z"
+              fill="#d1d1c3"
             />
           </g>
           <g>
             <path
-              d="M116.3,189.6l-16-17.6s-10.4,16.8,2.7,33.7l11.7-5.2,1.6-10.9Z"
-              fill="#ddddd0"
-              stroke="#000"
-              strokeMiterlimit="10"
-              strokeWidth="1.2"
+              d="M116.3,189.6l-16-17.6s-10.4,16.8,2.7,33.7l11.7-5.2s1.6-10.9,1.6-10.9Z"
+              fill="#d1d1c3"
             />
             <path
-              d="M105.2,200.9s6.3-9.8,19.9,4.8c13.5,14.6,5.4,20,5.4,20,0,0-7,7.9-20-5-13-12.9-5.3-19.9-5.3-19.9Z"
+              d="M105.2,200.9s6.3-9.8,19.9,4.8c13.5,14.6,5.4,20,5.4,20,0,0-7,7.9-20-5s-5.3-19.9-5.3-19.9h0Z"
               fill="#ddddd0"
-              stroke="#000"
-              strokeMiterlimit="10"
-              strokeWidth="1.2"
             />
             <path
-              d="M138.1,242.6l-3.8,3.9s-12.4-12.7-3.7-23c8.8-10.3,22.9,1.3,22.9,1.3l-3.4,3.9s-9.6-9-16.2-1.6c-6.6,7.4,4.2,15.5,4.2,15.5Z"
-              fill="#ddddd0"
-              stroke="#000"
-              strokeMiterlimit="10"
-              strokeWidth="1.2"
+              d="M138.1,242.6l-3.8,3.9s-12.4-12.7-3.7-23c8.8-10.3,22.9,1.3,22.9,1.3l-3.4,3.9s-9.6-9-16.2-1.6c-6.6,7.4,4.2,15.5,4.2,15.5h0Z"
+              fill="#d1d1c3"
             />
           </g>
-          <path
-            d="M115.2,103c0,3.7-4.1,6.8-9.2,6.8s-9.2-3-9.2-6.8"
-            fill="none"
-            stroke="#000"
-            strokeLinecap="round"
-            strokeMiterlimit="10"
-            strokeWidth="1.2"
+          <rect
+            x="110"
+            y="253"
+            width="21.5"
+            height="13.3"
+            rx="4.5"
+            ry="4.5"
+            fill="#ddddd0"
           />
-          <path
-            d="M191.6,103c0,3.7-4.1,6.8-9.2,6.8s-9.2-3-9.2-6.8"
-            fill="none"
-            stroke="#000"
-            strokeLinecap="round"
-            strokeMiterlimit="10"
-            strokeWidth="1.2"
-          />
-          <g>
-            <path
-              d="M26.4,234.6"
-              fill="red"
-              stroke="#000"
-              strokeMiterlimit="10"
-              strokeWidth="1.1"
-            />
-            <rect
-              x="110"
-              y="253"
-              width="21.5"
-              height="13.3"
-              rx="4.5"
-              ry="4.5"
-              fill="#ddddd0"
-              stroke="#000"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="1.1"
-            />
-          </g>
         </g>
         <rect
           x="161.1"
@@ -686,281 +410,320 @@ export const ThanksChara = () => {
           rx="4.5"
           ry="4.5"
           fill="#ddddd0"
-          stroke="#000"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          strokeWidth="1.1"
         />
+        <g>
+          <rect
+            x="67.1"
+            y="53.1"
+            width="148.2"
+            height="102.3"
+            rx="34.9"
+            ry="34.9"
+            fill="#ddddd0"
+          />
+          <rect
+            x="78.9"
+            y="68.4"
+            width="124.6"
+            height="79.9"
+            rx="27.3"
+            ry="27.3"
+            fill="#daf4f7"
+          />
+          <path
+            d="M142.2,134.4c-7.3,0-13.4-6.1-13.4-13.4"
+            fill="none"
+            stroke="#000333"
+            strokeLinecap="round"
+            strokeMiterlimit="10"
+            strokeWidth="1.6"
+          />
+          <path
+            d="M155.6,121c0,7.5-6.1,13.4-13.4,13.4"
+            fill="none"
+            stroke="#000333"
+            strokeLinecap="round"
+            strokeMiterlimit="10"
+            strokeWidth="1.6"
+          />
+          <path
+            d="M93.4,126.4c0-3,3.9-5.4,8.6-5.4s8.6,2.4,8.6,5.4"
+            fill="#f9851c"
+          />
+          <path
+            d="M110.6,126.4c0,3-3.9,5.4-8.6,5.4s-8.6-2.4-8.6-5.4"
+            fill="#f9851c"
+          />
+          <ellipse cx="177.1" cy="127.9" rx="8.6" ry="5.4" fill="#f9851c" />
+        </g>
+        <g>
+          <path
+            d="M113.2,92.7c0,3.7-4.1,6.8-9.2,6.8s-9.2-3-9.2-6.8"
+            fill="none"
+            stroke="#000333"
+            strokeLinecap="round"
+            strokeMiterlimit="10"
+            strokeWidth="1.2"
+          />
+          <path
+            d="M189.6,92.7c0,3.7-4.1,6.8-9.2,6.8s-9.2-3-9.2-6.8"
+            fill="none"
+            stroke="#000333"
+            strokeLinecap="round"
+            strokeMiterlimit="10"
+            strokeWidth="1.2"
+          />
+        </g>
       </svg>
     </div>
   );
 };
-// export const LoadingChara = () => {
-//   return (
-//     <svg
-//       className="lading_chara_svg"
-//       height="200"
-//       viewBox="0 0 300 300"
-//       width="200"
-//       xmlns="http://www.w3.org/2000/svg"
-//     >
-//       <text
-//         fill="#1a2c5b"
-//         fontFamily="ToppanBunkyuMidashiGothicStdN-ExtraBold-83pv-RKSJ-H, 'Toppan Bunkyu Midashi Gothic'"
-//         fontSize="15.6"
-//         fontWeight="700"
-//         transform="matrix(1.6 0 0 1 97.8 277.3)"
-//       >
-//         <tspan className="loading_text" x="0" y="0">
-//           LOADING
-//         </tspan>
-//       </text>
-//       <g stroke="#000">
-//         <path
-//           d="m131.5 168.8h43.9s30.4 61.2-22 60.7-22-60.7-22-60.7z"
-//           fill="#ddddd0"
-//           strokeMiterlimit="10"
-//         />
-//         <path
-//           d="m133.2 188.9h41.5s28.8 41-20.8 40.7-20.8-40.7-20.8-40.7z"
-//           fill="#ddddd0"
-//           strokeLinecap="round"
-//           strokeLinejoin="round"
-//         />
-//         <path
-//           d="m197.8 139.7s14.3-31.7-3.7-57.8c0 0-28.5 13.4-30.1 26.9 0 0 17.1 9.3 17.3 11.9.2 2.7 16.5 18.9 16.5 18.9z"
-//           fill="#f9851c"
-//           strokeMiterlimit="10"
-//         />
-//         <path
-//           d="m195.8 121.1c.2-.4 5.2-18.2-2.7-30.6 0 0-19.3 9.2-20.8 19.6 0 0 13.1 1.8 13.7 4.3s9.7 6.6 9.7 6.6z"
-//           fill="#fbfbec"
-//           strokeMiterlimit="10"
-//         />
-//         <path
-//           d="m108.7 139.7s-14.2-31.7 3.8-57.8c0 0 28.5 13.4 30.1 27 0 0-17.1 9.2-17.3 11.9s-16.6 18.9-16.6 18.9z"
-//           fill="#f9851c"
-//           strokeMiterlimit="10"
-//         />
-//         <path
-//           d="m110.7 121.1c-.2-.4-5.2-18.2 2.7-30.6 0 0 19.2 9.2 20.8 19.6 0 0-13.1 1.8-13.7 4.3s-9.7 6.6-9.7 6.6z"
-//           fill="#fbfbec"
-//           strokeMiterlimit="10"
-//         />
-//         <rect
-//           fill="#f2f0de"
-//           height="64.1"
-//           rx="21.9"
-//           strokeMiterlimit="10"
-//           width="92.9"
-//           x="107.5"
-//           y="109"
-//         />
-//         <rect
-//           fill="#cefffd"
-//           height="50.1"
-//           rx="17.1"
-//           strokeMiterlimit="10"
-//           width="78.1"
-//           x="113.4"
-//           y="116"
-//         />
-//         <circle cx="172.9" cy="136.3" r="6.6" strokeMiterlimit="10" />
-//         <circle
-//           cx="172.9"
-//           cy="133.5"
-//           fill="#fff"
-//           r="2.8"
-//           strokeMiterlimit="10"
-//         />
-//         <circle cx="131" cy="135.9" r="6.6" strokeMiterlimit="10" />
-//         <circle cx="131" cy="133.2" fill="#fff" r="2.8" strokeMiterlimit="10" />
-//         <path
-//           d="m161.9 149c0 4.7-3.8 8.4-8.4 8.4s-8.4-3.8-8.4-8.4"
-//           fill="none"
-//           strokeLinecap="round"
-//           strokeMiterlimit="10"
-//         />
-//         <ellipse
-//           cx="128.3"
-//           cy="152.4"
-//           fill="#f9851c"
-//           rx="5.4"
-//           ry="3.4"
-//           strokeMiterlimit="10"
-//         />
-//         <ellipse
-//           cx="175.4"
-//           cy="153.3"
-//           fill="#f9851c"
-//           rx="5.4"
-//           ry="3.4"
-//           strokeMiterlimit="10"
-//         />
-//         <circle
-//           cx="133.7"
-//           cy="205.1"
-//           fill="#f9851c"
-//           r="3.4"
-//           strokeMiterlimit="10"
-//         />
-//         <circle
-//           cx="154"
-//           cy="205.1"
-//           fill="#f9851c"
-//           r="3.4"
-//           strokeMiterlimit="10"
-//         />
-//         <circle
-//           cx="172.4"
-//           cy="205.7"
-//           fill="#f9851c"
-//           r="3.4"
-//           strokeMiterlimit="10"
-//         />
-//         <path
-//           d="m138.5 173.1h29.9s-1.3 11.6-13.4 11.9c-12.1.4-16.5-11.9-16.5-11.9z"
-//           fill="#ddddd0"
-//           strokeMiterlimit="10"
-//         />
-//         <path
-//           d="m152.4 93.2-5.2 15.8h10.5z"
-//           fill="#f9851c"
-//           strokeMiterlimit="10"
-//         />
-//         <circle
-//           cx="152.2"
-//           cy="93.7"
-//           fill="#f9851c"
-//           r="3.2"
-//           strokeMiterlimit="10"
-//         />
-//         <path
-//           d="m196 188c2.8-4.8 11-13 24.7-10.1 0 0-2.6 5.2-2.5 10.1 0 2 .4 7.4-.2 13.7-.8 9.2-3.7 19.8-13.7 21.5-16.8 2.9-25.7.1-24-2.1s3.6-12 3.6-12 4.8-3.8 7.8-9 1.5-7.4 4.3-12.2z"
-//           fill="#f9851c"
-//           strokeMiterlimit="10"
-//         />
-//         <path
-//           d="m196.1 188c2.8-4.8 11-13 24.7-10.1 0 0-2.6 5.2-2.5 10.1 0 2.7.7 7.2-.3 13.6"
-//           fill="#fff"
-//           strokeMiterlimit="10"
-//         />
-//         <path
-//           d="m196.4 187.6c-.4 1.2 1 2.7 3.1 3.4.9.3 1.4.7 1.8.4s.4.2.3.4c-1 2.4 2 5.7 6.7 7.4s8 4.2 9.8 2.2"
-//           fill="#fff"
-//           strokeMiterlimit="10"
-//         />
-//         <path
-//           d="m132.1 224.8s3.6 1.8 6 2.7c2.5.9 8.3 1.6 8.3 1.6l-.4 14.8s-4.5-2.6-7.4-2.6c-3 0-6.9 2.6-6.9 2.6l.4-19.2z"
-//           fill="#f2f0de"
-//           strokeMiterlimit="10"
-//         />
-//         <path
-//           d="m128.2 252c0-6 4.7-10.8 10.5-10.8s10.5 4.8 10.5 10.8"
-//           fill="#f2f0de"
-//           strokeMiterlimit="10"
-//         />
-//         <path
-//           d="m128.2 252h21"
-//           fill="none"
-//           strokeLinecap="round"
-//           strokeMiterlimit="10"
-//         />
-//         <path
-//           d="m178.3 223.2s-3.8 2.8-6.2 3.7c-2.5.9-8.2 2-8.2 2v15.3s1.5-2.6 7.3-3.1 7.3 3.2 7.3 3.2v-21.2z"
-//           fill="#f2f0de"
-//           strokeMiterlimit="10"
-//         />
-//         <path
-//           d="m181.6 252c0-6-4.7-10.8-10.5-10.8s-10.5 4.9-10.5 10.8"
-//           fill="#f2f0de"
-//           strokeMiterlimit="10"
-//         />
-//         <path
-//           d="m181.6 252h-21"
-//           fill="none"
-//           strokeLinecap="round"
-//           strokeMiterlimit="10"
-//         />
-//         <text
-//           fontFamily="ToppanBunkyuMidashiGothicStdN-ExtraBold-83pv-RKSJ-H, 'Toppan Bunkyu Midashi Gothic'"
-//           fontSize="9.6"
-//           fontWeight="700"
-//           transform="matrix(1.4 0 0 1 145.1 223.2)"
-//         >
-//           <tspan x="0" y="0">
-//             ST
-//           </tspan>
-//         </text>
-//         <rect
-//           fill="#ddddd0"
-//           height="7.6"
-//           rx="2.6"
-//           stroke="#000"
-//           strokeLinecap="round"
-//           strokeLinejoin="round"
-//           width="12.3"
-//           x="132.9"
-//           y="231.8"
-//         />
-//         <rect
-//           fill="#ddddd0"
-//           height="7.6"
-//           rx="2.6"
-//           stroke="#000"
-//           strokeLinecap="round"
-//           strokeLinejoin="round"
-//           width="12.3"
-//           x="164.9"
-//           y="231.8"
-//         />
-//         <path
-//           d="m184 195.9-3.2-13.6s12.9.5 16.1 13.4l-7.1 3.7-5.9-3.4z"
-//           fill="#ddddd0"
-//           stroke="#000"
-//           strokeMiterlimit="10"
-//         />
-//         <path
-//           d="m193.7 194.9s-7.2-.7-5.3 11.5 7.6 10.4 7.6 10.4 6.5-.3 5.3-11.6c-1.3-11.3-7.6-10.2-7.6-10.2z"
-//           fill="#ddddd0"
-//           stroke="#000"
-//           strokeMiterlimit="10"
-//         />
-//         <path
-//           d="m201.3 226.9 3.4-.3s-1.4-10.9-9.7-10.6c-8.4.3-8.2 11.6-8.2 11.6h3.2c0-.1-.7-8.3 5.4-8.6 6.1-.4 5.9 8 5.9 8z"
-//           fill="#ddddd0"
-//           stroke="#000"
-//           strokeMiterlimit="10"
-//         />
-//         <path
-//           d="m123.2 196 2.8-13.7s-12.9.8-15.8 13.8l7.1 3.5 5.8-3.6z"
-//           fill="#ddddd0"
-//           stroke="#000"
-//           strokeMiterlimit="10"
-//         />
-//         <path
-//           d="m113.4 195.2s7.2-.9 5.6 11.4c-1.6 12.2-7.4 10.5-7.4 10.5s-6.6-.2-5.6-11.5 7.4-10.4 7.4-10.4z"
-//           fill="#ddddd0"
-//           stroke="#000"
-//           strokeMiterlimit="10"
-//         />
-//         <path
-//           d="m106.6 227.4-3.4-.3s1.1-11 9.5-10.9 8.5 11.4 8.5 11.4h-3.2s.5-8.2-5.7-8.4-5.7 8.1-5.7 8.1z"
-//           fill="#ddddd0"
-//           stroke="#000"
-//           strokeMiterlimit="10"
-//         />
-//         <path
-//           d="m213.1 13.8h-121.3c-4.5 0-8.2 3.7-8.2 8.2v39.5c0 4.5 3.7 8.2 8.2 8.2h54.3l6.3 10.9 6.3-10.9h54.3c4.5 0 8.2-3.7 8.2-8.2v-39.5c0-4.5-3.7-8.2-8.2-8.2z"
-//           fill="#1a2c5b"
-//         />
-//         <circle className="circle-1" cx="124.5" cy="42.6" fill="#fff" r="4.6" />
-//         <circle className="circle-2" cx="153.7" cy="42.6" fill="#fff" r="4.6" />
-//         <circle className="circle-3" cx="182.9" cy="42.6" fill="#fff" r="4.6" />
-//       </g>
-//     </svg>
-//   );
-// };
+export const CryChara = () => {
+  return (
+    <svg
+      id="cry_chara_svg"
+      className="cry_chara_svg"
+      xmlns="http://www.w3.org/2000/svg"
+      width="200"
+      height="200"
+      version="1.1"
+      viewBox="0 0 300 300"
+    >
+      <g>
+        <path
+          d="M204.7,183.6c4.3-7.5,17-20.1,38.2-15.6,0,0-4,8-3.8,15.6,0,3.1.6,11.5-.3,21.2-1.3,14.2-5.8,30.7-21.1,33.3-25.9,4.5-39.8.2-37.2-3.2,2.6-3.5,5.6-18.5,5.6-18.5,0,0,7.4-5.9,12-13.9,4.6-8,2.3-11.4,6.6-18.9Z"
+          fill="#f9851c"
+        />
+        <path
+          d="M242.9,168c-21.2-4.5-33.9,8.1-38.2,15.6h0s0,0,0,0c0,0,0,0,0,0h0c-.6,1.9,1.6,4.2,4.8,5.2,1.3.4,2.1,1,2.7.7.7-.3.6.3.5.6-1.5,3.7,3.2,8.8,10.5,11.4,7.3,2.6,12.7,6.2,15.3,3.2,1.5-10,.6-16.9.4-21.1-.2-7.6,3.8-15.6,3.8-15.6Z"
+          fill="#f2f0de"
+        />
+      </g>
+      <g>
+        <path
+          d="M102.8,154.6h70.8s49,98.7-35.5,97.9c-84.5-.8-35.5-97.9-35.5-97.9h.2Z"
+          fill="#ddddd0"
+        />
+        <path
+          d="M105.5,187.1h66.9s46.4,66.1-33.5,65.6c-80-.5-33.5-65.6-33.5-65.6h.2Z"
+          fill="#c1c1bc"
+        />
+        <path
+          d="M209.6,107.7s23.1-51.1-6-93.2c0,0-45.9,21.6-48.5,43.4,0,0,27.6,15,27.9,19.2.3,4.4,26.6,30.5,26.6,30.5h0v.2Z"
+          fill="#f9851c"
+        />
+        <path
+          d="M206.4,77.7c.3-.6,8.4-29.3-4.4-49.3,0,0-31.1,14.8-33.5,31.6,0,0,21.1,2.9,22.1,6.9,1,4,15.6,10.6,15.6,10.6h.2v.2Z"
+          fill="#f2f0de"
+        />
+        <path
+          d="M66,107.7s-22.9-51.1,6.1-93.2c0,0,45.9,21.6,48.5,43.5,0,0-27.6,14.8-27.9,19.2s-26.8,30.5-26.8,30.5Z"
+          fill="#f9851c"
+        />
+        <path
+          d="M69.2,77.7c-.3-.6-8.4-29.3,4.4-49.3,0,0,31,14.8,33.5,31.6,0,0-21.1,2.9-22.1,6.9s-15.6,10.6-15.6,10.6h-.2v.2Z"
+          fill="#f2f0de"
+        />
+        <rect
+          x="64.1"
+          y="58.2"
+          width="149.8"
+          height="103.3"
+          rx="35.3"
+          ry="35.3"
+          fill="#ddddd0"
+        />
+        <rect
+          x="73.6"
+          y="69.5"
+          width="125.9"
+          height="80.8"
+          rx="27.6"
+          ry="27.6"
+          fill="#daf4f7"
+        />
+        <path
+          d="M174,97.7"
+          fill="#fff"
+          stroke="#000"
+          strokeMiterlimit="10"
+          strokeWidth="1.6"
+        />
+        <path
+          d="M165,97.7"
+          fill="#fff"
+          stroke="#000"
+          strokeMiterlimit="10"
+          strokeWidth="1.6"
+        />
+        <ellipse cx="97.6" cy="128.2" rx="8.7" ry="5.5" fill="#f9851c" />
+        <ellipse cx="173.5" cy="129.7" rx="8.7" ry="5.5" fill="#f9851c" />
+        <circle 
+        className="circle_1"
+        cx="106.3" cy="213.2" r="5.5" fill="#f9851c" />
+        <circle 
+        className="circle_2"
+        cx="139" cy="213.2" r="5.5" fill="#f9851c" />
+        <circle 
+        className="circle_3"
+        cx="168.7" cy="214.1" r="5.5" fill="#f9851c" />
+        <path
+          d="M114,161.6h48.2s-2.1,18.7-21.6,19.2c-19.5.6-26.6-19.2-26.6-19.2Z"
+          fill="#c1c1bc"
+        />
+        <path d="M136.4,32.8l-8.4,25.5h16.9l-8.5-25.5Z" fill="#f9851c" />
+        <circle cx="136.1" cy="33.6" r="5.2" fill="#f9851c" />
+        <path
+          d="M113.4,249.3c4,1.5,12.9,2.7,12.9,2.7v23.7s-7.4-4.2-12.1-4.2-11.1,4.2-11.1,4.2l.5-30.3s6,2.4,9.8,3.9h0Z"
+          fill="#f2f0de"
+        />
+        <path
+          d="M97.4,288.8c0-9.7,7.6-17.4,16.9-17.4s16.9,7.7,16.9,17.4"
+          fill="#c1c1bc"
+        />
+        <path d="M97.4,288.8h33.9" fill="#c1c1bc" />
+        <path
+          d="M168.2,248.3c-4,1.5-13.2,3.2-13.2,3.2v24.7s2.4-4.2,11.8-5c9.4-.8,11,5.2,11,5.2v-33.5s-5.6,4-9.5,5.5h0Z"
+          fill="#f2f0de"
+        />
+        <path
+          d="M183.5,288.8c0-9.7-7.6-17.4-16.9-17.4s-16.9,7.9-16.9,17.4"
+          fill="#c1c1bc"
+        />
+        <path d="M183.5,288.8h-33.9" fill="#c1c1bc" />
+      </g>
+      <rect
+        x="105"
+        y="256.2"
+        width="19.8"
+        height="12.3"
+        rx="4.2"
+        ry="4.2"
+        fill="#ddddd0"
+      />
+      <rect
+        x="156.6"
+        y="256.2"
+        width="19.8"
+        height="12.3"
+        rx="4.2"
+        ry="4.2"
+        fill="#ddddd0"
+      />
+      <path
+        d="M187.4,198.3l-5.2-21.9s20.8.8,26,21.6l-11.4,6-9.5-5.5h0l.2-.2Z"
+        fill="#c1c1bc"
+      />
+      <path
+        d="M203,196.7s-11.6-1.1-8.5,18.5c3.1,19.7,12.3,16.8,12.3,16.8,0,0,10.5-.5,8.5-18.7-2.1-18.2-12.3-16.4-12.3-16.4h0v-.2Z"
+        fill="#ddddd0"
+      />
+      <path
+        d="M215.3,248.3l5.5-.5s-2.3-17.6-15.6-17.1c-13.5.5-13.2,18.7-13.2,18.7h5.2c0-.2-1.1-13.4,8.7-13.9,9.8-.6,9.5,12.9,9.5,12.9h0v-.2Z"
+        fill="#c1c1bc"
+      />
+      <path
+        d="M89.4,198.5l4.5-22.1s-20.8,1.3-25.5,22.2l11.4,5.6,9.4-5.8h.2Z"
+        fill="#c1c1bc"
+      />
+      <path
+        d="M73.6,197.2s11.6-1.5,9,18.4c-2.6,19.7-11.9,16.9-11.9,16.9,0,0-10.6-.3-9-18.5,1.6-18.2,11.9-16.8,11.9-16.8Z"
+        fill="#ddddd0"
+      />
+      <path
+        d="M62.6,249.1l-5.5-.5s1.8-17.7,15.3-17.6c13.5.2,13.7,18.4,13.7,18.4h-5.2s.8-13.2-9.2-13.5-9.2,13.1-9.2,13.1h0v.2Z"
+        fill="#c1c1bc"
+      />
+      <path
+        d="M107.1,90.6c0,3.8-4.3,7.1-9.5,7.1s-9.5-3.1-9.5-7.1"
+        fill="none"
+        stroke="#000333"
+        strokeLinecap="round"
+        strokeMiterlimit="10"
+        strokeWidth="1.2"
+      />
+      <path
+        d="M183.7,91.6c0,3.8-4.3,7.1-9.5,7.1s-9.5-3.1-9.5-7.1"
+        fill="none"
+        stroke="#000333"
+        strokeLinecap="round"
+        strokeMiterlimit="10"
+        strokeWidth="1.2"
+      />
+      <path
+        d="M123.8,132.7c0-4.9,5.7-9.1,12.7-9.1s12.7,4,12.7,9.1"
+        fill="none"
+        stroke="#000333"
+        strokeLinecap="round"
+        strokeMiterlimit="10"
+        strokeWidth="1.6"
+      />
+      <path
+        d="M100.7,110.2v-.3c-.2-.2-.2-.4-.3-.5l-4.3-10.7-4.2,10.5c-.2.4-.3.6-.4,1h0c0,.5-.1.9-.1,1.3,0,2.6,2.1,4.8,4.8,4.8s4.8-2.1,4.8-4.8,0-.8-.1-1.2Z"
+        fill="#82c3ff"
+      />
+      <path
+        d="M178.8,110.6v-.3c-.2-.2-.2-.4-.3-.5l-4.3-10.7-4.2,10.5c-.2.4-.3.6-.4,1h0c0,.5-.1.9-.1,1.3,0,2.6,2.1,4.8,4.8,4.8s4.8-2.1,4.8-4.8,0-.8-.1-1.2Z"
+        fill="#82c3ff"
+      />
+    </svg>
+  );
+};
+
+export const UpHandChara = () => {
+  return (
+    <svg 
+    id="up_hand_chara"
+    className="up_hand_chara"
+    xmlns="http://www.w3.org/2000/svg" width="75" height="75" version="1.1" viewBox="0 0 300 300">
+      <g>
+        <path d="M204.7,183.6c4.3-7.5,17-20.1,38.2-15.6,0,0-4,8-3.8,15.6,0,3.1.6,11.5-.3,21.2-1.3,14.2-5.8,30.7-21.1,33.3-25.9,4.5-39.8.2-37.2-3.2,2.6-3.5,5.6-18.5,5.6-18.5,0,0,7.4-5.9,12-13.9,4.6-8,2.3-11.4,6.6-18.9Z" fill="#f9851c"/>
+        <path d="M242.9,168c-21.2-4.5-33.9,8.1-38.2,15.6h0s0,0,0,0c0,0,0,0,0,0h0c-.6,1.9,1.6,4.2,4.8,5.2,1.3.4,2.1,1,2.7.7.7-.3.6.3.5.6-1.5,3.7,3.2,8.8,10.5,11.4,7.3,2.6,12.7,6.2,15.3,3.2,1.5-10,.6-16.9.4-21.1-.2-7.6,3.8-15.6,3.8-15.6Z" fill="#f2f0de"/>
+      </g>
+      <g>
+        <path d="M102.8,154.6h70.8s49,98.7-35.5,97.9c-84.5-.8-35.5-97.9-35.5-97.9h.2Z" fill="#ddddd0"/>
+        <path d="M105.5,187.1h66.9s46.4,66.1-33.5,65.6c-80-.5-33.5-65.6-33.5-65.6h.2Z" fill="#c1c1bc"/>
+        <path d="M209.6,107.7s23.1-51.1-6-93.2c0,0-45.9,21.6-48.5,43.4,0,0,27.6,15,27.9,19.2.3,4.4,26.6,30.5,26.6,30.5h0v.2Z" fill="#f9851c"/>
+        <path d="M206.4,77.7c.3-.6,8.4-29.3-4.4-49.3,0,0-31.1,14.8-33.5,31.6,0,0,21.1,2.9,22.1,6.9,1,4,15.6,10.6,15.6,10.6h.2v.2Z" fill="#f2f0de"/>
+        <path d="M66,107.7s-22.9-51.1,6.1-93.2c0,0,45.9,21.6,48.5,43.5,0,0-27.6,14.8-27.9,19.2s-26.8,30.5-26.8,30.5Z" fill="#f9851c"/>
+        <path d="M69.2,77.7c-.3-.6-8.4-29.3,4.4-49.3,0,0,31,14.8,33.5,31.6,0,0-21.1,2.9-22.1,6.9s-15.6,10.6-15.6,10.6h-.2v.2Z" fill="#f2f0de"/>
+        <rect x="64.1" y="58.2" width="149.8" height="103.3" rx="35.3" ry="35.3" fill="#ddddd0"/>
+        <rect x="73.6" y="69.5" width="125.9" height="80.8" rx="27.6" ry="27.6" fill="#daf4f7"/>
+        <path d="M174,97.7" fill="#fff" stroke="#000" strokeMiterlimit="10" strokeWidth="1.6"/>
+        <path d="M165,97.7" fill="#fff" stroke="#000" strokeMiterlimit="10" strokeWidth="1.6"/>
+        <circle cx="106.3" cy="213.2" r="5.5" fill="#f9851c"/>
+        <circle cx="139" cy="213.2" r="5.5" fill="#f9851c"/>
+        <circle cx="168.7" cy="214.1" r="5.5" fill="#f9851c"/>
+        <path d="M114,161.6h48.2s-2.1,18.7-21.6,19.2c-19.5.6-26.6-19.2-26.6-19.2Z" fill="#c1c1bc"/>
+        <path d="M136.4,32.8l-8.4,25.5h16.9l-8.5-25.5Z" fill="#f9851c"/>
+        <circle cx="136.1" cy="33.6" r="5.2" fill="#f9851c"/>
+        <path d="M113.4,249.3c4,1.5,12.9,2.7,12.9,2.7v23.7s-7.4-4.2-12.1-4.2-11.1,4.2-11.1,4.2l.5-30.3s6,2.4,9.8,3.9h0Z" fill="#f2f0de"/>
+        <path d="M97.4,288.8c0-9.7,7.6-17.4,16.9-17.4s16.9,7.7,16.9,17.4" fill="#c1c1bc"/>
+        <path d="M97.4,288.8h33.9" fill="#c1c1bc"/>
+        <path d="M168.2,248.3c-4,1.5-13.2,3.2-13.2,3.2v24.7s2.4-4.2,11.8-5c9.4-.8,11,5.2,11,5.2v-33.5s-5.6,4-9.5,5.5h0Z" fill="#f2f0de"/>
+        <path d="M183.5,288.8c0-9.7-7.6-17.4-16.9-17.4s-16.9,7.9-16.9,17.4" fill="#c1c1bc"/>
+        <path d="M183.5,288.8h-33.9" fill="#c1c1bc"/>
+      </g>
+      <rect x="105" y="256.2" width="19.8" height="12.3" rx="4.2" ry="4.2" fill="#ddddd0"/>
+      <rect x="156.6" y="256.2" width="19.8" height="12.3" rx="4.2" ry="4.2" fill="#ddddd0"/>
+      <path d="M187.4,198.3l-5.2-21.9s20.8.8,26,21.6l-11.4,6-9.5-5.5h0l.2-.2Z" fill="#c1c1bc"/>
+      <path d="M203,196.7s-11.6-1.1-8.5,18.5c3.1,19.7,12.3,16.8,12.3,16.8,0,0,10.5-.5,8.5-18.7-2.1-18.2-12.3-16.4-12.3-16.4h0v-.2Z" fill="#ddddd0"/>
+      <path d="M215.3,248.3l5.5-.5s-2.3-17.6-15.6-17.1c-13.5.5-13.2,18.7-13.2,18.7h5.2c0-.2-1.1-13.4,8.7-13.9,9.8-.6,9.5,12.9,9.5,12.9h0v-.2Z" fill="#c1c1bc"/>
+      <path d="M89.4,198.5l4.5-22.1s-20.8,1.3-25.5,22.2l11.4,5.6,9.4-5.8h.2Z" fill="#c1c1bc"/>
+      <path d="M81.1,204.4s-6.3,9.9-19.9-4.8c-13.5-14.6-5.4-20-5.4-20,0,0,7-8,20,4.9s5.3,19.9,5.3,19.9Z" fill="#ddddd0"/>
+      <path d="M51.6,159.9l4.4-3.3s10.6,14.3.5,23.3c-10.1,9-22.5-4.4-22.5-4.4l3.8-3.5s8.3,10.3,15.9,3.8-2-15.8-2-15.8h-.1Z" fill="#c1c1bc"/>
+      <g>
+        <circle cx="172.2" cy="98.7" r="11.3"/>
+        <path d="M166.5,92.6c2.6,0,4.7,2.1,4.7,4.7s-2.1,4.7-4.7,4.7-4.7-2.1-4.7-4.7,2.1-4.7,4.7-4.7" fill="#fff"/>
+        <circle cx="100.2" cy="98.2" r="11.3"/>
+        <path d="M94,92.6c2.6,0,4.7,2.1,4.7,4.7s-2.1,4.7-4.7,4.7-4.7-2.1-4.7-4.7,2.1-4.7,4.7-4.7" fill="#fff"/>
+        <path d="M153.3,120.5c0,8-6.5,14.4-14.4,14.4s-14.4-6.5-14.4-14.4" fill="none" stroke="#000" strokeLinecap="round" strokeMiterlimit="10" strokeWidth="1.8"/>
+        <ellipse cx="95.8" cy="126.4" rx="9.2" ry="5.9" fill="#f9851c"/>
+        <ellipse cx="176.5" cy="127.9" rx="9.2" ry="5.9" fill="#f9851c"/>
+      </g>
+    </svg>
+  );
+};
 
 export const HomeAboutChara = forwardRef<
   SVGSVGElement,
@@ -1121,9 +884,27 @@ export const HomeAboutChara = forwardRef<
                   ry="4.6"
                   fill="#f9851c"
                 />
-                <circle cx="193.7" cy="168.2" r="4.6" fill="#f9851c" />
-                <circle cx="169.4" cy="167.8" r="4.6" fill="#f9851c" />
-                <circle cx="218.1" cy="169" r="4.6" fill="#f9851c" />
+                <circle
+                  className="circle_1"
+                  cx="169.4"
+                  cy="167.8"
+                  r="4.6"
+                  fill="#f9851c"
+                />
+                <circle
+                  className="circle_2"
+                  cx="193.7"
+                  cy="168.2"
+                  r="4.6"
+                  fill="#f9851c"
+                />
+                <circle
+                  className="circle_3"
+                  cx="218.1"
+                  cy="169"
+                  r="4.6"
+                  fill="#f9851c"
+                />
                 <path
                   d="M173.2,125.7h39.7s-1.8,15.3-17.8,15.8c-16.1.5-21.8-15.8-21.8-15.8Z"
                   fill="#c1c1bc"
@@ -1399,9 +1180,27 @@ export const LookChara = forwardRef<
                     ry="4.5"
                     fill="#f9851c"
                   />
-                  <circle cx="164" cy="173.2" r="4.5" fill="#f9851c" />
-                  <circle cx="187.8" cy="172.8" r="4.5" fill="#f9851c" />
-                  <circle cx="140.1" cy="174" r="4.5" fill="#f9851c" />
+                  <circle
+                    className="circle_1"
+                    cx="164"
+                    cy="173.2"
+                    r="4.5"
+                    fill="#f9851c"
+                  />
+                  <circle
+                    className="circle_2"
+                    cx="187.8"
+                    cy="172.8"
+                    r="4.5"
+                    fill="#f9851c"
+                  />
+                  <circle
+                    className="circle_3"
+                    cx="140.1"
+                    cy="174"
+                    r="4.5"
+                    fill="#f9851c"
+                  />
                   <path
                     d="M184,131.6h-38.9s1.7,15,17.5,15.5,21.4-15.5,21.4-15.5h0Z"
                     fill="#c1c1bc"
@@ -1636,307 +1435,325 @@ export const WriteChara = forwardRef<
           />
         </g>
         <g
-         className={`home_about_write_chara_svg ${
-          isWriteCharaVisible ? "isVisible" : ""
-        }`}
-        ref={homeAboutWriteCharaRef}
-        >
-        <g>
-          <path
-            d="M194.4,151.1c3.7-6.4,14.6-17.3,32.8-13.4,0,0-3.5,6.9-3.3,13.4,0,2.7.5,9.8-.3,18.2-1.1,12.2-5,26.3-18.1,28.6-22.2,3.8-34.1.2-31.9-2.8,2.2-3,4.8-15.9,4.8-15.9,0,0,6.3-5,10.3-11.9,4-6.9,2-9.8,5.7-16.2Z"
-            fill="#f9851c"
-          />
-          <path
-            d="M227.2,137.6c-18.2-3.8-29.1,7-32.8,13.4h0s0,0,0,0c0,0,1.3,3.6,4.1,4.5,1.1.3,1.8.9,2.4.6.6-.3.6.3.4.5-1.3,3.2,2.8,7.6,9,9.8,6.2,2.2,10.9,5.8,13.2,3.2,1.3-8.6.4-14.9.3-18.5-.2-6.5,3.3-13.5,3.3-13.5Z"
-            fill="#fbfbec"
-          />
-        </g>
-        <g
           className={`home_about_write_chara_svg ${
             isWriteCharaVisible ? "isVisible" : ""
           }`}
           ref={homeAboutWriteCharaRef}
         >
           <g>
+            <path
+              d="M194.4,151.1c3.7-6.4,14.6-17.3,32.8-13.4,0,0-3.5,6.9-3.3,13.4,0,2.7.5,9.8-.3,18.2-1.1,12.2-5,26.3-18.1,28.6-22.2,3.8-34.1.2-31.9-2.8,2.2-3,4.8-15.9,4.8-15.9,0,0,6.3-5,10.3-11.9,4-6.9,2-9.8,5.7-16.2Z"
+              fill="#f9851c"
+            />
+            <path
+              d="M227.2,137.6c-18.2-3.8-29.1,7-32.8,13.4h0s0,0,0,0c0,0,1.3,3.6,4.1,4.5,1.1.3,1.8.9,2.4.6.6-.3.6.3.4.5-1.3,3.2,2.8,7.6,9,9.8,6.2,2.2,10.9,5.8,13.2,3.2,1.3-8.6.4-14.9.3-18.5-.2-6.5,3.3-13.5,3.3-13.5Z"
+              fill="#fbfbec"
+            />
+          </g>
+          <g
+            className={`home_about_write_chara_svg ${
+              isWriteCharaVisible ? "isVisible" : ""
+            }`}
+            ref={homeAboutWriteCharaRef}
+          >
             <g>
               <g>
                 <g>
-                  <path
-                    d="M167.6,130.8h-56.5s-39.2,78.8,28.3,78.1c67.4-.6,28.3-78.1,28.3-78.1,0,0-.1,0-.1,0Z"
-                    fill="#ddddd0"
-                  />
-                  <path
-                    d="M165.5,156.6h-53.4s-37,52.7,26.7,52.3c63.8-.4,26.7-52.3,26.7-52.3Z"
-                    fill="#c1c1bc"
-                  />
                   <g>
                     <path
-                      d="M82.4,93.2s-18.4-40.8,4.8-74.4c0,0,36.7,17.2,38.8,34.7,0,0-22,11.9-22.3,15.4s-21.3,24.4-21.3,24.4h0Z"
-                      fill="#f9851c"
-                    />
-                    <path
-                      d="M84.9,69.3c-.2-.6-6.7-23.4,3.4-39.3,0,0,24.8,11.9,26.7,25.2,0,0-16.9,2.4-17.7,5.5-.8,3.2-12.5,8.6-12.5,8.6h0Z"
-                      fill="#fbfbec"
-                    />
-                  </g>
-                  <g>
-                    <path
-                      d="M197,93.2s18.3-40.8-4.8-74.4c0,0-36.7,17.2-38.8,34.7,0,0,22.1,11.9,22.3,15.4s21.3,24.3,21.3,24.3Z"
-                      fill="#f9851c"
-                    />
-                    <path
-                      d="M194.4,69.3c.2-.6,6.7-23.4-3.4-39.3,0,0-24.8,11.9-26.7,25.3,0,0,16.9,2.4,17.7,5.5.8,3.2,12.5,8.5,12.5,8.5h-.1Z"
-                      fill="#fbfbec"
-                    />
-                  </g>
-                  <rect
-                    x="79"
-                    y="53.8"
-                    width="119.5"
-                    height="82.5"
-                    rx="28.3"
-                    ry="28.3"
-                    fill="#ddddd0"
-                  />
-                  <rect
-                    x="86.6"
-                    y="62.8"
-                    width="100.5"
-                    height="64.4"
-                    rx="22.1"
-                    ry="22.1"
-                    fill="#daf4f7"
-                  />
-                  <circle
-                    cx="112.7"
-                    cy="86.5"
-                    r="8.5"
-                    stroke="#000"
-                    strokeMiterlimit="10"
-                    strokeWidth="1.3"
-                  />
-                  <circle
-                    cx="107.8"
-                    cy="86.5"
-                    r="3.6"
-                    fill="#fff"
-                    stroke="#000"
-                    strokeMiterlimit="10"
-                    strokeWidth="1.3"
-                  />
-                  <circle
-                    cx="166.7"
-                    cy="86.1"
-                    r="8.5"
-                    stroke="#000"
-                    strokeMiterlimit="10"
-                    strokeWidth="1.3"
-                  />
-                  <circle
-                    cx="162.1"
-                    cy="86.1"
-                    r="3.6"
-                    fill="#fff"
-                    stroke="#000"
-                    strokeMiterlimit="10"
-                    strokeWidth="1.3"
-                  />
-                  <path
-                    d="M128.5,105.2c0,6,4.9,10.8,10.8,10.8s10.8-4.9,10.8-10.8"
-                    fill="none"
-                    stroke="#000"
-                    strokeLinecap="round"
-                    strokeMiterlimit="10"
-                    strokeWidth="1.3"
-                  />
-                  <ellipse
-                    cx="169.2"
-                    cy="109.6"
-                    rx="6.9"
-                    ry="4.4"
-                    fill="#f9851c"
-                  />
-                  <ellipse
-                    cx="108.6"
-                    cy="110.7"
-                    rx="6.9"
-                    ry="4.4"
-                    fill="#f9851c"
-                  />
-                  <circle cx="138.7" cy="177.5" r="4.4" fill="#f9851c" />
-                  <circle cx="162.3" cy="177" r="4.4" fill="#f9851c" />
-                  <circle cx="115.1" cy="178.2" r="4.4" fill="#f9851c" />
-                  <path
-                    d="M158.6,136.3h-38.5s1.7,14.9,17.3,15.4,21.2-15.4,21.2-15.4Z"
-                    fill="#c1c1bc"
-                  />
-                  <polygon
-                    points="140.7 33.4 147.5 53.7 133.9 53.7 140.7 33.4"
-                    fill="#f9851c"
-                  />
-                  <circle cx="141" cy="34.1" r="4.1" fill="#f9851c" />
-                  <path
-                    d="M35.9,168.2"
-                    fill="red"
-                    stroke="#000"
-                    strokeMiterlimit="10"
-                    strokeWidth="1.3"
-                  />
-                  <g>
-                    <path
-                      d="M166.9,202.8s-4.6,2.3-7.8,3.5-10.7,2.1-10.7,2.1l.5,19.1s5.8-3.3,9.6-3.4c3.8,0,8.9,3.4,8.9,3.4l-.5-24.7h0Z"
-                      fill="#f2f0de"
-                    />
-                    <g>
-                      <path
-                        d="M171.9,237.9c0-7.7-6.1-13.9-13.5-13.9s-13.5,6.2-13.5,13.9"
-                        fill="#c1c1bc"
-                      />
-                      <path
-                        d="M144.9,237.9"
-                        fill="none"
-                        stroke="#000"
-                        strokeLinecap="round"
-                        strokeMiterlimit="10"
-                        strokeWidth="1.3"
-                      />
-                      <path
-                        d="M171.9,237.9"
-                        fill="none"
-                        stroke="#000"
-                        strokeLinecap="round"
-                        strokeMiterlimit="10"
-                        strokeWidth="1.3"
-                      />
-                    </g>
-                  </g>
-                  <g>
-                    <path
-                      d="M107.5,200.8s4.9,3.6,8,4.8c3.2,1.2,10.6,2.6,10.6,2.6v18.4s-5.9-3.3-9.7-3.4c-3.8,0-8.9,3.4-8.9,3.4v-25.8Z"
-                      fill="#f2f0de"
-                    />
-                    <g>
-                      <path
-                        d="M103,236.9c0-7.7,6.1-13.9,13.5-13.9s13.5,6.2,13.5,13.9"
-                        fill="#c1c1bc"
-                      />
-                      <path
-                        d="M130,236.9"
-                        fill="none"
-                        stroke="#000"
-                        strokeLinecap="round"
-                        strokeMiterlimit="10"
-                        strokeWidth="1.3"
-                      />
-                      <path
-                        d="M103,236.9"
-                        fill="none"
-                        stroke="#000"
-                        strokeLinecap="round"
-                        strokeMiterlimit="10"
-                        strokeWidth="1.3"
-                      />
-                    </g>
-                  </g>
-                  <g>
-                    <path
-                      d="M178.4,163.5l-4.4-16.8s16.7.7,20.4,17.4l-9.2,4.6-6.9-5.1h0Z"
-                      fill="#c1c1bc"
-                    />
-                    <path
-                      d="M184.7,167s2.7,8.9,16.3.7,8.6-14.2,8.6-14.2c0,0-3.6-7.6-16.4-.6-12.9,7-8.5,14.1-8.5,14.1h0Z"
+                      d="M167.6,130.8h-56.5s-39.2,78.8,28.3,78.1c67.4-.6,28.3-78.1,28.3-78.1,0,0-.1,0-.1,0Z"
                       fill="#ddddd0"
                     />
+                    <path
+                      d="M165.5,156.6h-53.4s-37,52.7,26.7,52.3c63.8-.4,26.7-52.3,26.7-52.3Z"
+                      fill="#c1c1bc"
+                    />
+                    <g>
+                      <path
+                        d="M82.4,93.2s-18.4-40.8,4.8-74.4c0,0,36.7,17.2,38.8,34.7,0,0-22,11.9-22.3,15.4s-21.3,24.4-21.3,24.4h0Z"
+                        fill="#f9851c"
+                      />
+                      <path
+                        d="M84.9,69.3c-.2-.6-6.7-23.4,3.4-39.3,0,0,24.8,11.9,26.7,25.2,0,0-16.9,2.4-17.7,5.5-.8,3.2-12.5,8.6-12.5,8.6h0Z"
+                        fill="#fbfbec"
+                      />
+                    </g>
+                    <g>
+                      <path
+                        d="M197,93.2s18.3-40.8-4.8-74.4c0,0-36.7,17.2-38.8,34.7,0,0,22.1,11.9,22.3,15.4s21.3,24.3,21.3,24.3Z"
+                        fill="#f9851c"
+                      />
+                      <path
+                        d="M194.4,69.3c.2-.6,6.7-23.4-3.4-39.3,0,0-24.8,11.9-26.7,25.3,0,0,16.9,2.4,17.7,5.5.8,3.2,12.5,8.5,12.5,8.5h-.1Z"
+                        fill="#fbfbec"
+                      />
+                    </g>
+                    <rect
+                      x="79"
+                      y="53.8"
+                      width="119.5"
+                      height="82.5"
+                      rx="28.3"
+                      ry="28.3"
+                      fill="#ddddd0"
+                    />
+                    <rect
+                      x="86.6"
+                      y="62.8"
+                      width="100.5"
+                      height="64.4"
+                      rx="22.1"
+                      ry="22.1"
+                      fill="#daf4f7"
+                    />
+                    <circle
+                      cx="112.7"
+                      cy="86.5"
+                      r="8.5"
+                      stroke="#000"
+                      strokeMiterlimit="10"
+                      strokeWidth="1.3"
+                    />
+                    <circle
+                      cx="107.8"
+                      cy="86.5"
+                      r="3.6"
+                      fill="#fff"
+                      stroke="#000"
+                      strokeMiterlimit="10"
+                      strokeWidth="1.3"
+                    />
+                    <circle
+                      cx="166.7"
+                      cy="86.1"
+                      r="8.5"
+                      stroke="#000"
+                      strokeMiterlimit="10"
+                      strokeWidth="1.3"
+                    />
+                    <circle
+                      cx="162.1"
+                      cy="86.1"
+                      r="3.6"
+                      fill="#fff"
+                      stroke="#000"
+                      strokeMiterlimit="10"
+                      strokeWidth="1.3"
+                    />
+                    <path
+                      d="M128.5,105.2c0,6,4.9,10.8,10.8,10.8s10.8-4.9,10.8-10.8"
+                      fill="none"
+                      stroke="#000"
+                      strokeLinecap="round"
+                      strokeMiterlimit="10"
+                      strokeWidth="1.3"
+                    />
+                    <ellipse
+                      cx="169.2"
+                      cy="109.6"
+                      rx="6.9"
+                      ry="4.4"
+                      fill="#f9851c"
+                    />
+                    <ellipse
+                      cx="108.6"
+                      cy="110.7"
+                      rx="6.9"
+                      ry="4.4"
+                      fill="#f9851c"
+                    />
+                    <circle
+                      className="circle_1"
+                      cx="138.7"
+                      cy="177.5"
+                      r="4.4"
+                      fill="#f9851c"
+                    />
+                    <circle
+                      className="circle_2"
+                      cx="162.3"
+                      cy="177"
+                      r="4.4"
+                      fill="#f9851c"
+                    />
+                    <circle
+                      className="circle_3"
+                      cx="115.1"
+                      cy="178.2"
+                      r="4.4"
+                      fill="#f9851c"
+                    />
+                    <path
+                      d="M158.6,136.3h-38.5s1.7,14.9,17.3,15.4,21.2-15.4,21.2-15.4Z"
+                      fill="#c1c1bc"
+                    />
+                    <polygon
+                      points="140.7 33.4 147.5 53.7 133.9 53.7 140.7 33.4"
+                      fill="#f9851c"
+                    />
+                    <circle cx="141" cy="34.1" r="4.1" fill="#f9851c" />
+                    <path
+                      d="M35.9,168.2"
+                      fill="red"
+                      stroke="#000"
+                      strokeMiterlimit="10"
+                      strokeWidth="1.3"
+                    />
+                    <g>
+                      <path
+                        d="M166.9,202.8s-4.6,2.3-7.8,3.5-10.7,2.1-10.7,2.1l.5,19.1s5.8-3.3,9.6-3.4c3.8,0,8.9,3.4,8.9,3.4l-.5-24.7h0Z"
+                        fill="#f2f0de"
+                      />
+                      <g>
+                        <path
+                          d="M171.9,237.9c0-7.7-6.1-13.9-13.5-13.9s-13.5,6.2-13.5,13.9"
+                          fill="#c1c1bc"
+                        />
+                        <path
+                          d="M144.9,237.9"
+                          fill="none"
+                          stroke="#000"
+                          strokeLinecap="round"
+                          strokeMiterlimit="10"
+                          strokeWidth="1.3"
+                        />
+                        <path
+                          d="M171.9,237.9"
+                          fill="none"
+                          stroke="#000"
+                          strokeLinecap="round"
+                          strokeMiterlimit="10"
+                          strokeWidth="1.3"
+                        />
+                      </g>
+                    </g>
+                    <g>
+                      <path
+                        d="M107.5,200.8s4.9,3.6,8,4.8c3.2,1.2,10.6,2.6,10.6,2.6v18.4s-5.9-3.3-9.7-3.4c-3.8,0-8.9,3.4-8.9,3.4v-25.8Z"
+                        fill="#f2f0de"
+                      />
+                      <g>
+                        <path
+                          d="M103,236.9c0-7.7,6.1-13.9,13.5-13.9s13.5,6.2,13.5,13.9"
+                          fill="#c1c1bc"
+                        />
+                        <path
+                          d="M130,236.9"
+                          fill="none"
+                          stroke="#000"
+                          strokeLinecap="round"
+                          strokeMiterlimit="10"
+                          strokeWidth="1.3"
+                        />
+                        <path
+                          d="M103,236.9"
+                          fill="none"
+                          stroke="#000"
+                          strokeLinecap="round"
+                          strokeMiterlimit="10"
+                          strokeWidth="1.3"
+                        />
+                      </g>
+                    </g>
+                    <g>
+                      <path
+                        d="M178.4,163.5l-4.4-16.8s16.7.7,20.4,17.4l-9.2,4.6-6.9-5.1h0Z"
+                        fill="#c1c1bc"
+                      />
+                      <path
+                        d="M184.7,167s2.7,8.9,16.3.7,8.6-14.2,8.6-14.2c0,0-3.6-7.6-16.4-.6-12.9,7-8.5,14.1-8.5,14.1h0Z"
+                        fill="#ddddd0"
+                      />
+                    </g>
                   </g>
+                  <rect
+                    x="149.2"
+                    y="212.2"
+                    width="16.7"
+                    height="9.8"
+                    rx="3.4"
+                    ry="3.4"
+                    transform="translate(-6.4 4.8) rotate(-1.7)"
+                    fill="#ddddd0"
+                  />
+                  <rect
+                    x="108.7"
+                    y="211.6"
+                    width="16.2"
+                    height="9.8"
+                    rx="3.4"
+                    ry="3.4"
+                    fill="#ddddd0"
+                  />
                 </g>
-                <rect
-                  x="149.2"
-                  y="212.2"
-                  width="16.7"
-                  height="9.8"
-                  rx="3.4"
-                  ry="3.4"
-                  transform="translate(-6.4 4.8) rotate(-1.7)"
-                  fill="#ddddd0"
+                <g>
+                  <path
+                    d="M100.2,165.4l3.8-17.1s-16.2,1-19.5,17.7l9.3,4.4,6.5-5h-.1Z"
+                    fill="#c1c1bc"
+                  />
+                  <path
+                    d="M93.9,170.1s-2.2,9-16.2,1.6c-14-7.5-9.3-13.7-9.3-13.7,0,0,3.2-7.8,16.4-1.5,13.2,6.3,9.2,13.6,9.2,13.6h0Z"
+                    fill="#ddddd0"
+                  />
+                </g>
+              </g>
+              <g>
+                <path
+                  d="M40.6,160.3c0-.3,21.2-15.3,21.2-15.3l-26-36.9-23.3-11,1.7,25.7,26.4,37.4h0Z"
+                  fill="#c1c1bc"
                 />
-                <rect
-                  x="108.7"
-                  y="211.6"
-                  width="16.2"
-                  height="9.8"
-                  rx="3.4"
-                  ry="3.4"
-                  fill="#ddddd0"
+                <polygon
+                  points="14.1 121.4 34.4 107.5 21.1 101.3 13.2 107.5 14.1 121.4"
+                  fill="#f2f0de"
+                />
+                <path
+                  d="M65,149.7l-21.5,15,3.5,5.1c2.1,3,6.4,3.7,9.4,1.6l10.7-7.5c3-2.1,3.8-6.3,1.6-9.3l-3.7-4.9Z"
+                  fill="#f2f0de"
+                />
+                <polygon
+                  points="40.6 160.3 43.5 164.7 65 149.7 61.8 145 40.6 160.3"
+                  fill="#f2f0de"
+                />
+              </g>
+              <path
+                d="M63.7,146.7c4.7,0,10.5,4.6,7.2,13.4-3.3,8.8-18.8,3.3-18.8,3.3l1.8-3.2s10.6,4.8,13.2-1.6c2.6-6.4-5-11.9-3.4-11.9Z"
+                fill="#c1c1bc"
+              />
+              <path
+                d="M222.3,150.8l2.4,3.6s-11.9,7.7-18.5-.8,4.6-17.7,4.6-17.7l2.5,3.3s-8.6,6.1-3.8,12.4c4.7,6.3,12.8-.8,12.8-.8Z"
+                fill="#c1c1bc"
+              />
+            </g>
+            <g>
+              <g>
+                <path
+                  d="M251.7,24.4c-.2,2.2-1.8,8.4-2.5,10.6l-2.9,10.2h-15.7l-9.3-29.3h11.4l4.6,15c1,3.3,1.6,5.7,1.8,8.3h.6c.4-2.6,1.1-4.8,2.2-8.3l5-15h10.6l5.2,15c1.2,3.3,1.9,6.1,2.2,8.3h.6c.2-2.3.7-5,1.6-8.3l4.1-15h11.3l-9.3,29.3h-15l-3.4-10.4c-.7-2.1-2.4-8.2-2.6-10.5h-.6,0Z"
+                  fill="#1a2c5d"
                 />
               </g>
               <g>
                 <path
-                  d="M100.2,165.4l3.8-17.1s-16.2,1-19.5,17.7l9.3,4.4,6.5-5h-.1Z"
-                  fill="#c1c1bc"
+                  d="M258.8,92.3l-7-10.7h-4.5v10.7h-10.8v-29.3h15.8c9.7,0,16.5,2.7,16.5,8.6s-2.9,6.6-7.5,7.9l10.1,12.9h-12.6ZM247.3,76.6h3.9c4.3,0,6.9-1.2,6.9-4.3s-2.6-4.4-6.9-4.4h-3.9v8.7Z"
+                  fill="#1a2c5d"
                 />
+              </g>
+              <g>
+                <path d="M257.6,139.3h-11.1v-29.3h11.1v29.3Z" fill="#1a2c5d" />
+              </g>
+              <g>
                 <path
-                  d="M93.9,170.1s-2.2,9-16.2,1.6c-14-7.5-9.3-13.7-9.3-13.7,0,0,3.2-7.8,16.4-1.5,13.2,6.3,9.2,13.6,9.2,13.6h0Z"
-                  fill="#ddddd0"
+                  d="M270,162.4h-12.6v23.9h-10.8v-23.9h-12.6v-5.5h36.1v5.5h0Z"
+                  fill="#1a2c5d"
+                />
+              </g>
+              <g>
+                <path
+                  d="M267.9,228.2v5.1h-28.8v-29.3h28.2v5.1h-17.4v7h15.6v4.9h-15.6v7.3h18Z"
+                  fill="#fff"
                 />
               </g>
             </g>
-            <g>
-              <path
-                d="M40.6,160.3c0-.3,21.2-15.3,21.2-15.3l-26-36.9-23.3-11,1.7,25.7,26.4,37.4h0Z"
-                fill="#c1c1bc"
-              />
-              <polygon
-                points="14.1 121.4 34.4 107.5 21.1 101.3 13.2 107.5 14.1 121.4"
-                fill="#f2f0de"
-              />
-              <path
-                d="M65,149.7l-21.5,15,3.5,5.1c2.1,3,6.4,3.7,9.4,1.6l10.7-7.5c3-2.1,3.8-6.3,1.6-9.3l-3.7-4.9Z"
-                fill="#f2f0de"
-              />
-              <polygon
-                points="40.6 160.3 43.5 164.7 65 149.7 61.8 145 40.6 160.3"
-                fill="#f2f0de"
-              />
-            </g>
-            <path
-              d="M63.7,146.7c4.7,0,10.5,4.6,7.2,13.4-3.3,8.8-18.8,3.3-18.8,3.3l1.8-3.2s10.6,4.8,13.2-1.6c2.6-6.4-5-11.9-3.4-11.9Z"
-              fill="#c1c1bc"
-            />
-            <path
-              d="M222.3,150.8l2.4,3.6s-11.9,7.7-18.5-.8,4.6-17.7,4.6-17.7l2.5,3.3s-8.6,6.1-3.8,12.4c4.7,6.3,12.8-.8,12.8-.8Z"
-              fill="#c1c1bc"
-            />
           </g>
-          <g>
-            <g>
-              <path
-                d="M251.7,24.4c-.2,2.2-1.8,8.4-2.5,10.6l-2.9,10.2h-15.7l-9.3-29.3h11.4l4.6,15c1,3.3,1.6,5.7,1.8,8.3h.6c.4-2.6,1.1-4.8,2.2-8.3l5-15h10.6l5.2,15c1.2,3.3,1.9,6.1,2.2,8.3h.6c.2-2.3.7-5,1.6-8.3l4.1-15h11.3l-9.3,29.3h-15l-3.4-10.4c-.7-2.1-2.4-8.2-2.6-10.5h-.6,0Z"
-                fill="#1a2c5d"
-              />
-            </g>
-            <g>
-              <path
-                d="M258.8,92.3l-7-10.7h-4.5v10.7h-10.8v-29.3h15.8c9.7,0,16.5,2.7,16.5,8.6s-2.9,6.6-7.5,7.9l10.1,12.9h-12.6ZM247.3,76.6h3.9c4.3,0,6.9-1.2,6.9-4.3s-2.6-4.4-6.9-4.4h-3.9v8.7Z"
-                fill="#1a2c5d"
-              />
-            </g>
-            <g>
-              <path d="M257.6,139.3h-11.1v-29.3h11.1v29.3Z" fill="#1a2c5d" />
-            </g>
-            <g>
-              <path
-                d="M270,162.4h-12.6v23.9h-10.8v-23.9h-12.6v-5.5h36.1v5.5h0Z"
-                fill="#1a2c5d"
-              />
-            </g>
-            <g>
-              <path
-                d="M267.9,228.2v5.1h-28.8v-29.3h28.2v5.1h-17.4v7h15.6v4.9h-15.6v7.3h18Z"
-                fill="#fff"
-              />
-            </g>
-          </g>
-        </g>
         </g>
       </svg>
     );

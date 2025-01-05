@@ -1,11 +1,11 @@
 // react
 import React, { useState, useEffect, useRef } from "react";
 // type
-import { FormWithSetValueProps } from "@/app/types/form";
+import { FormWithSetValueProps } from "@/types/form";
 // functions
 import { storageSelectSaveDataAge } from "@/app/functions/functions";
 // svg
-import { SurpriseMark } from "@/public/svg/icon/mark";
+import { SurpriseMark } from "@/assets/svg/icon/mark";
 // style
 import "./age.scss";
 

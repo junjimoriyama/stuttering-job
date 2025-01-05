@@ -3,11 +3,12 @@
 // react
 import { useStoryContext } from "@/app/story/StoreContext";
 // type
-import { allDataArrayType } from "@/app/types/story";
+import { allDataArrayType } from "@/types/story";
 // components
 import { StoryItems } from "./storyItems/StoryItems";
 // svg
-import { FilterIcon } from "@/public/svg/icon/filter";
+import { FilterIcon } from "@/assets/svg/icon/filter";
+import { UpHandChara } from "@/assets/svg/character/characterSvg";
 // style
 import "./mainArea.scss";
 
@@ -25,7 +26,10 @@ export const MainArea = ({ fetchData }: { fetchData: allDataArrayType}) => {
   
   return (
     <div className="main_area">
-      <div className="main_heading">体験談一覧</div>
+      <div className="main_heading">
+        体験談一覧
+      <span><UpHandChara /></span>
+      </div>
       <StoryItems fetchData={fetchData} />
       <div 
       className="searchModalBtn"

@@ -18,3 +18,22 @@ export const industryList = [
   // { value: "government", label: "公務(他に分類されないもの)" },
   { value: "other", label: "その他" },
 ];
+
+// 業種ラベル
+export const  industryLabels: Record<string, string> = {
+  age: "年代",
+  gender: "性別",
+  industry: "業種",
+  job_details: "具体的な仕事内容",
+  reason: "今の仕事を選んだ理由",
+  employment: "雇用形態",
+  years: "勤続年数",
+  job_difficulty: "仕事の苦労度",
+  job_struggles: "仕事中の苦労や工夫",
+  job_hunt_difficulty: "就職活動の苦労度",
+  job_hunt_struggles: "就職活動中の苦労や工夫",
+  notebook: "手帳の有無",
+  free: "自由記入欄",
+  username: "ユーザー名",
+  email: "連絡用メールアドレス",
+};

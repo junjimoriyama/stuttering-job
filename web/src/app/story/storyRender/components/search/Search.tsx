@@ -1,7 +1,7 @@
 // react
 import React from "react"; 
 // type
-import { allDataArrayType } from "@/app/types/story";
+import { allDataArrayType } from "@/types/story";
 // functions
 import { useStoryContext } from "@/app/story/StoreContext";
 // components

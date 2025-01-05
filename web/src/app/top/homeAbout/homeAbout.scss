@@ -1,6 +1,6 @@
-@use "@/app/style/breakpoint.scss" as bp;
-@use "@/app/style/common.scss" as mixin;
-@use "@/app/style/variable.scss" as var;
+@use "@/style/breakpoint.scss" as bp;
+@use "@/style/common.scss" as mixin;
+@use "@/style/variable.scss" as var;
 
 .home_about {
   position: relative;
@@ -20,6 +20,9 @@
       }
     }
   }
+
+
+
   .home_about_lead_wrap {
     display: flex;
     justify-content: center;
@@ -502,6 +505,23 @@
           }
         }
       }
+    }
+  }
+
+  // キャラSVGアニメーション
+  @for $i from 1 through 3 {
+    .circle_#{$i} {
+      animation: changeCircleOpacity 2s infinite;
+      animation-delay: #{($i - 1) * 0.5}s; // 遅延を追加
+    }
+  }
+
+  @keyframes changeCircleOpacity {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
     }
   }
 }

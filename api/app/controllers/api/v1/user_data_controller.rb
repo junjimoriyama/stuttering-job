@@ -44,7 +44,7 @@ class Api::V1::UserDataController < ApplicationController
   end
 
   def user_data_params
-    params.require(:user_data).permit(
+    params.permit(
       :age, :gender, :industry, :job_details, :reason,
       :employment, :years, :job_difficulty, :job_struggles,
       :job_hunt_difficulty, :job_hunt_struggles, :notebook,

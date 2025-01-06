@@ -10,8 +10,8 @@ import { industryLabels } from "@/app/dataLists/industryList";
 // functions
 import { sendAction } from "./actionConfirm";
 // components
-import { Step } from "@/app/form/step/Step";
-import { StepContext } from "@/app/form/step/stepContext";
+import { Step } from "@/app/form/components/step/Step";
+import { StepContext } from "@/app/form/components/step/stepContext";
 // style
 import "./confirm.scss";
 

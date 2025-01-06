@@ -1,8 +1,11 @@
 "use client";
 
-import "./header.scss";
-import { useEffect, useMemo, useState } from "react";
+// next
+import Link from "next/link";
 import { usePathname } from "next/navigation";
+// react
+import { useEffect, useState, useMemo} from "react";
+// svg
 import { HeaderMainLogo } from "@/assets/svg/logo/logoSvg";
 import {
   HomeIcon,
@@ -10,7 +13,8 @@ import {
   MenuIcon,
   WriteIcon,
 } from "@/assets/svg/icon/menuIcon";
-import Link from "next/link";
+// style
+import "./header.scss";
 
 const Header = () => {
   // パス
@@ -61,7 +65,9 @@ const Header = () => {
         >
           {/* トップページ以外又はどのページでもisShowクラスがついたら表示 */}
           {(pathname !== "/top" || isShow) && (
-            <HeaderMainLogo isShow={isShow} />
+            <Link href="/top">
+              <HeaderMainLogo isShow={isShow} />
+            </Link>
           )}
 
           <ul className="header_menu">

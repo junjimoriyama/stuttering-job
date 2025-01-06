@@ -19,14 +19,19 @@ $page_each_width: 30px;
       align-items: center;
       width: $page_each_width;
       height: 30px;
-      border: 1px solid #333;
+      border: 2px solid var.$main_color;
+      border-right: none;
       color: var.$main_color;
+    }
+    .page_next_btn {
+      border-right: 2px solid var.$main_color;
     }
     .page_numbers {
       display: flex;
       .page_number {
         &.isActive {
           background-color: var.$main_color;
+          // background-color: var.$sub_color;
           color: #fff;
         }
       }

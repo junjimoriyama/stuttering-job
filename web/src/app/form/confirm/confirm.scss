@@ -16,18 +16,18 @@
   }
 
   .confirm_form {
-    width: 50%;
+    max-width: 1000px;
     margin-bottom: 50px;
     padding: 20px;
-    background-color: var.$story_bubble_color;
+    background-color: #F3E6DA;
     border-radius: 10px;
 
     @include bp.media(xs, max) {
-      width: 80%; /* 601px〜1024px */
+      width: 80%;
     }
 
     @include bp.media(xxs, max) {
-      width: 95%; /* 600px以下 */
+      width: 95%;
     }
     .confirm_guide {
       @include mixin.typingText();

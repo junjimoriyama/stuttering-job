@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  # 動かしたい'コントローラー#アクション'
+  root 'api/v1/user_data#index'
   get "up" => "rails/health#show"
 
   namespace :api do

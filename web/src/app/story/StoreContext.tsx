@@ -21,8 +21,8 @@ const storyContext = createContext<{
   setCurrentPage: (value: number) => void,
   displayData: allDataType[],
   setDisplayData:  React.Dispatch<React.SetStateAction<allDataType[]>>
-  isPageChangeEffect:  boolean,
-  setIsPageChangeEffect: (value: boolean) => void,
+  isPageFilterEffect:  boolean,
+  setIsPageFilterEffect: (value: boolean) => void,
 
 }>({
   age: [],
@@ -39,14 +39,17 @@ const storyContext = createContext<{
   setCurrentPage: () => {},
   displayData: [],
   setDisplayData: () => {},
-  isPageChangeEffect: false,
-  setIsPageChangeEffect:  () => {},
+  isPageFilterEffect: false,
+  setIsPageFilterEffect:  () => {},
 });
 
 export const StoryProvider = ({ children }: { children: React.ReactNode }) => {
 
   // セッションに保存(一覧画面から別ページへ遷移後も絞り込み状態の維持)
-  const savedFilters = JSON.parse(sessionStorage.getItem("stutter_job_searchFilters") || "{}")
+  // use client指定でも初期レンダリングはサーバー側で行われる場合があるので条件文で対策
+  const savedFilters = typeof window !== "undefined"
+  ? JSON.parse(sessionStorage.getItem("stutter_job_searchFilters") || "{}")
+  : {};
   // 絞り込み要件
   const [age, setAge] = useState<number[]>(savedFilters.age || []);
   const [gender, setGender] = useState<string[]>(savedFilters.gender || []);
@@ -60,7 +63,7 @@ export const StoryProvider = ({ children }: { children: React.ReactNode }) => {
   // 表示するデータ
   const [ displayData, setDisplayData  ] = useState<allDataType[]>([])
   // ページ変更による効果
-  const [ isPageChangeEffect, setIsPageChangeEffect  ] = useState(false)
+  const [ isPageFilterEffect, setIsPageFilterEffect  ] = useState(false)
 
   return (
     <storyContext.Provider
@@ -79,8 +82,8 @@ export const StoryProvider = ({ children }: { children: React.ReactNode }) => {
         setCurrentPage,
         displayData,
         setDisplayData,
-        isPageChangeEffect,
-        setIsPageChangeEffect
+        isPageFilterEffect,
+        setIsPageFilterEffect
       }}
     >
       {children}

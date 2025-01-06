@@ -1,7 +1,7 @@
 "use client";
 // react
 import { FormProvider, useForm } from "react-hook-form";
-import { StepProvider } from "./step/stepContext";
+import { StepProvider } from "./components/step/stepContext";
 // components
 import Footer from "../../components/layout/footer/Footer";
 import Header from "../../components/layout/header/Header";

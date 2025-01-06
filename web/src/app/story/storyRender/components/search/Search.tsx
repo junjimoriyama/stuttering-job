@@ -11,6 +11,7 @@ import { IndustrySearch } from "./conditions/industry/IndustrySearch";
 import { SearchInvalidBtn } from "../../mainArea/components/searchInvalidBtn/SearchInvalidBtn";
 // style
 import "./search.scss";
+import { FilterIconSp, FilterIconSpPc } from "@/assets/svg/icon/filter";
 
 export const Search = ({ fetchData }: { fetchData: allDataArrayType }) => {
 
@@ -19,7 +20,10 @@ export const Search = ({ fetchData }: { fetchData: allDataArrayType }) => {
   
   return (
     <div className="search">
-      <div className="search_heading">絞り込み</div>
+      <div className="search_heading">
+        絞り込み
+      <FilterIconSpPc />
+      </div>
       <div className="search_hit_count">
         <span className="search_hit_count_text">
         表示件数 

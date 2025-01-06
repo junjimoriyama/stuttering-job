@@ -25,8 +25,8 @@ export const StoryItems = ({ fetchData }: { fetchData: allDataArrayType }) => {
     setCurrentPage,
     displayData,
     setDisplayData,
-    isPageChangeEffect,
-    setIsPageChangeEffect,
+    isPageFilterEffect,
+    setIsPageFilterEffect,
   } = useStoryContext();
 
   // 表示件数
@@ -71,6 +71,10 @@ export const StoryItems = ({ fetchData }: { fetchData: allDataArrayType }) => {
     router.push(`/story/storyItem/${id}`);
   };
 
+  const handleBtnAnimationEnd = () => {
+    setIsPageFilterEffect(false)
+  };
+
   return (
     <div className="storyItems">
       <div className="story_controls">
@@ -82,7 +86,7 @@ export const StoryItems = ({ fetchData }: { fetchData: allDataArrayType }) => {
       {displayData.length > 0 ? (
         <ul
           className={`story_preview_list ${
-            isPageChangeEffect ? "isChange" : ""
+            isPageFilterEffect ? "isChange" : ""
           }`}
           // onAnimationEnd={() => setIsPageChangeEffect(false)}
         >
@@ -92,7 +96,11 @@ export const StoryItems = ({ fetchData }: { fetchData: allDataArrayType }) => {
                 className="story_preview_contents"
                 onClick={() => handleLinkStoryItem(item.id)}
               >
-                <ul className="story_preview_info_list">
+                {/* <ul className="story_preview_info_list"> */}
+                <ul 
+                className={`story_preview_info_list ${isPageFilterEffect ? "isEffect" : ""}`}
+                onAnimationEnd={handleBtnAnimationEnd}
+                >
                   <li className="story_preview_info_icon">
                     <BagIcon />
                   </li>

@@ -20,8 +20,13 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-bottom: 48px;
-    font-size: 24px;
+    margin-bottom: 30px;
+    font-size: 30px;
+    letter-spacing: 0.3em;
+
+    @include bp.media(xxs, max) {
+      font-size: 24px;
+    }
   }
 
   .searchModalBtn {

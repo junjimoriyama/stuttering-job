@@ -2,28 +2,18 @@
 
 import { useStoryContext } from "@/app/story/StoreContext";
 import "./pagination.scss";
-import { useEffect, useState } from "react";
 
 export const Pagination = ({
   totalPage,
   onPageChange,
 }: {
-  totalPage: number | null;
+  totalPage: number;
   onPageChange: (page: number) => void;
 }) => {
-  const { currentPage, isPageChangeEffect, setIsPageChangeEffect } =
+  const { 
+    currentPage, 
+    setIsPageFilterEffect, } =
     useStoryContext();
-
-  // クリックしたボタン効果の状態
-  // const [ isPageChangeEffect, setIsPageChangeEffect  ] = useState(false)
-
-  // アニメーション終了したらボタン効果の状態false
-  const handlePageChange = () => {
-    setIsPageChangeEffect(true);
-    setTimeout(() => {
-      setIsPageChangeEffect(false)
-    },100)
-  };
 
   return (
     <div className="pagination">
@@ -33,7 +23,9 @@ export const Pagination = ({
           className="page_prev_btn"
           onClick={() => {
             currentPage > 1 && onPageChange(currentPage - 1);
-            handlePageChange();
+            if(currentPage > 1) {
+              setIsPageFilterEffect(true);
+            }
           }}
         >
           ←
@@ -50,7 +42,7 @@ export const Pagination = ({
                 key={value}
                 onClick={() => {
                   onPageChange(value);
-                  handlePageChange();
+                  setIsPageFilterEffect(true);
                 }}
               >
                 {value}
@@ -63,7 +55,9 @@ export const Pagination = ({
           className="page_next_btn"
           onClick={() => {
             currentPage < totalPage! && onPageChange(currentPage + 1);
-            handlePageChange();
+            if(currentPage < totalPage) {
+              setIsPageFilterEffect(true);
+            }
           }}
         >
           →

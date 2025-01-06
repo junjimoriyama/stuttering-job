@@ -5,11 +5,11 @@ import { useRouter, useSearchParams } from "next/navigation";
 // react
 import { useContext, useEffect, useState } from "react";
 import { useFormContext } from "react-hook-form";
-import {StepContext} from "@/app/form/step/stepContext";
+import {StepContext} from "@/app/form/components/step/stepContext";
 // components
 import {Toast} from "../components/toast/Toast";
 import {InputModal} from "../components/inputModal/InputModal";
-import {Step} from "../step/Step";
+import {Step} from "../components/step/Step";
 import { Age } from "./age/Age";
 import {JobDetails} from "./details/JobDetails";
 import {JobDifficulty} from "./jobDifficulty/JobDifficulty";

@@ -6,7 +6,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 50px;
+    margin-bottom: 30px;
   }
 
   .story_preview_list {
@@ -54,12 +54,29 @@
 
     .story_preview_contents {
       position: relative;
-      padding: 24px 16px;
+      padding: 24px 16px 36px 16px;
       border-radius: 10px;
       // background-color: #eff4ff;
+      // background-color: var.$light_orange;
       background-color: var.$story_bubble_color;
       cursor: pointer;
-      transition: .3s;
+      transition: 0.3s;
+
+      &::before {
+        content: "more";
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        width: 75px;
+        height: 30px;
+        font-size: 14px;
+        background-color: var.$main_color;
+        color: #fff;
+        border-radius: 10px 0 10px 0;
+      }
 
       &::after {
         content: "";
@@ -72,14 +89,28 @@
         // border-color: transparent transparent transparent
         // #eff4ff;
         border-color: transparent transparent transparent
-        var.$story_bubble_color;
+          var.$story_bubble_color;
       }
 
       // 各体験談がhoverされたら矢印表示
       @media (any-hover: hover) {
         &:hover {
+          &::before {
+            background-color: var.$sub_color;
+          }
+          .story_preview_info_list {
+            .story_preview_info_icon {
+              .bag_svg {
+                transform: rotate(20deg);
+                transform-origin: center left;
+                path {
+                  fill: var.$sub_color;
+                }
+              }
+            }
+          }
           .arrow {
-            width: 70px; /* ホバー時に表示幅を広げる */
+            // width: 40px;
             opacity: 1;
 
             &::before {
@@ -94,6 +125,23 @@
         padding: 0;
         margin: 0;
 
+        &.isEffect {
+          animation: clickedSearchInvalidBtn 0.3s;
+        }
+
+        // クリックされたボタンに効果
+        @keyframes clickedSearchInvalidBtn {
+          0% {
+            opacity: 1;
+          }
+          50% {
+            opacity: 0;
+          }
+          100% {
+            opacity: 1;
+          }
+        }
+
         .story_preview_info_icon {
           .bag_svg {
             position: absolute;
@@ -102,6 +150,7 @@
             transform: translate(-50%, -50%) rotate(-45deg);
             width: 40px;
             height: 40px;
+            transition: 0.3s;
           }
         }
 
@@ -165,16 +214,24 @@
 
 .arrow {
   position: absolute;
-  left: 90%;
+  left: 97%;
+  bottom: -10px;
   display: inline-block;
   width: 0;
   height: 24px;
   background-color: var.$sub_color;
-  clip-path: polygon(0 29.5%, 77.3% 29.5%, 77.3% 0, 100% 50%, 77.3% 100%, 77.3% 70.5%, 0 70.5%);
+  clip-path: polygon(
+    0 29.5%,
+    77.3% 29.5%,
+    77.3% 0,
+    100% 50%,
+    77.3% 100%,
+    77.3% 70.5%,
+    0 70.5%
+  );
   opacity: 0;
   transition: width 0.5s ease, opacity 0.1s ease;
 }
-
 
 // .arrow {
 //   position: absolute;

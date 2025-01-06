@@ -9,7 +9,15 @@ import { CheckMark } from "@/assets/svg/icon/mark";
 export const AgeSearch = () => {
   const searchItemAgeListRef = useRef<HTMLDivElement>(null);
   // useContext管理の状態
-  const { age, setAge, gender, industry, isAllClose } = useStoryContext();
+  const { 
+    age, 
+    setAge, 
+    gender, 
+    industry, 
+    isAllClose,
+    isPageFilterEffect,
+    setIsPageFilterEffect
+  } = useStoryContext();
   // アコーディン開閉
   const [isAccordionOpen, setIsOAccordionOpen] = useState(true);
   // アコーディオンの高さ
@@ -67,6 +75,10 @@ export const AgeSearch = () => {
     }
   }, [isAllClose]);
 
+  const handleFilterEffect = () => {
+    setIsPageFilterEffect(true)
+  }
+
   return (
     <li className="search_item">
       <div className="search_item_label" onClick={handleSearchItemClick}>
@@ -80,6 +92,7 @@ export const AgeSearch = () => {
         className="search_item_age_list search_item_list"
         ref={searchItemAgeListRef}
         style={{ maxHeight: isAccordionOpen ? `${maxHeight}px` : "0px" }}
+        onClick={handleFilterEffect}
       >
         {[...Array(9)].map((_, i) => {
           const value = (i + 1) * 10;

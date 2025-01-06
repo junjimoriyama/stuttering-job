@@ -19,6 +19,7 @@ const { setCurrentPage } = useStoryContext();
     setAge, 
     setGender, 
     setIndustry,
+    setIsPageFilterEffect,
   } = useStoryContext();
 
   // クリックしたボタン効果の状態
@@ -41,6 +42,8 @@ const { setCurrentPage } = useStoryContext();
     setCurrentPage(1)
     // ボタン効果をオン
     setIsClicked(true)
+    // 体験談変更の効果
+    setIsPageFilterEffect(true)
 
     sessionStorage.setItem("stutter_job_searchFilters", JSON.stringify(updatedInValidStorageData))
     // setIsAllClose(true); 

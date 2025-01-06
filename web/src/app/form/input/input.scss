@@ -10,8 +10,8 @@
   justify-content: center;
   width: 100%;
   padding: 20px;
-  overflow: auto;
   background-color: #fff;
+  overflow: auto;
   @include mixin.graduallyPage();
 
   @include bp.media(xxs, max) {
@@ -22,7 +22,7 @@
     display: flex;
     flex-direction: column;
     width: 100%;
-    max-width: 800px;
+    max-width: 1000px;
     margin-bottom: 50px;
     padding: 20px;
     background-color: var.$story_bubble_color;
@@ -36,8 +36,8 @@
     }
 
     .form_guide_btn {
-      display: flex;
       align-self: center;
+      display: flex;
       justify-content: center;
       align-items: center;
       gap: 20px;
@@ -48,8 +48,8 @@
       color: #fff;
       border-radius: 50px;
       box-shadow: #fff 0px 3px 0 0, var.$form_btn_color 0px 7px 0 0px;
-      cursor: pointer;
       transition: 0.2s;
+      cursor: pointer;
 
       @include bp.media(xxs, max) {
         align-self: center;
@@ -87,8 +87,8 @@
       border-radius: 5px;
       outline: 2px solid var.$form_border_color;
       outline-offset: -2px;
-      cursor: pointer;
       transition: 0.2s ease;
+      cursor: pointer;
 
       &:focus {
         @include mixin.formIsActive();

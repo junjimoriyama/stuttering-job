@@ -6,8 +6,8 @@ import { useRouter } from "next/navigation";
 import React, { useEffect, useContext } from "react";
 import { useFormContext } from "react-hook-form";
 // components
-import {Step} from "@/app/form/step/Step";
-import {StepContext} from "@/app/form/step/stepContext";
+import {Step} from "@/app/form/components/step/Step";
+import {StepContext} from "@/app/form/components/step/stepContext";
 // svg
 import { ThanksChara } from "@/assets/svg/character/characterSvg";
 // style

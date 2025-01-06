@@ -180,6 +180,7 @@ GEM
     parser (3.3.6.0)
       ast (~> 2.4.1)
       racc
+    pg (1.5.9)
     psych (5.2.0)
       stringio
     public_suffix (6.0.1)
@@ -337,6 +338,7 @@ DEPENDENCIES
   debug
   kamal
   letter_opener_web
+  pg
   puma (>= 5.0)
   rack-cors
   rails (~> 8.0.0)

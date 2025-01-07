@@ -24,6 +24,7 @@ test:
 # Store production database in the storage/ directory, which by default
 # is mounted as a persistent Docker volume in config/deploy.yml.
 production:
+  <<: *default
   adapter: postgresql
   encoding: unicode
   # For details on connection pooling, see Rails configuration guide
@@ -31,7 +32,7 @@ production:
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
 
   primary: &primary_production
-    <<: *default
+    # <<: *default
     database: api_production
     username: api
     password: <%= ENV["API_DATABASE_PASSWORD"] %>

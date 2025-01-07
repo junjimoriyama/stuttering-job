@@ -24,7 +24,7 @@ test:
 # Store production database in the storage/ directory, which by default
 # is mounted as a persistent Docker volume in config/deploy.yml.
 production:
-  <<: *default
+  # <<: *default
   adapter: postgresql
   encoding: unicode
   # For details on connection pooling, see Rails configuration guide
@@ -49,8 +49,11 @@ production:
     migrations_paths: db/queue_migrate
 
   cable:
-    <<: *primary_production
+    adapter: postgresql  # 追加
+    host: <%= ENV["DB_HOST"] || "localhost" %>  # 追加
     database: api_production_cable
+    username: <%= ENV["CABLE_DB_USERNAME"] || "api" %>  # 必要なら環境変数を使う
+    password: <%= ENV["CABLE_DB_PASSWORD"] || "" %>  # パスワードを設定
     migrations_paths: db/cable_migrate
 
   #   <<: *default

@@ -58,7 +58,7 @@
       border-radius: 10px;
       // background-color: #eff4ff;
       // background-color: var.$light_orange;
-      background-color: var.$story_bubble_color;
+      background-color: var.$light_blue;
       cursor: pointer;
       transition: 0.3s;
 
@@ -89,7 +89,7 @@
         // border-color: transparent transparent transparent
         // #eff4ff;
         border-color: transparent transparent transparent
-          var.$story_bubble_color;
+          var.$light_blue;
       }
 
       // 各体験談がhoverされたら矢印表示

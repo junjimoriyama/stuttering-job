@@ -21,7 +21,7 @@ $accordion_border_thickness: 3px;
     padding: 16px;
     // border: $accordion_border_thickness solid #333;
     border-radius: 10px 10px 10px 10px;
-    background-color: var.$story_bubble_color;
+    background-color: var.$light_blue;
     cursor: pointer;
 
      &::after {
@@ -32,7 +32,7 @@ $accordion_border_thickness: 3px;
       transform: rotate(-135deg) translateX(-50%);
       border-width: 20px;
       border-style: solid;
-      border-color: transparent transparent transparent var.$story_bubble_color;
+      border-color: transparent transparent transparent var.$light_blue;
     }
 
     @include bp.media(sm, max) {

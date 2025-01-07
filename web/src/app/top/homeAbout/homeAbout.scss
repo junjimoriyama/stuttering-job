@@ -21,8 +21,6 @@
     }
   }
 
-
-
   .home_about_lead_wrap {
     display: flex;
     justify-content: center;
@@ -193,6 +191,7 @@
     }
 
     // 見る
+    
     .home_about_look {
       position: relative;
       display: flex;
@@ -220,8 +219,8 @@
         flex-direction: column;
         gap: 20px;
         width: 500px;
-        padding: 10px;
-        background-color: var.$story_bubble_color;
+        padding: #{var.$home_about_bubble_padding_height} #{var.$home_about_bubble_padding_width};
+        background-color: var.$light_blue;
         border-radius: 10px;
         visibility: hidden;
         opacity: 0;
@@ -250,9 +249,19 @@
         }
 
         .home_about_look_heading {
+          position: relative;
+          top: -10px;
           align-self: center;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          width: calc(100% + #{var.$home_about_bubble_padding_width} * 2);
+          height: 40px;
           font-size: 20px;
           color: var.$main_color;
+          background-color: var.$main_color;
+          color: #fff;
+          border-radius: 10px 10px 0 0;
         }
         .home_about_look_Content {
           margin-bottom: 35px;
@@ -278,14 +287,14 @@
           width: 120px;
           height: 40px;
           padding: 8px;
-          background-color: var.$main_color;
+          background-color: var.$sub_color;
           color: #fff;
           border-radius: 10px 0 10px 0;
         }
       }
 
       .look_chara_svg {
-        top: -40px;
+        bottom: -60px;
         left: 0;
         width: 200px;
         height: 200px;
@@ -383,9 +392,9 @@
         flex-direction: column;
         width: 500px;
         gap: 20px;
-        background-color: var.$story_bubble_color;
+        background-color: var.$light_blue;
         border-radius: 10px;
-        padding: 10px;
+         padding: #{var.$home_about_bubble_padding_height} #{var.$home_about_bubble_padding_width};
         visibility: hidden;
         opacity: 0;
 
@@ -413,9 +422,19 @@
           width: 90%;
         }
         .home_about_write_heading {
+          position: relative;
+          top: -10px;
           align-self: center;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          width: calc(100% + #{var.$home_about_bubble_padding_width} * 2);
+          height: 40px;
           font-size: 20px;
           color: var.$main_color;
+          background-color: var.$main_color;
+          color: #fff;
+          border-radius: 10px 10px 0 0;
         }
         .home_about_write_Content {
           margin-bottom: 35px;
@@ -441,7 +460,7 @@
           width: 120px;
           height: 40px;
           padding: 8px;
-          background-color: var.$main_color;
+          background-color: var.$sub_color;
           color: #fff;
           border-radius: 0 10px 0 10px;
         }

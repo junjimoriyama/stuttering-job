@@ -25,7 +25,7 @@
     max-width: 1000px;
     margin-bottom: 50px;
     padding: 20px;
-    background-color: var.$story_bubble_color;
+    // background-color: var.$light_blue;
     border-radius: 10px;
 
     @include bp.media(xs, max) {

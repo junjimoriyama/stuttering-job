@@ -1,7 +1,7 @@
 "use client";
 
 // react
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 // type
 import { allDataType } from "../../types/story";
 
@@ -44,26 +44,29 @@ const storyContext = createContext<{
 });
 
 export const StoryProvider = ({ children }: { children: React.ReactNode }) => {
-
-  // セッションに保存(一覧画面から別ページへ遷移後も絞り込み状態の維持)
-  // use client指定でも初期レンダリングはサーバー側で行われる場合があるので条件文で対策
-  const savedFilters = typeof window !== "undefined"
-  ? JSON.parse(sessionStorage.getItem("stutter_job_searchFilters") || "{}")
-  : {};
   // 絞り込み要件
-  const [age, setAge] = useState<number[]>(savedFilters.age || []);
-  const [gender, setGender] = useState<string[]>(savedFilters.gender || []);
-  const [industry, setIndustry] = useState<string[]>(savedFilters.industry || []);
+  const [age, setAge] = useState<number[]>([]);
+  const [gender, setGender] = useState<string[]>([]);
+  const [industry, setIndustry] = useState<string[]>([]);
   // 絞り込み開閉
   const [isAllClose, setIsAllClose] = useState(true);
   // モーダル開閉
   const [isSearchModalOpen, setIsSearchModalOpen] = useState(false);
   // 現在のページ
-  const [currentPage, setCurrentPage] = useState(savedFilters.currentPage || 1);
+  const [currentPage, setCurrentPage] = useState(1);
   // 表示するデータ
   const [ displayData, setDisplayData  ] = useState<allDataType[]>([])
   // ページ変更による効果
   const [ isPageFilterEffect, setIsPageFilterEffect  ] = useState(false)
+
+  // セッションに保存(一覧画面から別ページへ遷移後も絞り込み状態の維持)
+  useEffect(() => {
+    const savedFilters = JSON.parse(sessionStorage.getItem("stutter_job_searchFilters") || "{}");
+    setAge(savedFilters.age || []);
+    setGender(savedFilters.gender || []);
+    setIndustry(savedFilters.industry || []);
+    setCurrentPage(savedFilters.currentPage || 1);
+  }, [])
 
   return (
     <storyContext.Provider
@@ -93,17 +96,6 @@ export const StoryProvider = ({ children }: { children: React.ReactNode }) => {
 
 // useStoryContextとして
 export const useStoryContext = () => useContext(storyContext);
-
-
-
-
-
-
-
-
-
-
-
 
 
 // 'use client';

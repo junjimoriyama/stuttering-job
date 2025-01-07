@@ -33,7 +33,7 @@
     max-width: 1000px;
     gap: 20px;
     padding: 20px;
-    background-color: var.$story_bubble_color;
+    background-color: var.$light_blue;
     border-radius: 10px;
 
     &::after {
@@ -44,7 +44,7 @@
       transform: rotate(-135deg) translateX(-50%);
       border-width: 30px;
       border-style: solid;
-      border-color: transparent transparent transparent var.$story_bubble_color;
+      border-color: transparent transparent transparent var.$light_blue;
     }
 
     .single_story_item {

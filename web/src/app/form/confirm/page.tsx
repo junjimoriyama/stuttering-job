@@ -6,7 +6,7 @@ import { useRouter } from "next/navigation";
 import { useContext } from "react";
 import { useFormContext } from "react-hook-form";
 // dataLists
-import { industryLabels } from "@/app/dataLists/industryList";
+import { industryLabels } from "@/dataLists/industryList";
 // functions
 import { sendAction } from "./actionConfirm";
 // components

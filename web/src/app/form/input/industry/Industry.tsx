@@ -1,7 +1,7 @@
 // react
 import { useState, useEffect, useRef } from "react";
 // dataLists
-import { industryList } from "@/app/dataLists/industryList";
+import { industryList } from "@/dataLists/industryList";
 // type
 import { FormWithSetValueProps } from "@/types/form";
 // functions

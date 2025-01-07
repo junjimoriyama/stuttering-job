@@ -26,13 +26,13 @@ $form_btn_color: #1a2c5b;
 // ヘッダーの高さ
 $header_Height: 80px;
 // フッターの高さ
-$footer_Height: 120px;
+$footer_Height: 250px;
 
 $story_subject_color: #bec6cc;
 // 見るメニューボックス
 // #bec6cc;
 
-$story_bubble_color: #dae2f3;
+$light_blue: #dae2f3;
 
 // 体験談の最大表示数
 $display_story_max_length: 10;
@@ -44,3 +44,8 @@ $light_orange: #F3E6DA;
 /* サイドバー「選択しないボタン」 */
 $high_light_gray: #f4f5f6;
 
+// 見る
+// 吹き出し横幅
+$home_about_bubble_padding_width: 24px; 
+// 吹き出し縦幅
+$home_about_bubble_padding_height: 10px; 

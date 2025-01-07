@@ -3,7 +3,7 @@
 import { useState, useEffect, useRef } from "react";
 import { useStoryContext } from "@/app/story/StoreContext";
 // dataList
-import { industryList } from "@/app/dataLists/industryList";
+import { industryList } from "@/dataLists/industryList";
 // svg
 import { CheckMark } from "@/assets/svg/icon/mark";
 

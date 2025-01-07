@@ -92,6 +92,9 @@ const HomeAbout = () => {
       ref={homeAboutRef}
     >
       <div className="home_about_lead_wrap">
+        {/* <div className="home_about_lead_heading">
+        「みんな、こんな風に働いているんだ」
+        </div> */}
         <div
           className={`home_about_lead ${isTextVisible ? "isVisible" : ""}`}
           ref={homeAboutTextRef}
@@ -99,8 +102,7 @@ const HomeAbout = () => {
           <p>吃音ある人にとって「ことば」の部分</p>
           <p>で仕事に大きな不安を抱えている人が</p>
           <p>とても多くいます。</p>
-          <p>「みんな、こんな風に働いているんだ」</p>
-          <p>と知ることで、自分の未来を考える</p>
+          <p>ここで、自分の未来を考える</p>
           <p>ヒントを見つけてください。</p>
         </div>
         <div className="home_about_chara">

@@ -262,9 +262,9 @@ export const HeaderMainLogo = ({ isShow }: { isShow: boolean }) => {
 export const FooterMainLogo = () => {
   return (
     <svg
-      id="footer_main_logo"
-      className="footer_main_logo"
-      data-name="footer_main_logo"
+      id="footer_main_logo_svg"
+      className="footer_main_logo_svg"
+      data-name="footer_main_logo_svg"
       xmlns="http://www.w3.org/2000/svg"
       width="200"
       height="60"

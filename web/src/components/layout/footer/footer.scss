@@ -4,76 +4,135 @@
 footer {
   position: relative;
   display: flex;
+  // flex-direction: column;
   align-items: center;
   justify-content: center;
   width: 100%;
-  height: 120px;
-  padding: 10px;
+  height: var.$footer_Height;
+  padding: 20px;
   background-color: var.$main_color;
   z-index: 900;
+  @include bp.media(sm, max) {
+    justify-content: start;
+  }
+  @include bp.media(xxs, max) {
+    padding: 10px
+  }
 
   .footer_wrap {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 20px;
+    display: grid;
+    width: 100%;
 
+    .footer_main_logo_svg {
+      position: absolute;
+      top: 40%;
+      left: 50%;
+      width: 300px;
+      height: 100px;
+      transform: translate(-50%, -50%);
 
-    @include bp.media(xxs, max) {
-      display: grid;
-      row-gap: 20px;
-    }
-
-    .footer_main_logo {
+      @include bp.media(xs, max) {
+        position: relative;
+        align-self: flex-end;
+        width: 250px;
+      }
       @include bp.media(xxs, max) {
-        width: 150px;
-        grid-column: 1/2;
-        grid-row: 1/2;
+        position: static; // 位置をリセット
+        transform: none; // 位置の変換を解除
+        grid-row: 1/3;
+        align-self: center;
+        justify-self: center;
+        width: 200px;
+      }
+
+      .header_main_logo_svg {
+        width: 300px;
       }
     }
-    .sp_footer_menu {
-      display: none;
-      align-items: center;
-      gap: 20px;
-      font-size: 14px;
+
+    .footer_menu_and_chara {
       grid-column: 2/3;
-      grid-row: 1/2;
-      // background-color: #fff;
-      // padding: 5px 10px;
-      // border-radius: 50px;
-      
-      @include bp.media(xxs, max) {
+      grid-row: 1/3;
+      display: flex;
+      justify-self: flex-end;
+      gap: 10px;
+      margin-bottom: 10px;
+
+      .footer_menu {
         display: flex;
+        flex-direction: column;
+        gap: 20px;
+        padding: 10px 30px;
+        border-radius: 5px;
+        background-color: #fff;
+
+        @include bp.media(xxs, max) {
+          padding: 10px 20px;
+        }
+        @include bp.media(xxxxs, max) {
+          padding: 10px;
+        }
+
+        &::after {
+          content: "";
+          position: absolute;
+          top: 50%;
+          right: 90px;
+          transform: rotate(-90deg) translateX(-50%); /* 反転 */
+          border-width: 10px;
+          border-style: solid;
+          border-color: #fff transparent transparent transparent; /* 上側に色を設定 */
+
+          @include bp.media(xxs, max) {
+            border-width: 10px;
+            right: 50px;
+          }
+        }
+
+        .footer_item_text {
+          color: var.$main_color;
+          cursor: pointer;
+          transition: .3s;
+          @media (any-hover: hover) {
+            &:hover {
+             color: var.$sub_color;
+            }
+          }
+        }
       }
-      .sp_footer_item {
-        display: flex;
-        gap: 5px;
-        color: var.$main_color;
-        
-        .sp_footer_item_text {
-          // color: var.$main_color;
-          color: #fff;
+
+      .silhouette_chara_svg {
+        align-self: flex-end;
+        width: 80px;
+        height: 80px;
+        @include bp.media(xxs, max) {
+          width: 50px;
+          height: 50px;
         }
       }
     }
 
-    .silhouette_chara_svg {
-      position: absolute;
-      right: 20px;
-      width: 80px;
-      height: 80px;
-      @include bp.media(xxs, max) {
-        display: none;
-      }
-    }
     .copyRight {
-      color: #fff;
       grid-column: 1/3;
+      grid-row: 2/3;
+      align-self: flex-end;
+      color: #fff;
       display: flex;
       justify-content: center;
       align-items: center;
-      text-align: center;
+
+      @include bp.media(xs, max) {
+        grid-column: 1/2;
+        align-self: end;
+      }
+      @include bp.media(xxs, max) {
+        width: 100%;
+        position: absolute;
+       left: 50%;
+       bottom: 10px;
+       transform: translateX(-50%);
+      }
     }
   }
+
 }

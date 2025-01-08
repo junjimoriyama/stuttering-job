@@ -11,7 +11,7 @@ import { IndustrySearch } from "./conditions/industry/IndustrySearch";
 import { SearchInvalidBtn } from "../../mainArea/components/searchInvalidBtn/SearchInvalidBtn";
 // style
 import "./search.scss";
-import { FilterIconSp, FilterIconSpPc } from "@/assets/svg/icon/filter";
+import { FilterIcon } from "@/assets/svg/icon/filter";
 
 export const Search = ({ fetchData }: { fetchData: allDataArrayType }) => {
 
@@ -22,22 +22,57 @@ export const Search = ({ fetchData }: { fetchData: allDataArrayType }) => {
     <div className="search">
       <div className="search_heading">
         絞り込み
-      <FilterIconSpPc />
+      <FilterIcon />
       </div>
       <div className="search_hit_count">
-        <span className="search_hit_count_text">
-        表示件数 
+        <div className="search_hit_count_heading">
+          件数
+        </div>
+        <div className="search_hit_count_text">
+        <span className="search_hit_count_label">
+        全件数  
         </span>
         <span className="search_hit_count_value">
-          {displayData?.length || 0} / {fetchData?.length || 0}
+        {fetchData?.length || 0}
         </span>
+        </div>
+        <div className="search_hit_count_text">
+        <span className="search_hit_count_label">
+        絞込数  
+        </span>
+        <span className="search_hit_count_value">
+        {displayData?.length || 0}
+        </span>
+        </div>
       </div>
-      <SearchInvalidBtn />
       <ul className="search_list">
         <AgeSearch />
         <GenderSearch />
         <IndustrySearch />
       </ul>
+      <SearchInvalidBtn />
+
+      <div className="search_hit_count search_hit_count_bottom">
+        <div className="search_hit_count_heading">
+          件数
+        </div>
+        <div className="search_hit_count_text">
+        <span className="search_hit_count_label">
+        全件数  
+        </span>
+        <span className="search_hit_count_value">
+        {fetchData?.length || 0}
+        </span>
+        </div>
+        <div className="search_hit_count_text">
+        <span className="search_hit_count_label">
+        絞込数  
+        </span>
+        <span className="search_hit_count_value">
+        {displayData?.length || 0}
+        </span>
+        </div>
+      </div>
     </div>
   );
 };

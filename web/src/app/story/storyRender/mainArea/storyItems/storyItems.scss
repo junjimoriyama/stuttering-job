@@ -13,6 +13,7 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-gap: 100px;
+    margin-bottom: 50px;
     padding: 50px;
 
     @include bp.media(md, max) {
@@ -22,6 +23,7 @@
 
     @include bp.media(sm, max) {
       grid-gap: 20px;
+      // margin-bottom: 30px;
       padding: 0px;
     }
 
@@ -54,7 +56,7 @@
 
     .story_preview_contents {
       position: relative;
-      padding: 24px 16px 36px 16px;
+      padding: 24px 12px 36px 12px;
       border-radius: 10px;
       // background-color: #eff4ff;
       // background-color: var.$light_orange;
@@ -73,9 +75,10 @@
         width: 75px;
         height: 30px;
         font-size: 14px;
-        background-color: var.$main_color;
+        background-color: var.$sub_color;
         color: #fff;
         border-radius: 10px 0 10px 0;
+        transition: .2s;
       }
 
       &::after {
@@ -88,33 +91,22 @@
         border-style: solid;
         // border-color: transparent transparent transparent
         // #eff4ff;
-        border-color: transparent transparent transparent
-          var.$light_blue;
+        border-color: transparent transparent transparent var.$light_blue;
       }
 
       // 各体験談がhoverされたら矢印表示
       @media (any-hover: hover) {
         &:hover {
           &::before {
-            background-color: var.$sub_color;
+            background-color: var.$main_color;
+            color: var.$sub_color;
           }
           .story_preview_info_list {
             .story_preview_info_icon {
               .bag_svg {
                 transform: rotate(20deg);
                 transform-origin: center left;
-                path {
-                  fill: var.$sub_color;
-                }
               }
-            }
-          }
-          .arrow {
-            // width: 40px;
-            opacity: 1;
-
-            &::before {
-              opacity: 1;
             }
           }
         }
@@ -173,7 +165,7 @@
         .story_preview_info {
           display: flex;
           flex-direction: column;
-          gap: 10px;
+          gap: 5px;
           margin-bottom: 10px;
 
           .story_preview_item_label {
@@ -199,6 +191,18 @@
             font-size: 12px;
             line-height: 1;
           }
+          // 仕事の苦労や工夫
+          .story_preview_item_job_struggles {
+            height: 85px;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            -webkit-line-clamp: 3;
+            line-clamp: 3;
+            text-overflow: ellipsis;
+            line-height: 1.8;
+            font-size: 14px;
+          }
         }
       }
     }
@@ -212,51 +216,23 @@
   }
 }
 
-.arrow {
-  position: absolute;
-  left: 97%;
-  bottom: -10px;
-  display: inline-block;
-  width: 0;
-  height: 24px;
-  background-color: var.$sub_color;
-  clip-path: polygon(
-    0 29.5%,
-    77.3% 29.5%,
-    77.3% 0,
-    100% 50%,
-    77.3% 100%,
-    77.3% 70.5%,
-    0 70.5%
-  );
-  opacity: 0;
-  transition: width 0.5s ease, opacity 0.1s ease;
-}
-
 // .arrow {
 //   position: absolute;
-//   left: 90%;
+//   left: 97%;
+//   bottom: -10px;
 //   display: inline-block;
 //   width: 0;
-//   height: 8px;
-//   margin-top: 8.5px;
-//   // border-radius: 9999px;
+//   height: 24px;
 //   background-color: var.$sub_color;
-//   opacity: 0; /* 初期は透明 */
+//   clip-path: polygon(
+//     0 29.5%,
+//     77.3% 29.5%,
+//     77.3% 0,
+//     100% 50%,
+//     77.3% 100%,
+//     77.3% 70.5%,
+//     0 70.5%
+//   );
+//   opacity: 0;
 //   transition: width 0.5s ease, opacity 0.1s ease;
-
-//   &::before {
-//     content: "";
-//     position: absolute;
-//     top: calc(50% - 4px);
-//     right: 0;
-//     width: 20px;
-//     height: 8px;
-//     // border-radius: 9999px;
-//     background-color: var.$sub_color;
-//     transform: rotate(45deg);
-//     transform-origin: calc(100% - 4px) 50%;
-//     opacity: 0;
-//     transition: opacity 0.5s ease;
-//   }
 // }

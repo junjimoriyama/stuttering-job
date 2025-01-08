@@ -44,6 +44,9 @@ footer {
         justify-self: center;
         width: 200px;
       }
+      @include bp.media(xxxs, max) {
+        width: 150px;
+      }
 
       .header_main_logo_svg {
         width: 300px;
@@ -56,8 +59,7 @@ footer {
       display: flex;
       justify-self: flex-end;
       gap: 10px;
-      margin-bottom: 10px;
-
+      
       .footer_menu {
         display: flex;
         flex-direction: column;
@@ -65,8 +67,9 @@ footer {
         padding: 10px 30px;
         border-radius: 5px;
         background-color: #fff;
-
+        
         @include bp.media(xxs, max) {
+          margin-bottom: 10px;
           padding: 10px 20px;
         }
         @include bp.media(xxxxs, max) {

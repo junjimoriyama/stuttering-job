@@ -49,11 +49,8 @@ production:
     migrations_paths: db/queue_migrate
 
   cable:
-    adapter: postgresql  # 追加
-    host: <%= ENV["DB_HOST"] || "localhost" %>  # 追加
+    <<: *primary_production
     database: api_production_cable
-    username: <%= ENV["CABLE_DB_USERNAME"] || "api" %>  # 必要なら環境変数を使う
-    password: <%= ENV["CABLE_DB_PASSWORD"] || "" %>  # パスワードを設定
     migrations_paths: db/cable_migrate
 
   #   <<: *default

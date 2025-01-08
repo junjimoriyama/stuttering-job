@@ -8,13 +8,22 @@ import { CheckMark } from "@/assets/svg/icon/mark";
 
 export const GenderSearch = () => {
   // useContext管理の状態
-  const { age, gender, industry, setGender, isAllClose } = useStoryContext();
+  const {
+    age,
+    gender,
+    setGender,
+    industry,
+    isAllClose,
+    setIsPageFilterEffect,
+  } = useStoryContext();
   // アコーディン開閉
   const [isOpen, setIsOpen] = useState(false);
   // アコーディオンの高さ
   const [maxHeight, setMaxHeight] = useState<number | undefined>(0);
   // 現在のラベル表示
   const [currentLabel, setCurrentLabel] = useState<string | null>(null);
+  // クリックしたボタン効果の状態
+  const [isClicked, setIsClicked] = useState(false);
 
   const searchItemGenderListRef = useRef<HTMLDivElement>(null);
 
@@ -34,28 +43,30 @@ export const GenderSearch = () => {
     setMaxHeight(searchItemGenderListRef.current?.scrollHeight);
   };
 
-    // 更新されたデータのみsessionStorageに保存する関数
+  // 更新されたデータのみsessionStorageに保存する関数
   const updateSessionStorage = (data: string[]) => {
     const updatedGenderData = {
       age,
       gender: data,
-      industry
-    }
+      industry,
+    };
     // sessionに保存
-    sessionStorage.setItem("stutter_job_searchFilters", JSON.stringify(updatedGenderData))
-  }
+    sessionStorage.setItem(
+      "stutter_job_searchFilters",
+      JSON.stringify(updatedGenderData)
+    );
+  };
 
-   // 選択した場所クリック
+  // 選択した場所クリック
   const handleGenderClick = (value: string) => {
     // 変更があったデータ
-    let updateGender = 
-    gender.includes(value) 
-    ? gender.filter(item => item !== value) 
-    : [...gender, value]
+    let updateGender = gender.includes(value)
+      ? gender.filter((item) => item !== value)
+      : [...gender, value];
     // sessionにセット
-    updateSessionStorage(updateGender)
+    updateSessionStorage(updateGender);
     // 状態にセット
-    setGender(updateGender)
+    setGender(updateGender);
   };
 
   // 選択しないボタンをクリック
@@ -63,11 +74,14 @@ export const GenderSearch = () => {
     const updatedData = {
       age,
       gender: [],
-      industry
-    }
-    sessionStorage.setItem("stutter_job_searchFilters", JSON.stringify(updatedData))
-    setGender([])
-  }
+      industry,
+    };
+    sessionStorage.setItem(
+      "stutter_job_searchFilters",
+      JSON.stringify(updatedData)
+    );
+    setGender([]);
+  };
 
   // 全てクリアボタン押されたらアコーディオン閉じ、選択をクリアに戻す
   useEffect(() => {
@@ -77,6 +91,16 @@ export const GenderSearch = () => {
       setCurrentLabel(null);
     }
   }, [isAllClose]);
+
+  const handleFilterEffect = () => {
+    // 絞り込みに伴い体験談が点滅
+    setIsPageFilterEffect(true);
+  };
+
+  // アニメーション終了したらボタン効果の状態false
+  const handleBtnAnimationEnd = () => {
+    setIsClicked(false)
+    }
 
   return (
     <li className="search_item">
@@ -91,9 +115,10 @@ export const GenderSearch = () => {
         </div>
       </div>
       <div
-        className="search_item_list search_item_gender_list"
+        className="search_item_list"
         ref={searchItemGenderListRef}
         style={{ maxHeight: isOpen ? `${maxHeight}px` : "0px" }}
+        onClick={handleFilterEffect}
       >
         {genderSearchList.map((item, i) => {
           const value = i + 1;
@@ -111,116 +136,19 @@ export const GenderSearch = () => {
             </span>
           );
         })}
-        <span
-          className={`search_item_option ${
-            gender.length === 0 ? "isActive" : ""
-          }`}
-          onClick={() => {handleStorageClear();}}
+        <button
+          className={`search_item_clear_btn ${isClicked ? "isClicked" : ""}`}
+          onClick={() => {
+            handleStorageClear();
+            // ボタン点滅
+            setIsClicked(true)
+          }}
+          // ボタン点滅オフ
+          onAnimationEnd={handleBtnAnimationEnd}
         >
-          {gender.length === 0 && <CheckMark />}
-          選択しない
-        </span>
+          クリア
+        </button>
       </div>
     </li>
   );
 };
-// import { useStoryContext } from "@/app/story/StoreContext";
-// import React, { useEffect, useRef, useState } from "react";
-
-// export const GenderSearch = () => {
-//   // useContext管理の状態
-//   const { gender, setGender, isAllClose} = useStoryContext()
-//    // アコーディン開閉
-//   const [isOpen, setIsOpen] = useState(false);
-//    // 選択されている場所
-//   const [activeIndex, setActiveIndex] = useState(0);
-//   // アコーディオンの高さ
-//   const [maxHeight, setMaxHeight] = useState<number | undefined>(0);
-//   // 現在のラベル表示
-//   const [ currentLabel, setCurrentLabel  ] = useState<string | null>(null)
-
-//   const searchItemGenderListRef = useRef<HTMLDivElement>(null);
-
-//   // 配列のリスト
-//   const genderSearchList = [
-//     "男性",
-//     "女性",
-//     "どちらでもない",
-//     // "無回答"
-//   ]
-//   const handleSearchItemClick = () => {
-//     // モーダル開閉
-//     setIsOpen(!isOpen);
-//     // リストの高さ取得
-//     setMaxHeight(searchItemGenderListRef.current?.scrollHeight);
-//   };
-
-//   const handleGenderClick = (item: string, value: number) => {
-//     // 絞り込み
-//     setGender(item);
-//     // 選択した場所に色つける
-//     setActiveIndex(value);
-//   };
-
-//     // 全てクリアボタン押されたらアコーディオン閉じ、選択をクリアに戻す
-//     useEffect(() => {
-//       if (isAllClose) {
-//         setIsOpen(false)
-//         setActiveIndex(0)
-//         setCurrentLabel(null)
-//       }
-//     }, [isAllClose]);
-
-//   return (
-//     <li
-//       className="search_item"
-//     >
-//       <div className="search_item_label" onClick={handleSearchItemClick}>
-//         性別
-//         {currentLabel &&
-//         <span
-//         className="search_item_current_label">{currentLabel}</span>
-//         }
-//         <div className={`search_plus_btn ${isOpen ? "isOpen" : ""}`}>
-//           <span></span>
-//           <span></span>
-//         </div>
-//       </div>
-//       <div
-//         className="search_item_list search_item_gender_list"
-//         ref={searchItemGenderListRef}
-//         style={{ maxHeight: isOpen ? `${maxHeight}px` : "0px" }}
-//       >
-//         {genderSearchList.map((item, i) => {
-//           const value = (i + 1)
-//           return (
-//           <span
-//           className={`search_item_option ${
-//             activeIndex === value ? "isActive" : ""
-//           }`}
-//           key={value}
-//           onClick={() => {
-//             handleGenderClick(item, value)
-//             setCurrentLabel(item)
-//           }}
-//           >
-//             {item}
-//           </span>
-//           )
-//         })}
-//         <span
-//           className={`search_item_option ${
-//             activeIndex === 0 ? "isActive" : ""
-//           }`}
-//           onClick={() => {
-//             setGender("");
-//             setActiveIndex(0);
-//             setCurrentLabel(null)
-//           }}
-//         >
-//           クリア
-//         </span>
-//       </div>
-//     </li>
-//   );
-// };

@@ -7,7 +7,7 @@ import { allDataArrayType } from "@/types/story";
 // components
 import { StoryItems } from "./storyItems/StoryItems";
 // svg
-import { FilterIconSp } from "@/assets/svg/icon/filter";
+import { FilterIcon } from "@/assets/svg/icon/filter";
 import { UpHandChara } from "@/assets/svg/character/characterSvg";
 // style
 import "./mainArea.scss";
@@ -35,7 +35,7 @@ export const MainArea = ({ fetchData }: { fetchData: allDataArrayType}) => {
       className="searchModalBtn"
       onClick={handleSearchModalOpen}
       >
-        <FilterIconSp/>
+        <FilterIcon/>
       </div>
     </div>
   );

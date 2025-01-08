@@ -3,16 +3,26 @@
 @use "@/style/variable.scss" as var;
 
 .search {
+  display: flex;
+  flex-direction: column;
   padding: 10px;
   background-color: #eff4ff;
   border-radius: 5px;
 
   .search_heading {
+    position: relative;
+    top: -10px;
+    align-self: center;
     display: flex;
     justify-content: center;
     align-items: center;
     margin-bottom: 20px;
-    color: var.$main_color;
+    width: calc(100% + (10px * 2));
+    height: 50px;
+    color: #fff;
+    background-color: var.$main_color;
+    border-radius: 10px 10px 0 0;
+    letter-spacing: 0.5em;
 
     .filter_svg {
       width: 40px;
@@ -26,30 +36,59 @@
 
   .search_hit_count {
     display: flex;
+    flex-direction: column;
     justify-content: center;
-    align-items: center;
-    gap: 10px;
+    // align-items: center;
     margin-bottom: 16px;
+    padding: 5px 16px;
+    background-color: #fff;
+    color: var.$main_color;
+    border-radius: 5px;
+
+    .search_hit_count_heading {
+      text-align: center;
+      margin-bottom: 10px;
+      
+      &::after {
+        content: '';
+        display: block;
+        margin: 0 auto;
+        width: 90%;
+        border-bottom: 2px solid var.$main_color;
+      }
+    }
 
     .search_hit_count_text {
-      font-size: 14px;
+      display: grid;
+      grid-template-columns: 1fr 1fr; /* 2つの列を作成 */
+      font-size: 16px;
+      padding: 5px 10px;
+    }
+    
+    
+    .search_hit_count_label {
+      text-align: left;
     }
     
     .search_hit_count_value {
-      display: flex;
-      justify-content: flex-end;
-      min-width: 110px;
-      font-size: 20px;
-      padding: 5px 10px;
-      background-color: #fff;
-      border-radius: 5px;
+      text-align: right;
+      font-size: 24px;
+      line-height: 1.2;
+    }
+    
+  }
+
+  .search_hit_count_bottom {
+    @include bp.media(sm, max) {
+      display: none;
     }
   }
 
   .search_list {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    margin-bottom: 30px;
+    // gap: 5px;
 
     @include bp.media(sm, max) {
       flex-direction: row;
@@ -139,6 +178,7 @@
         gap: 5px;
         align-items: center;
         max-height: 0;
+        // padding: 10px 5px;
         border-top: 2px solid var.$main_color;
         background-color: #fff;
         transition: max-height 0.5s ease;
@@ -146,11 +186,24 @@
 
         .search_item_option {
           position: relative;
-          width: 100%;
+          display: flex;
+          align-items: center;
           text-align: center;
-          padding: 2px 4px;
+          gap: 10px;
+          width: 100%;
+          padding: 5px 8px;
           transition: 0.3s;
           cursor: pointer;
+         font-size: 14px;
+
+          &::before {
+            content: '';
+            display: block;
+            border: 2px solid var.$main_color;
+            border-radius: 2px;
+            width: 18px;
+            height: 18px;
+          }
 
           &.isActive {
             background-color: var.$high_light_gray;
@@ -165,9 +218,42 @@
               opacity: 0.8;
             }
           }
+          // エンターテインメント業
+          &:nth-of-type(10) {
+            font-size: 12px;
+          }
         }
-        .search_item_option_invalid {
-          
+
+        .search_item_clear_btn {
+          display: grid;
+          place-items: center;
+          width: 90%;
+          margin-bottom: 10px; 
+          padding: 5px;
+          background-color: var.$main_color;
+          color: #fff;
+          border-radius: 5px;
+          cursor: pointer;
+
+          &.isClicked {
+            animation: clickedSearchInvalidBtn 0.5s;
+          }
+        }
+        
+        // クリックされたボタンに効果
+        @keyframes clickedSearchInvalidBtn {
+          0% {
+            background-color: var.$main_color;
+            color: #fff;
+          }
+          50% {
+            background-color: #fff;
+            color: var.$main_color;
+          }
+          100% {
+            background-color: var.$main_color;
+            color: #fff;
+          }
         }
       }
     }

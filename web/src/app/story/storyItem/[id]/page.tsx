@@ -86,7 +86,7 @@ const Page = async ({ params }: { params: { id: string } }) => {
             </div>
           </li>
           <li className="single_story_item">
-            <span className="single_story_label">就職活動中の苦労や工夫</span>
+            <span className="single_story_label">仕事の苦労や工夫</span>
             <span className="single_story_value">
               {data.job_struggles || "未記載"}
             </span>

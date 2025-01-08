@@ -9,21 +9,17 @@ import { CheckMark } from "@/assets/svg/icon/mark";
 export const AgeSearch = () => {
   const searchItemAgeListRef = useRef<HTMLDivElement>(null);
   // useContext管理の状態
-  const { 
-    age, 
-    setAge, 
-    gender, 
-    industry, 
-    isAllClose,
-    isPageFilterEffect,
-    setIsPageFilterEffect
-  } = useStoryContext();
+  const { age, setAge, gender, industry, isAllClose, setIsPageFilterEffect } =
+    useStoryContext();
   // アコーディン開閉
   const [isAccordionOpen, setIsOAccordionOpen] = useState(true);
   // アコーディオンの高さ
   const [maxHeight, setMaxHeight] = useState<number | undefined>(0);
   // 現在のラベル表示
   const [currentLabel, setCurrentLabel] = useState<number | null>(null);
+  // クリックしたボタン効果の状態
+  const [isClicked, setIsClicked] = useState(false);
+
 
   // アコーディオン開閉ボタンクリック
   const handleSearchItemClick = () => {
@@ -34,38 +30,45 @@ export const AgeSearch = () => {
   };
 
   // 更新されたデータのみsessionStorageに保存する関数
-  const updateSessionStorage = (data : number[]) => {
+  const updateSessionStorage = (data: number[]) => {
     const updatedData = {
       age: data,
       gender,
-      industry
-    }
+      industry,
+    };
     // sessionに保存
-    sessionStorage.setItem("stutter_job_searchFilters", JSON.stringify(updatedData))
-  }
+    sessionStorage.setItem(
+      "stutter_job_searchFilters",
+      JSON.stringify(updatedData)
+    );
+  };
 
   // 選択した場所クリック
   const handleAgeClick = (value: number) => {
     // 変更があったデータ
-    let updatedAge = age.includes(value) ? age.filter(index => index !== value) : [...age, value]
+    let updatedAge = age.includes(value)
+      ? age.filter((index) => index !== value)
+      : [...age, value];
     // sessionにセット
-    updateSessionStorage(updatedAge)
+    updateSessionStorage(updatedAge);
     // 状態にセット
-    setAge(updatedAge)
+    setAge(updatedAge);
   };
-
 
   // 選択しないボタンをクリック
   const handleStorageClear = () => {
     let updatedAge = {
       age: [],
       gender,
-      industry
-    }
-    sessionStorage.setItem("stutter_job_searchFilters", JSON.stringify(updatedAge))
-    setAge([])
-  }
-  
+      industry,
+    };
+    sessionStorage.setItem(
+      "stutter_job_searchFilters",
+      JSON.stringify(updatedAge)
+    );
+    setAge([]);
+  };
+
   // 全てクリアボタン押されたらアコーディオン閉じ、選択をクリアに戻す
   useEffect(() => {
     setMaxHeight(searchItemAgeListRef.current?.scrollHeight);
@@ -75,9 +78,15 @@ export const AgeSearch = () => {
     }
   }, [isAllClose]);
 
+  // 絞り込みに伴い体験談が点滅
   const handleFilterEffect = () => {
-    setIsPageFilterEffect(true)
-  }
+    setIsPageFilterEffect(true);
+  };
+
+    // アニメーション終了したらボタン効果の状態false
+    const handleBtnAnimationEnd = () => {
+      setIsClicked(false)
+      }
 
   return (
     <li className="search_item">
@@ -89,7 +98,7 @@ export const AgeSearch = () => {
         </div>
       </div>
       <div
-        className="search_item_age_list search_item_list"
+        className="search_item_list"
         ref={searchItemAgeListRef}
         style={{ maxHeight: isAccordionOpen ? `${maxHeight}px` : "0px" }}
         onClick={handleFilterEffect}
@@ -110,13 +119,20 @@ export const AgeSearch = () => {
             </span>
           );
         })}
-        <span
-          className={`search_item_option ${age.length === 0 ? "isActive" : ""}`}
-          onClick={() => {handleStorageClear();}}
+        <button
+           className={`search_item_clear_btn ${isClicked ? "isClicked" : ""}`}
+          // className={`search_item_clear_btn ${age.length === 0 ? "isActive" : ""}`}
+          onClick={() => {
+            handleStorageClear();
+             // ボタン点滅
+            setIsClicked(true)
+          }}
+          // ボタン点滅オフ
+          onAnimationEnd={handleBtnAnimationEnd}
         >
-          {age.length === 0 && <CheckMark />}
-          選択しない
-        </span>
+          {/* {age.length === 0 && <CheckMark />} */}
+          クリア
+        </button>
       </div>
     </li>
   );

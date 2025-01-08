@@ -15,6 +15,13 @@ export const Pagination = ({
     setIsPageFilterEffect, } =
     useStoryContext();
 
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    })
+  }
+
   return (
     <div className="pagination">
       <div className="pagination_controls">
@@ -25,6 +32,7 @@ export const Pagination = ({
             currentPage > 1 && onPageChange(currentPage - 1);
             if(currentPage > 1) {
               setIsPageFilterEffect(true);
+              scrollToTop()
             }
           }}
         >
@@ -43,6 +51,7 @@ export const Pagination = ({
                 onClick={() => {
                   onPageChange(value);
                   setIsPageFilterEffect(true);
+                  scrollToTop()
                 }}
               >
                 {value}
@@ -57,15 +66,16 @@ export const Pagination = ({
             currentPage < totalPage! && onPageChange(currentPage + 1);
             if(currentPage < totalPage) {
               setIsPageFilterEffect(true);
+              scrollToTop()
             }
           }}
         >
           →
         </button>
       </div>
-      <div className="current_page">
+      {/* <div className="current_page">
         {currentPage} / {totalPage}
-      </div>
+      </div> */}
     </div>
   );
 };

@@ -3,10 +3,11 @@
 @use "@/style/variable.scss" as var;
 
 .search_invalid_btn {
+  justify-self: center;
   display: flex;
   justify-content: center;
-  width: 100%;
-  margin-bottom: 10px;
+  // width: 100%;
+  margin-bottom: 30px;
   padding: 3px;
   background-color: var.$main_color;
   color: #fff;
@@ -17,8 +18,7 @@
   }
 
   @include bp.media(xxs, max) {
-    width: 250px;
-    justify-self: center;
+    // justify-self: center;
   }
 }
 

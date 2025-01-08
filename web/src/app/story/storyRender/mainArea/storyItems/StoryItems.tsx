@@ -8,7 +8,6 @@ import { useRouter } from "next/navigation";
 import { allDataArrayType, allDataType } from "@/types/story";
 // components
 import { Pagination } from "../components/pagination/Pagination";
-// import { StoryPreview } from "./storyPreview/StoryPreview";
 // style
 import "./storyItems.scss";
 import { BagIcon } from "@/assets/svg/icon/bag";
@@ -72,7 +71,7 @@ export const StoryItems = ({ fetchData }: { fetchData: allDataArrayType }) => {
   };
 
   const handleBtnAnimationEnd = () => {
-    setIsPageFilterEffect(false)
+    setIsPageFilterEffect(false);
   };
 
   return (
@@ -88,7 +87,6 @@ export const StoryItems = ({ fetchData }: { fetchData: allDataArrayType }) => {
           className={`story_preview_list ${
             isPageFilterEffect ? "isChange" : ""
           }`}
-          // onAnimationEnd={() => setIsPageChangeEffect(false)}
         >
           {displayData.slice(startPage, endPage).map((item: allDataType) => (
             <li key={item.id} className="story_preview_item">
@@ -97,9 +95,11 @@ export const StoryItems = ({ fetchData }: { fetchData: allDataArrayType }) => {
                 onClick={() => handleLinkStoryItem(item.id)}
               >
                 {/* <ul className="story_preview_info_list"> */}
-                <ul 
-                className={`story_preview_info_list ${isPageFilterEffect ? "isEffect" : ""}`}
-                onAnimationEnd={handleBtnAnimationEnd}
+                <ul
+                  className={`story_preview_info_list ${
+                    isPageFilterEffect ? "isEffect" : ""
+                  }`}
+                  onAnimationEnd={handleBtnAnimationEnd}
                 >
                   <li className="story_preview_info_icon">
                     <BagIcon />
@@ -128,14 +128,27 @@ export const StoryItems = ({ fetchData }: { fetchData: allDataArrayType }) => {
                       {item.industry}
                     </span>
                   </li>
+                  <li className="story_preview_info">
+                    <span className="story_preview_item_label">
+                      仕事の苦労や工夫
+                    </span>
+                    <span className="story_preview_item_value story_preview_item_job_struggles">
+                      {item.job_struggles}
+                    </span>
+                  </li>
                 </ul>
-                <div className="arrow"></div>
               </div>
             </li>
           ))}
         </ul>
       ) : (
         <p className="notItem">条件に合う体験談はありません</p>
+      )}
+      {( displayData.slice(startPage, endPage).length > 2 &&
+        <Pagination
+          totalPage={totalPage}
+          onPageChange={(page) => setCurrentPage(page)}
+        />
       )}
     </div>
   );

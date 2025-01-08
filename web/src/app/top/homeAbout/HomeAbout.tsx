@@ -13,10 +13,11 @@ import {
 // style
 import "./homeAbout.scss";
 import { useRouter } from "next/navigation";
+import { LookIcon, LookIconWhite, WriteIconWhite } from "@/assets/svg/icon/menuIcon";
 
 const HomeAbout = () => {
   // useRouter
-  const router = useRouter()
+  const router = useRouter();
   // 説明
   const homeAboutRef = useRef<HTMLDivElement>(null);
   const homeAboutTextRef = useRef<HTMLDivElement>(null);
@@ -49,19 +50,19 @@ const HomeAbout = () => {
 
   // 説明
   useIntersectionObserver(homeAboutRef, setIsAboutVisible, {
-  threshold: 0.5,
+    threshold: 0.5,
   });
   useIntersectionObserver(homeAboutTextRef, setIsTextVisible, {
-  threshold: 0.5,
+    threshold: 0.5,
   });
   useIntersectionObserver(homeAboutBlockRef, setIsBlockVisible, {
-  threshold: 0.5,
+    threshold: 0.5,
   });
   useIntersectionObserver(homeAboutCharaRef, setIsCharaVisible, {
-  threshold: 0.5,
+    threshold: 0.5,
   });
   useIntersectionObserver(homeAboutHeadingRef, setIsHeadingVisible, {
-  threshold: 0.5,
+    threshold: 0.5,
   });
 
   // 見る
@@ -92,18 +93,20 @@ const HomeAbout = () => {
       ref={homeAboutRef}
     >
       <div className="home_about_lead_wrap">
-        {/* <div className="home_about_lead_heading">
-        「みんな、こんな風に働いているんだ」
-        </div> */}
         <div
           className={`home_about_lead ${isTextVisible ? "isVisible" : ""}`}
           ref={homeAboutTextRef}
         >
-          <p>吃音ある人にとって「ことば」の部分</p>
-          <p>で仕事に大きな不安を抱えている人が</p>
-          <p>とても多くいます。</p>
-          <p>ここで、自分の未来を考える</p>
-          <p>ヒントを見つけてください。</p>
+          <div className="home_about_lead_heading">
+            「みんな、こうやって働いているんだ！」
+          </div>
+          <div className="home_about_lead_text">
+            <p>吃音ある人にとって言葉に対して</p>
+            <p>仕事に大きな不安を抱えている人</p>
+            <p>がとても多くいます。</p>
+            <p>体験談を通して、自分の未来を</p>
+            <p>考えるヒントを見つけてください。</p>
+          </div>
         </div>
         <div className="home_about_chara">
           <HomeAboutChara
@@ -130,17 +133,19 @@ const HomeAbout = () => {
             }`}
             ref={homeAboutLookBubbleRef}
           >
-            <div 
-            className="home_about_look_heading">
-            「見る」
+            <div className="home_about_look_heading">
+              <LookIconWhite />
+              「見る」
             </div>
             <div className="home_about_look_Content">
               うまく話せずに苦労したことや日々の工夫など、さまざまな人の体験談を見ることができます。年代、性別や業種などを通じて仕事に対するイメージにつながれば嬉しいです。
             </div>
-            <button 
-            className="link_look_btn"
-            onClick={() => router.push('/story')}
-            >見るページへ</button>
+            <button
+              className="link_look_btn"
+              onClick={() => router.push("/story")}
+            >
+              見るページへ
+            </button>
           </div>
           <LookChara
             isLookBlockVisible={isLookBlockVisible}
@@ -157,15 +162,18 @@ const HomeAbout = () => {
             ref={homeAboutWriteBubbleRef}
           >
             <div className="home_about_write_heading">
+            <WriteIconWhite />
               「書く」
-              </div>
+            </div>
             <div className="home_about_write_Content">
               ご自身の体験投稿にご協力お願いいたします。一つひとつの貴重な体験談が、仕事に対して悩みがある誰かにとって新たな気づきや安心感につながるかもしれません。
             </div>
-            <button 
-            className="link_write_btn"
-            onClick={() => router.push('/form/input')}
-            >書くページへ</button>
+            <button
+              className="link_write_btn"
+              onClick={() => router.push("/form/input")}
+            >
+              書くページへ
+            </button>
           </div>
           <WriteChara
             isWriteBlockVisible={isWriteBlockVisible}

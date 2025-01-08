@@ -9,14 +9,22 @@ import { CheckMark } from "@/assets/svg/icon/mark";
 
 export const IndustrySearch = () => {
   // useContext管理の状態
-  const { age, gender, industry, setIndustry, isAllClose } = useStoryContext();
+  const {
+    age,
+    gender,
+    industry,
+    setIndustry,
+    isAllClose,
+    setIsPageFilterEffect,
+  } = useStoryContext();
   // アコーディン開閉
   const [isOpen, setIsOpen] = useState(false);
   // アコーディオンの高さ
   const [maxHeight, setMaxHeight] = useState<number | undefined>(0);
   // 現在のラベル表示
   const [currentLabel, setCurrentLabel] = useState<string | null>(null);
-
+  // クリックしたボタン効果の状態
+  const [isClicked, setIsClicked] = useState(false);
 
   const searchItemIndustryListRef = useRef<HTMLDivElement>(null);
 
@@ -28,28 +36,30 @@ export const IndustrySearch = () => {
     setMaxHeight(searchItemIndustryListRef.current?.scrollHeight);
   };
 
-     // 更新されたデータのみsessionStorageに保存する関数
+  // 更新されたデータのみsessionStorageに保存する関数
   const updateSessionStorage = (data: string[]) => {
     const updatedIndustryData = {
       age,
       gender,
-      industry: data
-    }
+      industry: data,
+    };
     // sessionに保存
-    sessionStorage.setItem("stutter_job_searchFilters", JSON.stringify(updatedIndustryData))
-  }
+    sessionStorage.setItem(
+      "stutter_job_searchFilters",
+      JSON.stringify(updatedIndustryData)
+    );
+  };
 
-
-// 選択した場所クリック
+  // 選択した場所クリック
   const handleIndustryClick = (value: string) => {
     // 変更があったデータ
-  const updatedData = industry.includes(value) 
-    ? industry.filter(item => item !== value)
-    : [...industry, value]
+    const updatedData = industry.includes(value)
+      ? industry.filter((item) => item !== value)
+      : [...industry, value];
     // sessionにセット
-    updateSessionStorage(updatedData)
-     // 状態にセット
-    setIndustry(updatedData)
+    updateSessionStorage(updatedData);
+    // 状態にセット
+    setIndustry(updatedData);
   };
 
   // 選択しないボタンをクリック
@@ -58,10 +68,13 @@ export const IndustrySearch = () => {
       age,
       gender,
       industry: [],
-    }
-    sessionStorage.setItem("stutter_job_searchFilters", JSON.stringify(updatedData))
-    setIndustry([])
-  }
+    };
+    sessionStorage.setItem(
+      "stutter_job_searchFilters",
+      JSON.stringify(updatedData)
+    );
+    setIndustry([]);
+  };
 
   // 全てクリアボタン押されたらアコーディオン閉じ、選択をクリアに戻す
   useEffect(() => {
@@ -71,6 +84,16 @@ export const IndustrySearch = () => {
       setCurrentLabel(null);
     }
   }, [isAllClose]);
+
+  const handleFilterEffect = () => {
+    // 絞り込みに伴い体験談が点滅
+    setIsPageFilterEffect(true);
+  };
+
+  // アニメーション終了したらボタン効果の状態false
+  const handleBtnAnimationEnd = () => {
+    setIsClicked(false);
+  };
 
   return (
     <li className="search_item">
@@ -88,6 +111,7 @@ export const IndustrySearch = () => {
         className="search_item_list search_item_industry_list"
         ref={searchItemIndustryListRef}
         style={{ maxHeight: isOpen ? `${maxHeight}px` : "0px" }}
+        onClick={handleFilterEffect}
       >
         {industryList.map((item, i) => {
           const value = i + 1;
@@ -107,15 +131,18 @@ export const IndustrySearch = () => {
             </span>
           );
         })}
-        <span
-          className={`search_item_option ${
-            industry.length === 0 ? "isActive" : ""
-          }`}
-          onClick={() => {handleStorageClear();}}
+        <button
+          className={`search_item_clear_btn ${isClicked ? "isClicked" : ""}`}
+          onClick={() => {
+            handleStorageClear();
+            // ボタン点滅
+            setIsClicked(true);
+          }}
+          // ボタン点滅オフ
+          onAnimationEnd={handleBtnAnimationEnd}
         >
-          {industry.length === 0 && <CheckMark />}
-          選択しない
-        </span>
+          クリア
+        </button>
       </div>
     </li>
   );

@@ -22,6 +22,12 @@ $page_each_width: 30px;
       border: 2px solid var.$main_color;
       border-right: none;
       color: var.$main_color;
+      
+    }
+    .page_prev_btn, .page_next_btn {
+      &.inActive {
+        opacity: 0.3;
+      }
     }
     .page_next_btn {
       border-right: 2px solid var.$main_color;

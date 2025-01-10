@@ -1,3 +1,6 @@
+
+
+
 "use client";
 
 // react
@@ -11,6 +14,7 @@ import { Pagination } from "../components/pagination/Pagination";
 // style
 import "./storyItems.scss";
 import { BagIcon } from "@/assets/svg/icon/bag";
+import { SelectPerPage } from "../components/selectPerPage/SelectPerPage";
 
 export const StoryItems = ({ fetchData }: { fetchData: allDataArrayType }) => {
   // router
@@ -20,6 +24,7 @@ export const StoryItems = ({ fetchData }: { fetchData: allDataArrayType }) => {
     age,
     gender,
     industry,
+    storiesPerPage,
     currentPage,
     setCurrentPage,
     displayData,
@@ -28,14 +33,12 @@ export const StoryItems = ({ fetchData }: { fetchData: allDataArrayType }) => {
     setIsPageFilterEffect,
   } = useStoryContext();
 
-  // 表示件数
-  const displayNumber = 4;
   // 表示するページ
-  const startPage = (currentPage - 1) * displayNumber;
-  const endPage = currentPage * displayNumber;
+  const startPage = (currentPage - 1) * storiesPerPage;
+  const endPage = currentPage * storiesPerPage;
 
   const totalPage = useMemo(
-    () => Math.ceil(displayData.length / displayNumber),
+    () => Math.ceil(displayData.length / storiesPerPage),
     [displayData]
   );
 
@@ -77,6 +80,7 @@ export const StoryItems = ({ fetchData }: { fetchData: allDataArrayType }) => {
   return (
     <div className="storyItems">
       <div className="story_controls">
+      {/* <SelectPerPage /> */}
         <Pagination
           totalPage={totalPage}
           onPageChange={(page) => setCurrentPage(page)}
@@ -153,3 +157,116 @@ export const StoryItems = ({ fetchData }: { fetchData: allDataArrayType }) => {
     </div>
   );
 };
+
+
+// "use client";
+
+// import { useStoryContext } from "@/app/story/StoreContext";
+// import "./pagination.scss";
+
+// export const Pagination = ({
+//   totalPage,
+//   onPageChange,
+// }: {
+//   totalPage: number;
+//   onPageChange: (page: number) => void;
+// }) => {
+//   const { 
+//     currentPage, 
+//     setIsPageFilterEffect, } =
+//     useStoryContext();
+
+//     const pageRange = 5
+
+//     const getPageNumbers = () => {
+//       const pages: (number | string)[] = [];
+  
+//       if (totalPage <= pageRange + 2) {
+//         // ページ数が少ない場合はすべて表示
+//         for (let i = 1; i <= totalPage; i++) {
+//           pages.push(i);
+//         }
+//       } else {
+//         if (currentPage > 3) pages.push(1, "...");
+  
+//         // 中央のページ範囲を計算
+//         const start = Math.max(2, currentPage - 2);
+//         const end = Math.min(totalPage - 1, currentPage + 2);
+  
+//         for (let i = start; i <= end; i++) {
+//           pages.push(i);
+//         }
+  
+//         if (currentPage < totalPage - 2) pages.push("...", totalPage);
+//       }
+  
+//       return pages;
+//     };
+
+//     console.log(getPageNumbers)
+
+
+//   const scrollToTop = () => {
+//     window.scrollTo({
+//       top: 0,
+//       behavior: "smooth"
+//     })
+//   }
+
+//   return (
+//     <div className="pagination">
+//       <div className="pagination_controls">
+//         {/* 前に戻る */}
+//         <button
+//           className={`page_prev_btn ${currentPage === 1 ? "inActive" : ""}`}
+//           onClick={() => {
+//             currentPage > 1 && onPageChange(currentPage - 1);
+//             if(currentPage > 1) {
+//               setIsPageFilterEffect(true);
+//               scrollToTop()
+//             }
+//           }}
+//         >
+//           ←
+//         </button>
+//         {/* ページ展開 */}
+//         <ul className="page_numbers">
+//           {[...Array(totalPage)].map((_, i) => {
+//             const value = i + 1;
+//             return (
+//               <li
+//                 className={`page_number ${
+//                   currentPage === value ? "isActive" : ""
+//                 }`}
+//                 key={value}
+//                 onClick={() => {
+//                   onPageChange(value);
+//                   setIsPageFilterEffect(true);
+//                   scrollToTop()
+//                 }}
+//               >
+//                 {value}
+//               </li>
+//             );
+//           })}
+//         </ul>
+//         {/* 次に進む */}
+//         <button
+//           className={`page_next_btn ${currentPage === totalPage ? "inActive" : ""}`}
+//           onClick={() => {
+//             currentPage < totalPage! && onPageChange(currentPage + 1);
+//             if(currentPage < totalPage) {
+//               setIsPageFilterEffect(true);
+//               scrollToTop()
+//             }
+//           }}
+//         >
+//           →
+//         </button>
+//       </div>
+//       {/* <div className="current_page">
+//         {currentPage} / {totalPage}
+//       </div> */}
+//     </div>
+//   );
+// };

@@ -5,11 +5,14 @@
   .input_form {
     .age {
       margin-bottom: var.$for_margin_Bottom;
-      .age-select {
-        &.isInvalid {
-          @include mixin.formIsValid;
-        }
+      select,
+      ::picker(select) {
+        appearance: base-select;
+       
+        background-color: lightgray;
+        color: red;
       }
+      
     }
   }
 }

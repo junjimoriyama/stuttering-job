@@ -10,7 +10,9 @@ export const BackStoryBtn = () => {
   return (
     <div 
     className="back_story_btn"
-    onClick={() => router.push("/story")}
+    // 遷移前の位置から変えない
+    onClick={() => router.back()}
+    // onClick={() => router.push("/story")}
     >
       戻る
     </div>

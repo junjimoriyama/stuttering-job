@@ -1,14 +1,9 @@
 import type { Metadata } from "next";
-import localFont from "next/font/local";
 import "./globals.css";
-import Head from "next/head";
 
 // import { Zen_Maru_Gothic } from "next/font/google";
 // import { Noto_Sans_JP } from "next/font/google";
 import { M_PLUS_1p } from "next/font/google";
-import Header from "../components/layout/header/Header";
-import Footer from "../components/layout/footer/Footer";
-// import { StepProvider } from "./survey/stepContext";
 
 // const ZenMaruGothic = Noto_Sans_JP({ subsets: ["latin"], weight: ["400"] });
 // const ZenMaruGothic = Zen_Maru_Gothic({ subsets: ["latin"], weight: ["400"] });
@@ -27,7 +22,11 @@ const MPlus1p = M_PLUS_1p({ subsets: ["latin"], weight: ["500"] });
 // });
 
 export const metadata: Metadata = {
-  title: "Create Next App",
+  title: "吃音と仕事DATABASE",
+  icons: {
+    icon: "/favicon.svg",  // SVG形式のファビコン
+    shortcut: "/favicon.ico",  // 古いブラウザ用にICOも指定することが推奨
+  }
 };
 
 export default function RootLayout({
@@ -36,16 +35,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    // <StepProvider>
     <html lang="ja">
       <body className={MPlus1p.className}>
-      {/* <Header /> */}
       {/* <body className={ZenMaruGothic.className}> */}
         {children}
-      {/* <Footer /> */}
       </body>
     </html>
-    // </StepProvider>
   );
 }
 

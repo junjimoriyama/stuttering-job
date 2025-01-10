@@ -17,10 +17,11 @@ const storyContext = createContext<{
   setIsSearchModalOpen: (value: boolean) => void;
   isAllClose: boolean;
   setIsAllClose: (value: boolean) => void;
-  currentPage: number
-  setCurrentPage: (value: number) => void,
   displayData: allDataType[],
   setDisplayData:  React.Dispatch<React.SetStateAction<allDataType[]>>
+  storiesPerPage: number,
+  currentPage: number
+  setCurrentPage: (value: number) => void,
   isPageFilterEffect:  boolean,
   setIsPageFilterEffect: (value: boolean) => void,
 
@@ -35,10 +36,11 @@ const storyContext = createContext<{
   setIsSearchModalOpen: () => {},
   isAllClose: false,
   setIsAllClose: () => {},
-  currentPage: 1,
-  setCurrentPage: () => {},
   displayData: [],
   setDisplayData: () => {},
+  storiesPerPage: 0,
+  currentPage: 1,
+  setCurrentPage: () => {},
   isPageFilterEffect: false,
   setIsPageFilterEffect:  () => {},
 });
@@ -52,10 +54,14 @@ export const StoryProvider = ({ children }: { children: React.ReactNode }) => {
   const [isAllClose, setIsAllClose] = useState(true);
   // モーダル開閉
   const [isSearchModalOpen, setIsSearchModalOpen] = useState(false);
-  // 現在のページ
-  const [currentPage, setCurrentPage] = useState(1);
   // 表示するデータ
   const [ displayData, setDisplayData  ] = useState<allDataType[]>([])
+  // 表示件数
+  // const [currentStories, setCurrentStories] = useState(2);
+  // 表示件数
+  const [storiesPerPage, setStoriesPerPage] = useState(2);
+  // 現在のページ
+  const [currentPage, setCurrentPage] = useState(1);
   // ページ変更による効果
   const [ isPageFilterEffect, setIsPageFilterEffect  ] = useState(false)
 
@@ -81,10 +87,12 @@ export const StoryProvider = ({ children }: { children: React.ReactNode }) => {
         setIsSearchModalOpen,
         isAllClose,
         setIsAllClose,
+        storiesPerPage,
+        displayData,
+        // currentStories,
+        setDisplayData,
         currentPage,
         setCurrentPage,
-        displayData,
-        setDisplayData,
         isPageFilterEffect,
         setIsPageFilterEffect
       }}

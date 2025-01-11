@@ -43,25 +43,27 @@ const input = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
-    // 登録メール重複時に表示
-    const errorParam = params.get("error");
-
-    if (errorParam === "EmailAlreadyTaken") {
-      setToast({
-        display: true,
-        text: "emailAlreadyTaken",
-      });
-
-      // スクロールを一番下にする
-      window.scrollTo({
-        top: document.body.scrollHeight,
-        behavior: "smooth",
-      });
-
-      // クエリパラメータを削除
-      const currentUrl = new URL(window.location.href);
-      currentUrl.searchParams.delete("error");
-      router.replace(currentUrl.toString());
+    if(typeof window !== "undefined") {
+      // 登録メール重複時に表示
+      const errorParam = params.get("error");
+  
+      if (errorParam === "EmailAlreadyTaken") {
+        setToast({
+          display: true,
+          text: "emailAlreadyTaken",
+        });
+  
+        // 一番上にスクロール
+        window.scrollTo({
+          top: document.body.scrollHeight,
+          behavior: "smooth",
+        });
+  
+        // クエリパラメータを削除
+        const currentUrl = new URL(window.location.href);
+        currentUrl.searchParams.delete("error");
+        router.replace(currentUrl.toString());
+      }
     }
   }, [params, router]);
 

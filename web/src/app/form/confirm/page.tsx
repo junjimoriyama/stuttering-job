@@ -29,9 +29,9 @@ const confirm = () => {
   // formの値を配列に
   const formArray = Object.entries(formValues);
 
-  const handleSubmit = async(e: React.FormEvent) => {
+  const handleSubmit = async(e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    const formData = new FormData(e.currentTarget as HTMLFormElement)
+    const formData = new FormData(e.currentTarget)
     try {
       await sendAction(formData)
     } catch(error) {

@@ -5,7 +5,6 @@ import BackGroundAnimation from "./components/backgroundAnimation/BackgroundAnim
 import FirstView from "./firstView/FirstView";
 import HomeAbout from "./homeAbout/HomeAbout";
 import Footer from "../../components/layout/footer/Footer";
-import Loading from "../loading/Loading";
 // style
 import "./top.scss";
 
@@ -23,3 +22,4 @@ const page = () => {
 };
 
 export default page;
+// https://stuttering-job-befecc074139.herokuapp.com/

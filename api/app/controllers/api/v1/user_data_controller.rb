@@ -15,8 +15,8 @@ class Api::V1::UserDataController < ApplicationController
     @user_data = UserData.new(user_data_params)
     if @user_data.save
       # 自動メール送信
-      RegisterMailer.register_story(@user_data.email, @user_data.username).deliver_now
-      render json: @user_data, status: :created
+      # RegisterMailer.register_story(@user_data.email, @user_data.username).deliver_now
+      render json: { message: 'データが保存されました', data: @user_data}, status: :created
     else
       render json: { errors: @user_data.errors.full_messages }, status: :unprocessable_entity
     end

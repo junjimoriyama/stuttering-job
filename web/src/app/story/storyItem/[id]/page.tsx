@@ -1,26 +1,27 @@
+// type
 import { allDataType } from "@/types/story";
-import "./storyItem.scss";
+// components
 import Header from "@/components/layout/header/Header";
 import Footer from "@/components/layout/footer/Footer";
 import { BackStoryBtn } from "../components/backStoryBtn/BackStoryBtn";
+// style
+import "./storyItem.scss";
 
 // 各体験談
-const Page = async ({ params }: { params: { id: string } }) => {
+const Page = async ({ params }: { params: Promise<{ id: string }> }) => {
   // 非同期的にparamsを処理
   const { id } = await params;
 
   // APIリクエスト
-  const res = await fetch(`http://localhost:3000/api/v1/user_data/${id}`, {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/v1/user_data/${id}`, {
     method: "GET",
-    cache: "no-store", // 最新データを取得
   });
 
-  if (!res.ok) {
-    return <div>エラーが発生しました。</div>;
-  }
+  // if (!res.ok) {
+  //   return <div>エラーが発生しました。</div>;
+  // }
 
   const data: allDataType = await res.json();
-  console.log(data);
 
   return (
     <>

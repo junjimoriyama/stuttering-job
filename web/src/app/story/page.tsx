@@ -6,7 +6,8 @@ import "./story.scss";
 const story = async() => {
 
     // データ取得
-    const res = await fetch("http://localhost:3000/api/v1/user_data", {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/v1/user_data`, {
+    // const res = await fetch("http://localhost:3000/api/v1/user_data", {
       method: "GET"
     })
   

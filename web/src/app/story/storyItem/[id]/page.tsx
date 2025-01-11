@@ -4,6 +4,7 @@ import Header from "@/components/layout/header/Header";
 import Footer from "@/components/layout/footer/Footer";
 import { BackStoryBtn } from "../components/backStoryBtn/BackStoryBtn";
 
+// 各体験談
 const Page = async ({ params }: { params: { id: string } }) => {
   // 非同期的にparamsを処理
   const { id } = await params;

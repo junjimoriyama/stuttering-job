@@ -3,7 +3,7 @@
 // next
 import { useRouter } from "next/navigation";
 // react
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { useFormContext } from "react-hook-form";
 // dataLists
 import { industryLabels } from "@/dataLists/industryList";
@@ -12,6 +12,7 @@ import { sendAction } from "./actionConfirm";
 // components
 import { Step } from "@/app/form/components/step/Step";
 import { StepContext } from "@/app/form/components/step/stepContext";
+import Loading from "@/app/loading/loading";
 // style
 import "./confirm.scss";
 
@@ -29,8 +30,11 @@ const confirm = () => {
   // formの値を配列に
   const formArray = Object.entries(formValues);
 
+  const [isLoading, setIsLoading] = useState(false);
+
   const handleSubmit = async(e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
+    setIsLoading(true)
     const formData = new FormData(e.currentTarget)
     try {
       await sendAction(formData)
@@ -40,6 +44,8 @@ const confirm = () => {
   }
 
   return (
+    <>
+     {isLoading && <Loading />} 
     <div className="confirm">
       <Step step={"confirm"} setStep={setStep} />
       <form onSubmit={handleSubmit} className="confirm_form">
@@ -75,6 +81,7 @@ const confirm = () => {
         {/* </Link> */}
       </form>
     </div>
+    </>
   );
 };
 

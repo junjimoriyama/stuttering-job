@@ -12,6 +12,7 @@ $completePadding: 20px;
   width: 100%;
   height: 100vh;
   padding: $completePadding;
+  @include mixin.graduallyPage();
 
   .complete_message {
     margin-top: 30px;

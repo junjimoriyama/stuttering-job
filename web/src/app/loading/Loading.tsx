@@ -11,9 +11,8 @@ const Loading = () => {
       <div className="loading">
         <MainLogo />
         <LoadingChara />
-        {/* <p className="loading-text">吃音と仕事</p> */}
-        {/* <p className="loading-text">LOADING...</p> */}
-        
+        <p>送信しています。</p>
+        <p>少々お待ちください。</p>
       </div>
     </>
   );

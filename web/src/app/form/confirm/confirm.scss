@@ -10,6 +10,7 @@
   justify-content: center;
   padding: 20px;
   background-color: #ffffff;
+  @include mixin.graduallyPage();
 
   @include bp.media(xxs, max) {
     padding: 10px;

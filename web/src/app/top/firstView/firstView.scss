@@ -5,37 +5,40 @@
 .first_view {
   position: relative;
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
+  height: 100vh;
   margin-bottom: 20px;
   overflow: hidden;
 
   .first_view_wrap {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 
     @include bp.media(xs, max) {
       width: 80%;
     }
 
     @include bp.media(xxs, max) {
+      // スマホメニューバーの高さ想定
+      top: calc(50% - 50px);
       width: 95%;
     }
   }
-    .main_logo {
-      // 画面中央へ
-      display: block;
-      margin: auto;
+  .main_logo {
+    // 画面中央へ
+    display: block;
+
+    margin-bottom: 80px;
+    @include bp.media(xs, max) {
+      width: 400px;
       margin-bottom: 50px;
-      @include bp.media(xs, max) {
-        width: 400px;
-      @include bp.media(xxs, max) {
-        width: 300px;
-      }
+    }
+    @include bp.media(xxs, max) {
+      width: 300px;
+      margin-bottom: 30px;
     }
 
     .bagPath {
@@ -107,15 +110,14 @@
 
   .first_view_Text {
     text-align: center;
-    margin-top: 400px;
-    transform:  translateY(100px);
+    transform: translateY(100px);
     color: var.$main_color;
     font-size: 24px;
     line-height: 2;
     visibility: hidden;
     opacity: 0;
-    animation: displayFirstViewText 2s .5s forwards;
-    
+    animation: displayFirstViewText 2s 0.5s forwards;
+
     @include bp.media(xs, max) {
       font-size: 18px;
     }
@@ -126,16 +128,15 @@
 
     @keyframes displayFirstViewText {
       0% {
-        transform:  translateY(100px);
+        transform: translateY(100px);
         visibility: hidden;
         opacity: 0;
       }
       100% {
-        transform:  translateY(0);
+        transform: translateY(0);
         visibility: visible;
         opacity: 1;
       }
     }
   }
 }
-

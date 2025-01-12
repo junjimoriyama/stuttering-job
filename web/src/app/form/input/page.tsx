@@ -3,7 +3,7 @@
 // next
 import { useRouter, useSearchParams } from "next/navigation";
 // react
-import { Suspense, useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useFormContext } from "react-hook-form";
 import {StepContext} from "@/app/form/components/step/stepContext";
 // components
@@ -97,7 +97,7 @@ const input = () => {
   };
 
   return (
-    <Suspense>
+    <>
       <div className="input" onClick={() => deleteToast()}>
         <Toast toast={toast} setToast={setToast} />
         <Step step={"input"} setStep={setStep} />
@@ -203,7 +203,7 @@ const input = () => {
       </div>
         {/* 体験談説明 */}
       <InputModal isOpen={isOpen} setIsOpen={setIsOpen} />
-    </Suspense>
+    </>
   );
 };
 

@@ -14,7 +14,6 @@ import { Pagination } from "../components/pagination/Pagination";
 // style
 import "./storyItems.scss";
 import { BagIcon } from "@/assets/svg/icon/bag";
-import { SelectPerPage } from "../components/selectPerPage/SelectPerPage";
 
 export const StoryItems = ({ fetchData }: { fetchData: allDataArrayType }) => {
   // router

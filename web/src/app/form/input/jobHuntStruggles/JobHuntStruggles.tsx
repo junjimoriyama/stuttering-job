@@ -20,8 +20,8 @@ export const JobHuntStruggles = ({
   const [textCount, setTextCount] = useState(maxLength);
 
   useEffect(() => {
-    const getStorageData = localStorage.getItem("stutter_job_job_struggles") || "";
-    // 画面遷移から戻った時にストレージデータを反映
+    const getStorageData = localStorage.getItem("stutter_job_job_hunt_struggles") || "";
+    // 画面遷移から戻った時にストレージデータ反映
     setValue("job_hunt_struggles", getStorageData);
     setTextCount(maxLength - getStorageData.length);
   }, []);

@@ -136,8 +136,8 @@ const Page = async ({ params }: { params: Promise<{ id: string }> }) => {
             </span>
           </li>
         </ul>
-      </div>
       <BackStoryBtn />
+      </div>
       <Footer />
     </>
   );

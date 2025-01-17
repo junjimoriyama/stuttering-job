@@ -3,7 +3,7 @@ import React, { useState, useEffect, useRef } from "react";
 // type
 import { FormWithSetValueProps } from "@/types/form";
 // functions
-import { storageSelectSaveDataAge } from "@/app/functions/functions";
+import { storageSelectSaveDataAge } from "@/functions/functions";
 // svg
 import { SurpriseMark } from "@/assets/svg/icon/mark";
 // style

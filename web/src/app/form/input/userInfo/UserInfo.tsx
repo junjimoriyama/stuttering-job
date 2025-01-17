@@ -3,7 +3,7 @@ import { useEffect, useRef } from "react";
 // type
 import { FormWithSetValueProps } from "@/types/form";
 // functions
-import { storagePersonalSaveData } from "@/app/functions/functions";
+import { storagePersonalSaveData } from "@/functions/functions";
 // svg
 import { SurpriseMark } from "@/assets/svg/icon/mark";
 // style

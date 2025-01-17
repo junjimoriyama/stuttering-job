@@ -2,7 +2,7 @@ import { BaseFormProps, FormWithSetValueProps } from "@/types/form";
 import "./notebook.scss";
 import { SurpriseMark } from "@/assets/svg/icon/mark";
 import { useEffect, useRef, useState } from "react";
-import { storageSelectSaveData } from "@/app/functions/functions";
+import { storageSelectSaveData } from "@/functions/functions";
 
 export const Notebook = ({
   register,

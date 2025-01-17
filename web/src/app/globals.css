@@ -6,7 +6,8 @@ body {
   line-height:1.5;
   box-sizing: border-box; 
   overflow-x: hidden;
-  overflow-y: scroll; 
+  overflow-y: auto; 
+  /* overflow-y: scroll;  */
 }
 
 li {
@@ -18,11 +19,9 @@ select:focus {
   outline: none;
 }
 
-
 select,
 ::picker(select) {
   appearance: base-select;
- 
   background-color: lightgray;
   color: red;
 }

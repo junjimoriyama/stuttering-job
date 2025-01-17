@@ -23,19 +23,16 @@ export const Toast = ({
   
   return (
       // エラー文により表示文章を分ける
-    <div className={`toast ${toast.text === "" ? "" : "isDisplay"}`}>
+    <div className={`toast ${toast.text === "" ? "" : "isVisible"}`}>
       <button className="deleteToastBtn" onClick={handleDelete}>
         ×
       </button>
-      <div className={`toastBox ${toast.text === "notAnswered" ? "isDisplay" : ""}`}>
-        <p className="toast_text">必須欄の</p>
-        <p className="toast_text">ご確認をお願いします。</p>
+      <div className={`toastBox ${toast.text === "notAnswered" ? "isVisible" : ""}`}>
+        <p className="toast_text">必須欄のご確認をお願いします。</p>
       </div>
-      <div className={`toastBox ${toast.text === "emailAlreadyTaken" ? "isDisplay" : ""}`}>
-        <p className="toast_text">このメールアドレスは</p>
-        <p className="toast_text">使用されています。</p>
-        <p className="toast_text">他のアドレスを</p>
-        <p className="toast_text">お試しください。</p>
+      <div className={`toastBox ${toast.text === "emailAlreadyTaken" ? "isVisible" : ""}`}>
+        <p className="toast_text">すでに使用されているメールアドレスです。</p>
+        <p className="toast_text">他のアドレスをお試しください。</p>
       </div>
     </div>
   );

@@ -82,12 +82,11 @@ header {
         .header_item_text {
           transition: color 0.3s;
 
-          &.top, &.story, &.form {
+          &.top_page, &.story_page, &.form_page, &.learn_page {
             color: var.$sub_color
           }
         }
       }
-
     }
 
     .sp_header_menu {
@@ -112,7 +111,7 @@ header {
 
         .sp_header_item_text {
           color: #fff;
-          &.top, &.story, &.form {
+          &.top_page, &.story_page, &.form_page, &.learn_page {
             color: var.$sub_color
           }
         }

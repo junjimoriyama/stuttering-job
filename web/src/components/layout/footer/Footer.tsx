@@ -1,35 +1,31 @@
 "use client";
 
-import "./footer.scss";
-import { useEffect, useState } from "react";
+// next
+import Link from "next/link";
 import { usePathname } from "next/navigation";
+// react
+import { useEffect, useState } from "react";
+// svg
 import { FooterMainLogo, HeaderMainLogo } from "@/assets/svg/logo/logoSvg";
-import {
-  HomeIcon,
-  HomeIconWhite,
-  LookIcon,
-  LookIconWhite,
-  MenuIcon,
-  WriteIcon,
-  WriteIconWhite,
-} from "@/assets/svg/icon/menuIcon";
 import { SilhouetteChara } from "@/assets/svg/character/characterSvg";
+// style
+import "./footer.scss";
 
 const Footer = () => {
-  const pathname = usePathname();
+  // const pathname = usePathname();
   // spメニュー
   const [isShow, setIsShow] = useState(false);
-  const handleMenuIconClick = () => {
-    setIsShow(!isShow);
-  };
+  // const handleMenuIconClick = () => {
+  //   setIsShow(!isShow);
+  // };
 
-  const [isTopPage, setIsTopPage] = useState(false);
+  // const [isTopPage, setIsTopPage] = useState(false);
 
-  useEffect(() => {
-    if (pathname === "/top") {
-      setIsTopPage(true);
-    }
-  }, []);
+  // useEffect(() => {
+  //   if (pathname === "/top") {
+  //     setIsTopPage(true);
+  //   }
+  // }, []);
 
   return (
     <footer className={`${isShow ? "isShow" : ""}`}>
@@ -41,13 +37,19 @@ const Footer = () => {
         <div className="footer_menu_and_chara">
           <ul className="footer_menu">
             <li className="footer_item">
-              <span className="footer_item_text">ホーム</span>
+              <Link href="/top">
+                <span className="footer_item_text">HOME</span>
+              </Link>
             </li>
             <li className="footer_item">
-              <span className="footer_item_text">見る</span>
+              <Link href="/story">
+                <span className="footer_item_text">見る</span>
+              </Link>
             </li>
             <li className="footer_item">
-              <span className="footer_item_text">書く</span>
+              <Link href="/form/input">
+                <span className="footer_item_text">書く</span>
+              </Link>
             </li>
             <li className="footer_item">
               <span className="footer_item_text">知る</span>
@@ -55,9 +57,9 @@ const Footer = () => {
           </ul>
           <SilhouetteChara />
         </div>
-      <small className="copyRight">
-        &copy; 2025 ⚪︎⚪︎ All rights reserved.
-      </small>
+        <small className="copyRight">
+          &copy; 2025 ⚪︎⚪︎ All rights reserved.
+        </small>
       </div>
     </footer>
   );

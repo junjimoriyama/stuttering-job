@@ -11,6 +11,7 @@ import {
   HomeIcon,
   LookIcon,
   MenuIcon,
+  QuestionIcon,
   WriteIcon,
 } from "@/assets/svg/icon/menuIcon";
 // style
@@ -41,11 +42,13 @@ const Header = () => {
   // ページ遷移先にヘッダーのレイアウト変更、色でアクティブ化
   const { isTopPage, activePage } = useMemo(() => {
     if (pathname.includes("/top")) {
-      return { isTopPage: true, activePage: "top" };
+      return { isTopPage: true, activePage: "top_page" };
     } else if (pathname.includes("/story")) {
-      return { isTopPage: false, activePage: "story" };
+      return { isTopPage: false, activePage: "story_page" };
     } else if (pathname.includes("/form")) {
-      return { isTopPage: false, activePage: "form" };
+      return { isTopPage: false, activePage: "form_page" };
+    } else if (pathname.includes("/learn")) {
+      return { isTopPage: false, activePage: "learn_page" };
     }
     // デフォルト値
     return { isTopPage: false, activePage: "" };
@@ -78,10 +81,10 @@ const Header = () => {
                 </span>
                 <span
                   className={`header_item_text ${
-                    activePage === "top" ? "top" : ""
+                    activePage === "top_page" ? "top_page" : ""
                   }`}
                 >
-                  ホーム
+                  HOME
                 </span>
               </li>
             </Link>
@@ -92,7 +95,7 @@ const Header = () => {
                 </span>
                 <span
                   className={`header_item_text ${
-                    activePage === "story" ? "story" : ""
+                    activePage === "story_page" ? "story_page" : ""
                   }`}
                 >
                   見る
@@ -106,10 +109,24 @@ const Header = () => {
                 </span>
                 <span
                   className={`header_item_text ${
-                    activePage === "form" ? "form" : ""
+                    activePage === "form_page" ? "form_page" : ""
                   }`}
                 >
                   書く
+                </span>
+              </li>
+            </Link>
+            <Link href="/learn">
+              <li className="header_item">
+                <span>
+                  <QuestionIcon />
+                </span>
+                <span
+                  className={`header_item_text ${
+                    activePage === "learn_page" ? "learn_page" : ""
+                  }`}
+                >
+                  知る
                 </span>
               </li>
             </Link>
@@ -124,7 +141,7 @@ const Header = () => {
                     activePage === "top" ? "top" : ""
                   }`}
                 >
-                  ホーム
+                  HOME
                 </span>
               </li>
             </Link>
@@ -147,6 +164,17 @@ const Header = () => {
                   }`}
                 >
                   書く
+                </span>
+              </li>
+            </Link>
+            <Link href="/learn">
+              <li className="sp_header_item">
+                <span
+                  className={`sp_header_item_text ${
+                    activePage === "learn" ? "learn" : ""
+                  }`}
+                >
+                  知る
                 </span>
               </li>
             </Link>

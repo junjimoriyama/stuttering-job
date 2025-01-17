@@ -6,7 +6,7 @@ import { Search } from '../Search'
 // style
 import './searchModal.scss'
 
-export const SearchModal = ({ fetchData }: { fetchData: any}) => {
+export const SearchModal = () => {
   
   // useContext管理の状態
   const { 
@@ -52,7 +52,7 @@ export const SearchModal = ({ fetchData }: { fetchData: any}) => {
     ></div>
       <div className="search_modal_body">
         <div className="search_modal_window">
-      <Search fetchData={fetchData}/>
+      <Search/>
           <div 
           className="search_modal_closeBtn" 
           onClick={handleClickCloseBtn}

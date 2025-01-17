@@ -7,11 +7,12 @@ const story = async() => {
 
     // データ取得
     const res = await fetch(`${process.env.API_URL}/api/v1/user_data`, {
-    // const res = await fetch("http://localhost:3000/api/v1/user_data", {
-      method: "GET"
+      method: "GET",
+      cache: 'no-store' 
     })
   
     const fetchData = await res.json()
+    
   return (
     <div className="story">
       <StoryRender fetchData={fetchData}/>

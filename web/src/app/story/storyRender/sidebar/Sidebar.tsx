@@ -7,14 +7,12 @@ import { Search } from "../components/search/Search";
 // style
 import "./sidebar.scss";
 
-export const Sidebar = ({ fetchData }: { fetchData: allDataArrayType }) => {
+export const Sidebar = () => {
 
   return (
     <div className="sidebar">
       <div className="sidebar_contents">
-        <Search 
-        fetchData={fetchData}
-        />
+        <Search />
       </div>
     </div>
   );

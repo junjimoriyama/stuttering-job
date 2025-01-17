@@ -14,7 +14,7 @@ export const SurpriseMark = () => {
     >
       <text />
       <text />
-      <circle cx="49.9" cy="49.7" r="46.4" fill="#feacb9" />
+      <circle cx="49.9" cy="49.7" r="46.4" fill="#f9851c" />
       <rect
         x="44.2"
         y="15.6"

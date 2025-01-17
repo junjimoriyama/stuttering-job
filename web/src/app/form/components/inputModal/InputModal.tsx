@@ -17,6 +17,7 @@ export const InputModal = ({
     setIsOpen(false);
     // 背景固定解除
     document.body.style.overflow = "";
+    console.log(isOpen)
   };
   return (
     <div className={`modal ${isOpen ? "isOpen" : ""}`}>

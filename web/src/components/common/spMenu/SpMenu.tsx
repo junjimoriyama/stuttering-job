@@ -11,7 +11,7 @@ const SpMenu = () => {
             <span>
               <HomeIcon />
             </span>
-            <span className="spMenu_item_text">ホーム</span>
+            <span className="spMenu_item_text">HOME</span>
           </li>
           <li className="spMenu_item">
             <span>

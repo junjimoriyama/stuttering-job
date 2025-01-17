@@ -20,7 +20,6 @@ export const AgeSearch = () => {
   // クリックしたボタン効果の状態
   const [isClicked, setIsClicked] = useState(false);
 
-
   // アコーディオン開閉ボタンクリック
   const handleSearchItemClick = () => {
     // アコーディオン開閉
@@ -83,10 +82,10 @@ export const AgeSearch = () => {
     setIsPageFilterEffect(true);
   };
 
-    // アニメーション終了したらボタン効果の状態false
-    const handleBtnAnimationEnd = () => {
-      setIsClicked(false)
-      }
+  // アニメーション終了したらボタン効果の状態false
+  const handleBtnAnimationEnd = () => {
+    setIsClicked(false);
+  };
 
   return (
     <li className="search_item">
@@ -120,12 +119,12 @@ export const AgeSearch = () => {
           );
         })}
         <button
-           className={`search_item_clear_btn ${isClicked ? "isClicked" : ""}`}
+          className={`search_item_clear_btn ${isClicked ? "isClicked" : ""}`}
           // className={`search_item_clear_btn ${age.length === 0 ? "isActive" : ""}`}
           onClick={() => {
             handleStorageClear();
-             // ボタン点滅
-            setIsClicked(true)
+            // ボタン点滅
+            setIsClicked(true);
           }}
           // ボタン点滅オフ
           onAnimationEnd={handleBtnAnimationEnd}

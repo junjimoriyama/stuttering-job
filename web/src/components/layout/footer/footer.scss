@@ -1,4 +1,5 @@
 @use "@/style/breakpoint.scss" as bp;
+@use "@/style/common.scss" as mixin;
 @use "@/style/variable.scss" as var;
 
 footer {
@@ -12,6 +13,8 @@ footer {
   padding: 20px;
   background-color: var.$main_color;
   z-index: 900;
+  @include mixin.graduallyPage();
+
   @include bp.media(sm, max) {
     justify-content: start;
   }
@@ -63,7 +66,7 @@ footer {
       .footer_menu {
         display: flex;
         flex-direction: column;
-        gap: 20px;
+        gap: 10px;
         padding: 10px 30px;
         border-radius: 5px;
         background-color: #fff;
@@ -88,6 +91,7 @@ footer {
 
           @include bp.media(xxs, max) {
             border-width: 10px;
+            top: 60%;
             right: 50px;
           }
         }

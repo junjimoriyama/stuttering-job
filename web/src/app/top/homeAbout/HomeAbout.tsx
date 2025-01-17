@@ -3,7 +3,7 @@
 // react
 import { useState, useRef } from "react";
 // functions
-import useIntersectionObserver from "@/app/functions/functions";
+import useIntersectionObserver from "@/functions/functions";
 // svg
 import {
   HomeAboutChara,
@@ -13,7 +13,12 @@ import {
 // style
 import "./homeAbout.scss";
 import { useRouter } from "next/navigation";
-import { LookIcon, LookIconWhite, WriteIconWhite } from "@/assets/svg/icon/menuIcon";
+import {
+  LookIcon,
+  LookIconWhite,
+  WriteIconQuestion,
+  WriteIconWhite,
+} from "@/assets/svg/icon/menuIcon";
 
 const HomeAbout = () => {
   // useRouter
@@ -32,6 +37,10 @@ const HomeAbout = () => {
   const homeAboutWriteBubbleRef = useRef<HTMLDivElement>(null);
   const homeAboutWriteBlockRef = useRef<SVGGElement>(null);
   const homeAboutWriteCharaRef = useRef<SVGSVGElement>(null);
+  // 知る
+  const homeAboutLearnBubbleRef = useRef<HTMLDivElement>(null);
+  const homeAboutLearnBlockRef = useRef<SVGGElement>(null);
+  const homeAboutLearnCharaRef = useRef<SVGSVGElement>(null);
 
   // 説明
   const [isAboutVisible, setIsAboutVisible] = useState(false);
@@ -47,6 +56,10 @@ const HomeAbout = () => {
   const [isWriteBubbleVisible, setIsWriteBubbleVisible] = useState(false);
   const [isWriteBlockVisible, setIsWriteBlockVisible] = useState(false);
   const [isWriteCharaVisible, setIsWriteCharaVisible] = useState(false);
+  // 知るï＝
+  const [isLearnBubbleVisible, setIsLearnBubbleVisible] = useState(false);
+  const [isLearnBlockVisible, setIsLearnBlockVisible] = useState(false);
+  const [isLearnCharaVisible, setIsLearnCharaVisible] = useState(false);
 
   // 説明
   useIntersectionObserver(homeAboutRef, setIsAboutVisible, {
@@ -84,6 +97,17 @@ const HomeAbout = () => {
     threshold: 0.5,
   });
   useIntersectionObserver(homeAboutWriteCharaRef, setIsWriteCharaVisible, {
+    threshold: 0.5,
+  });
+
+  // 知る
+  useIntersectionObserver(homeAboutLearnBubbleRef, setIsLearnBubbleVisible, {
+    threshold: 0.5,
+  });
+  useIntersectionObserver(homeAboutLearnBlockRef, setIsLearnBlockVisible, {
+    threshold: 0.5,
+  });
+  useIntersectionObserver(homeAboutLearnCharaRef, setIsLearnCharaVisible, {
     threshold: 0.5,
   });
 
@@ -135,7 +159,7 @@ const HomeAbout = () => {
           >
             <div className="home_about_look_heading">
               <LookIconWhite />
-              「見る」
+              「 見 る 」
             </div>
             <div className="home_about_look_Content">
               うまく話せずに苦労したことや日々の工夫など、さまざまな人の体験談を見ることができます。年代、性別や業種などを通じて仕事に対するイメージにつながれば嬉しいです。
@@ -154,6 +178,7 @@ const HomeAbout = () => {
             homeAboutLookCharaRef={homeAboutLookCharaRef}
           />
         </div>
+
         <div className="home_about_write">
           <div
             className={`home_about_write_bubble ${
@@ -162,11 +187,11 @@ const HomeAbout = () => {
             ref={homeAboutWriteBubbleRef}
           >
             <div className="home_about_write_heading">
-            <WriteIconWhite />
-              「書く」
+              <WriteIconWhite />
+              「 書 く 」
             </div>
             <div className="home_about_write_Content">
-              ご自身の体験投稿にご協力お願いいたします。一つひとつの貴重な体験談が、仕事に対して悩みがある誰かにとって新たな気づきや安心感につながるかもしれません。
+            ご自身の体験投稿にご協力お願いいたします。一つひとつの貴重な体験談が、仕事に対して悩みがある誰かにとって新たな気づきや安心感につながるかもしれません。
             </div>
             <button
               className="link_write_btn"
@@ -181,6 +206,35 @@ const HomeAbout = () => {
             isWriteCharaVisible={isWriteCharaVisible}
             homeAboutWriteCharaRef={homeAboutWriteCharaRef}
           />
+        </div>
+        
+        <div className="home_about_learn">
+          <div
+            className={`home_about_learn_bubble ${
+              isLearnBubbleVisible ? "isVisible" : ""
+            }`}
+            ref={homeAboutLearnBubbleRef}
+          >
+            <div className="home_about_learn_heading">
+              <WriteIconQuestion />
+              「 知 る 」
+            </div>
+            <div className="home_about_learn_Content">
+            吃音についての知識や理解を深めることができます。症状や原因を知ることで、自分自身や周囲の人々への適切な対応が見えてくるかもしれません。職場や日常生活で役立つヒントをぜひ見つけてください。
+            </div>
+            <button
+              className="link_learn_btn"
+              onClick={() => router.push("/learn")}
+            >
+              知るページへ
+            </button>
+          </div>
+          {/* <LearnChara
+          isLearnBlockVisible={isLearnBlockVisible}
+          homeAboutLearnBlockRef={homeAboutLearnBlockRef}
+          isLearnCharaVisible={isLearnCharaVisible}
+          homeAboutLearnCharaRef={homeAboutLearnCharaRef}
+          /> */}
         </div>
       </div>
     </div>

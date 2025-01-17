@@ -3,7 +3,7 @@ import { useEffect, useRef, useState } from "react";
 // type
 import { FormWithSetValueProps } from "@/types/form";
 // functions
-import { storageTextSaveData } from "@/app/functions/functions";
+import { storageTextSaveData } from "@/functions/functions";
 // style
 import "./jobHuntStruggles.scss";
 

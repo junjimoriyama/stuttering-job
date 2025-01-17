@@ -20,10 +20,6 @@
       .cry_chara_svg {
         grid-column: 1/2;
         grid-row: 1/2;
-        @include bp.media(xxs, max) {
-          width: 120px;
-          height: 120px;
-        }
       }
 
 

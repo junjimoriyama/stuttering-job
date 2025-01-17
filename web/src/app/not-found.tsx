@@ -23,7 +23,7 @@ const Notfound = () => {
             </p>
           </div>
           <button className="linkTopBtn">
-            <Link href="/top">ホームに戻る </Link>
+            <Link href="/top">HOMEに戻る </Link>
           </button>
         </div>
       </div>

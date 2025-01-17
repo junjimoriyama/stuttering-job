@@ -77,7 +77,10 @@
         }
       }
       .home_about_lead_heading {
-        font-size: 18px;
+        font-size: 24px;
+        @include bp.media(xs, max) {
+          font-size: 18px;
+        }
       }
     }
     .home_about_chara {
@@ -200,8 +203,9 @@
     }
 
     // 見る
-    
-    .home_about_look {
+    .home_about_look, 
+    .home_about_learn
+    {
       position: relative;
       display: flex;
       flex-direction: row-reverse;
@@ -222,7 +226,9 @@
         gap: 0px;
       }
 
-      .home_about_look_bubble {
+      .home_about_look_bubble, 
+      .home_about_learn_bubble 
+      {
         position: relative;
         display: flex;
         flex-direction: column;
@@ -257,7 +263,8 @@
           width: 90%;
         }
 
-        .home_about_look_heading {
+        .home_about_look_heading, 
+        .home_about_learn_heading {
           position: relative;
           top: -10px;
           align-self: center;
@@ -267,12 +274,12 @@
           width: calc(100% + #{var.$home_about_bubble_padding_width} * 2);
           height: 40px;
           font-size: 20px;
-          color: var.$main_color;
           background-color: var.$main_color;
           color: #fff;
           border-radius: 10px 10px 0 0;
         }
-        .home_about_look_Content {
+        .home_about_look_Content, 
+        .home_about_learn_Content {
           margin-bottom: 35px;
           font-size: 18px;
           color: var.$main_color;
@@ -287,7 +294,8 @@
             font-size: 16px;
           }
         }
-        .link_look_btn {
+        .link_look_btn,  
+        .link_learn_btn {
           position: absolute;
           bottom: 0;
           right: 0;
@@ -310,7 +318,8 @@
         }
       }
 
-      .look_chara_svg {
+      .look_chara_svg, 
+      .learn_chara_svg {
         bottom: -60px;
         left: 0;
         width: 200px;
@@ -327,7 +336,8 @@
           height: 100px;
         }
 
-        .home_about_look_block_svg {
+        .home_about_look_block_svg, 
+        .home_about_learn_block_svg {
           visibility: hidden;
           opacity: 0;
           transition: 1s;
@@ -349,7 +359,8 @@
           }
         }
 
-        .home_about_look_chara_svg {
+        .home_about_look_chara_svg,
+        .home_about_learn_chara_svg {
           visibility: hidden;
           opacity: 0;
           &.isVisible {
@@ -368,7 +379,8 @@
           }
         }
 
-        .lookChara_first_text {
+        .lookChara_first_text, 
+        .learnChara_first_text {
           opacity: 1;
 
           @keyframes textAnimation {
@@ -550,6 +562,8 @@
         }
       }
     }
+
+    // 知る
   }
 
   // キャラSVGアニメーション

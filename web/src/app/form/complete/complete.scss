@@ -12,10 +12,16 @@ $completePadding: 20px;
   width: 100%;
   height: 100vh;
   padding: $completePadding;
-  @include mixin.graduallyPage();
+  height: calc(100vh - var.$footer_Height);
+  overflow-y: scroll;
 
   .complete_message {
-    margin-top: 30px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    @include mixin.graduallyPage();
 
     .thanks_chara {
       position: relative;
@@ -27,13 +33,13 @@ $completePadding: 20px;
         display: flex;
         align-items: center;
         justify-content: center;
-        width: 200px;
-        height: 100px;
+        width: 150px;
+        height: 75px;
         margin-bottom: 20px;
         border-radius: 10px;
         background-color: #1a2c5b;
         color: #fff;
-        font-size: 36px;
+        font-size: 24px;
         animation: displayRectAndText 1s, scaleMessageBox 1s infinite;
 
         @include bp.media(xxs, max) {
@@ -48,8 +54,8 @@ $completePadding: 20px;
       }
 
       .thanks_chara_svg {
-        width: 200px;
-        height: 200px;
+        width: 120px;
+        height: 120px;
         margin-bottom: 30px;
 
         @include bp.media(xxs, max) {
@@ -88,6 +94,21 @@ $completePadding: 20px;
 
     .complete_text {
       text-align: center;
+      margin-bottom: 30px;
+      letter-spacing: 0.2em;
+      line-height: 2;
+
+      .complete_text_sub {
+        max-width: calc(1em * 30);
+        word-wrap: break-word;
+        white-space: normal;
+      }
+    }
+
+    .go_to_top_btn {
+      @include mixin.actionBtn(var.$main_color);
+      width: 150px;
+      height: 40px;
     }
   }
 }

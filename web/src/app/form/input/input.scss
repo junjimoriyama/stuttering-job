@@ -3,21 +3,22 @@
 @use "@/style/variable.scss" as var;
 
 .input {
-  position: relative;
+  // position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   width: 100%;
+  // min-height: 100vh;
   padding: 20px;
   background-color: #fff;
   overflow: auto;
-  @include mixin.graduallyPage();
-
+  min-height: calc(100vh - var.$footer_Height);
+  
   @include bp.media(xxs, max) {
     padding: 10px;
   }
-
+  
   .input_form {
     display: flex;
     flex-direction: column;
@@ -27,12 +28,13 @@
     padding: 20px;
     // background-color: var.$light_blue;
     border-radius: 10px;
+    @include mixin.graduallyPage();
 
     @include bp.media(xs, max) {
     }
 
     @include bp.media(xxs, max) {
-      padding: 20px 10px;
+      padding: 20px 10px 0 10px;
     }
 
     .form_guide_btn {
@@ -114,7 +116,8 @@
         align-items: center;
         gap: 5px;
         padding: 5px;
-        color: #feacb9;
+        color: var.$sub_color;
+        // color: #feacb9;
         font-size: 14px;
 
         .surpriseMark {
@@ -154,12 +157,19 @@
       justify-content: center;
     }
   }
+  // .confirm_step_button_wrap {
+  //   position: relative;
+  
+  .confirm_step_button_wrap {
+    height: 60px;
 
-  .confirm_step_button {
-    @include mixin.actionBtn(var.$form_btn_color);
-    margin: 0 auto;
-    width: 100%;
-    height: 40px;
-    margin-bottom: 50px;
+    .confirm_step_button {
+      @include mixin.actionBtn(var.$form_btn_color);
+      margin: 0 auto;
+      width: 100%;
+      height: 40px;
+      margin-bottom: 20px;
+    }
   }
+  // }
 }

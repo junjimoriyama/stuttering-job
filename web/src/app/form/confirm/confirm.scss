@@ -3,14 +3,13 @@
 @use "@/style/variable.scss" as var;
 
 .confirm {
-  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  width: 100%;
   padding: 20px;
   background-color: #ffffff;
-  @include mixin.graduallyPage();
+  min-height: calc(100vh - var.$footer_Height);
 
   @include bp.media(xxs, max) {
     padding: 10px;
@@ -23,6 +22,7 @@
     padding: 20px;
     background-color: var.$light_blue;
     border-radius: 10px;
+    @include mixin.graduallyPage();
 
     @include bp.media(xs, max) {
       width: 80%;

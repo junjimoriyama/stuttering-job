@@ -1,11 +1,6 @@
 
-import { ChangeEvent, useEffect } from "react";
-import {
-  handleInputPersonalProps,
-  handleInputProps,
-  handleSelectProps,
-  handleSelectPropsNumber,
-} from "../../types/form";
+import { useEffect } from "react";
+import { handleInputPersonalProps, handleInputProps, handleSelectProps, handleSelectPropsNumber } from "@/types/form";
 
 
 // topページ ==================================================================
@@ -47,7 +42,7 @@ export default useIntersectionObserver;
 
 // データの取得
 export const fetchDatabaseData = async() => {
-  const res = await fetch("http://localhost:3000/api/v1/forms", {
+  const res = await fetch(`${process.env.API_URL}/api/v1/user_data`, {
     method: "GET",
     headers: {
       "Content-Type": "application/json",

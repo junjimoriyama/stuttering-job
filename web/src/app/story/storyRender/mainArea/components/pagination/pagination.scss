@@ -2,7 +2,7 @@
 @use "@/style/common.scss" as mixin;
 @use "@/style/variable.scss" as var;
 
-$page_each_width: 30px;
+$page_each_width: 40px;
 
 .pagination {
   display: flex;
@@ -18,7 +18,7 @@ $page_each_width: 30px;
       justify-content: center;
       align-items: center;
       width: $page_each_width;
-      height: 30px;
+      height: 40px;
       border: 2px solid var.$main_color;
       border-right: none;
       color: var.$main_color;

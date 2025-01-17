@@ -12,7 +12,7 @@ import { UpHandChara } from "@/assets/svg/character/characterSvg";
 // style
 import "./mainArea.scss";
 
-export const MainArea = ({ fetchData }: { fetchData: allDataArrayType}) => {
+export const MainArea = () => {
 
   // sp用絞り込みモーダル開閉
   const {setIsAllClose, setIsSearchModalOpen} = useStoryContext()
@@ -28,14 +28,15 @@ export const MainArea = ({ fetchData }: { fetchData: allDataArrayType}) => {
     <div className="main_area">
       <div className="main_heading">
         体験談一覧
-      <span><UpHandChara /></span>
+      <UpHandChara />
       </div>
-      <StoryItems fetchData={fetchData} />
+      <StoryItems />
       <div 
       className="searchModalBtn"
       onClick={handleSearchModalOpen}
       >
-        <FilterIcon/>
+       絞り込む
+        {/* <FilterIcon/> */}
       </div>
     </div>
   );

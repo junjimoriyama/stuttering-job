@@ -3,25 +3,44 @@
 @use "@/style/variable.scss" as var;
 
 .toast {
-  position: fixed;
-  top: var.$header_Height;
-  left: 50%;
-  transform: translateX(-50%);
-  display: none;
-  flex-direction: column;
-  align-items: center;
+  display: flex;
   justify-content: center;
-  width: 250px;
-  height: 150px;
-  padding: 15px;
-  background-color: #ffffff;
-  border: 3px solid #feacb9;
-  border-radius: 5px;
-  z-index: 10;
-
-  &.isDisplay {
+  // position: fixed;
+  // top: var.$header_Height;
+  // // top: 0;
+  // left: 50%;
+  // transform: translateX(-50%);
+  // display: none;
+  // flex-direction: column;
+  // align-items: center;
+  // justify-content: center;
+  // width: 250px;
+  // height: 230px;
+  // padding: 15px;
+  // background-color: #ffffff;
+  // background-color: var.$sub_color;
+  border-radius: 50px;
+  color: #fff;
+  background-color: var.$sub_color;
+  // border: 3px solid #feacb9;
+  // border-radius: 5px;
+  // z-index: 10;
+  
+  &.isVisible {
     display: flex;
+    padding: 4px;
+
   }
+
+  // .toast_mask {
+  //   position: fixed;
+  //   inset: 0;
+  //   background-color: #000000;
+  //   opacity: 0.7;
+  //   &.isVisible {
+  //     display: block;
+  //   }
+  // }
 
   .deleteToastBtn {
     position: absolute;
@@ -35,13 +54,13 @@
     align-items: center;
     justify-content: center;
 
-    &.isDisplay {
+    &.isVisible {
       display: flex;
     }
   }
 
   .toast_text {
-    margin-bottom: 10px;
+    font-size: 13px;
 
     &:last-child {
       margin-bottom: 0;

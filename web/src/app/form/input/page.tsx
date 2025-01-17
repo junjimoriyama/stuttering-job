@@ -5,25 +5,25 @@ import { useRouter, useSearchParams } from "next/navigation";
 // react
 import { useContext, useEffect, useState } from "react";
 import { useFormContext } from "react-hook-form";
-import {StepContext} from "@/app/form/components/step/stepContext";
+import { StepContext } from "@/app/form/components/step/stepContext";
 // components
-import {Toast} from "../components/toast/Toast";
-import {InputModal} from "../components/inputModal/InputModal";
-import {Step} from "../components/step/Step";
+import { Toast } from "../components/toast/Toast";
+import { InputModal } from "../components/inputModal/InputModal";
+import { Step } from "../components/step/Step";
 import { Age } from "./age/Age";
-import {JobDetails} from "./details/JobDetails";
-import {JobDifficulty} from "./jobDifficulty/JobDifficulty";
-import {JobHuntDifficulty} from "./jobHuntDifficulty/JobHuntDifficulty";
-import {Gender} from "./gender/Gender";
-import {Industry} from "./industry/Industry";
-import {UserInfo} from "./userInfo/UserInfo";
-import {Reason} from "./reason/Reason";
-import {Employment} from "./employment/Employment";
-import {Years} from "./years/Years";
-import {Notebook} from "./notebook/Notebook";
-import {JobStruggles} from "./jobStruggles/JobStruggles";
-import {JobHuntStruggles} from "./jobHuntStruggles/JobHuntStruggles";
-import {Free} from "./free/Free";
+import { JobDetails } from "./details/JobDetails";
+import { JobDifficulty } from "./jobDifficulty/JobDifficulty";
+import { JobHuntDifficulty } from "./jobHuntDifficulty/JobHuntDifficulty";
+import { Gender } from "./gender/Gender";
+import { Industry } from "./industry/Industry";
+import { UserInfo } from "./userInfo/UserInfo";
+import { Reason } from "./reason/Reason";
+import { Employment } from "./employment/Employment";
+import { Years } from "./years/Years";
+import { Notebook } from "./notebook/Notebook";
+import { JobStruggles } from "./jobStruggles/JobStruggles";
+import { JobHuntStruggles } from "./jobHuntStruggles/JobHuntStruggles";
+import { Free } from "./free/Free";
 // style
 import "./input.scss";
 
@@ -43,22 +43,27 @@ const input = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
-    if(typeof window !== "undefined") {
+    if (typeof window !== "undefined") {
       // 登録メール重複時に表示
       const errorParam = params.get("error");
-  
+
       if (errorParam === "EmailAlreadyTaken") {
         setToast({
           display: true,
           text: "emailAlreadyTaken",
         });
-  
-        // 一番上にスクロール
-        window.scrollTo({
-          top: document.body.scrollHeight,
-          behavior: "smooth",
+      } else if (errorParam === "notAnswered") {
+        setToast({
+          display: true,
+          text: "notAnswered",
         });
-  
+
+        // 一番上にスクロール
+        // window.scrollTo({
+        //   top: document.body.scrollHeight,
+        //   behavior: "smooth",
+        // });
+
         // クエリパラメータを削除
         const currentUrl = new URL(window.location.href);
         currentUrl.searchParams.delete("error");
@@ -99,32 +104,29 @@ const input = () => {
   return (
     <>
       <div className="input" onClick={() => deleteToast()}>
-        <Toast toast={toast} setToast={setToast} />
         <Step step={"input"} setStep={setStep} />
         <form
           className="input_form"
-          onSubmit={handleSubmit(
-            // バリデーション成功
-            () => {
-              setToast({
-                display: false,
-                text: "",
-              });
-              router.push("/form/confirm");
-            },
-            // バリデーション失敗
-            () => {
-              setToast({
-                display: true,
-                text: "notAnswered",
-              });
-            }
-          )}
+          onSubmit={(e) => {
+            e.preventDefault(); // デフォルトのリロード動作を防ぐ
+            handleSubmit(
+              () => {
+                setToast({
+                  display: false,
+                  text: "",
+                });
+                router.push("/form/confirm");
+              },
+              () => {
+                setToast({
+                  display: true,
+                  text: "notAnswered",
+                });
+              }
+            )(e); // イベントを渡して手動でhandleSubmitを実行
+          }}
         >
-          <div
-            className="form_guide_btn"
-            onClick={handleModalOpen}
-          >
+          <div className="form_guide_btn" onClick={handleModalOpen}>
             体験談について
             <span>→</span>
           </div>
@@ -195,13 +197,17 @@ const input = () => {
             {/*　ユーザー情報 */}
             <UserInfo register={register} errors={errors} setValue={setValue} />
           </ul>
-
-          <button className="confirm_step_button" type="submit">
-            確認画面へ
-          </button>
+          {/* <div className="confirm_step_button_wrap"> */}
+          <div className="confirm_step_button_wrap">
+            <button className="confirm_step_button" type="submit">
+              確認画面へ
+            </button>
+            <Toast toast={toast} setToast={setToast} />
+          </div>
+          {/* </div> */}
         </form>
       </div>
-        {/* 体験談説明 */}
+      {/* 体験談説明 */}
       <InputModal isOpen={isOpen} setIsOpen={setIsOpen} />
     </>
   );

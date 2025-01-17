@@ -1,0 +1,84 @@
+@use "@/style/breakpoint.scss" as bp;
+@use "@/style/common.scss" as mixin;
+@use "@/style/variable.scss" as var;
+
+.search_hit_count {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-bottom: 24px;
+  padding: 5px 8px;
+  background-color: #fff;
+  color: var.$main_color;
+  border-radius: 5px;
+
+  @include bp.media(sm, max) {
+    flex-direction: row;
+    align-items: center;
+    color: var.$main_color;
+    border: 3px solid var.$main_color;
+    // background-color: var.$main_color;
+  }
+  @include bp.media(xxs, max) {
+    padding: 5px 8px;
+  }
+
+  &.storyItems_searchCount {
+    display: none;
+
+    @include bp.media(sm, max) {
+      display: flex;
+    }
+
+    .search_hit_count_heading {
+      display: none;
+    }
+  }
+
+  .search_hit_count_heading {
+    text-align: center;
+    margin-bottom: 10px;
+
+    @include bp.media(sm, max) {
+      display: none;
+    }
+    
+    &::after {
+      content: '';
+      display: block;
+      margin: 0 auto;
+      width: 90%;
+      border-bottom: 2px solid var.$main_color;
+    }
+  }
+
+  .search_hit_count_text {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* 2つの列を作成 */
+    font-size: 16px;
+    padding: 5px 10px;
+  }
+  
+  
+  .search_hit_count_label {
+    text-align: left;
+
+    @include bp.media(sm, max) {
+    display: grid;
+    place-items: center;
+    }
+  }
+  
+  .search_hit_count_value {
+    text-align: right;
+    font-size: 24px;
+    line-height: 1.2;
+  }
+  
+}
+
+.search_hit_count_bottom {
+  @include bp.media(sm, max) {
+    display: none;
+  }
+}

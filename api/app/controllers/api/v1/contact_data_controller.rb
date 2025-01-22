@@ -1,4 +1,4 @@
-class Api::V1::ContactController < ApplicationController
+class Api::V1::ContactDataController < ApplicationController
 
   def create
     Rails.logger.info "Received parameters: #{params.inspect}"

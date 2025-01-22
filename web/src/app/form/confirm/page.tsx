@@ -29,12 +29,10 @@ const confirm = () => {
 
   // formの値を配列に
   const formArray = Object.entries(formValues);
-  console.log(formValues)
   // ローディング状態の有無
   const [isLoading, setIsLoading] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    console.log(e)
     e.preventDefault();
     // ローディングをtrue
     setIsLoading(true);

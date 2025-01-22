@@ -74,15 +74,11 @@
       }
 
       .search_modal_decision_btn {
-        display: flex;
-        justify-content: center;
+        @include mixin.actionBtn(var.$form_btn_color);
         align-self: end;
         margin-bottom: 10px;
         padding: 10px;
         width: 100px;
-        background-color: var.$sub_color;
-        color: #fff;
-        border-radius: 5px;
       }
     }
   }

@@ -1,12 +1,13 @@
-@use "@/style/common.scss" as mixin;
 @use "@/style/variable.scss" as var;
+@use "@/style/common.scss" as mixin;
 
 .input {
   .input_form {
     .reason {
-      margin-bottom: var.$for_margin_Bottom;
+      margin-bottom: var.$form_margin_Bottom;
+      @include mixin.formBackGroundColor();
       .reason_textarea {
-        min-height: 100px;
+        min-height: 200px;
         margin-bottom: 5px;
       }
       .textCount {

@@ -3,22 +3,19 @@
 @use "@/style/variable.scss" as var;
 
 .input {
-  // position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   width: 100%;
-  // min-height: 100vh;
   padding: 20px;
   background-color: #fff;
-  overflow: auto;
-  min-height: calc(100vh - var.$footer_Height);
-  
+  min-height: 100vh;
+
   @include bp.media(xxs, max) {
     padding: 10px;
   }
-  
+
   .input_form {
     display: flex;
     flex-direction: column;
@@ -30,39 +27,96 @@
     border-radius: 10px;
     @include mixin.graduallyPage();
 
-    @include bp.media(xs, max) {
-    }
-
     @include bp.media(xxs, max) {
       padding: 20px 10px 0 10px;
     }
 
     .form_guide_btn {
-      align-self: center;
+      position: fixed;
+      top: 100px;
+      right: 0;
       display: flex;
+      flex-direction: row; // 縦書きの場合に文字を上から下に配置
+      align-items: center; // 子要素を中央揃え
       justify-content: center;
-      align-items: center;
-      gap: 20px;
-      width: 200px;
-      height: 50px;
-      margin-bottom: 32px;
-      background-color: var.$main_color;
-      color: #fff;
-      border-radius: 50px;
-      box-shadow: #fff 0px 3px 0 0, var.$form_btn_color 0px 7px 0 0px;
-      transition: 0.2s;
+      color: #ffffff;
+      width: 80px;
+      padding: 10px;
+      border-radius: 10px 0 0 10px;
+      writing-mode: vertical-rl;
+      text-orientation: upright;
+      text-align: center; // 文字を中央揃え
+      line-height: 1; // 行間を調整
+      transition: 0.3s;
       cursor: pointer;
+      z-index: 2;
+
+      @include bp.media(sm, max) {
+        width: 50px;
+      }
 
       @include bp.media(xxs, max) {
-        align-self: center;
-        height: 40px;
+        width: 40px;
+        font-size: 14px;
+        padding: 8px 0;
       }
 
       @media (any-hover: hover) {
         &:hover {
-          transform: translateY(3px);
-          box-shadow: 0px 2px 0px 0px rgba(0, 0, 0, 0.4);
+          .guide_chara_svg {
+            transform: rotate(-10deg);
+          }
         }
+      }
+
+      .form_guide_btn_background {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: var.$main_color;
+        border-radius: 10px 0 0 10px;
+        z-index: -1; // 背景色を後ろに配置
+      }
+
+      .form_guide_text {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 5px;
+        font-family: 'ヒラギノ角ゴ ProN';
+      }
+
+      .guide_chara_svg {
+        position: fixed;
+        top: 120px;
+        right: 50px;
+        transform: rotate(-30deg);
+        transition: 0.5s;
+        z-index: -2;
+
+        @include bp.media(sm, max) {
+          right: 15px;
+        }
+        @include bp.media(xs, max) {
+          display: none;
+        }
+      }
+
+      .link_arrow {
+        // margin-bottom: 10px;
+      }
+    }
+
+    .form_title {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: var.$font_size_xl;
+
+      @include bp.media(xxs, max) {
+        font-size: var.$font_size_md;
       }
     }
 
@@ -79,97 +133,139 @@
       }
     }
 
-    input,
-    select,
-    textarea {
-      width: 100%;
-      padding: 12px;
-      font-size: 14px;
-      background-color: var.$form_input_color;
-      border-radius: 5px;
-      outline: 2px solid var.$form_border_color;
-      outline-offset: -2px;
-      transition: 0.2s ease;
-      cursor: pointer;
-
-      &:focus {
-        @include mixin.formIsActive();
-      }
-    }
-
-    textarea {
-      min-height: 100px;
-      margin-bottom: 10px;
-      resize: none;
-      overflow: hidden;
-      field-sizing: content;
-    }
-
-    li {
-      &:last-child {
-        border-bottom: none;
-      }
-
-      .error {
-        position: absolute;
+    .form_list {
+      .age_gender_industry {
         display: flex;
-        align-items: center;
-        gap: 5px;
-        padding: 5px;
-        color: var.$sub_color;
-        // color: #feacb9;
-        font-size: 14px;
-
-        .surpriseMark {
-          width: 20px;
-          height: 20px;
+        justify-content: space-between;
+        gap: 50px;
+        @include bp.media(sm, max) {
+          flex-direction: column;
+          gap: 0;
+        }
+      }
+      .employment_years {
+        display: flex;
+        justify-content: space-between;
+        gap: 50px;
+        @include bp.media(sm, max) {
+          flex-direction: column;
+          gap: 0;
         }
       }
 
-      label {
-        display: inline-flex;
-        align-items: center;
-        gap: 5px;
-        font-weight: bold;
+      input,
+      select,
+      textarea {
+        width: 100%;
+        padding: 12px;
+        background-color: var.$form_input_color;
+        border-radius: 5px;
+        outline: 2px solid var.$form_border_color;
+        outline-offset: -2px;
+        transition: 0.2s ease;
+        cursor: pointer;
+
+        &:focus {
+          @include mixin.formIsActive();
+        }
+      }
+
+      textarea {
+        min-height: 300px;
         margin-bottom: 10px;
-        color: #333;
-        padding-right: 5px;
+        resize: none;
+        overflow: hidden;
+        field-sizing: content;
+
+        @include bp.media(xs, max) {
+          min-height: 300px;
+          // field-sizing: fixed;
+          overflow: auto; /* スクロールを有効化 */
+          // touch-action: pan-y; /* 垂直方向のタッチ操作を許可 */
+          // -webkit-overflow-scrolling: touch; /* 慣性スクロールを有効化 */
+        }
       }
 
-      .must {
-        @include mixin.formColorBox(var.$form_must_bg_Color);
+      li {
+        &:last-child {
+          border-bottom: none;
+        }
+
+        .error {
+          position: absolute;
+          display: flex;
+          align-items: center;
+          gap: 5px;
+          padding: 5px;
+          color: var.$sub_color;
+          font-size: 14px;
+
+          .surpriseMark {
+            width: 20px;
+            height: 20px;
+          }
+        }
+
+        label {
+          display: inline-flex;
+          align-items: center;
+          gap: 5px;
+          margin-bottom: 10px;
+          padding-right: 5px;
+
+          &::before {
+            content: "";
+            width: 7px;
+            height: 20px;
+            background-color: var.$main_color;
+            border-radius: 2px;
+            margin-right: 5px;
+          }
+        }
+
+        .must {
+          @include mixin.formColorBox(var.$sub_color);
+        }
+
+        .select_wrapper {
+          position: relative;
+          .drop_arrow {
+            position: absolute;
+            top: 15px;
+            right: 10px;
+            // transform: translateY(-50%);
+          }
+        }
+
+        .free_text {
+          @include mixin.formColorBox(var.$main_color);
+          color: #ffffff;
+        }
       }
 
-      .free_text {
-        @include mixin.formColorBox(var.$form_any_bg_Color);
+      hr {
+        margin: 5px 0;
+        border: 0;
+        border-top: 1px solid #e5e5e5;
       }
-    }
 
-    hr {
-      margin: 24px 0;
-      border: 0;
-      border-top: 1px solid #e5e5e5;
-    }
-
-    .title {
-      width: 100%;
-      display: flex;
-      justify-content: center;
+      .title {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+      }
     }
   }
-  // .confirm_step_button_wrap {
-  //   position: relative;
-  
+
   .confirm_step_button_wrap {
     height: 60px;
 
     .confirm_step_button {
       @include mixin.actionBtn(var.$form_btn_color);
       margin: 0 auto;
-      width: 100%;
+      width: 50%;
       height: 40px;
       margin-bottom: 20px;
     }
   }
-  // }
 }

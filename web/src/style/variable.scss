@@ -1,4 +1,4 @@
-$for_margin_Bottom: 40px;
+$form_margin_Bottom: 30px;
 
 $step_margin_bottom: 50px;
 
@@ -17,22 +17,24 @@ $form_border_color: #dddbdb;
 // formのボーダー色
 $form_focus_border_color: #f9851c;
 // formの任意ボックス背景色
-$form_must_bg_Color: #f9851c;
+// $form_must_bg_Color: #f9851c;
 // formの任意ボックス背景色
-$form_any_bg_Color: #1a2c5b;
+// $form_any_bg_Color: #1a2c5b;
 // formのボタン色
 $form_btn_color: #1a2c5b;
 
 // ヘッダーの高さ
 $header_Height: 80px;
 // フッターの高さ
-$footer_Height: 250px;
+$footer_Height: 300px;
 
 $story_subject_color: #bec6cc;
 // 見るメニューボックス
 // #bec6cc;
 
 $light_blue: #dae2f3;
+
+$high_light_blue: #eff4ff;
 
 // 体験談の最大表示数
 $display_story_max_length: 10;
@@ -49,3 +51,11 @@ $high_light_gray: #f4f5f6;
 $home_about_bubble_padding_width: 24px; 
 // 吹き出し縦幅
 $home_about_bubble_padding_height: 10px; 
+
+$font_size_xxl: 50px;
+$font_size_xl: 40px;
+$font_size_lg: 30px;
+$font_size_md: 24px;
+$font_size_sm: 16px;
+$font_size_xs: 14px;
+$font_size_xxs: 12px;

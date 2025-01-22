@@ -4,7 +4,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 // react
-import { useEffect, useState, useMemo} from "react";
+import { useEffect, useState, useMemo } from "react";
 // svg
 import { HeaderMainLogo } from "@/assets/svg/logo/logoSvg";
 import {
@@ -56,8 +56,6 @@ const Header = () => {
 
   return (
     <>
-    {/* Skipping auto-scroll エラー対処の<div></div> */}
-      <div></div>
       <header
         className={`${isShow ? "isShow" : ""} ${isTopPage ? "isTopPage" : ""}`}
       >
@@ -74,11 +72,9 @@ const Header = () => {
           )}
 
           <ul className="header_menu">
-            <Link href="/top">
-              <li className="header_item">
-                <span>
-                  <HomeIcon />
-                </span>
+            <li className="header_item">
+              <Link href="/top">
+                <span>{/* <HomeIcon /> */}</span>
                 <span
                   className={`header_item_text ${
                     activePage === "top_page" ? "top_page" : ""
@@ -86,13 +82,11 @@ const Header = () => {
                 >
                   HOME
                 </span>
-              </li>
-            </Link>
-            <Link href="/story">
-              <li className="header_item">
-                <span>
-                  <LookIcon />
-                </span>
+              </Link>
+            </li>
+            <li className="header_item">
+              <Link href="/story">
+                <span>{/* <LookIcon /> */}</span>
                 <span
                   className={`header_item_text ${
                     activePage === "story_page" ? "story_page" : ""
@@ -100,13 +94,11 @@ const Header = () => {
                 >
                   見る
                 </span>
-              </li>
-            </Link>
-            <Link href="/form/input">
-              <li className="header_item">
-                <span>
-                  <WriteIcon />
-                </span>
+              </Link>
+            </li>
+            <li className="header_item">
+              <Link href="/form/input">
+                <span>{/* <WriteIcon /> */}</span>
                 <span
                   className={`header_item_text ${
                     activePage === "form_page" ? "form_page" : ""
@@ -114,13 +106,11 @@ const Header = () => {
                 >
                   書く
                 </span>
-              </li>
-            </Link>
-            <Link href="/learn">
-              <li className="header_item">
-                <span>
-                  <QuestionIcon />
-                </span>
+              </Link>
+            </li>
+            <li className="header_item">
+              <Link href="/learn">
+                <span>{/* <QuestionIcon /> */}</span>
                 <span
                   className={`header_item_text ${
                     activePage === "learn_page" ? "learn_page" : ""
@@ -128,8 +118,20 @@ const Header = () => {
                 >
                   知る
                 </span>
-              </li>
-            </Link>
+              </Link>
+            </li>
+            {/* <li className="header_item">
+              <Link href="/learn">
+                <span></span>
+                <span
+                  className={`header_item_text ${
+                    activePage === "contact_page" ? "contact_page" : ""
+                  }`}
+                >
+                  問い合わせ
+                </span>
+              </Link>
+            </li> */}
           </ul>
 
           {/* sp用メニュー */}
@@ -138,7 +140,7 @@ const Header = () => {
               <li className="sp_header_item">
                 <span
                   className={`sp_header_item_text ${
-                    activePage === "top" ? "top" : ""
+                    activePage === "top_page" ? "top_page" : ""
                   }`}
                 >
                   HOME
@@ -149,7 +151,7 @@ const Header = () => {
               <li className="sp_header_item">
                 <span
                   className={`sp_header_item_text ${
-                    activePage === "story" ? "story" : ""
+                    activePage === "story_page" ? "story_page" : ""
                   }`}
                 >
                   見る
@@ -160,7 +162,7 @@ const Header = () => {
               <li className="sp_header_item">
                 <span
                   className={`sp_header_item_text ${
-                    activePage === "form" ? "form" : ""
+                    activePage === "form_page" ? "form_page" : ""
                   }`}
                 >
                   書く
@@ -171,7 +173,7 @@ const Header = () => {
               <li className="sp_header_item">
                 <span
                   className={`sp_header_item_text ${
-                    activePage === "learn" ? "learn" : ""
+                    activePage === "learn_page" ? "learn_page" : ""
                   }`}
                 >
                   知る

@@ -1,18 +1,12 @@
-@use "@/style/common.scss" as mixin;
 @use "@/style/variable.scss" as var;
+@use "@/style/common.scss" as mixin;
 
 .input {
   .input_form {
     .age {
-      margin-bottom: var.$for_margin_Bottom;
-      select,
-      ::picker(select) {
-        appearance: base-select;
-       
-        background-color: lightgray;
-        color: red;
-      }
-      
+      flex: 1;
+      margin-bottom: var.$form_margin_Bottom;
+      @include mixin.formBackGroundColor();
     }
   }
 }

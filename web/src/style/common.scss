@@ -18,12 +18,12 @@
 @mixin formColorBox($bgColor) {
   background-color: $bgColor;
   position: relative;
-  padding: 4px 8px;
+  padding: 3px 5px;
   color: #ffffff;
   border-radius: 50px;
   display: inline-block;
   text-align: center;
-  font-size: 12px;
+  font-size: 11px;
 }
 
 @mixin actionBtn($color) {
@@ -95,4 +95,10 @@
       opacity: 1;
     }
   }
+}
+
+@mixin formBackGroundColor() {
+  background-color: var.$light_blue;
+  padding: 40px  20px;
+  border-radius: 10px;
 }

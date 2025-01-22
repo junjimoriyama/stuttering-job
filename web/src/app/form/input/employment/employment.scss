@@ -4,7 +4,9 @@
 .input {
   .input_form {
     .employment {
-      margin-bottom: var.$for_margin_Bottom;
+      flex: 1;
+      margin-bottom: var.$form_margin_Bottom;
+      @include mixin.formBackGroundColor();
       .employment-select {
         &.isInvalid {
           @include mixin.formIsValid;

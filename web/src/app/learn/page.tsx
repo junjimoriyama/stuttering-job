@@ -1,98 +1,17 @@
+// components
 import Header from "@/components/layout/header/Header";
-import "./learn.scss";
-import {
-  PointingChara,
-  QuestionChara,
-  RepeatChara,
-  StopChara,
-  StretchChara,
-} from "@/assets/svg/character/characterSvg";
 import Footer from "@/components/layout/footer/Footer";
+import LearnContent from "./learnContent/LearnContent";
+import BackGroundAnimation from "../top/components/backgroundAnimation/BackgroundAnimation";
 
 const learn = () => {
   return (
-    <>
+    <div className="learn">
+      {/* <BackGroundAnimation /> */}
       <Header />
-      <div className="learn">
-        <div className="learn_title">
-          吃音のこと
-          <QuestionChara />
-        </div>
-        <section className="learn_about">
-          <div className="learn_about_title">
-            <p className="learn_about_title_text">吃音とは？</p>
-            {/* <PointingChara /> */}
-          </div>
-          <div className="learn_about_description">
-            吃音(きつおん)と読み、思い浮かべた言葉をスムーズに話すことができない
-            発話障害です。 現在では発達障害の一つとして分類されています。
-            その症状は人それぞれ異なり、およそ100人に1人
-            の割合で見られると言われています。
-            残念ながら、今のところ根本的な治療法は 見つかっていません。
-          </div>
-        </section>
-
-        <section className="learn_cause">
-          <div className="learn_cause_title">
-            <p className="learn_cause_title_text">原因は？</p>
-          </div>
-          <div className="learn_cause_description">
-            吃音は「生まれ持った体質」や「脳の働き」、
-            さらに「周囲の環境」や「メンタルの状態」など、
-            さまざまな要因が関わって発生することがあります。
-            特に緊張する場面では症状が強まる
-            ことがありますが、それは単なる気持ちの問題ではなく
-            、身体のメカニズムが大きく関係しています。
-            症状が悪化する原因は「努力不足」や「心の弱さ」ではなく、
-            複数の要因が重なり合った結果と考えられています。
-          </div>
-        </section>
-
-        <section className="learn_symptoms">
-          <div className="learn_symptoms_title">
-            <p className="learn_symptoms_title_text">症状は？</p>
-          </div>
-          <div className="learn_cause_description">
-            <p>症状は主に３つあります。</p>
-            一般的には大人の吃音ある人は言葉が出にくい難発型を伴う場合が多く、
-            言葉を出すために顔をしかめたり、舌に力が入ったり、不自然に体を動かしたりする2次的な症状が見られることもあります。
-          </div>
-          <div className="learn_symptoms_illustration">
-            <div className="learn_symptoms_illustration_repeat">
-              <p className="learn_symptoms_illustration_bubble">
-                <span className="repeat_word1">あ、</span>
-                <span className="repeat_word2">あ、</span>
-                <span className="repeat_word3">ありがとう</span>
-              </p>
-              <RepeatChara />
-              <p>音の繰り返し（連発）</p>
-            </div>
-            <div className="learn_symptoms_illustration_stretch">
-              <p className="learn_symptoms_illustration_bubble">
-              <span className="repeat_word1">あ</span>
-                <span className="repeat_word2">-----</span>
-                <span className="repeat_word3">りがとう</span>
-              </p>
-              <StretchChara />
-              <p>引き伸ばし（伸発）</p>
-            </div>
-            <div className="learn_symptoms_illustration_stretch">
-              <p className="learn_symptoms_illustration_bubble">
-              <span className="repeat_word1">・ </span>
-                <span className="repeat_word2">・ </span>
-                <span className="repeat_word3">ありがとう</span>
-              </p>
-              <StopChara />
-              <p>言葉が出ない（難発）</p>
-            </div>
-          </div>
-        </section>
-
-        <section className="learn_trigger"></section>
-        <section className="learn_consideration"></section>
-      </div>
+      <LearnContent/>
       <Footer />
-    </>
+    </div>
   );
 };
 

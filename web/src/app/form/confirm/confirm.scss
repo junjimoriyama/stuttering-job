@@ -14,41 +14,61 @@
   @include bp.media(xxs, max) {
     padding: 10px;
   }
+  .confirm_guide {
+    @include mixin.typingText();
+  }
 
   .confirm_form {
     position: relative;
+    width: 100%;
     max-width: 1000px;
-    margin-bottom: 50px;
-    padding: 20px;
-    background-color: var.$light_blue;
-    border-radius: 10px;
     @include mixin.graduallyPage();
-
+    
     @include bp.media(xs, max) {
       width: 80%;
+      margin-bottom: 70px;
     }
-
+    
     @include bp.media(xxs, max) {
       width: 95%;
     }
-
-    &::after {
-      content: "";
-      position: absolute;
-      bottom: -6px;
-      left: 10%;
-      transform: rotate(-135deg) translateX(-50%);
-      border-width: 30px;
-      border-style: solid;
-      border-color: transparent transparent transparent var.$light_blue;
-    }
-
-    .confirm_guide {
-      @include mixin.typingText();
-    }
-
+    
     .confirm_form_list {
-      margin-bottom: 70px;
+      position: relative;
+      padding: 20px 50px;
+      background-color: var.$light_blue;
+      border-radius: 10px;
+      margin-bottom: 80px;
+      // opacity: 0.8;
+      
+      @include bp.media(xs, max) {
+        padding: 20px 30px;
+      }
+
+      &::after {
+        content: "";
+        position: absolute;
+        bottom: -6px;
+        right: 20%;
+        transform: rotate(-135deg) translateX(-50%);
+        border-width: 30px;
+        border-style: solid;
+        border-color: var.$light_blue transparent transparent transparent;
+      }
+
+      .confirm_age_gender_industry, .confirm_employment_years {
+        display: flex;
+        gap: 50px;
+
+        @include bp.media(sm, max) {
+          flex-direction: column;
+          gap: 0;
+        }
+
+        .confirm_form_row {
+          flex: 1;
+        }
+      }
 
       .confirm_form_row {
         display: flex;
@@ -65,19 +85,30 @@
       }
 
       .confirm_form_label {
-        font-weight: bold;
+        display: flex;
+        align-items: center;
+        gap: 5px;
         flex-shrink: 0;
         text-align: left;
+
+        &::before {
+          content: "";
+          display: block;
+          width: 7px;
+          height: 20px;
+          background-color: var.$main_color;
+          border-radius: 2px;
+          margin-right: 5px;
+        }
       }
 
       .confirm_form_value {
         flex-grow: 1;
         word-break: break-word;
-        background-color: var.$form_input_color;
+        background-color: #ffffff;
         padding: 10px;
         border-radius: 5px;
-        outline: 1px solid #333;
-        outline-offset: -2px;
+        opacity: 0.9;
       }
     }
   }
@@ -86,8 +117,9 @@
     display: flex;
     justify-self: center;
     gap: 50px;
-    margin-bottom: 30px;
     width: 100%;
+    max-width: 1000px;
+    margin-bottom: 50px;
 
     @include bp.media(xxs, max) {
       gap: 30px;

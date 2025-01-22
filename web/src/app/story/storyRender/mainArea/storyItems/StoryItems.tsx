@@ -11,7 +11,7 @@ import { Pagination } from "../components/pagination/Pagination";
 // style
 import "./storyItems.scss";
 import { BagIcon } from "@/assets/svg/icon/bag";
-import { SearchCount } from "../../components/search/searchCount/SearchCount";
+import { SearchCount } from "@/app/story/components/search/searchCount/SearchCount";
 
 export const StoryItems = () => {
   // router
@@ -128,7 +128,7 @@ export const StoryItems = () => {
                     }`}
                   >
                     <span className="story_preview_item_label">年代</span>
-                    <span className="story_preview_item_value">{item.age}</span>
+                    <span className="story_preview_item_value">{item.age}代</span>
                   </li>
                   <li
                     className={`story_preview_info ${

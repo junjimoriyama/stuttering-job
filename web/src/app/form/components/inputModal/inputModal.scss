@@ -38,7 +38,7 @@
     position: relative;
     height: 100%;
     padding: 20px 0;
-    overflow: scroll;
+    overflow-y: scroll;
     overscroll-behavior: contain;
     z-index: 2;
 
@@ -95,7 +95,7 @@
             content: "";
             position: absolute;
             bottom: -10px;
-            left: 50%;
+            left: 30%;
             transform: translateX(-50%);
             border-width: 10px;
             border-style: solid;
@@ -110,7 +110,6 @@
         border: 2px solid var.$sub_color;
         border-radius: 3px;
       }
-
     }
   }
 }

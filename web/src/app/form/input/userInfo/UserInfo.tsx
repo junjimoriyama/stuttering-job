@@ -63,6 +63,7 @@ export const UserInfo = ({
         )}
       </div>
       <div
+      className="email"
       >
         <label htmlFor="email">
           連絡先メールアドレス
@@ -73,6 +74,7 @@ export const UserInfo = ({
           type="email"
           // autoComplete="email"
           {...register("email", {
+            required: "記入は必須です",
             onChange: (e) => storagePersonalSaveData(
               e,
               "stutter_job_email",
@@ -90,6 +92,7 @@ export const UserInfo = ({
           </p>
         )}
       </div>
+      < hr/>
     </li>
   );
 };

@@ -7,6 +7,7 @@ import useIntersectionObserver from "@/functions/functions";
 // svg
 import {
   HomeAboutChara,
+  LearnChara,
   LookChara,
   WriteChara,
 } from "@/assets/svg/character/characterSvg";
@@ -56,7 +57,7 @@ const HomeAbout = () => {
   const [isWriteBubbleVisible, setIsWriteBubbleVisible] = useState(false);
   const [isWriteBlockVisible, setIsWriteBlockVisible] = useState(false);
   const [isWriteCharaVisible, setIsWriteCharaVisible] = useState(false);
-  // 知るï＝
+  // 知る
   const [isLearnBubbleVisible, setIsLearnBubbleVisible] = useState(false);
   const [isLearnBlockVisible, setIsLearnBlockVisible] = useState(false);
   const [isLearnCharaVisible, setIsLearnCharaVisible] = useState(false);
@@ -148,7 +149,7 @@ const HomeAbout = () => {
           }`}
           ref={homeAboutHeadingRef}
         >
-          ここでは体験談を「見る」と「書く」ことができます。
+          体験談を「見る」と「書く」、吃音について「知る」ことができます。
         </div>
         <div className="home_about_look">
           <div
@@ -220,7 +221,7 @@ const HomeAbout = () => {
               「 知 る 」
             </div>
             <div className="home_about_learn_Content">
-            吃音についての知識や理解を深めることができます。症状や原因を知ることで、自分自身や周囲の人々への適切な対応が見えてくるかもしれません。職場や日常生活で役立つヒントをぜひ見つけてください。
+            吃音について知ることは、自分自身はもちろん、当事者だけでなく、家族や友人、同僚、上司にとっても、理解を深めたり、必要な配慮を考えるきっかけになるかもしれません。
             </div>
             <button
               className="link_learn_btn"
@@ -229,12 +230,12 @@ const HomeAbout = () => {
               知るページへ
             </button>
           </div>
-          {/* <LearnChara
+          <LearnChara
           isLearnBlockVisible={isLearnBlockVisible}
           homeAboutLearnBlockRef={homeAboutLearnBlockRef}
           isLearnCharaVisible={isLearnCharaVisible}
           homeAboutLearnCharaRef={homeAboutLearnCharaRef}
-          /> */}
+          />
         </div>
       </div>
     </div>

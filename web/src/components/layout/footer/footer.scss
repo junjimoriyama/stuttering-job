@@ -5,7 +5,8 @@
 footer {
   position: relative;
   display: flex;
-  // flex-direction: column;
+  flex-direction: column;
+  gap: 50px;
   align-items: center;
   justify-content: center;
   width: 100%;
@@ -13,133 +14,204 @@ footer {
   padding: 20px;
   background-color: var.$main_color;
   z-index: 900;
-  @include mixin.graduallyPage();
 
   @include bp.media(sm, max) {
     justify-content: start;
+    gap: 70px;
   }
-  @include bp.media(xxs, max) {
-    padding: 10px
+  @include bp.media(xs, max) {
+    gap: 40px;
+    height: calc(var.$footer_Height + 70px);
+    padding: 30px 20px;
   }
 
-  .footer_wrap {
-    display: grid;
-    width: 100%;
+  .footer_main_logo_svg {
+    // width: 200px;
+    // height: 50px;
+  }
 
-    .footer_main_logo_svg {
-      position: absolute;
-      top: 40%;
-      left: 50%;
-      width: 300px;
-      height: 100px;
-      transform: translate(-50%, -50%);
+  .footer_menu {
+    display: flex;
+    gap: 50px;
+    color: #fff;
 
-      @include bp.media(xs, max) {
-        position: relative;
-        align-self: flex-end;
-        width: 250px;
-      }
-      @include bp.media(xxs, max) {
-        position: static; // 位置をリセット
-        transform: none; // 位置の変換を解除
-        grid-row: 1/3;
-        align-self: center;
-        justify-self: center;
-        width: 200px;
-      }
-      @include bp.media(xxxs, max) {
-        width: 150px;
-      }
-
-      .header_main_logo_svg {
-        width: 300px;
-      }
-    }
-
-    .footer_menu_and_chara {
-      grid-column: 2/3;
-      grid-row: 1/3;
-      display: flex;
-      justify-self: flex-end;
-      gap: 10px;
-      
-      .footer_menu {
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-        padding: 10px 30px;
-        border-radius: 5px;
-        background-color: #fff;
-        
-        @include bp.media(xxs, max) {
-          margin-bottom: 10px;
-          padding: 10px 20px;
-        }
-        @include bp.media(xxxxs, max) {
-          padding: 10px;
-        }
-
-        &::after {
-          content: "";
-          position: absolute;
-          top: 50%;
-          right: 90px;
-          transform: rotate(-90deg) translateX(-50%); /* 反転 */
-          border-width: 10px;
-          border-style: solid;
-          border-color: #fff transparent transparent transparent; /* 上側に色を設定 */
-
-          @include bp.media(xxs, max) {
-            border-width: 10px;
-            top: 60%;
-            right: 50px;
-          }
-        }
-
-        .footer_item_text {
-          color: var.$main_color;
-          cursor: pointer;
-          transition: .3s;
-          @media (any-hover: hover) {
-            &:hover {
-             color: var.$sub_color;
-            }
-          }
-        }
-      }
-
-      .silhouette_chara_svg {
-        align-self: flex-end;
-        width: 80px;
-        height: 80px;
-        @include bp.media(xxs, max) {
-          width: 50px;
-          height: 50px;
-        }
-      }
-    }
-
-    .copyRight {
-      grid-column: 1/3;
-      grid-row: 2/3;
-      align-self: flex-end;
-      color: #fff;
-      display: flex;
-      justify-content: center;
+    @include bp.media(xs, max) {
+      flex-direction: column;
       align-items: center;
+      gap: 10px;
+    }
 
-      @include bp.media(xs, max) {
-        grid-column: 1/2;
-        align-self: end;
-      }
-      @include bp.media(xxs, max) {
-        width: 100%;
-        position: absolute;
-       left: 50%;
-       bottom: 10px;
-       transform: translateX(-50%);
+    .footer_item {
+      .footer_item_text {
+        color: #fff;
+        cursor: pointer;
+        transition: 0.3s;
+        @media (any-hover: hover) {
+          &:hover {
+            color: var.$sub_color;
+          }
+        }
       }
     }
   }
 
+  .silhouette_chara_svg {
+    position: absolute;
+    right: 10px;
+    bottom: 0;
+    width: 120px;
+    @include bp.media(xs, max) {
+      width: 70px;
+    }
+  }
+
+  .copyRight {
+    position: absolute;
+    bottom: 10px;
+    color: #fff;
+  }
 }
+// @use "@/style/breakpoint.scss" as bp;
+// @use "@/style/common.scss" as mixin;
+// @use "@/style/variable.scss" as var;
+
+// footer {
+//   position: relative;
+//   display: flex;
+//   // flex-direction: column;
+//   align-items: center;
+//   justify-content: center;
+//   width: 100%;
+//   height: var.$footer_Height;
+//   padding: 20px;
+//   background-color: var.$main_color;
+//   z-index: 900;
+//   @include mixin.graduallyPage();
+
+//   @include bp.media(sm, max) {
+//     justify-content: start;
+//   }
+//   @include bp.media(xxs, max) {
+//     padding: 10px;
+//   }
+
+//   .footer_wrap {
+//     display: grid;
+//     width: 100%;
+
+//     .footer_main_logo_svg {
+//       position: absolute;
+//       top: 40%;
+//       left: 50%;
+//       width: 300px;
+//       height: 100px;
+//       transform: translate(-50%, -50%);
+
+//       @include bp.media(xs, max) {
+//         position: relative;
+//         align-self: flex-end;
+//         width: 250px;
+//       }
+//       @include bp.media(xxs, max) {
+//         position: static; // 位置をリセット
+//         transform: none; // 位置の変換を解除
+//         grid-row: 1/3;
+//         align-self: center;
+//         justify-self: center;
+//         width: 200px;
+//       }
+//       @include bp.media(xxxs, max) {
+//         width: 150px;
+//       }
+
+//       .header_main_logo_svg {
+//         width: 300px;
+//       }
+//     }
+
+//     .footer_menu_and_chara {
+//       grid-column: 2/3;
+//       grid-row: 1/3;
+//       display: flex;
+//       justify-self: flex-end;
+//       gap: 10px;
+
+//       .footer_menu {
+//         display: flex;
+//         flex-direction: column;
+//         gap: 10px;
+//         padding: 10px 30px;
+//         border-radius: 5px;
+//         background-color: #fff;
+
+//         @include bp.media(xxs, max) {
+//           margin-bottom: 10px;
+//           padding: 10px 20px;
+//         }
+//         @include bp.media(xxxxs, max) {
+//           padding: 10px;
+//         }
+
+//         &::after {
+//           content: "";
+//           position: absolute;
+//           top: 50%;
+//           right: 90px;
+//           transform: rotate(-90deg) translateX(-50%); /* 反転 */
+//           border-width: 10px;
+//           border-style: solid;
+//           border-color: #fff transparent transparent transparent; /* 上側に色を設定 */
+
+//           @include bp.media(xxs, max) {
+//             border-width: 10px;
+//             top: 60%;
+//             right: 50px;
+//           }
+//         }
+
+//         .footer_item_text {
+//           color: var.$main_color;
+//           cursor: pointer;
+//           transition: 0.3s;
+//           @media (any-hover: hover) {
+//             &:hover {
+//               color: var.$sub_color;
+//             }
+//           }
+//         }
+//       }
+
+//       .silhouette_chara_svg {
+//         align-self: flex-end;
+//         width: 80px;
+//         height: 80px;
+//         @include bp.media(xxs, max) {
+//           width: 50px;
+//           height: 50px;
+//         }
+//       }
+//     }
+
+//     .copyRight {
+//       grid-column: 1/3;
+//       grid-row: 2/3;
+//       align-self: flex-end;
+//       color: #fff;
+//       display: flex;
+//       justify-content: center;
+//       align-items: center;
+
+//       @include bp.media(xs, max) {
+//         grid-column: 1/2;
+//         align-self: end;
+//       }
+//       @include bp.media(xxs, max) {
+//         width: 100%;
+//         position: absolute;
+//         left: 50%;
+//         bottom: 10px;
+//         transform: translateX(-50%);
+//       }
+//     }
+//   }
+// }

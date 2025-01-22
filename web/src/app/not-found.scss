@@ -11,7 +11,8 @@
   margin-top: var.$header_Height;
   padding: 20px;
   width: 100%;
-  height: calc(100vh - (var.$header_Height + var.$footer_Height));
+  min-height: calc(100vh - var.$footer_Height);
+  overflow-y: scroll;
   
   .not_found_content {
     display: grid;

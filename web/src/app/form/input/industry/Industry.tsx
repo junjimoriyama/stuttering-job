@@ -8,17 +8,21 @@ import { FormWithSetValueProps } from "@/types/form";
 import { storageSelectSaveData } from "@/functions/functions";
 // svg
 import { SurpriseMark } from "@/assets/svg/icon/mark";
+import { DropArrow } from "@/assets/svg/icon/arrow";
 // style
 import "./industry.scss";
 
-export const Industry = ({ register, errors, setValue }: FormWithSetValueProps) => {
-
+export const Industry = ({
+  register,
+  errors,
+  setValue,
+}: FormWithSetValueProps) => {
   // 選択されている値
   const [saveData, setSaveData] = useState("");
 
   useEffect(() => {
     const getStorageData = localStorage.getItem("stutter_job_industry") || "";
-     // 画面遷移から戻った時にストレージデータを反映
+    // 画面遷移から戻った時にストレージデータを反映
     setValue("industry", getStorageData);
     setSaveData(getStorageData);
   }, [setValue]);
@@ -32,29 +36,32 @@ export const Industry = ({ register, errors, setValue }: FormWithSetValueProps) 
         業種
         <span className="must">必須</span>
       </label>
-      <select
-        id="industry"
-        value={saveData}
-        {...register("industry", {
-          onChange: (e) =>
-            storageSelectSaveData(
-              e,
-              "stutter_job_industry",
-              setSaveData,
-              timerRef
-            ),
-          required: "選択は必須です",
-        })}
-      >
-        <option value="" disabled>
-          選択してください
-        </option>
-        {industryList.map((industry) => (
-          <option key={industry.value} value={industry.label}>
-            {industry.label}
+      <div className="select_wrapper">
+        <DropArrow />
+        <select
+          id="industry"
+          value={saveData}
+          {...register("industry", {
+            onChange: (e) =>
+              storageSelectSaveData(
+                e,
+                "stutter_job_industry",
+                setSaveData,
+                timerRef
+              ),
+            required: "選択は必須です",
+          })}
+        >
+          <option value="" disabled>
+            選択してください
           </option>
-        ))}
-      </select>
+          {industryList.map((industry) => (
+            <option key={industry.value} value={industry.label}>
+              {industry.label}
+            </option>
+          ))}
+        </select>
+      </div>
       {errors.industry && typeof errors.industry.message === "string" && (
         <p className="error">
           <SurpriseMark />

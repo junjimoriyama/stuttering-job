@@ -7,7 +7,8 @@
   flex: 1;
   max-width: 900px;
   margin-bottom: 50px;
-  padding: 30px 10px;
+  margin-top: var.$header_Height;
+  padding: 0 10px 30px 10px;
   
   @include bp.media(sm, max) {
     padding: 0px 10px;
@@ -21,7 +22,7 @@
     justify-content: center;
     align-items: center;
     margin-bottom: 30px;
-    font-size: 30px;
+    font-size: var.$font_size_xl;
     letter-spacing: 0.3em;
 
     @include bp.media(sm, max) {
@@ -31,7 +32,7 @@
     }
 
     @include bp.media(xxs, max) {
-      font-size: 24px;
+      font-size: var.$font_size_md;
     }
 
     // search_hit_countの要素の

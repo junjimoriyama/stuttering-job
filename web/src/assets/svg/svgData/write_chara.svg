@@ -17,7 +17,7 @@
             </g>
             <g>
               <path d="M168.7,126.5h-56.5s-39.2,78.8,28.3,78.1c67.4-.6,28.3-78.1,28.3-78.1h-.1Z" fill="#ddddd0" stroke="#000" strokeMiterlimit="10" stroke-width="1.3"/>
-              <path d="M166.6,152.3h-53.4s-37,52.7,26.7,52.3c63.8-.4,26.7-52.3,26.7-52.3Z" fill="#ddddd0" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.3"/>
+              <path d="M166.6,152.3h-53.4s-37,52.7,26.7,52.3c63.8-.4,26.7-52.3,26.7-52.3Z" fill="#ddddd0" stroke="#000" strokeLinecap="round" stroke-linejoin="round" stroke-width="1.3"/>
               <g>
                 <path d="M83.5,88.9s-18.4-40.8,4.8-74.4c0,0,36.7,17.2,38.8,34.7,0,0-22,11.9-22.3,15.4s-21.3,24.4-21.3,24.4h0Z" fill="#f9851c" stroke="#000" strokeMiterlimit="10" stroke-width="1.3"/>
                 <path d="M86,65c-.2-.6-6.7-23.4,3.4-39.3,0,0,24.8,11.9,26.7,25.2,0,0-16.9,2.4-17.7,5.5-.8,3.2-12.5,8.6-12.5,8.6h0Z" fill="#fbfbec" stroke="#000" strokeMiterlimit="10" stroke-width="1.3"/>
@@ -32,7 +32,7 @@
               <circle cx="108.9" cy="82.2" r="3.6" fill="#fff" stroke="#000" strokeMiterlimit="10" stroke-width="1.3"/>
               <circle cx="167.8" cy="81.8" r="8.5" stroke="#000" strokeMiterlimit="10" stroke-width="1.3"/>
               <circle cx="163.2" cy="81.8" r="3.6" fill="#fff" stroke="#000" strokeMiterlimit="10" stroke-width="1.3"/>
-              <path d="M129.6,100.9c0,6,4.9,10.8,10.8,10.8s10.8-4.9,10.8-10.8" fill="none" stroke="#000" stroke-linecap="round" strokeMiterlimit="10" stroke-width="1.3"/>
+              <path d="M129.6,100.9c0,6,4.9,10.8,10.8,10.8s10.8-4.9,10.8-10.8" fill="none" stroke="#000" strokeLinecap="round" strokeMiterlimit="10" stroke-width="1.3"/>
               <ellipse cx="170.3" cy="105.3" rx="6.9" ry="4.4" fill="#f9851c" stroke="#000" strokeMiterlimit="10" stroke-width="1.3"/>
               <ellipse cx="109.7" cy="106.4" rx="6.9" ry="4.4" fill="#f9851c" stroke="#000" strokeMiterlimit="10" stroke-width="1.3"/>
               <circle cx="139.8" cy="173.2" r="4.4" fill="#f9851c" stroke="#000" strokeMiterlimit="10" stroke-width="1.3"/>
@@ -46,14 +46,14 @@
                 <path d="M168,198.5s-4.6,2.3-7.8,3.5-10.7,2.1-10.7,2.1l.5,19.1s5.8-3.3,9.6-3.4c3.8,0,8.9,3.4,8.9,3.4l-.5-24.7h0Z" fill="#f2f0de" stroke="#000" strokeMiterlimit="10" stroke-width="1.3"/>
                 <g>
                   <path d="M173,233.6c0-7.7-6.1-13.9-13.5-13.9s-13.5,6.2-13.5,13.9" fill="#f2f0de" stroke="#000" strokeMiterlimit="10" stroke-width="1.3"/>
-                  <line x1="173" y1="233.6" x2="146" y2="233.6" fill="none" stroke="#000" stroke-linecap="round" strokeMiterlimit="10" stroke-width="1.3"/>
+                  <line x1="173" y1="233.6" x2="146" y2="233.6" fill="none" stroke="#000" strokeLinecap="round" strokeMiterlimit="10" stroke-width="1.3"/>
                 </g>
               </g>
               <g>
                 <path d="M108.6,196.5s4.9,3.6,8,4.8c3.2,1.2,10.6,2.6,10.6,2.6v18.4s-5.9-3.3-9.7-3.4c-3.8,0-8.9,3.4-8.9,3.4v-25.8Z" fill="#f2f0de" stroke="#000" strokeMiterlimit="10" stroke-width="1.3"/>
                 <g>
                   <path d="M104.1,232.6c0-7.7,6.1-13.9,13.5-13.9s13.5,6.2,13.5,13.9" fill="#f2f0de" stroke="#000" strokeMiterlimit="10" stroke-width="1.3"/>
-                  <line x1="104.1" y1="232.6" x2="131.1" y2="232.6" fill="none" stroke="#000" stroke-linecap="round" strokeMiterlimit="10" stroke-width="1.3"/>
+                  <line x1="104.1" y1="232.6" x2="131.1" y2="232.6" fill="none" stroke="#000" strokeLinecap="round" strokeMiterlimit="10" stroke-width="1.3"/>
                 </g>
               </g>
               <g>
@@ -68,8 +68,8 @@
               <path d="M157,184.5h-5.9v12.8h-5.1v-12.8h-5.9v-2.9h17v2.9Z"/>
             </g>
           </g>
-          <rect x="150.3" y="207.9" width="16.7" height="9.8" rx="3.4" ry="3.4" transform="translate(-6.2 4.8) rotate(-1.7)" fill="#ddddd0" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.4"/>
-          <rect x="109.8" y="207.3" width="16.2" height="9.8" rx="3.4" ry="3.4" fill="#ddddd0" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.4"/>
+          <rect x="150.3" y="207.9" width="16.7" height="9.8" rx="3.4" ry="3.4" transform="translate(-6.2 4.8) rotate(-1.7)" fill="#ddddd0" stroke="#000" strokeLinecap="round" stroke-linejoin="round" stroke-width="1.4"/>
+          <rect x="109.8" y="207.3" width="16.2" height="9.8" rx="3.4" ry="3.4" fill="#ddddd0" stroke="#000" strokeLinecap="round" stroke-linejoin="round" stroke-width="1.4"/>
         </g>
         <g>
           <path d="M101.3,161.1l3.8-17.1s-16.2,1-19.5,17.7l9.3,4.4,6.5-5h-.1Z" fill="#ddddd0" stroke="#000" strokeMiterlimit="10" stroke-width="1.3"/>
@@ -77,7 +77,7 @@
         </g>
       </g>
       <g>
-        <path d="M41.7,156c0-.3,21.4-15.1,21.4-15.1l-26.2-37.1-23.3-11,1.7,25.7,26.4,37.4h0Z" fill="#ddddd0" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.3"/>
+        <path d="M41.7,156c0-.3,21.4-15.1,21.4-15.1l-26.2-37.1-23.3-11,1.7,25.7,26.4,37.4h0Z" fill="#ddddd0" stroke="#000" strokeLinecap="round" stroke-linejoin="round" stroke-width="1.3"/>
         <polygon points="15.2 117.1 35.5 103.2 22.2 97 14.3 103.2 15.2 117.1" fill="#fff" stroke="#000" strokeMiterlimit="10" stroke-width="1.3"/>
         <path d="M65.7,144.7l-22,14.2,4.4,6.6c2.1,3,6.4,3.7,9.4,1.6l10.7-7.5c3-2.1,3.8-6.3,1.6-9.3l-4.2-5.7h0Z" fill="#ddddd0" stroke="#000" strokeMiterlimit="10" stroke-width="1.3"/>
         <polygon points="41.7 156 44.6 160.4 66.1 145.4 62.9 140.7 41.7 156" fill="#fff" stroke="#000" strokeMiterlimit="10" stroke-width="1.3"/>

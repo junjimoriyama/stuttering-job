@@ -3,9 +3,9 @@
 // type
 import { allDataArrayType } from "@/types/story";
 // components
-import { Search } from "../components/search/Search";
 // style
 import "./sidebar.scss";
+import { Search } from "../../components/search/Search";
 
 export const Sidebar = () => {
 

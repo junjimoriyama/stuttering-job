@@ -6,6 +6,7 @@ import { FormWithSetValueProps } from "@/types/form";
 import { storageSelectSaveData } from "@/functions/functions";
 // svg
 import { SurpriseMark } from "@/assets/svg/icon/mark";
+import { DropArrow } from "@/assets/svg/icon/arrow";
 // style
 import "./gender.scss";
 
@@ -33,6 +34,8 @@ export const Gender = ({
         性別
         <span className="must">必須</span>
       </label>
+      <div className="select_wrapper">
+      <DropArrow />
       <select
         id="gender"
         value={saveData} // 選択中の値を表示
@@ -55,6 +58,7 @@ export const Gender = ({
         <option value="どちらでもない">どちらでもない</option>
         <option value="無回答">無回答</option>
       </select>
+      </div>
       {errors.gender && typeof errors.gender.message === "string" && (
         <p className="error">
           <SurpriseMark />

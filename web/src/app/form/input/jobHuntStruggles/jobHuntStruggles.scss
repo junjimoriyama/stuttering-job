@@ -4,7 +4,8 @@
 .input {
   .input_form {
     .job_hunt_struggles {
-      margin-bottom: var.$for_margin_Bottom;
+      margin-bottom: var.$form_margin_Bottom;
+      @include mixin.formBackGroundColor();
 
       .job_hunt_struggles_heading {
         display: flex;

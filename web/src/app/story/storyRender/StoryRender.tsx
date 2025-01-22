@@ -9,7 +9,7 @@ import Header from "@/components/layout/header/Header";
 import Footer from "@/components/layout/footer/Footer";
 import { MainArea } from "./mainArea/MainArea";
 import { Sidebar } from "./sidebar/Sidebar";
-import { SearchModal } from "./components/search/searchModal/SearchModal";
+import { SearchModal } from "../components/search/searchModal/SearchModal";
 // style
 import './storyRender.scss'
 
@@ -27,6 +27,5 @@ export const StoryRender = ({ fetchData }: { fetchData: allDataArrayType }) => {
       </div>
         <Footer />
     </StoryProvider>
-    
   );
 };

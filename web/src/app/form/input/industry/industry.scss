@@ -4,9 +4,11 @@
 .input {
   .input_form {
     .industry {
-      margin-bottom: 32px;
+      flex: 1;
+      margin-bottom: var.$form_margin_Bottom;
+      @include mixin.formBackGroundColor();
       .industry-select {
-        margin-bottom: var.$for_margin_Bottom;
+        margin-bottom: var.$form_margin_Bottom;
         &.isInvalid {
           @include mixin.formIsValid;
         }

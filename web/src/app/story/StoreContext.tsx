@@ -80,7 +80,7 @@ export const StoryProvider = ({ children, fetchData }: { children: React.ReactNo
   const [isAllClose, setIsAllClose] = useState(true); // 開閉状態
 
   // ページネーション関連
-  const [storiesPerPage, setStoriesPerPage] = useState(2); // 1ページあたりの件数
+  const [storiesPerPage, setStoriesPerPage] = useState(10); // 1ページあたりの件数
   const [currentPage, setCurrentPage] = useState(1); // 現在のページ
   const [isPageFilterEffect, setIsPageFilterEffect] = useState(false); // ページ変更によるアニメーション
 

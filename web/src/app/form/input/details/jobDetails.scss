@@ -1,10 +1,11 @@
 @use "@/style/variable.scss" as var;
+@use "@/style/common.scss" as mixin;
 
 .input {
   .input_form {
     .job_details {
-      margin-bottom: var.$for_margin_Bottom;
-
+      margin-bottom: var.$form_margin_Bottom;
+      @include mixin.formBackGroundColor();
       .textCount {
         display: flex;
         align-items: center;
@@ -14,7 +15,7 @@
       }
 
       .job_details_textarea {
-        min-height: 100px;
+        min-height: 200px;
       }
 
       .underTextArea {

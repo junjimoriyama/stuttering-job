@@ -8,8 +8,8 @@
       gap: 32px;
       padding: 20px 0;
       border-radius: 5px;
-      margin-bottom: 36px;
       .username {
+        @include mixin.formBackGroundColor();
         .username-input {
           &.isInvalid {
             @include mixin.formIsValid;
@@ -17,6 +17,7 @@
         }
       }
       .email {
+        @include mixin.formBackGroundColor();
         .email-input {
           &.isInvalid {
             @include mixin.formIsValid;

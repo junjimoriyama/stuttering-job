@@ -5,7 +5,8 @@
 .input {
   .input_form {
     .job_hunt_difficulty {
-      margin-bottom: var.$for_margin_Bottom;
+      margin-bottom: var.$form_margin_Bottom;
+      @include mixin.formBackGroundColor();
       .job_hunt_difficulty_level {
         display: flex;
         align-items: center;
@@ -41,8 +42,9 @@
           cursor: pointer;
     
           &.isClicked {
-            color: #333;
-            background-color: #e5e5e5;
+            color: #fff;
+            background-color: var.$main_color;
+            border: 2px solid var.$main_color;
           }
     
           &:hover {

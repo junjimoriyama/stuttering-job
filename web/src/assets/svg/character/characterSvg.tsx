@@ -687,8 +687,8 @@ export const UpHandChara = () => {
       id="up_hand_chara"
       className="up_hand_chara"
       xmlns="http://www.w3.org/2000/svg"
-      width="75"
-      height="75"
+      width="100"
+      height="100"
       version="1.1"
       viewBox="0 0 300 300"
     >
@@ -1055,10 +1055,7 @@ export const QuestionChara = () => {
             fill="#c1c1bc"
           />
           <g id="QuestionIcon">
-            <g 
-            id="RALyQ5"
-            className="big_question"
-            >
+            <g id="RALyQ5" className="big_question">
               <g>
                 <path
                   d="M218.9,106.5c-2.2-.8-4.5-1.6-6.7-2.4s-1.8-1.4-1.6-2.6c1.8-5.7,3.6-11.3,8-15.8,3.9-3.9,8.7-5.9,14.1-7.5,3.4-1,7-1.8,10.3-3.3,3.9-1.6,6.6-4.4,8.5-8,2.3-5,1.8-9.7-1.7-14-4-5-9.5-7.8-15.9-7.6-6.8,0-11.4,3.7-14.7,9.3-1.3,2.1-2.1,2.3-4.2,1.2-3.8-2.1-7.5-4.3-11.4-6.2-2.3-1.3-2.6-1.9-1.2-4.2,5.6-10.6,14.6-16.4,26.3-16.9,14.9-.6,27.7,4.3,37.8,15.5,6.4,7.4,8.8,16.1,6.1,25.7-3.5,11.6-11.2,19.1-23,22.2-3,.7-6.1,1.6-9.2,2.5-5.1,1.4-8.8,4.6-10.4,9.8l-1.2,3.3c-.6,1.6-1.6,2.2-3.3,1.6s-6.4-2.6-6.4-2.6Z"
@@ -1072,10 +1069,7 @@ export const QuestionChara = () => {
             </g>
           </g>
           <g id="QuestionIcon-2" data-name="QuestionIcon">
-          <g 
-            id="RALyQ5-2" 
-            className="small_question"
-            data-name="RALyQ5">
+            <g id="RALyQ5-2" className="small_question" data-name="RALyQ5">
               <g>
                 <path
                   d="M263.7,137.5l-3.4-1.2c-.7-.2-.9-.7-.8-1.3.9-2.9,1.8-5.7,4.1-8,2-2,4.4-3,7.1-3.8,1.7-.5,3.5-.9,5.2-1.7,2-.8,3.4-2.2,4.3-4.1,1.2-2.5.9-4.9-.9-7.1-2-2.5-4.8-3.9-8.1-3.8-3.5,0-5.8,1.9-7.5,4.7-.6,1-1.1,1.1-2.1.6-1.9-1.1-3.8-2.2-5.8-3.1-1.2-.7-1.3-1-.6-2.1,2.8-5.4,7.4-8.3,13.3-8.6,7.5-.3,14,2.2,19.1,7.9,3.2,3.7,4.5,8.1,3.1,13-1.8,5.9-5.7,9.7-11.6,11.2-1.5.3-3.1.8-4.7,1.2-2.6.7-4.4,2.3-5.3,5l-.6,1.7c-.3.8-.8,1.1-1.7.8s-3.2-1.3-3.2-1.3Z"
@@ -1341,6 +1335,66 @@ export const PointingChara = () => {
         </g>
       </g>
     </svg>
+  );
+};
+export const GuideChara = () => {
+  return (
+    <svg
+    className="guide_chara_svg"
+    xmlns="http://www.w3.org/2000/svg" 
+    width="75px" height="75px" version="1.1" viewBox="0 0 227.7 300">
+    <g>
+      <g id="guide_x5F_chara">
+        <g id="_x0A_question_x5F_chara">
+          <g>
+            <path d="M182.6,185.2c4.3-7.3,16.7-19.9,37.7-15.4,0,0-4,8-3.8,15.4,0,3,.6,11.3-.3,21-1.3,14-5.7,30.3-20.9,33-25.6,4.5-39.3.2-36.8-3.2,2.5-3.3,5.6-18.3,5.6-18.3,0,0,7.3-5.7,11.9-13.7,4.6-8,2.2-11.3,6.5-18.6v-.2h.1Z" fill="#f9851c"/>
+            <path d="M220.3,169.8c-20.9-4.5-33.4,8-37.7,15.4h0c-.6,1.9,1.6,4.1,4.8,5.1,1.3.5,2.1,1,2.7.6.6-.3.6.3.5.6-1.4,3.7,3.2,8.8,10.4,11.3s12.4,6.2,15.1,3.2c1.4-9.9.6-16.7.5-20.9-.2-7.5,3.8-15.4,3.8-15.4h-.1Z" fill="#f2f0de"/>
+          </g>
+          <path d="M81.9,156.6h69.9s48.4,97.5-35,96.7c-83.4-.8-35-96.7-35-96.7h.2,0Z" fill="#ddddd0"/>
+          <path d="M84.5,188.6h66.1s45.9,65.3-33.1,64.8c-79-.5-33.1-64.8-33.1-64.8h.2-.1Z" fill="#c1c1bc"/>
+          <path d="M156.8,163.4h-78.2" fill="#ddddd0"/>
+          <circle cx="85.3" cy="214.4" r="5.4" fill="#f9851c"/>
+          <circle cx="117.8" cy="214.4" r="5.4" fill="#f9851c"/>
+          <circle cx="146.9" cy="215.3" r="5.4" fill="#f9851c"/>
+          <path d="M93.1,163.4h47.6s-2.1,18.5-21.3,19c-19.3.6-26.3-19-26.3-19Z" fill="#c1c1bc"/>
+          <path d="M92.4,250c4,1.4,12.7,2.7,12.7,2.7v23.4s-7.3-4.1-11.9-4.1-11,4.1-11,4.1l.5-29.9s5.9,2.4,9.7,3.8h0Z" fill="#f2f0de"/>
+          <path d="M76.5,289c0-9.6,7.5-17.2,16.7-17.2s16.7,7.6,16.7,17.2" fill="#c1c1bc"/>
+          <path d="M146.6,249.1c-4,1.4-13.1,3.2-13.1,3.2v24.4s2.4-4.1,11.6-4.9c9.2-.8,10.8,5.1,10.8,5.1v-33.1s-5.6,4-9.4,5.4h0Z" fill="#f2f0de"/>
+          <path d="M161.7,289c0-9.6-7.5-17.2-16.7-17.2s-16.7,7.8-16.7,17.2" fill="#c1c1bc"/>
+          <rect x="84" y="256.9" width="19.6" height="12.1" rx="4.1" ry="4.1" fill="#ddddd0"/>
+          <rect x="135" y="256.9" width="19.6" height="12.1" rx="4.1" ry="4.1" fill="#ddddd0"/>
+          <path d="M165.1,199.4l-5.3-22.6s21.5,2.3,25.8,23l-11.5,5.5-9-5.9Z" fill="#c1c1bc"/>
+          <path d="M180.8,198.1s-11.5-1.1-8.4,18.3c3,19.4,12.1,16.6,12.1,16.6,0,0,10.4-.5,8.4-18.5-2.1-18-12.1-16.2-12.1-16.2h0v-.2h0Z" fill="#ddddd0"/>
+          <path d="M193.1,249.1l5.4-.5s-2.2-17.4-15.4-16.9c-13.4.5-13.1,18.5-13.1,18.5h5.1c0-.2-1.1-13.2,8.6-13.7,9.7-.6,9.4,12.7,9.4,12.7h0v-.2h0Z" fill="#c1c1bc"/>
+          <g>
+            <path d="M83.1,168.8h.2l67.9-16.8" fill="#ddddd0"/>
+            <path d="M174.6,98.4s10-54.5-27.8-87.9c0,0-38.9,31.6-36.3,53.1,0,0,30,7.8,31.3,11.8,1.3,4.1,32.7,22.9,32.7,22.9h0v.2h.1Z" fill="#f9851c"/>
+            <path d="M164.4,70.4c.2-.7,1.1-30.1-15.9-46.3,0,0-26.3,21.6-24.7,38.2,0,0,20.9-2.2,22.8,1.4,1.9,3.6,17.5,6.5,17.5,6.5h.2c0,0,0,.2,0,.2Z" fill="#f2f0de"/>
+            <path d="M36.7,132.5S2.6,88.9,20.5,41.7c0,0,49.2,9.8,56.8,30.2,0,0-22.9,20.8-22.2,25,.7,4.3-18.4,35.6-18.4,35.6Z" fill="#f9851c"/>
+            <path d="M32.7,103c-.5-.5-15-26.2-7.5-48.3,0,0,33.2,6.9,39.6,22.4,0,0-19.6,7.8-19.5,11.9s-12.5,13.9-12.5,13.9h-.2v.2h0Z" fill="#f2f0de"/>
+            <rect x="33.4" y="66.2" width="147.9" height="102.1" rx="34.9" ry="34.9" transform="translate(-25 29.2) rotate(-13.9)" fill="#ddddd0"/>
+            <rect x="42.8" y="77.8" width="124.4" height="79.8" rx="27.2" ry="27.2" transform="translate(-25.2 28.7) rotate(-13.9)" fill="#daf4f7"/>
+            <circle cx="134.7" cy="102.7" r="10.5" stroke="#000" strokeMiterlimit="10"/>
+            <circle cx="133.6" cy="98.4" r="4.5" fill="#fff" stroke="#000" strokeMiterlimit="10"/>
+            <circle cx="69.9" cy="118" r="10.5" stroke="#000" strokeMiterlimit="10"/>
+            <circle cx="68.9" cy="113.9" r="4.5" fill="#fff" stroke="#000" strokeMiterlimit="10"/>
+            <ellipse cx="72" cy="144.6" rx="8.6" ry="5.4" transform="translate(-32.6 21.5) rotate(-13.9)" fill="#f9851c"/>
+            <ellipse cx="145" cy="127.9" rx="8.6" ry="5.4" transform="translate(-26.5 38.6) rotate(-13.9)" fill="#f9851c"/>
+            <path d="M95.7,172.7l46.2-11.4" fill="#c1c1bc"/>
+            <path d="M86.5,43.9l-2,26.4,16.2-4-14.2-22.4Z" fill="#f9851c"/>
+            <circle cx="86.4" cy="44.7" r="5.1" fill="#f9851c"/>
+          </g>
+          <g>
+            <path d="M114.7,146.9c-7.1,1.3-13.4-1-14.2-5.3" fill="none" stroke="#000" strokeLinecap="round" strokeMiterlimit="10"/>
+            <path d="M126,136.7c.8,4.3-4.3,8.8-11.3,10.1" fill="none" stroke="#000" strokeLinecap="round" strokeMiterlimit="10"/>
+          </g>
+          <path d="M72,182.6s-20.5,1.2-25.3,21.9l11.3,5.6,10-5.7,4-21.8Z" fill="#c1c1bc"/>
+          <path d="M57.3,211.3s-7.3,9-19-7c-11.6-15.8-3-20.3-3-20.3,0,0,7.8-7,19.1,7.1,11.3,14.1,2.9,20.1,2.9,20.1Z" fill="#ddddd0"/>
+          <path d="M34.3,167.4l4.6-2.8s8.9,15.2-2,22.9-21.7-6.7-21.7-6.7l4.1-3s7,11.1,15.2,5.5c8.2-5.5-.3-15.8-.3-15.8h0v-.2c-.1,0,0,0,0,0Z" fill="#c1c1bc"/>
+        </g>
+      </g>
+    </g>
+  </svg>
   );
 };
 export const RepeatChara = () => {
@@ -2935,6 +2989,386 @@ export const WriteChara = forwardRef<
                   fill="#fff"
                 />
               </g>
+            </g>
+          </g>
+        </g>
+      </svg>
+    );
+  }
+);
+// 知るキャラクター
+export const LearnChara = forwardRef<
+  SVGSVGElement,
+  {
+    isLearnBlockVisible: boolean;
+    homeAboutLearnBlockRef: React.RefObject<SVGGElement>;
+    isLearnCharaVisible: boolean;
+    homeAboutLearnCharaRef: React.RefObject<SVGSVGElement>;
+  }
+>(
+  (
+    {
+      isLearnBlockVisible,
+      homeAboutLearnBlockRef,
+      isLearnCharaVisible,
+      homeAboutLearnCharaRef,
+    },
+    ref
+  ) => {
+    return (
+      <svg
+        id="learn_chara"
+        className="learn_chara_svg"
+        xmlns="http://www.w3.org/2000/svg"
+        width="300"
+        height="300"
+        version="1.1"
+        viewBox="0 0 300 300"
+      >
+        <g
+          className={`home_about_write_block_svg ${
+            isLearnBlockVisible ? "isVisible" : ""
+          }`}
+          ref={homeAboutLearnBlockRef}
+        >
+          <g id="look_x5F_chara">
+            <g
+            className={`home_about_learn_block_svg ${
+              isLearnBlockVisible ? "isVisible" : ""
+            }`}
+            ref={homeAboutLearnBlockRef}
+            >
+              <rect
+                x="24.2"
+                y="186.4"
+                width="254.5"
+                height="91.5"
+                rx="16"
+                ry="16"
+                fill="#1a2c5b"
+              />
+              <path
+                d="M41.8,195.6h219.1c8.8,0,15.9,7.1,15.9,15.9v59.7c0,8.8-7.1,15.9-15.9,15.9H41.8c-8.8,0-15.9-7.1-15.9-15.9v-59.7c0-8.8,7.1-15.9,15.9-15.9Z"
+                fill="none"
+                stroke="#1a2c5b"
+                strokeMiterlimit="10"
+                strokeWidth="3.2"
+              />
+            </g>
+            <g
+            className={`home_about_learn_chara_svg ${
+              isLearnCharaVisible ? "isVisible" : ""
+            }`}
+            ref={homeAboutLearnCharaRef}
+            >
+              <g>
+                <g>
+                  <path
+                    d="M193.2,126.1h-57.1s-39.6,79.6,28.6,79c68.1-.6,28.6-79,28.6-79h-.1Z"
+                    fill="#ddddd0"
+                  />
+                  <path
+                    d="M191,152.1h-54s-37.4,53.3,27,52.9c64.4-.4,27-52.9,27-52.9Z"
+                    fill="#c1c1bc"
+                  />
+                  <g>
+                    <path
+                      d="M107,88.1s-18.6-41.2,4.8-75.2c0,0,37.1,17.4,39.2,35,0,0-22.3,12-22.5,15.5s-21.5,24.6-21.5,24.6h0Z"
+                      fill="#f9851c"
+                    />
+                    <path
+                      d="M109.6,64c-.2-.6-6.8-23.6,3.5-39.8,0,0,25,12,27,25.5,0,0-17.1,2.4-17.9,5.6-.8,3.2-12.6,8.6-12.6,8.6h0Z"
+                      fill="#fbfbec"
+                    />
+                  </g>
+                  <g>
+                    <path
+                      d="M222.8,88.1s18.5-41.3-4.9-75.2c0,0-37.1,17.4-39.2,35.1,0,0,22.3,12,22.5,15.5s21.5,24.6,21.5,24.6h0Z"
+                      fill="#f9851c"
+                    />
+                    <path
+                      d="M220.2,64c.2-.6,6.7-23.6-3.5-39.8,0,0-25,12-27,25.5,0,0,17.1,2.4,17.9,5.6.8,3.2,12.6,8.6,12.6,8.6h0Z"
+                      fill="#fbfbec"
+                    />
+                  </g>
+                  <rect
+                    x="103.6"
+                    y="48.1"
+                    width="120.8"
+                    height="83.4"
+                    rx="28.5"
+                    ry="28.5"
+                    fill="#ddddd0"
+                  />
+                  <rect
+                    x="115.1"
+                    y="57.3"
+                    width="101.6"
+                    height="65.1"
+                    rx="22.2"
+                    ry="22.2"
+                    fill="#daf4f7"
+                  />
+                  <circle
+                    cx="139.3"
+                    cy="83.7"
+                    r="8.6"
+                    stroke="#000"
+                    strokeMiterlimit="10"
+                    strokeWidth="1.4"
+                  />
+                  <circle
+                    cx="139.3"
+                    cy="79.7"
+                    r="3.6"
+                    fill="#fff"
+                    stroke="#000"
+                    strokeMiterlimit="10"
+                    strokeWidth="1.4"
+                  />
+                  <circle
+                    cx="193.9"
+                    cy="83.2"
+                    r="8.6"
+                    stroke="#000"
+                    strokeMiterlimit="10"
+                    strokeWidth="1.4"
+                  />
+                  <circle
+                    cx="193.8"
+                    cy="79"
+                    r="3.6"
+                    fill="#fff"
+                    stroke="#000"
+                    strokeMiterlimit="10"
+                    strokeWidth="1.4"
+                  />
+                  <path
+                    d="M153.7,100.2c0,6.1,4.9,11,11,11s11-4.9,11-11"
+                    fill="none"
+                    stroke="#000"
+                    strokeLinecap="round"
+                    strokeMiterlimit="10"
+                    strokeWidth="1.4"
+                  />
+                  <ellipse
+                    cx="197.3"
+                    cy="104.6"
+                    rx="7"
+                    ry="4.5"
+                    fill="#f9851c"
+                  />
+                  <ellipse
+                    cx="136.1"
+                    cy="105.8"
+                    rx="7"
+                    ry="4.5"
+                    fill="#f9851c"
+                  />
+                  <circle
+                  className="circle_1"
+                  cx="164" cy="173.2" r="4.5" fill="#f9851c" />
+                  <circle
+                  className="circle_2"
+                  cx="187.8" cy="172.8" r="4.5" fill="#f9851c" />
+                  <circle
+                  className="circle_3"
+                  cx="140.1" cy="174" r="4.5" fill="#f9851c" />
+                  <path
+                    d="M184,131.6h-38.9s1.7,15,17.5,15.5,21.4-15.5,21.4-15.5h0Z"
+                    fill="#c1c1bc"
+                  />
+                  <polygon
+                    points="166 27.6 172.8 48.2 159.1 48.2 166 27.6"
+                    fill="#f9851c"
+                  />
+                  <circle cx="166.3" cy="28.4" r="4.2" fill="#f9851c" />
+                  <g>
+                    <path
+                      d="M203.5,157.6l-4.4-17s16.9.7,20.6,17.6l-9.3,4.6-7-5.2h0Z"
+                      fill="#c1c1bc"
+                    />
+                    <path
+                      d="M209.8,161.1s2.7,9,16.5.7,8.7-14.3,8.7-14.3c0,0-3.6-7.7-16.6-.6-13,7.1-8.6,14.2-8.6,14.2h0Z"
+                      fill="#ddddd0"
+                    />
+                  </g>
+                  <path
+                    d="M77.3,137.8s3.4,6.8,3.2,13.1c0,2.6-.5,9.6.3,17.8,1.1,11.9,4.9,25.8,17.8,28,21.8,3.8,33.4.2,31.2-2.7s-4.7-15.5-4.7-15.5c0,0-6.2-4.9-10.1-11.7s-1.9-9.6-5.5-15.9h0s-14.4-16.9-32.2-13.1h0Z"
+                    fill="#f9851c"
+                  />
+                  <path
+                    d="M109.2,150.6c-3.6-6.3-14.3-16.5-32.1-12.7,0,0,3.4,6.8,3.2,13.1s-.9,9.3.4,17.7"
+                    fill="#f2f0de"
+                  />
+                  <g>
+                    <path
+                      d="M124.8,165.1l3.3-17.9s-16.8,1.3-20.2,18.3l9.4,4.4,7.4-4.8h0Z"
+                      fill="#c1c1bc"
+                    />
+                    <path
+                      d="M112.1,164.3s9.3-1.3,7.5,14.7c-1.8,15.9-9.4,13.9-9.4,13.9,0,0-8.5,0-7.5-14.8s9.3-13.7,9.3-13.7h0Z"
+                      fill="#ddddd0"
+                    />
+                  </g>
+                  <path
+                    d="M60.1,163.8"
+                    fill="red"
+                    stroke="#000"
+                    strokeMiterlimit="10"
+                    strokeWidth="1.4"
+                  />
+                  <path
+                    d="M109.2,150.6c.5,1.6-1.5,3.3-4.3,4.2-1.1.4-1.8.9-2.3.6-.5-.3-.5.3-.4.5,1.3,3.1-2.7,7.4-8.8,9.7-6.1,2.2-10.4,5.4-12.7,2.9"
+                    fill="#f2f0de"
+                  />
+                  <g>
+                    <path
+                      d="M186.9,201.4c-3.2,1.2-10.6,2.6-10.6,2.6v20.1s6.4-4.1,10.3-4.2c3.8,0,9,3.6,9,3.6v-27.2s-5.5,3.9-8.7,5.1h0Z"
+                      fill="#f2f0de"
+                    />
+                    <g>
+                      <path
+                        d="M199.9,233.7c0-7.8-6.1-14.1-13.7-14.1s-13.7,6.3-13.7,14.1"
+                        fill="#c1c1bc"
+                      />
+                      <path
+                        d="M170.2,234.2"
+                        fill="none"
+                        stroke="#000"
+                        strokeLinecap="round"
+                        strokeMiterlimit="10"
+                        strokeWidth="1.4"
+                      />
+                      <path
+                        d="M197.5,234.2"
+                        fill="none"
+                        stroke="#000"
+                        strokeLinecap="round"
+                        strokeMiterlimit="10"
+                        strokeWidth="1.4"
+                      />
+                    </g>
+                  </g>
+                  <g>
+                    <path
+                      d="M134.4,198.3s4.5,2.1,7.7,3.4c3.2,1.2,10.7,2.6,10.7,2.6v19s-6-3.7-9.8-3.8c-3.8,0-9,3.4-9,3.4l.4-24.6h0Z"
+                      fill="#f2f0de"
+                    />
+                    <g>
+                      <path
+                        d="M129.4,233.3c0-7.8,6.1-14.1,13.7-14.1s13.7,6.3,13.7,14.1"
+                        fill="#c1c1bc"
+                      />
+                      <path
+                        d="M155.2,233.3"
+                        fill="none"
+                        stroke="#000"
+                        strokeLinecap="round"
+                        strokeMiterlimit="10"
+                        strokeWidth="1.4"
+                      />
+                      <path
+                        d="M127.8,233.3"
+                        fill="none"
+                        stroke="#000"
+                        strokeLinecap="round"
+                        strokeMiterlimit="10"
+                        strokeWidth="1.4"
+                      />
+                    </g>
+                  </g>
+                </g>
+                <path
+                  d="M248.2,140.6l2.9,2.9s-10.7,12.6-17.4,4,7.8-17,7.8-17l2.3,3.4s-11.5,5.1-6.7,11.5,11.2-4.9,11.2-4.9h-.1Z"
+                  fill="#c1c1bc"
+                />
+                <path
+                  d="M104,204.1l-4.4-.3s1.2-14.3,12.1-14.4c10.9,0,11.3,14.6,11.3,14.6h-4.2s.4-10.6-7.6-10.7c-8-.1-7.2,10.7-7.2,10.7h0Z"
+                  fill="#c1c1bc"
+                />
+              </g>
+              <rect
+                x="177.8"
+                y="207.4"
+                width="16"
+                height="9.9"
+                rx="3.4"
+                ry="3.4"
+                fill="#ddddd0"
+              />
+              <rect
+                x="135.4"
+                y="207.9"
+                width="16"
+                height="9.9"
+                rx="3.4"
+                ry="3.4"
+                fill="#ddddd0"
+              />
+            </g>
+            <g
+            className={`home_about_learn_chara_svg ${
+              isLearnCharaVisible ? "isVisible" : ""
+            }`}
+            ref={homeAboutLearnCharaRef}
+            >
+              <path
+                d="M253,104.9c-.9-.2.1-2.6-2.4-7.6-3.6-7.2-9.1-12.1-9.1-18.9s1.6-23.2,24-23.2c22.4,0,23.9,16.3,23.9,23.4s-6.6,13.8-9.3,19.4c-2.5,5.3-.9,6.5-2,7s-24.2.1-25.1-.1Z"
+                fill="#f2f0de"
+              />
+              <rect
+                x="252.4"
+                y="106.6"
+                width="26.4"
+                height="5"
+                rx="2.5"
+                ry="2.5"
+                fill="#c1c1bc"
+              />
+              <rect
+                x="254.2"
+                y="112.9"
+                width="22.7"
+                height="5"
+                rx="2.5"
+                ry="2.5"
+                fill="#c1c1bc"
+              />
+              <rect
+                x="256.2"
+                y="119.2"
+                width="18.7"
+                height="5"
+                rx="2.5"
+                ry="2.5"
+                fill="#c1c1bc"
+              />
+              <ellipse cx="265.5" cy="124.4" rx="5.6" ry="4.9" fill="#c1c1bc" />
+            </g>
+            <g
+            className={`home_about_learn_chara_svg ${
+              isLearnCharaVisible ? "isVisible" : ""
+            }`}
+            ref={homeAboutLearnCharaRef}
+            >
+              <path d="M60,37.2v5.1h-29.2V13.8h11.2v23.4h18Z" fill="#1a2c5d" />
+              <path
+                d="M59.6,83.3v4.9h-28.9v-28.5h28.4v4.9h-17.5v6.8h15.7v4.8h-15.7v7.1h18Z"
+                fill="#1a2c5d"
+              />
+              <path
+                d="M67.9,134.1h-11.2l-2.7-6.7h-14.5l-2.7,6.7h-10.3l12-28.5h17.2l12.1,28.5ZM48.3,113.3c-.5-1.3-1-2.6-1.3-3.9h-.3c-.4,1.3-.8,2.6-1.4,3.9l-3.7,9h10.3l-3.6-9Z"
+                fill="#1a2c5d"
+              />
+              <path
+                d="M53.2,180l-7.1-10.4h-4.5v10.4h-10.9v-28.5h15.9c9.7,0,16.6,2.7,16.6,8.4s-2.9,6.4-7.6,7.6l10.2,12.5h-12.6ZM41.6,164.8h3.9c4.3,0,6.9-1.1,6.9-4.2s-2.6-4.3-6.9-4.3h-3.9v8.5Z"
+                fill="#1a2c5d"
+              />
+              <path
+                d="M68.4,197.4v28.5h-15.7l-10-17c-1.1-1.9-2-3.9-2.7-5.9h-.5c.8,4.7,1.1,11.3,1.1,15.3v7.6h-9.8v-28.5h15.7l10,17c1.1,1.9,2.1,3.9,2.8,5.9h.5c-.8-4.7-1.2-9.7-1.2-14.5v-8.4h9.8Z"
+                fill="#fff"
+              />
             </g>
           </g>
         </g>

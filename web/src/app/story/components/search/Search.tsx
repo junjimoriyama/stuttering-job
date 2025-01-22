@@ -4,11 +4,11 @@ import React from "react";
 import { AgeSearch } from "./conditions/age/AgeSearch";
 import { GenderSearch } from "./conditions/gender/GenderSearch";
 import { IndustrySearch } from "./conditions/industry/IndustrySearch";
-import { SearchInvalidBtn } from "../../mainArea/components/searchInvalidBtn/SearchInvalidBtn";
 // style
 import "./search.scss";
 import { FilterIcon } from "@/assets/svg/icon/filter";
 import { SearchCount } from "./searchCount/SearchCount";
+import { SearchInvalidBtn } from "../../storyRender/mainArea/components/searchInvalidBtn/SearchInvalidBtn";
 
 export const Search = () => {
 

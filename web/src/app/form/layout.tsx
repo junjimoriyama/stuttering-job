@@ -14,9 +14,9 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
   return (
     <StepProvider>
       <Header />
-      <Suspense>
+      {/* <Suspense> */}
         <FormProvider {...method}>{children}</FormProvider>
-      </Suspense>
+      {/* </Suspense> */}
       <Footer />
     </StepProvider>
   );

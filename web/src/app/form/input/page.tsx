@@ -26,12 +26,12 @@ import { JobHuntStruggles } from "./jobHuntStruggles/JobHuntStruggles";
 import { Free } from "./free/Free";
 // style
 import "./input.scss";
+import { LinkArrow } from "@/assets/svg/icon/arrow";
+import { GuideChara, UpHandChara } from "@/assets/svg/character/characterSvg";
 
 const input = () => {
+  // router
   const router = useRouter();
-
-  // params
-  const params = useSearchParams();
   // step
   const { step, setStep } = useContext(StepContext);
   // toast
@@ -43,34 +43,30 @@ const input = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
+    // params
+    const params = new URLSearchParams(window.location.search);
+
     if (typeof window !== "undefined") {
       // 登録メール重複時に表示
-      const errorParam = params.get("error");
+      // const errorParam = params.get("error");
 
-      if (errorParam === "EmailAlreadyTaken") {
+      if (params.get("error") === "EmailAlreadyTaken") {
         setToast({
           display: true,
           text: "emailAlreadyTaken",
         });
-      } else if (errorParam === "notAnswered") {
+      } else if (params.get("error") === "notAnswered") {
         setToast({
           display: true,
           text: "notAnswered",
         });
 
-        // 一番上にスクロール
-        // window.scrollTo({
-        //   top: document.body.scrollHeight,
-        //   behavior: "smooth",
-        // });
-
         // クエリパラメータを削除
-        const currentUrl = new URL(window.location.href);
-        currentUrl.searchParams.delete("error");
-        router.replace(currentUrl.toString());
+        params.delete("error");
+        router.replace(`${window.location.pathname}?${params.toString()}`);
       }
     }
-  }, [params, router]);
+  }, [router]);
 
   // useForm
   const {
@@ -127,19 +123,33 @@ const input = () => {
           }}
         >
           <div className="form_guide_btn" onClick={handleModalOpen}>
-            体験談について
-            <span>→</span>
+          <div className="form_guide_btn_background"></div>
+          <GuideChara />
+          <span className="form_guide_text">ご記入にあたり</span>
+          <LinkArrow />
+          </div>
+          <div className="form_title">体験談記入
+            <UpHandChara />
           </div>
           <p className="form_prompt">下記にご回答お願いいたします。</p>
-          <ul>
-            {/* 年代 --> */}
-            <Age register={register} errors={errors} setValue={setValue} />
+          <ul className="form_list">
+            {/*　ユーザー情報 */}
+            <UserInfo register={register} errors={errors} setValue={setValue} />
 
-            {/* 性別 --> Ï*/}
-            <Gender register={register} errors={errors} setValue={setValue} />
+            <div className="age_gender_industry">
+              {/* 年代 --> */}
+              <Age register={register} errors={errors} setValue={setValue} />
 
-            {/* 業種 --> */}
-            <Industry register={register} errors={errors} setValue={setValue} />
+              {/* 性別 --> Ï*/}
+              <Gender register={register} errors={errors} setValue={setValue} />
+
+              {/* 業種 --> */}
+              <Industry
+                register={register}
+                errors={errors}
+                setValue={setValue}
+              />
+            </div>
 
             {/* 具体的な業種 */}
             <JobDetails
@@ -151,14 +161,16 @@ const input = () => {
             {/* 今の仕事を選んだ理由 */}
             <Reason register={register} errors={errors} setValue={setValue} />
 
-            {/* 雇用形態 */}
-            <Employment
-              register={register}
-              errors={errors}
-              setValue={setValue}
-            />
-            {/* 勤続年数 */}
-            <Years register={register} errors={errors} setValue={setValue} />
+            <div className="employment_years">
+              {/* 雇用形態 */}
+              <Employment
+                register={register}
+                errors={errors}
+                setValue={setValue}
+              />
+              {/* 勤続年数 */}
+              <Years register={register} errors={errors} setValue={setValue} />
+            </div>
 
             {/* 仕事の苦労度 */}
             <JobDifficulty
@@ -193,11 +205,7 @@ const input = () => {
 
             {/* 自由記入欄 */}
             <Free register={register} errors={errors} setValue={setValue} />
-
-            {/*　ユーザー情報 */}
-            <UserInfo register={register} errors={errors} setValue={setValue} />
           </ul>
-          {/* <div className="confirm_step_button_wrap"> */}
           <div className="confirm_step_button_wrap">
             <button className="confirm_step_button" type="submit">
               確認画面へ

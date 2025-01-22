@@ -52,7 +52,7 @@ export const Reason = ({
       })}
       />
       <div className="textCount">
-        {textCount} / {maxLength}
+        {textCount} / {maxLength}文字
       </div>
     </li>
   );

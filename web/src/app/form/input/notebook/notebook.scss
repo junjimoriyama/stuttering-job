@@ -1,10 +1,11 @@
-@use "@/style/common.scss" as mixin;
 @use "@/style/variable.scss" as var;
+@use "@/style/common.scss" as mixin;
 
 .input {
   .input_form {
     .notebook {
-      margin-bottom: var.$for_margin_Bottom;
+      margin-bottom: var.$form_margin_Bottom;
+      @include mixin.formBackGroundColor();
       .notebook-select {
         &.isInvalid {
           @include mixin.formIsValid;

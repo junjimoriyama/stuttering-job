@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="50mm" height="29.9mm" version="1.1" viewBox="0 0 141.7 84.8">
+  <g>
+    <g 
+    id="drop_arrow"
+    className="drop_arrow"
+    data-name="drop_arrow">
+      <path d="M135.5,20.2l-58.2,58.2c-3.5,3.5-9.3,3.5-12.8,0L6.2,20.2C.5,14.5,4.5,4.7,12.6,4.7h116.5c8.1,0,12.1,9.8,6.4,15.5Z" fill="#172c59"/>
+    </g>
+  </g>
+</svg>

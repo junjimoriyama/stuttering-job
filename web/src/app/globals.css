@@ -26,6 +26,19 @@ select,
   color: red;
 }
 
+/* h1 {
+  font-size: 40px;
+  @media (max-width: 810px) {
+      font-size: 30px;
+  }
+}
+h2 {
+  font-size: 24px;
+  @media (max-width: 810px) {
+      font-size: 20px;
+  }
+} */
+
 /* :root {
   --background: linear-gradient(to bottom, #d0f0e7, #ffffff); 
   --foreground: #171717;

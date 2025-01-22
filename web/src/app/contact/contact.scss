@@ -1,0 +1,171 @@
+@use "@/style/breakpoint.scss" as bp;
+@use "@/style/common.scss" as mixin;
+@use "@/style/variable.scss" as var;
+
+.contact {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  // justify-content: center;
+  width: 100%;
+  padding: 20px;
+  min-height: 100vh;
+  margin-top: var.$header_Height;
+
+  @include bp.media(xxs, max) {
+    padding: 10px;
+  }
+
+  .contact_intro {
+    max-width: 1000px;
+    padding: 20px;
+
+    .contact_title {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 20px;
+      font-size: var.$font_size_xl;
+    }
+
+    .contact_details {
+      line-height: 2;
+    }
+  }
+
+  .contact_form {
+    display: flex;
+    flex-direction: column;
+    // justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 800px;
+    margin-bottom: 50px;
+    padding: 20px;
+    // background-color: var.$light_blue;
+    border-radius: 10px;
+    @include mixin.graduallyPage();
+
+    @include bp.media(xxs, max) {
+      padding: 20px 10px 0 10px;
+    }
+
+    .contact_form_list {
+      display: flex;
+      flex-direction: column;
+      gap: 50px;
+      width: 100%;
+      .contact_form_item {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        label {
+          display: inline-flex;
+          align-items: center;
+          gap: 5px;
+          margin-bottom: 10px;
+          padding-right: 5px;
+
+          &::before {
+            content: "";
+            width: 7px;
+            height: 20px;
+            background-color: var.$main_color;
+            border-radius: 2px;
+            margin-right: 5px;
+          }
+        }
+        .must {
+          @include mixin.formColorBox(var.$sub_color);
+        }
+
+        .select_wrapper {
+          position: relative;
+          select {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            background-color: #ffffff;
+            border-radius: 5px;
+            outline: 2px solid #dddbdb;
+            outline-offset: -2px;
+            transition: 0.2s ease;
+            cursor: pointer;
+          }
+          .drop_arrow {
+            position: absolute;
+            top: 15px;
+            right: 10px;
+          }
+        }
+      }
+      .contact_form_name,
+      .contact_form_email,
+      // .contact_form_overview,
+      .contact_form_content {
+        width: 100%;
+        padding: 12px;
+        background-color: #ffffff;
+        border-radius: 5px;
+        outline: 2px solid #dddbdb;
+        outline-offset: -2px;
+        transition: 0.2s ease;
+        cursor: pointer;
+      }
+
+      .error {
+        position: absolute;
+        bottom: -30px;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        padding: 5px;
+        color: var.$sub_color;
+        font-size: 14px;
+
+        .surpriseMark {
+          width: 20px;
+          height: 20px;
+        }
+      }
+      .textCount {
+        align-self: flex-end;
+        margin-bottom: 50px;
+      }
+
+      .contact_form_content {
+        min-height: 300px;
+        margin-bottom: 10px;
+        resize: none;
+        overflow: hidden;
+        field-sizing: content;
+
+        @include bp.media(xs, max) {
+          min-height: 300px;
+          overflow: auto;
+        }
+      }
+
+      .error_content {
+        position: absolute;
+        bottom: 50px;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        padding: 5px;
+        color: var.$sub_color;
+        font-size: 14px;
+
+        .surpriseMark {
+          width: 20px;
+          height: 20px;
+        }
+      }
+    }
+  }
+  .contact_form_send_button {
+    @include mixin.actionBtn(var.$form_btn_color);
+    width: 50%;
+    height: 40px;
+  }
+}

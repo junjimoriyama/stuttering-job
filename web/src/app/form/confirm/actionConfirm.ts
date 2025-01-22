@@ -7,7 +7,6 @@ export const sendAction = async (formData: FormData) => {
 
   try {
     const res = await fetch(`${process.env.API_URL}/api/v1/user_data`, {
-    // const res = await fetch("http://localhost:3000/api/v1/user_data", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -15,7 +14,6 @@ export const sendAction = async (formData: FormData) => {
       credentials: "include",
       body: JSON.stringify(allData),
     });
-
 
     if (!res.ok) {
       const errorMessage = await res.json();

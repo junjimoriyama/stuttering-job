@@ -56,7 +56,7 @@ export const JobHuntStruggles = ({
         <div className="temporarySave">
         </div>
         <div className="textCount">
-          {textCount} / {maxLength}
+          {textCount} / {maxLength}文字
         </div>
       </div>
     </li>

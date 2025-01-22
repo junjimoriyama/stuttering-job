@@ -2,6 +2,7 @@
 @use "@/style/common.scss" as mixin;
 @use "@/style/variable.scss" as var;
 
+
 header {
   position: fixed;
   top: 0;
@@ -38,7 +39,7 @@ header {
     &.isTopPage {
       justify-content: flex-end;
     }
-    &.isShow {
+    &.isShow.isTopPage {
       &.isTopPage {
         justify-content: space-between;
       }
@@ -76,8 +77,15 @@ header {
       @include bp.media(xxs, max) {
         display: none;
       }
+
       .header_item {
         color: var.$main_color;
+        
+        // @for $i from 2 through 4 {
+        //   &:nth-last-of-type(#{$i}) {
+        //     background-color: var.$light_blue;
+        //   }
+        // }
         
         .header_item_text {
           transition: color 0.3s;
@@ -86,6 +94,9 @@ header {
             color: var.$sub_color
           }
         }
+      }
+      @include bp.media(xxs, max) {
+        display: none;
       }
     }
 
@@ -104,7 +115,8 @@ header {
       &.isShow {
         display: flex;
       }
-      @include bp.media(xxs, max) {
+      @include bp.media(xxs, min) {
+        display: none;
       }
       .sp_header_item {
         color: var.$main_color;
@@ -117,6 +129,8 @@ header {
         }
       }
     }
+
+
     .menuIcon {
       position: relative;
       display: none;

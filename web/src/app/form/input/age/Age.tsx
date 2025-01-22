@@ -6,6 +6,7 @@ import { FormWithSetValueProps } from "@/types/form";
 import { storageSelectSaveDataAge } from "@/functions/functions";
 // svg
 import { SurpriseMark } from "@/assets/svg/icon/mark";
+import { DropArrow } from "@/assets/svg/icon/arrow";
 // style
 import "./age.scss";
 
@@ -29,6 +30,8 @@ export const Age = ({ register, errors, setValue }: FormWithSetValueProps) => {
       <label htmlFor="age">
         年代 <span className="must">必須</span>
       </label>
+      <div className="select_wrapper">
+      <DropArrow />
       <select
         id="age"
         value={saveData}
@@ -56,6 +59,8 @@ export const Age = ({ register, errors, setValue }: FormWithSetValueProps) => {
           );
         })}
       </select>
+
+      </div>
       {errors.age && typeof errors.age.message === "string" && (
         <p className="error">
           <SurpriseMark />

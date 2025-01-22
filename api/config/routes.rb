@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       resources :user_data, only: [:index, :show, :create, :update, :destroy]
+      resources :contact_data, only: [:create]
     end
   end
 

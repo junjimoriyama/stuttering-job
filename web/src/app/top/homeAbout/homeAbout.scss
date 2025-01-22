@@ -187,7 +187,7 @@
         &::after {
           animation: writeBorderColor 1s  2s forwards;
 
-          @include bp.media(xxs, max) {
+          @include bp.media(xs, max) {
             animation: none;
           }
         }
@@ -212,7 +212,7 @@
       justify-content: center;
       align-items: center;
       gap: 100px;
-      margin-bottom: 120px;
+      margin-bottom: 150px;
 
       @include bp.media(xs, max) {
         margin-bottom: 80px;
@@ -411,7 +411,7 @@
 
       @include bp.media(xxs, max) {
         flex-direction: column;
-        margin-bottom: 50px;
+        margin-bottom: 100px;
         font-size: 16px;
         gap: 0px;
       };

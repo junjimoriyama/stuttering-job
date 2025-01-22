@@ -4,7 +4,9 @@
 .input {
   .input_form {
     .gender {
-      margin-bottom: var.$for_margin_Bottom;
+      flex: 1;
+      margin-bottom: var.$form_margin_Bottom;
+      @include mixin.formBackGroundColor();
       .gender-select {
         &.isInvalid {
           @include mixin.formIsValid;

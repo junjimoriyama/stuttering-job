@@ -1,23 +1,25 @@
-// components
+// story.tsx
 import { StoryRender } from "./storyRender/StoryRender";
-// style
-import "./story.scss";
 
-const story = async() => {
+const fetchData = async () => {
+  const res = await fetch(`${process.env.API_URL}/api/v1/user_data`, {
+    method: "GET",
+    cache: "no-store",
+  });
+  if (!res.ok) {
+    throw new Error("Failed to fetch data");
+  }
+  return res.json();
+};
 
-    // データ取得
-    const res = await fetch(`${process.env.API_URL}/api/v1/user_data`, {
-      method: "GET",
-      cache: 'no-store' 
-    })
-  
-    const fetchData = await res.json()
-    
+const Story = async () => {
+  const data = await fetchData();
+
   return (
     <div className="story">
-      <StoryRender fetchData={fetchData}/>
+      <StoryRender fetchData={data} />
     </div>
   );
 };
 
-export default story;
+export default Story;

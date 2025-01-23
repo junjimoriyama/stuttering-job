@@ -11,6 +11,7 @@
   padding: 20px;
   min-height: 100vh;
   margin-top: var.$header_Height;
+  @include mixin.graduallyPage();
 
   @include bp.media(xxs, max) {
     padding: 10px;
@@ -33,6 +34,53 @@
     }
   }
 
+  .privacy_policy {
+    position: relative;
+    margin-bottom: 30px;
+    padding: 20px;
+
+    input[type="checkbox"] {
+      width: 20px;
+      height: 20px;
+      margin-right: 5px;
+      border: 2px solid var.$main_color;
+      border-radius: 2px;
+      cursor: pointer;
+    
+      &:checked {
+        background-color: var.$main_color;
+        border-color: var.$main_color;
+        position: relative;
+      }
+    }
+    span {
+      border-bottom: 2px solid var.$sub_color;
+      transition: .3;
+      @media (any-hover: hover) {
+        &:hover {
+          opacity: 0.7;
+        }
+      }
+    }
+    .error_privacy {
+      position: absolute;
+      top: 45px;
+      left: 15px;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      padding: 5px;
+      color: var.$sub_color;
+      font-size: 14px;
+
+      .surpriseMark {
+        width: 20px;
+        height: 20px;
+      }
+    }
+    
+  }
+
   .contact_form {
     display: flex;
     flex-direction: column;
@@ -44,7 +92,6 @@
     padding: 20px;
     // background-color: var.$light_blue;
     border-radius: 10px;
-    @include mixin.graduallyPage();
 
     @include bp.media(xxs, max) {
       padding: 20px 10px 0 10px;
@@ -130,7 +177,7 @@
       }
       .textCount {
         align-self: flex-end;
-        margin-bottom: 50px;
+        margin-bottom: 20px;
       }
 
       .contact_form_content {
@@ -148,7 +195,7 @@
 
       .error_content {
         position: absolute;
-        bottom: 50px;
+        bottom: 23px;
         display: flex;
         align-items: center;
         gap: 5px;
@@ -163,6 +210,7 @@
       }
     }
   }
+
   .contact_form_send_button {
     @include mixin.actionBtn(var.$form_btn_color);
     width: 50%;

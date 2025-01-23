@@ -49,6 +49,8 @@ const Header = () => {
       return { isTopPage: false, activePage: "form_page" };
     } else if (pathname.includes("/learn")) {
       return { isTopPage: false, activePage: "learn_page" };
+    } else if (pathname.includes("/contact")) {
+      return { isTopPage: false, activePage: "contact_page"}
     }
     // デフォルト値
     return { isTopPage: false, activePage: "" };
@@ -120,8 +122,8 @@ const Header = () => {
                 </span>
               </Link>
             </li>
-            {/* <li className="header_item">
-              <Link href="/learn">
+            <li className="header_item">
+              <Link href="/contact">
                 <span></span>
                 <span
                   className={`header_item_text ${
@@ -131,7 +133,7 @@ const Header = () => {
                   問い合わせ
                 </span>
               </Link>
-            </li> */}
+            </li>
           </ul>
 
           {/* sp用メニュー */}
@@ -177,6 +179,17 @@ const Header = () => {
                   }`}
                 >
                   知る
+                </span>
+              </li>
+            </Link>
+            <Link href="/learn">
+              <li className="sp_header_item">
+                <span
+                  className={`sp_header_item_text ${
+                    activePage === "contact_page" ? "contact_page" : ""
+                  }`}
+                >
+                  問い合わせ
                 </span>
               </li>
             </Link>

@@ -7,13 +7,14 @@
 // $accordion_border_thickness: 3px;
 
 .single_story {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 20px;
   width: 100%;
   min-height: 100vh;
-  padding:  20px 20px 0 20px;
+  padding: 20px 20px 0 20px;
   margin-top: calc(var.$header_Height + 20px);
   margin-bottom: 50px;
   display: flex;
@@ -21,9 +22,31 @@
   @include mixin.graduallyPage();
 
   .single_story_heading {
-  display: flex;
-  gap: 20px;
-  font-size: 18px;
+    display: flex;
+    gap: 20px;
+    font-size: 18px;
+  }
+
+  .up_hand_chara {
+    position: absolute;
+    top: 100px;
+    right: -65px;
+    width: 120px;
+    height: 120px;
+    transform: rotate(45deg) scaleX(-1);
+    z-index: -1;
+
+    @include bp.media(sm, max) {
+      top: -60px;
+      right: 20px;
+      transform: rotate(0);
+    }
+    @include bp.media(xxs, max) {
+      top: -40px;
+      right: 0px;
+      width: 80px;
+      height: 80px;
+    }
   }
 
   .single_story_list {
@@ -74,7 +97,6 @@
         padding: 12px;
 
         .single_story_value_difficulty {
-
         }
         .single_story_level_difficulty {
           display: grid;

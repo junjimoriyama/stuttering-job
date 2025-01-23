@@ -34,11 +34,13 @@ footer {
     display: flex;
     gap: 50px;
     color: #fff;
+    font-size: 18px;
 
     @include bp.media(xs, max) {
       flex-direction: column;
       align-items: center;
       gap: 10px;
+      font-size: 16px;
     }
 
     .footer_item {

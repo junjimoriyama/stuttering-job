@@ -6,6 +6,7 @@ import Footer from "@/components/layout/footer/Footer";
 import { BackStoryBtn } from "../components/backStoryBtn/BackStoryBtn";
 // style
 import "./storyItem.scss";
+import { UpHandChara } from "@/assets/svg/character/characterSvg";
 
 // 各体験談
 const Page = async ({ params }: { params: Promise<{ id: string }> }) => {
@@ -31,6 +32,7 @@ const Page = async ({ params }: { params: Promise<{ id: string }> }) => {
           <p>{data.username}さんの体験談</p>
         </div>
         <ul className="single_story_list">
+          <UpHandChara />
           <li className="single_story_item">
             <span className="single_story_label">No</span>
             <span className="single_story_value">{data.id}</span>

@@ -80,6 +80,12 @@ header {
 
       .header_item {
         color: var.$main_color;
+        transition: 0.3s;
+        @media (any-hover: hover) {
+          &:hover {
+            color: var.$sub_color;
+          }
+        }
         
         // @for $i from 2 through 4 {
         //   &:nth-last-of-type(#{$i}) {
@@ -90,7 +96,7 @@ header {
         .header_item_text {
           transition: color 0.3s;
 
-          &.top_page, &.story_page, &.form_page, &.learn_page {
+          &.top_page, &.story_page, &.form_page, &.learn_page, &.contact_page{
             color: var.$sub_color
           }
         }
@@ -123,7 +129,7 @@ header {
 
         .sp_header_item_text {
           color: #fff;
-          &.top_page, &.story_page, &.form_page, &.learn_page {
+          &.top_page, &.story_page, &.form_page, &.learn_page &.contact_page{
             color: var.$sub_color
           }
         }

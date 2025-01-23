@@ -1,5 +1,7 @@
 "use client";
 
+// next
+import Link from "next/link";
 // react
 import { useForm } from "react-hook-form";
 // components
@@ -25,12 +27,10 @@ const contact = () => {
   } = useForm();
 
   const onSubmit = async (data: any) => {
-    const contactData = data
+    const contactData = data;
     try {
-      sendContactAction(contactData)
-    } catch {
-
-    }
+      sendContactAction(contactData);
+    } catch {}
   };
 
   // const onSubmit = async(e: React.FormEvent<HTMLFormElement>) => {
@@ -40,11 +40,11 @@ const contact = () => {
   // };
 
   // 監視する値
-  const contentValue = watch("content", "")
+  const contentValue = watch("content", "");
   // 最大文字数
   const maxLength = 1000;
   // 残り文字数
-  const textCount = maxLength - contentValue.trim().length
+  const textCount = maxLength - contentValue.trim().length;
 
   return (
     <>
@@ -61,6 +61,28 @@ const contact = () => {
             また一度投稿した体験談の修正、削除依頼もこちらからお願い致します。
           </p>
         </div>
+
+        <div className="privacy_policy">
+          <input
+            type="checkbox"
+            id="privacy"
+            {...register("privacy", {
+              required: "プライバシーポリシーに同意が必要です",
+            })}
+          />
+          <label htmlFor="privacy">
+            <Link href={"/privacy"}>
+              <span>プライバシーポリシー</span>
+            </Link>
+            をご確認、同意の上、ご記入・送信お願いします。
+          </label>
+          {errors.privacy && typeof errors.privacy.message === "string" && (
+            <p className="error_privacy">
+              <SurpriseMark />
+              {errors.privacy.message}
+            </p>
+          )}
+        </div>
         <form className="contact_form" onSubmit={handleSubmit(onSubmit)}>
           <ul className="contact_form_list">
             <li className="contact_form_item">
@@ -76,12 +98,12 @@ const contact = () => {
                   required: "入力は必須です",
                 })}
               />
-            { errors.name && typeof errors.name.message === "string" && (
-              <p className="error">
-                <SurpriseMark />
-                {errors.name.message}
-              </p>
-            )}
+              {errors.name && typeof errors.name.message === "string" && (
+                <p className="error">
+                  <SurpriseMark />
+                  {errors.name.message}
+                </p>
+              )}
             </li>
 
             <li className="contact_form_item">
@@ -97,7 +119,7 @@ const contact = () => {
                   required: "入力は必須です",
                 })}
               />
-              { errors.email && typeof errors.email.message === "string" && (
+              {errors.email && typeof errors.email.message === "string" && (
                 <p className="error">
                   <SurpriseMark />
                   {errors.email.message}
@@ -125,12 +147,13 @@ const contact = () => {
                 </select>
                 <DropArrow />
               </div>
-              { errors.overview && typeof errors.overview.message === "string" && (
-                <div className="error">
-                  <SurpriseMark />
-                  {errors.overview.message}
-                </div>
-              )}
+              {errors.overview &&
+                typeof errors.overview.message === "string" && (
+                  <div className="error">
+                    <SurpriseMark />
+                    {errors.overview.message}
+                  </div>
+                )}
             </li>
 
             <li className="contact_form_item">
@@ -142,13 +165,12 @@ const contact = () => {
                 id="content"
                 className="contact_form_content"
                 {...register("content", {
-                  setValueAs: value => value.trim(),
+                  setValueAs: (value) => value.trim(),
                   required: "入力は必須です",
                 })}
-                
               />
               {errors.content && typeof errors.content.message === "string" && (
-                  <div className="error_content">
+                <div className="error_content">
                   <SurpriseMark />
                   {errors.content.message}
                 </div>
@@ -156,9 +178,9 @@ const contact = () => {
               <div className="textCount">
                 {textCount} / {maxLength}文字
               </div>
-
             </li>
           </ul>
+
           <button className="contact_form_send_button" type="submit">
             送信する
           </button>

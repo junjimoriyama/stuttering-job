@@ -1,0 +1,88 @@
+@use "@/style/breakpoint.scss" as bp;
+@use "@/style/common.scss" as mixin;
+@use "@/style/variable.scss" as var;
+
+.privacy {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  // justify-content: center;
+  width: 100%;
+  padding: 20px;
+  min-height: 100vh;
+  margin-top: var.$header_Height;
+  margin-bottom: 50px;
+  line-height: 2;
+  @include mixin.graduallyPage();
+  
+  @include bp.media(xxs, max) {
+    padding: 10px;
+  }
+  
+  .privacy_wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 800px;
+
+    .privacy_title {
+      margin-bottom: 30px;
+      font-size: var.$font_size_xl;
+    }
+
+    .privacy_intro {
+      margin-bottom: 50px;
+    }
+  
+    .privacy_list {
+      display: flex;
+      flex-direction: column;
+      gap: 60px;
+      margin-bottom: 30px;
+
+      .privacy_item {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+
+        .privacy_sub_title {
+          font-size: 20px;
+    
+        }
+        .privacy_description {
+          margin-bottom: 10px;
+          span {
+            font-size: 14px;
+          }
+        }
+
+        ul {
+          display: flex;
+          flex-direction: column;
+          gap: 10px;
+          margin-bottom: 10px;
+          li {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            &::before {
+              content: '';
+              display: inline-block;
+              width: 10px;
+              height: 10px;
+              min-width: 10px;
+              min-height: 10px;
+              background-color: var.$main_color;
+
+            }
+          }
+        }
+      }
+  
+    }
+  }
+
+  .privacy_date {
+    align-self: start;
+  }
+}

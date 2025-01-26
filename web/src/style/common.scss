@@ -10,15 +10,15 @@
 
 @mixin formIsActive() {
   outline: none;
-  outline: 3px solid var.$form_focus_border_color;
+  outline: 2px solid var.$form_focus_border_color;
   outline-offset: -2px;
-  background-color: #fff;
+  // background-color: #fff;
 }
 
 @mixin formColorBox($bgColor) {
   background-color: $bgColor;
   position: relative;
-  padding: 3px 5px;
+  padding: 1px 5px;
   color: #ffffff;
   border-radius: 50px;
   display: inline-block;
@@ -53,7 +53,7 @@
 
 @mixin typingText() {
   text-align: center;
-  margin-bottom: 24px;
+  margin-bottom: 30px;
   overflow: hidden; /* コンテンツを隠す */
   white-space: nowrap; /* テキストを一行で表示 */
   border-right: 2px solid #333; /* カーソルのように見える線 */

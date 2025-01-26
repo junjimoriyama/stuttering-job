@@ -9,7 +9,7 @@ export const sendContactAction = async(contactData: any) => {
         "Content-Type": "application/json"
       },
       credentials: "include",
-      body: JSON.stringify({contact: contactData})
+      body: JSON.stringify({contact_data: contactData})
     })
 
     const data = await res.json()

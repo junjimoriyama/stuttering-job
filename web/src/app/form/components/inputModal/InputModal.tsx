@@ -27,7 +27,7 @@ export const InputModal = ({
           <div className="inputModalCloseBtn" onClick={handleModalClose}>
             ×
           </div>
-          <div className="inputModalItem target">
+          <div className="inputModalItem">
             <div className="heading">
               <div className="inner">対象者について</div>
             </div>
@@ -38,7 +38,7 @@ export const InputModal = ({
 
           <div className="stitch"></div>
 
-          <div className="inputModalItem InputField">
+          <div className="inputModalItem">
             <p className="heading">入力欄について</p>
             <p className="text">
               「必須」欄にはご回答お願いします。「自由記述欄」に関しては必須ではありません。
@@ -47,7 +47,7 @@ export const InputModal = ({
 
           <div className="stitch"></div>
 
-          <div className="inputModalItem pubdivsh">
+          <div className="inputModalItem">
             <p className="heading">掲載について</p>
             <p className="text">
               送って頂いたアンケートは内容を確認させて頂き準備出来次第、掲載いたします。
@@ -62,8 +62,8 @@ export const InputModal = ({
 
           <div className="stitch"></div>
 
-          <div className="inputModalItem privacy">
-            <p className="heading">プライバシーについて</p>
+          <div className="inputModalItem">
+            <p className="heading">個人情報について</p>
             <p className="text">
               {" "}
               ご記入頂いたアンケートはニックネームは載せますが、その他、個人の特定ができないようにします。

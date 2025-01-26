@@ -20,7 +20,7 @@
     // background-color: var.$main_color;
   }
   @include bp.media(xxs, max) {
-    padding: 5px 8px;
+    padding: 0px;
   }
 
   &.storyItems_searchCount {
@@ -57,6 +57,12 @@
     grid-template-columns: 1fr 1fr; /* 2つの列を作成 */
     font-size: 16px;
     padding: 5px 10px;
+    @include bp.media(xxs, max) {
+      padding: 5px;
+    }
+    @include bp.media(xxxs, max) {
+      padding: 3px;
+    }
   }
   
   
@@ -67,12 +73,20 @@
     display: grid;
     place-items: center;
     }
+    @include bp.media(xxs, max) {
+      font-size: 14px;
+    }
   }
   
   .search_hit_count_value {
     text-align: right;
     font-size: 24px;
     line-height: 1.2;
+
+    @include bp.media(xxs, max) {
+      line-height: 1.5;
+      font-size: 20px;
+    }
   }
   
 }

@@ -9,14 +9,13 @@
   // justify-content: center;
   width: 100%;
   padding: 20px;
-  min-height: 100vh;
+  min-height: calc(100vh - var.$footer_Height);
   margin-top: var.$header_Height;
   margin-bottom: 50px;
   line-height: 2;
   @include mixin.graduallyPage();
   
   @include bp.media(xxs, max) {
-    padding: 10px;
   }
   
   .privacy_wrap {
@@ -28,6 +27,10 @@
     .privacy_title {
       margin-bottom: 30px;
       font-size: var.$font_size_xl;
+
+      @include bp.media(xxs, max) {
+        font-size: var.$font_size_md;
+      }
     }
 
     .privacy_intro {

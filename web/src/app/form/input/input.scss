@@ -10,10 +10,120 @@
   width: 100%;
   padding: 20px;
   background-color: #fff;
-  min-height: 100vh;
+  // min-height: 100vh;
 
   @include bp.media(xxs, max) {
     padding: 10px;
+  }
+
+  .form_guide_btn {
+    position: fixed;
+    top: 100px;
+    right: 0;
+    display: flex;
+    flex-direction: row; // 縦書きの場合に文字を上から下に配置
+    align-items: center; // 子要素を中央揃え
+    justify-content: center;
+    color: #ffffff;
+    width: 80px;
+    padding: 10px;
+    border-radius: 10px 0 0 10px;
+    writing-mode: vertical-rl;
+    text-orientation: upright;
+    text-align: center; // 文字を中央揃え
+    line-height: 1; // 行間を調整
+    transition: 0.3s;
+    cursor: pointer;
+    z-index: 2;
+
+    @include bp.media(sm, max) {
+      width: 50px;
+    }
+
+    @include bp.media(xxs, max) {
+      width: 40px;
+      font-size: 14px;
+      padding: 8px 0;
+    }
+
+    @media (any-hover: hover) {
+      &:hover {
+        .guide_chara_svg {
+          transform: rotate(-5deg);
+        }
+      }
+    }
+
+    .form_guide_btn_background {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: var.$main_color;
+      border-radius: 10px 0 0 10px;
+      z-index: -1; // 背景色を後ろに配置
+    }
+
+    .form_guide_text {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 5px;
+      font-family: 'ヒラギノ角ゴ ProN';
+    }
+
+    .guide_chara_svg {
+      position: fixed;
+      top: 120px;
+      right: 50px;
+      transform: rotate(-30deg);
+      transition: 0.5s;
+      z-index: -2;
+
+      @include bp.media(sm, max) {
+        right: 15px;
+      }
+      @include bp.media(xs, max) {
+        width: 60px;
+        height: 60px;
+        transform: rotate(180deg) scaleX(-1);
+        top: 250px;
+        right: -8px;
+        // bottom: 100px;
+        // display: none;
+      }
+      @include bp.media(xxs, max) {
+        top: 232px;
+        right: -12px;
+        // bottom: 100px;
+        // display: none;
+      }
+    }
+  }
+
+  .form_title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: var.$font_size_xl;
+
+    @include bp.media(xxs, max) {
+      font-size: var.$font_size_md;
+    }
+  }
+
+  .form_prompt {
+    @include mixin.typingText();
+  }
+
+  @keyframes blink {
+    50% {
+      border-color: transparent;
+    }
+    100% {
+      border-color: transparent;
+    }
   }
 
   .input_form {
@@ -22,8 +132,6 @@
     width: 100%;
     max-width: 1000px;
     margin-bottom: 50px;
-    padding: 20px;
-    // background-color: var.$light_blue;
     border-radius: 10px;
     @include mixin.graduallyPage();
 
@@ -31,107 +139,12 @@
       padding: 20px 10px 0 10px;
     }
 
-    .form_guide_btn {
-      position: fixed;
-      top: 100px;
-      right: 0;
-      display: flex;
-      flex-direction: row; // 縦書きの場合に文字を上から下に配置
-      align-items: center; // 子要素を中央揃え
-      justify-content: center;
-      color: #ffffff;
-      width: 80px;
-      padding: 10px;
-      border-radius: 10px 0 0 10px;
-      writing-mode: vertical-rl;
-      text-orientation: upright;
-      text-align: center; // 文字を中央揃え
-      line-height: 1; // 行間を調整
-      transition: 0.3s;
-      cursor: pointer;
-      z-index: 2;
-
-      @include bp.media(sm, max) {
-        width: 50px;
-      }
-
-      @include bp.media(xxs, max) {
-        width: 40px;
-        font-size: 14px;
-        padding: 8px 0;
-      }
-
-      @media (any-hover: hover) {
-        &:hover {
-          .guide_chara_svg {
-            transform: rotate(-10deg);
-          }
-        }
-      }
-
-      .form_guide_btn_background {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: var.$main_color;
-        border-radius: 10px 0 0 10px;
-        z-index: -1; // 背景色を後ろに配置
-      }
-
-      .form_guide_text {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin-bottom: 5px;
-        font-family: 'ヒラギノ角ゴ ProN';
-      }
-
-      .guide_chara_svg {
-        position: fixed;
-        top: 120px;
-        right: 50px;
-        transform: rotate(-30deg);
-        transition: 0.5s;
-        z-index: -2;
-
-        @include bp.media(sm, max) {
-          right: 15px;
-        }
-        @include bp.media(xs, max) {
-          display: none;
-        }
-      }
-
-      .link_arrow {
-        // margin-bottom: 10px;
-      }
-    }
-
-    .form_title {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-size: var.$font_size_xl;
-
-      @include bp.media(xxs, max) {
-        font-size: var.$font_size_md;
-      }
-    }
-
-    .form_prompt {
-      @include mixin.typingText();
-    }
-
-    @keyframes blink {
-      50% {
-        border-color: transparent;
-      }
-      100% {
-        border-color: transparent;
-      }
-    }
+    // .form_save_text {
+    //   background-color: var.$main_color;
+    //   color: #fff;
+    //   padding: 5px;
+    //   border-radius: 10px;
+    // }
 
     .form_list {
       .age_gender_industry {
@@ -228,12 +241,15 @@
         }
 
         .select_wrapper {
+          select {
+          }
           position: relative;
           .drop_arrow {
             position: absolute;
-            top: 15px;
+            top: 20px;
             right: 10px;
-            // transform: translateY(-50%);
+             // 直接セレクトタグ反応
+            pointer-events: none;
           }
         }
 

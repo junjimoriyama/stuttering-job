@@ -41,8 +41,8 @@ export const SurpriseMark = () => {
 export const CheckMark = () => {
   return (
     <svg
-      id="checkMark"
-      className="check_mark"
+      id="check_mark_svg"
+      className="check_mark_svg"
       data-name="checkMark"
       xmlns="http://www.w3.org/2000/svg"
       width="20"

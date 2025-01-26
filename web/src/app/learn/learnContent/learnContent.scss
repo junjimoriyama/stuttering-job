@@ -55,7 +55,6 @@
     }
   }
 
-
   .learn_about {
     display: flex;
     gap: 20px;
@@ -448,7 +447,6 @@
         gap: 20px;
         opacity: 0;
         flex: 6;
-        margin-bottom: 50px;
 
         &.isVisible {
           animation: textAppearance 1s 0.2s forwards;
@@ -465,8 +463,54 @@
         }
       }
       .learn_trigger_consideration_message {
+        padding: 20px 0 0 0;
         margin-bottom: 50px;
       }
+    }
+  }
+
+  .up_hand_chara {
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    left: 90%;
+    bottom: -1000px;
+    animation: charaRotate 2s linear infinite, charaMoveUp 60s linear infinite; /* アニメーションの全体時間を調整 */
+    animation-delay: 0s, 10s;
+    opacity: 0;
+    z-index: -1;
+  }
+
+  @keyframes charaRotate {
+    0% {
+      transform: rotate(0deg);
+    }
+    50% {
+      transform: rotate(180deg);
+    }
+    100% {
+      transform: rotate(360deg); // 1回転完了
+    }
+  }
+  @keyframes charaMoveUp {
+    0% {
+      opacity: 0;
+      bottom: -1000px; /* 開始位置 */
+    }
+    5% {
+      opacity: 0.7;
+    }
+    20% {
+      bottom: 100%; /* 上昇 */
+      opacity: 0.7;
+    }
+    80% {
+      bottom: 100%; /* 停止 (休止時間) */
+      opacity: 0.7;
+    }
+    100% {
+      bottom: -1000px; /* 初期位置に戻る */
+      opacity: 0.7;
     }
   }
 }

@@ -9,13 +9,9 @@
   // justify-content: center;
   width: 100%;
   padding: 20px;
-  min-height: 100vh;
+  min-height: calc(100vh - var.$footer_Height);
   margin-top: var.$header_Height;
   @include mixin.graduallyPage();
-
-  @include bp.media(xxs, max) {
-    padding: 10px;
-  }
 
   .contact_intro {
     max-width: 1000px;
@@ -27,6 +23,10 @@
       align-items: center;
       margin-bottom: 20px;
       font-size: var.$font_size_xl;
+
+      @include bp.media(xxs, max) {
+        font-size: var.$font_size_md;
+      }
     }
 
     .contact_details {
@@ -34,63 +34,13 @@
     }
   }
 
-  .privacy_policy {
-    position: relative;
-    margin-bottom: 30px;
-    padding: 20px;
-
-    input[type="checkbox"] {
-      width: 20px;
-      height: 20px;
-      margin-right: 5px;
-      border: 2px solid var.$main_color;
-      border-radius: 2px;
-      cursor: pointer;
-    
-      &:checked {
-        background-color: var.$main_color;
-        border-color: var.$main_color;
-        position: relative;
-      }
-    }
-    span {
-      border-bottom: 2px solid var.$sub_color;
-      transition: .3;
-      @media (any-hover: hover) {
-        &:hover {
-          opacity: 0.7;
-        }
-      }
-    }
-    .error_privacy {
-      position: absolute;
-      top: 45px;
-      left: 15px;
-      display: flex;
-      align-items: center;
-      gap: 5px;
-      padding: 5px;
-      color: var.$sub_color;
-      font-size: 14px;
-
-      .surpriseMark {
-        width: 20px;
-        height: 20px;
-      }
-    }
-    
-  }
-
   .contact_form {
     display: flex;
     flex-direction: column;
-    // justify-content: center;
     align-items: center;
     width: 100%;
     max-width: 800px;
     margin-bottom: 50px;
-    padding: 20px;
-    // background-color: var.$light_blue;
     border-radius: 10px;
 
     @include bp.media(xxs, max) {
@@ -102,10 +52,12 @@
       flex-direction: column;
       gap: 50px;
       width: 100%;
+
       .contact_form_item {
         position: relative;
         display: flex;
         flex-direction: column;
+
         label {
           display: inline-flex;
           align-items: center;
@@ -122,42 +74,51 @@
             margin-right: 5px;
           }
         }
+
         .must {
           @include mixin.formColorBox(var.$sub_color);
+        }
+
+        input,
+        textarea {
+          width: 100%;
+          padding: 12px;
+          background-color: #ffffff;
+          border-radius: 5px;
+          outline: 2px solid #dddbdb;
+          outline-offset: -2px;
+          transition: 0.2s ease;
+          cursor: pointer;
+          &:focus {
+            @include mixin.formIsActive();
+          }
         }
 
         .select_wrapper {
           position: relative;
           select {
+            position: relative;
             display: block;
             width: 100%;
             padding: 12px;
-            background-color: #ffffff;
             border-radius: 5px;
             outline: 2px solid #dddbdb;
             outline-offset: -2px;
             transition: 0.2s ease;
             cursor: pointer;
+            
+            &:focus {
+              @include mixin.formIsActive();
+            }
           }
           .drop_arrow {
             position: absolute;
-            top: 15px;
+            top: 20px;
             right: 10px;
+            // 直接セレクトタグ反応
+            pointer-events: none;
           }
         }
-      }
-      .contact_form_name,
-      .contact_form_email,
-      // .contact_form_overview,
-      .contact_form_content {
-        width: 100%;
-        padding: 12px;
-        background-color: #ffffff;
-        border-radius: 5px;
-        outline: 2px solid #dddbdb;
-        outline-offset: -2px;
-        transition: 0.2s ease;
-        cursor: pointer;
       }
 
       .error {
@@ -169,15 +130,15 @@
         padding: 5px;
         color: var.$sub_color;
         font-size: 14px;
-
         .surpriseMark {
           width: 20px;
           height: 20px;
         }
       }
+
       .textCount {
         align-self: flex-end;
-        margin-bottom: 20px;
+        margin-bottom: 50px;
       }
 
       .contact_form_content {
@@ -195,7 +156,7 @@
 
       .error_content {
         position: absolute;
-        bottom: 23px;
+        bottom: 50px;
         display: flex;
         align-items: center;
         gap: 5px;
@@ -215,5 +176,12 @@
     @include mixin.actionBtn(var.$form_btn_color);
     width: 50%;
     height: 40px;
+    pointer-events: none;
+    opacity: .5;
+
+   &.isActive {
+      pointer-events: auto;
+      opacity: 1;
+    }
   }
 }

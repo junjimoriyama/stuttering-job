@@ -1,0 +1,115 @@
+@use "@/style/breakpoint.scss" as bp;
+@use "@/style/common.scss" as mixin;
+@use "@/style/variable.scss" as var;
+
+.received {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding: 20px;
+  min-height: calc(100vh - var.$footer_Height);
+  // overflow-y: scroll;
+
+  .received_message {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: auto;
+    margin: auto 0;
+    @include mixin.graduallyPage();
+
+    .thanks_chara {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      .message_box {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 150px;
+        height: 75px;
+        margin-bottom: 20px;
+        border-radius: 10px;
+        background-color: #1a2c5b;
+        color: #fff;
+        font-size: 24px;
+        animation: displayRectAndText 1s, scaleMessageBox 1s infinite;
+
+        @include bp.media(xxs, max) {
+          width: 100px;
+          height: 50px;
+          font-size: 16px;
+        }
+
+        .message_box_text {
+          margin-bottom: 0;
+        }
+      }
+
+      .thanks_chara_svg {
+        width: 120px;
+        height: 120px;
+        margin-bottom: 30px;
+
+        @include bp.media(xxs, max) {
+          width: 100px;
+          height: 100px;
+        }
+      }
+    }
+
+    .thanks_chara_rect,
+    .thanks_chara_message {
+      opacity: 0;
+      animation-delay: 0.1s;
+
+      @keyframes displayRectAndText {
+        0% {
+          opacity: 0;
+        }
+        100% {
+          opacity: 1;
+        }
+      }
+
+      @keyframes scaleMessageBox {
+        0% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.1);
+        }
+        100% {
+          transform: scale(1);
+        }
+      }
+    }
+
+    .received_text {
+      text-align: center;
+      margin-bottom: 30px;
+      letter-spacing: 0.2em;
+      line-height: 2;
+
+      .received_text_sub {
+        max-width: calc(1em * 30);
+        word-wrap: break-word;
+        white-space: normal;
+      }
+    }
+    .go_to_top_btn {
+      @include mixin.actionBtn(var.$main_color);
+      width: 150px;
+      height: 40px;
+      @include bp.media(xxs, max) {
+        margin-bottom: 50px;
+      }
+    }
+  }
+}

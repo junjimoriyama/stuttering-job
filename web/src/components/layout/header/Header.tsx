@@ -56,6 +56,15 @@ const Header = () => {
     return { isTopPage: false, activePage: "" };
   }, [pathname]);
 
+  // const handleClick = () => {
+  //   console.log(isShow)
+  // }
+
+  useEffect(() => {
+    console.log(isShow)
+
+  }, [isShow])
+
   return (
     <>
       <header
@@ -126,7 +135,7 @@ const Header = () => {
               <Link href="/contact">
                 <span></span>
                 <span
-                  className={`header_item_text ${
+                  className={`header_item_text header_item_text_contact ${
                     activePage === "contact_page" ? "contact_page" : ""
                   }`}
                 >
@@ -144,6 +153,7 @@ const Header = () => {
                   className={`sp_header_item_text ${
                     activePage === "top_page" ? "top_page" : ""
                   }`}
+                  onClick={() => setIsShow(false)}
                 >
                   HOME
                 </span>
@@ -155,6 +165,7 @@ const Header = () => {
                   className={`sp_header_item_text ${
                     activePage === "story_page" ? "story_page" : ""
                   }`}
+                  onClick={() => setIsShow(false)}
                 >
                   見る
                 </span>
@@ -166,6 +177,7 @@ const Header = () => {
                   className={`sp_header_item_text ${
                     activePage === "form_page" ? "form_page" : ""
                   }`}
+                  onClick={() => setIsShow(false)}
                 >
                   書く
                 </span>
@@ -177,17 +189,19 @@ const Header = () => {
                   className={`sp_header_item_text ${
                     activePage === "learn_page" ? "learn_page" : ""
                   }`}
+                  onClick={() => setIsShow(false)}
                 >
                   知る
                 </span>
               </li>
             </Link>
-            <Link href="/learn">
+            <Link href="/contact">
               <li className="sp_header_item">
                 <span
                   className={`sp_header_item_text ${
                     activePage === "contact_page" ? "contact_page" : ""
                   }`}
+                  onClick={() => setIsShow(false)}
                 >
                   問い合わせ
                 </span>

@@ -57,7 +57,7 @@ heroku pg:psql -a stuttering-job
 
 
 
-
+<!-- heroku run rails db:migrate:primary  -->
 
 
 

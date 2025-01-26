@@ -1,43 +1,58 @@
 "use client";
 
 // next
-import Link from "next/link";
+import { useRouter } from "next/navigation";
 // react
+import { use, useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
+// type
+import { contactFormData } from "@/types/contact";
+// functions
+import { sendContactAction } from "./actionContact";
 // components
 import Header from "@/components/layout/header/Header";
 import Footer from "@/components/layout/footer/Footer";
+import Loading from "../loading/loading";
+import { PolicyCheck } from "@/components/common/policyCheck/PolicyCheck";
 // svg
 import { UpHandChara } from "@/assets/svg/character/characterSvg";
 import { DropArrow } from "@/assets/svg/icon/arrow";
-import { SurpriseMark } from "@/assets/svg/icon/mark";
+import { CheckMark, SurpriseMark } from "@/assets/svg/icon/mark";
 // style
 import "./contact.scss";
-import { useEffect } from "react";
-import { sendAction } from "../form/confirm/actionConfirm";
-import { sendContactAction } from "./actionContact";
 
 const contact = () => {
+  // router
+  const router = useRouter();
+
+  // ローディング状態の有無
+  const [isLoading, setIsLoading] = useState(false);
+
   const {
     register,
     handleSubmit,
     // 書くページではwatchの代わりにuseState使用
     watch,
     formState: { errors },
-  } = useForm();
+  } = useForm<contactFormData>();
 
-  const onSubmit = async (data: any) => {
-    const contactData = data;
+  // 問い合わせデータ送信
+  const onSubmit = async (formData: contactFormData) => {
+    setIsLoading(true);
+    // 送信するデータのみ取り出す(privacyは除外)
     try {
-      sendContactAction(contactData);
+      sendContactAction(formData);
+      router.push("/contact/received");
     } catch {}
   };
 
-  // const onSubmit = async(e: React.FormEvent<HTMLFormElement>) => {
-  //   // e.preventDefault();
-  //   const formData = new FormData(e.currentTarget)
-  //   console.log(formData)
-  // };
+  useEffect(() => {
+    // チェック状態falseに初期化
+    setIsChecked(false);
+    window.scrollTo({
+      top: 0,
+    });
+  }, [router]);
 
   // 監視する値
   const contentValue = watch("content", "");
@@ -45,9 +60,17 @@ const contact = () => {
   const maxLength = 1000;
   // 残り文字数
   const textCount = maxLength - contentValue.trim().length;
+  // チェックボックスをクリックの状態
+  const [isChecked, setIsChecked] = useState(false);
+
+  // チェックボックスをクリック
+  const handleCheckBox = () => {
+    setIsChecked((prev) => !prev);
+  };
 
   return (
     <>
+      {isLoading && <Loading />}
       <Header />
       <div className="contact">
         <div className="contact_intro">
@@ -62,27 +85,6 @@ const contact = () => {
           </p>
         </div>
 
-        <div className="privacy_policy">
-          <input
-            type="checkbox"
-            id="privacy"
-            {...register("privacy", {
-              required: "プライバシーポリシーに同意が必要です",
-            })}
-          />
-          <label htmlFor="privacy">
-            <Link href={"/privacy"}>
-              <span>プライバシーポリシー</span>
-            </Link>
-            をご確認、同意の上、ご記入・送信お願いします。
-          </label>
-          {errors.privacy && typeof errors.privacy.message === "string" && (
-            <p className="error_privacy">
-              <SurpriseMark />
-              {errors.privacy.message}
-            </p>
-          )}
-        </div>
         <form className="contact_form" onSubmit={handleSubmit(onSubmit)}>
           <ul className="contact_form_list">
             <li className="contact_form_item">
@@ -139,11 +141,11 @@ const contact = () => {
                     required: "選択は必須です",
                   })}
                 >
-                  <option value="">選択してください</option>
-                  <option value="write">体験談記入について</option>
-                  <option value="edit">体験談修正について</option>
-                  <option value="delete">体験談削除について</option>
-                  <option value="site">サイト全体について</option>
+                  <option value="" hidden>選択してください</option>
+                  <option value="体験談記入について">体験談記入について</option>
+                  <option value="体験談修正について">体験談修正について</option>
+                  <option value="体験談削除について">体験談削除について</option>
+                  <option value="サイト全体について">サイト全体について</option>
                 </select>
                 <DropArrow />
               </div>
@@ -181,7 +183,12 @@ const contact = () => {
             </li>
           </ul>
 
-          <button className="contact_form_send_button" type="submit">
+          <PolicyCheck
+            isChecked={isChecked}
+            handleCheckBox={handleCheckBox}
+          />
+
+          <button className={`contact_form_send_button ${isChecked ? "isActive" : ""}`}  type="submit">
             送信する
           </button>
         </form>

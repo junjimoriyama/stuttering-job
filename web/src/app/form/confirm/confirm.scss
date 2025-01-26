@@ -127,7 +127,15 @@
     .back_fill_out_button, .complete_step_button {
       flex: 1;
       height: 40px;
-      
+    }
+    .complete_step_button {
+      pointer-events: none;
+      opacity: .5;
+
+     &.isActive {
+        pointer-events: auto;
+        opacity: 1;
+      }
     }
 
     .back_fill_out_button {

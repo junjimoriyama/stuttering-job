@@ -13,6 +13,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
 
   return (
     <StepProvider>
+      <div></div>
       <Header />
       {/* <Suspense> */}
         <FormProvider {...method}>{children}</FormProvider>

@@ -14,9 +14,12 @@ const Page = async ({ params }: { params: Promise<{ id: string }> }) => {
   const { id } = await params;
 
   // APIリクエスト
-  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/v1/user_data/${id}`, {
-    method: "GET",
-  });
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_API_URL}/api/v1/user_data/${id}`,
+    {
+      method: "GET",
+    }
+  );
 
   // if (!res.ok) {
   //   return <div>エラーが発生しました。</div>;
@@ -26,6 +29,7 @@ const Page = async ({ params }: { params: Promise<{ id: string }> }) => {
 
   return (
     <>
+      <div></div>
       <Header />
       <div className="single_story">
         <div className="single_story_heading">
@@ -138,7 +142,7 @@ const Page = async ({ params }: { params: Promise<{ id: string }> }) => {
             </span>
           </li>
         </ul>
-      <BackStoryBtn />
+        <BackStoryBtn />
       </div>
       <Footer />
     </>

@@ -1,10 +1,10 @@
 export const DropArrow = () => {
   return (
     <svg
-      className="drop_arrow"
+      className={`drop_arrow`}
       xmlns="http://www.w3.org/2000/svg"
-      width="20px"
-      height="20px"
+      width="10px"
+      height="10px"
       version="1.1"
       viewBox="0 0 141.7 84.8"
     >

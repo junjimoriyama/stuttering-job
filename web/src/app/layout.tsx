@@ -23,10 +23,10 @@ const MPlus1p = M_PLUS_1p({ subsets: ["latin"], weight: ["500"] });
 
 export const metadata: Metadata = {
   title: "吃音と仕事DATABASE",
-  icons: {
-    icon: "/favicon.svg",  // SVG形式のファビコン
-    shortcut: "/favicon.ico",  // 古いブラウザ用にICOも指定することが推奨
-  }
+  // icons: {
+  //   icon: "/favicon.svg",  // SVG形式のファビコン
+  //   shortcut: "/favicon.ico",  // 古いブラウザ用にICOも指定することが推奨
+  // }
 };
 
 export default function RootLayout({

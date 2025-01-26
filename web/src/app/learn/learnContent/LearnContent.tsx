@@ -4,51 +4,23 @@
 import { useRef, useState } from "react";
 // svg
 import {
+  LoadingChara,
   QuestionChara,
   RepeatChara,
   StopChara,
   StretchChara,
+  UpHandChara,
 } from "@/assets/svg/character/characterSvg";
 // style
 import "./learnContent.scss";
 import useIntersectionObserver from "@/functions/functions";
 
 const LearnContent = () => {
+  // 吃音について
   const [isAboutTitleVisible, setIsAboutTitleVisible] = useState(false);
   const [isAboutTextVisible, setIsAboutTextVisible] = useState(false);
-
-  const [isCauseTitleVisible, setIsCauseTitleVisible] = useState(false);
-  const [isCauseTextVisible, setIsCauseTextVisible] = useState(false);
-
-  const [isSymptomsTitleVisible, setIsSymptomsTitleVisible] = useState(false);
-  const [isSymptomsTextVisible, setIsSymptomsTextVisible] = useState(false);
-  const [isSymptomsIllustrationVisible, setIsSymptomsIllustrationVisible] =
-    useState(false);
-
-  const [isTriggerTitleVisible, setIsTriggerTitleVisible] = useState(false);
-  const [isTriggerTextVisible, setIsTriggerTextVisible] = useState(false);
-
-  const [isConsiderationTitleVisible, setIsConsiderationTitleVisible] =
-    useState(false);
-  const [isConsiderationTextVisible, setIsConsiderationTextVisible] =
-    useState(false);
-
   const aboutTitleRef = useRef<HTMLDivElement>(null);
   const aboutTextRef = useRef<HTMLDivElement>(null);
-
-  const causeTitleRef = useRef<HTMLDivElement>(null);
-  const causeTextRef = useRef<HTMLDivElement>(null);
-
-  const symptomsTitleRef = useRef<HTMLDivElement>(null);
-  const symptomsTextRef = useRef<HTMLDivElement>(null);
-  const symptomsIllustrationRef = useRef<HTMLDivElement>(null);
-
-  const triggerTitleRef = useRef<HTMLDivElement>(null);
-  const triggerTextRef = useRef<HTMLDivElement>(null);
-
-  const considerationTitleRef = useRef<HTMLDivElement>(null);
-  const considerationTextRef = useRef<HTMLDivElement>(null);
-
   useIntersectionObserver(aboutTitleRef, setIsAboutTitleVisible, {
     threshold: 0.5,
   });
@@ -56,6 +28,11 @@ const LearnContent = () => {
     threshold: 0.5,
   });
 
+  //原因
+  const [isCauseTitleVisible, setIsCauseTitleVisible] = useState(false);
+  const [isCauseTextVisible, setIsCauseTextVisible] = useState(false);
+  const causeTitleRef = useRef<HTMLDivElement>(null);
+  const causeTextRef = useRef<HTMLDivElement>(null);
   useIntersectionObserver(causeTitleRef, setIsCauseTitleVisible, {
     threshold: 0.5,
   });
@@ -63,6 +40,14 @@ const LearnContent = () => {
     threshold: 0.5,
   });
 
+  //症状
+  const [isSymptomsTitleVisible, setIsSymptomsTitleVisible] = useState(false);
+  const [isSymptomsTextVisible, setIsSymptomsTextVisible] = useState(false);
+  const [isSymptomsIllustrationVisible, setIsSymptomsIllustrationVisible] =
+    useState(false);
+  const symptomsTitleRef = useRef<HTMLDivElement>(null);
+  const symptomsTextRef = useRef<HTMLDivElement>(null);
+  const symptomsIllustrationRef = useRef<HTMLDivElement>(null);
   useIntersectionObserver(symptomsTitleRef, setIsSymptomsTitleVisible, {
     threshold: 0.5,
   });
@@ -76,7 +61,11 @@ const LearnContent = () => {
       threshold: 0.5,
     }
   );
-
+  //出やすい場面
+  const [isTriggerTitleVisible, setIsTriggerTitleVisible] = useState(false);
+  const [isTriggerTextVisible, setIsTriggerTextVisible] = useState(false);
+  const triggerTitleRef = useRef<HTMLDivElement>(null);
+  const triggerTextRef = useRef<HTMLDivElement>(null);
   useIntersectionObserver(triggerTitleRef, setIsTriggerTitleVisible, {
     threshold: 0.5,
   });
@@ -84,6 +73,13 @@ const LearnContent = () => {
     threshold: 0.2,
   });
 
+  // 配慮
+  const [isConsiderationTitleVisible, setIsConsiderationTitleVisible] =
+    useState(false);
+  const [isConsiderationTextVisible, setIsConsiderationTextVisible] =
+    useState(false);
+  const considerationTitleRef = useRef<HTMLDivElement>(null);
+  const considerationTextRef = useRef<HTMLDivElement>(null);
   useIntersectionObserver(
     considerationTitleRef,
     setIsConsiderationTitleVisible,
@@ -94,6 +90,8 @@ const LearnContent = () => {
   useIntersectionObserver(considerationTextRef, setIsConsiderationTextVisible, {
     threshold: 0.2,
   });
+
+
 
   return (
     <div className="learn_content">
@@ -282,7 +280,7 @@ const LearnContent = () => {
             </div>
 
             <div className="learn_trigger_description_message">
-            これらの状況では、話す際の負担を軽減するために、周囲の理解やサポートが重要です。
+              人により違いはありますが、このような傾向があると言われていますし、当事者として感じます。これらの状況では、話す際の負担を軽減するために、周囲の理解やサポートが重要です。
             </div>
           </div>
         </div>
@@ -290,26 +288,25 @@ const LearnContent = () => {
 
       {/* 配慮 */}
       <section className="learn_consideration">
-
-      <div className="learn_consideration_group">
-        <div
-          className={`learn_consideration_title ${
-            isConsiderationTitleVisible ? "isVisible" : ""
-          }`}
-          ref={considerationTitleRef}
-        >
-          <div className="learn_consideration_title_text">
-            働く場所で配慮できること
+        <div className="learn_consideration_group">
+          <div
+            className={`learn_consideration_title ${
+              isConsiderationTitleVisible ? "isVisible" : ""
+            }`}
+            ref={considerationTitleRef}
+          >
+            <div className="learn_consideration_title_text">
+              働く場所で配慮できること
+            </div>
           </div>
-        </div>
 
-        <div
-          className={`learn_consideration_description ${
-            isConsiderationTextVisible ? "isVisible" : ""
-          }`}
-          ref={considerationTextRef}
-        >
-          {/* <div className="learn_consideration_description_item">
+          <div
+            className={`learn_consideration_description ${
+              isConsiderationTextVisible ? "isVisible" : ""
+            }`}
+            ref={considerationTextRef}
+          >
+            {/* <div className="learn_consideration_description_item">
             <p className="learn_consideration_summary">
               発言を強制しない雰囲気づくり
             </p>
@@ -318,51 +315,54 @@ const LearnContent = () => {
             </p>
           </div> */}
 
-          <div className="learn_consideration_description_item">
-            <p className="learn_consideration_summary">代替手段の提供</p>
-            <p className="learn_consideration_detail">
-              発言が難しい場合は、メモやメール、チャットツールでの報告を許可する。
-            </p>
-          </div>
+            <div className="learn_consideration_description_item">
+              <p className="learn_consideration_summary">代替手段の提供</p>
+              <p className="learn_consideration_detail">
+                発言が難しい場合は、メモやメール、チャットツールでの報告を許可する。
+              </p>
+            </div>
 
-          <div className="learn_consideration_description_item">
-            <p className="learn_consideration_summary">発表形式の柔軟な選択</p>
-            <p className="learn_consideration_detail">
-              プレゼンでは、スライドや動画を使った補助を認めるなど、話し方以外で伝えられる方法を用意する。
-            </p>
-          </div>
+            <div className="learn_consideration_description_item">
+              <p className="learn_consideration_summary">
+                発表形式の柔軟な選択
+              </p>
+              <p className="learn_consideration_detail">
+                プレゼンでは、スライドや動画を使った補助を認めるなど、話し方以外で伝えられる方法を用意する。
+              </p>
+            </div>
 
-          <div className="learn_consideration_description_item">
-            <p className="learn_consideration_summary">電話対応の負担軽減</p>
-            <p className="learn_consideration_detail">
-              必要に応じてメール、チャットツール対応を優先させたり、他のメンバーと分担する。
-            </p>
-          </div>
+            <div className="learn_consideration_description_item">
+              <p className="learn_consideration_summary">電話対応の負担軽減</p>
+              <p className="learn_consideration_detail">
+                必要に応じてメール、チャットツール対応を優先させたり、他のメンバーと分担する。
+              </p>
+            </div>
 
-          <div className="learn_consideration_description_item">
-            <p className="learn_consideration_summary">
-              自己紹介やスピーチのサポート
-            </p>
-            <p className="learn_consideration_detail">
-              なるべく本人のペースででき、簡潔な自己紹介にするなどの配慮をする。
-            </p>
-          </div>
+            <div className="learn_consideration_description_item">
+              <p className="learn_consideration_summary">
+                自己紹介やスピーチのサポート
+              </p>
+              <p className="learn_consideration_detail">
+                なるべく本人のペースででき、簡潔な自己紹介にするなどの配慮をする。
+              </p>
+            </div>
 
-          <div className="learn_consideration_description_item">
-            <p className="learn_consideration_summary">
-              相談しやすい環境づくり
-            </p>
-            <p className="learn_consideration_detail">
-              話しにくさを理解し、困りごとを気軽に相談できる雰囲気をつくる。
-            </p>
+            <div className="learn_consideration_description_item">
+              <p className="learn_consideration_summary">
+                相談しやすい環境づくり
+              </p>
+              <p className="learn_consideration_detail">
+                話しにくさを理解し、困りごとを気軽に相談できる雰囲気をつくる。
+              </p>
+            </div>
+            <div className="learn_trigger_consideration_message">
+              これらの配慮を通じて、吃音のある方が少しでも安心して自分らしく働ける職場ができれば幸いです。
+            </div>
           </div>
-        </div>
-
-        <div className="learn_trigger_consideration_message">
-        これらの配慮を通じて、吃音のある方が安心して自分らしく働ける職場をつくることができます。
-        </div>
         </div>
       </section>
+
+      <UpHandChara />
     </div>
   );
 };

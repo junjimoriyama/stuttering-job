@@ -70,10 +70,14 @@ header {
       justify-content: center;
       align-items: flex-start;
       align-self: start;
-      
-      gap: 20px;
+      font-size: 20px;
+      gap: 30px;
       height: 100%;
       
+      @include bp.media(xs, max) {
+        font-size: 16px;
+        gap: 20px;
+      }
       @include bp.media(xxs, max) {
         display: none;
       }
@@ -97,8 +101,12 @@ header {
           transition: color 0.3s;
 
           &.top_page, &.story_page, &.form_page, &.learn_page, &.contact_page{
-            color: var.$sub_color
+            color: var.$sub_color;
           }
+        }
+        .header_item_text_contact {
+          font-size: 16px;
+          letter-spacing: 0.01em;
         }
       }
       @include bp.media(xxs, max) {
@@ -129,7 +137,7 @@ header {
 
         .sp_header_item_text {
           color: #fff;
-          &.top_page, &.story_page, &.form_page, &.learn_page &.contact_page{
+          &.top_page, &.story_page, &.form_page, &.learn_page, &.contact_page{
             color: var.$sub_color
           }
         }

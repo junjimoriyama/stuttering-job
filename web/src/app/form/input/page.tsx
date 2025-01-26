@@ -28,6 +28,7 @@ import { Free } from "./free/Free";
 import "./input.scss";
 import { LinkArrow } from "@/assets/svg/icon/arrow";
 import { GuideChara, UpHandChara } from "@/assets/svg/character/characterSvg";
+import { SurpriseMark } from "@/assets/svg/icon/mark";
 
 const input = () => {
   // router
@@ -43,6 +44,8 @@ const input = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
+    // チェック状態falseに初期化
+    // setIsChecked(false)
     // params
     const params = new URLSearchParams(window.location.search);
 
@@ -97,41 +100,45 @@ const input = () => {
     document.body.style.overflow = "hidden";
   };
 
+  // 送信
+  const onSubmit = () => {
+    // 送信時のロジック
+    setToast({
+      display: false,
+      text: "",
+    });
+    router.push("/form/confirm", { scroll: false });
+  };
+  
+  // 必須項目未入力
+  const onError = () => {
+    // エラー時のロジック
+    setToast({
+      display: true,
+      text: "notAnswered",
+    });
+  };
+
   return (
     <>
       <div className="input" onClick={() => deleteToast()}>
         <Step step={"input"} setStep={setStep} />
-        <form
-          className="input_form"
-          onSubmit={(e) => {
-            e.preventDefault(); // デフォルトのリロード動作を防ぐ
-            handleSubmit(
-              () => {
-                setToast({
-                  display: false,
-                  text: "",
-                });
-                router.push("/form/confirm");
-              },
-              () => {
-                setToast({
-                  display: true,
-                  text: "notAnswered",
-                });
-              }
-            )(e); // イベントを渡して手動でhandleSubmitを実行
-          }}
-        >
-          <div className="form_guide_btn" onClick={handleModalOpen}>
+        <div className="form_guide_btn" onClick={handleModalOpen}>
           <div className="form_guide_btn_background"></div>
           <GuideChara />
           <span className="form_guide_text">ご記入にあたり</span>
           <LinkArrow />
-          </div>
-          <div className="form_title">体験談記入
-            <UpHandChara />
-          </div>
-          <p className="form_prompt">下記にご回答お願いいたします。</p>
+        </div>
+        <div className="form_title">
+          体験談記入
+          <UpHandChara />
+        </div>
+        <div className="form_prompt">下記にフォームにご記入お願いします。</div>
+        <form
+          className="input_form"
+          onSubmit={handleSubmit(onSubmit, onError)}
+        >
+          {/* <p className="form_save_text">入力中のデータは自動で保存されます。同じ端末・ブラウザを使用していれば、再度フォームを開いた際に復元できます。</p> */}
           <ul className="form_list">
             {/*　ユーザー情報 */}
             <UserInfo register={register} errors={errors} setValue={setValue} />
@@ -317,3 +324,25 @@ export default input;
 //         }
 //     }, 250);
 // }
+
+{/* <form
+          className="input_form"
+          onSubmit={(e) => {
+            e.preventDefault(); // デフォルトのリロード動作を防ぐ
+            handleSubmit(
+              () => {
+                setToast({
+                  display: false,
+                  text: "",
+                });
+                router.push("/form/confirm");
+              },
+              () => {
+                setToast({
+                  display: true,
+                  text: "notAnswered",
+                });
+              }
+            )(e); // イベントを渡して手動でhandleSubmitを実行
+          }}
+        ></form> */}

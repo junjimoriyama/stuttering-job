@@ -2,11 +2,8 @@
 
 // next
 import Link from "next/link";
-import { usePathname } from "next/navigation";
-// react
-import { useEffect, useState } from "react";
 // svg
-import { FooterMainLogo, HeaderMainLogo } from "@/assets/svg/logo/logoSvg";
+import { FooterMainLogo } from "@/assets/svg/logo/logoSvg";
 import { SilhouetteChara } from "@/assets/svg/character/characterSvg";
 // style
 import "./footer.scss";

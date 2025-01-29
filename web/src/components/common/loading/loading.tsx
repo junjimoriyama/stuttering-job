@@ -4,7 +4,6 @@ import { LoadingChara } from "@/assets/svg/character/characterSvg";
 // style
 import "./loading.scss"; 
 
-
 const Loading = () => {
   return (
     <>

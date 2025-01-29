@@ -81,9 +81,11 @@ export const StoryItems = () => {
   // 各体験談にページ遷移
   const handleLinkStoryItem = (id: number) => {
     setLoadingId(id);
-    router.push(`/story/storyItem/${id}`);
+    // 前ページのスクロール位置を変えない
+    router.push(`/story/storyItem/${id}`, { scroll: false });
   };
 
+  // ボタンアニメーション終了したら
   const handleBtnAnimationEnd = () => {
     setIsPageFilterEffect(false);
   };

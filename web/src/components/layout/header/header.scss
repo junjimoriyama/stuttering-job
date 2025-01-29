@@ -2,7 +2,6 @@
 @use "@/style/common.scss" as mixin;
 @use "@/style/variable.scss" as var;
 
-
 header {
   position: fixed;
   top: 0;
@@ -10,9 +9,7 @@ header {
   width: 100%;
   height: var.$header_Height;
   padding: 20px;
-  // background-color: transparent;
   background-color: rgba(255, 255, 255, 0.7);
-  // opacity: 0.5;
   transition: 0.5s;
   z-index: 1000;
 
@@ -26,7 +23,7 @@ header {
     background-color: var.$main_color;
     //spメニュー開いたときの背景を透明から変更
     &.isTopPage {
-      background-color:  var.$main_color;
+      background-color: var.$main_color;
     }
   }
 
@@ -67,13 +64,11 @@ header {
 
     .header_menu {
       display: flex;
-      justify-content: center;
-      align-items: flex-start;
-      align-self: start;
+      align-items: center;
       font-size: 20px;
       gap: 30px;
       height: 100%;
-      
+
       @include bp.media(xs, max) {
         font-size: 16px;
         gap: 20px;
@@ -84,33 +79,58 @@ header {
 
       .header_item {
         color: var.$main_color;
-        transition: 0.3s;
+        transition: 0.2s;
         @media (any-hover: hover) {
           &:hover {
             color: var.$sub_color;
           }
         }
-        
-        // @for $i from 2 through 4 {
-        //   &:nth-last-of-type(#{$i}) {
-        //     background-color: var.$light_blue;
-        //   }
-        // }
-        
+
         .header_item_text {
           transition: color 0.3s;
-
-          &.top_page, &.story_page, &.form_page, &.learn_page, &.contact_page{
+          @include bp.media(xxs, max) {
+            display: none;
+          }
+          &.top_page,
+          &.story_page,
+          &.form_page,
+          &.learn_page,
+          &.contact_page {
             color: var.$sub_color;
+            // メールアイコンの色変更
+            .mail_icon_path {
+              fill: var.$sub_color;
+            }
+          }
+          @media (any-hover: hover) {
+            &:hover {
+              .mail_icon_path {
+                // メールアイコンの色変更
+                fill: var.$sub_color;
+              }
+            }
           }
         }
         .header_item_text_contact {
           font-size: 16px;
           letter-spacing: 0.01em;
         }
-      }
-      @include bp.media(xxs, max) {
-        display: none;
+        .mail_svg {
+          display: block;
+          // 位置微調整
+          margin-bottom: -3px;
+          @media (any-hover: hover) {
+            &:hover {
+              // メールアイコンの色変更
+              .mail_icon_path {
+                fill: var.$sub_color;
+              }
+            }
+          }
+          .mail_icon_path {
+            transition: 0.3s;
+          }
+        }
       }
     }
 
@@ -137,13 +157,16 @@ header {
 
         .sp_header_item_text {
           color: #fff;
-          &.top_page, &.story_page, &.form_page, &.learn_page, &.contact_page{
-            color: var.$sub_color
+          &.top_page,
+          &.story_page,
+          &.form_page,
+          &.learn_page,
+          &.contact_page {
+            color: var.$sub_color;
           }
         }
       }
     }
-
 
     .menuIcon {
       position: relative;

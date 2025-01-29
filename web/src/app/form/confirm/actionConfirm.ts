@@ -26,9 +26,6 @@ export const sendAction = async (formData: FormData) => {
       // その他のエラー
       throw new Error(JSON.stringify(errorMessage));
     }
-    // 成功時リダイレクト
-    redirect("/form/complete");
-
   } catch (error) {
      // Error.tsxページに遷移
     throw error;

@@ -28,6 +28,8 @@ export const JobDetails = ({
   // 遅延処理用のタイマーを保持する参照
   const timerRef = useRef<NodeJS.Timeout | null>(null);
 
+  
+
   return (
     <li className="job_details">
       <label htmlFor="job_details_textarea">

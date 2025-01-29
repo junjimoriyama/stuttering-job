@@ -10,7 +10,7 @@
         fill: #f9851c;
         stroke: #1a2c5d;
         strokeMiterlimit: 10;
-        stroke-width: 4px;
+        strokeWidth: 4px;
       }
     </style>
   </defs>

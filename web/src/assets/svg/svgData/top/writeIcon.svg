@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg id="HeaderWriteIcon" xmlns="http://www.w3.org/2000/svg" width="50" height="50" version="1.1" viewBox="0 0 50 50">
-  <path d="M8.4,20.4c.2,0,12.6-11.4,12.6-11.4l19.7,21.9,3.6,16.3-16-4.8L8.4,20.4Z" fill="#fff" stroke="#1a2c5d" strokeMiterlimit="10" stroke-width=".2"/>
-  <polygon points="29.1 42.3 40.5 31.8 42.5 40.9 37.6 44.8 29.1 42.3" fill="#1a2c5d" stroke="#1a2c5d" strokeMiterlimit="10" stroke-width=".8"/>
-  <path d="M19,6.9l-12.2,11.9-3.6-3.7c-1.6-1.8-1.4-4.6.4-6.2l6.3-5.7c1.8-1.6,4.5-1.5,6.1.3l3,3.4Z" fill="#fff" stroke="#1a2c5d" strokeMiterlimit="10" stroke-width=".2"/>
-  <polygon points="8.7 20.2 6.3 17.8 18.5 6.7 20.9 9.4 8.7 20.2" fill="#1a2c5d" stroke="#1a2c5d" strokeMiterlimit="10" stroke-width=".9"/>
+  <path d="M8.4,20.4c.2,0,12.6-11.4,12.6-11.4l19.7,21.9,3.6,16.3-16-4.8L8.4,20.4Z" fill="#fff" stroke="#1a2c5d" strokeMiterlimit="10" strokeWidth=".2"/>
+  <polygon points="29.1 42.3 40.5 31.8 42.5 40.9 37.6 44.8 29.1 42.3" fill="#1a2c5d" stroke="#1a2c5d" strokeMiterlimit="10" strokeWidth=".8"/>
+  <path d="M19,6.9l-12.2,11.9-3.6-3.7c-1.6-1.8-1.4-4.6.4-6.2l6.3-5.7c1.8-1.6,4.5-1.5,6.1.3l3,3.4Z" fill="#fff" stroke="#1a2c5d" strokeMiterlimit="10" strokeWidth=".2"/>
+  <polygon points="8.7 20.2 6.3 17.8 18.5 6.7 20.9 9.4 8.7 20.2" fill="#1a2c5d" stroke="#1a2c5d" strokeMiterlimit="10" strokeWidth=".9"/>
 </svg>

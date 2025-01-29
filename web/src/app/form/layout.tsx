@@ -12,14 +12,16 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
   const method = useForm({});
 
   return (
-    <StepProvider>
-      <div></div>
+    <>
       <Header />
-      {/* <Suspense> */}
+      <StepProvider>
+        <div></div>
+        {/* <Suspense> */}
         <FormProvider {...method}>{children}</FormProvider>
-      {/* </Suspense> */}
+        {/* </Suspense> */}
+      </StepProvider>
       <Footer />
-    </StepProvider>
+    </>
   );
 };
 

@@ -11,9 +11,17 @@ import {
   StretchChara,
   UpHandChara,
 } from "@/assets/svg/character/characterSvg";
+import { TransactionIcon } from "@/assets/svg/icon/transaction";
+import { TelIcon } from "@/assets/svg/icon/tel";
 // style
 import "./learnContent.scss";
 import useIntersectionObserver from "@/functions/functions";
+import { PresentationIcon } from "@/assets/svg/icon/presentation";
+import { SlideIcon } from "@/assets/svg/icon/slide";
+import { ChatIcon } from "@/assets/svg/icon/chat";
+import { MailIcon } from "@/assets/svg/icon/mail";
+import { MemoIcon } from "@/assets/svg/icon/memo";
+import { ReadIcon } from "@/assets/svg/icon/read";
 
 const LearnContent = () => {
   // 吃音について
@@ -90,8 +98,6 @@ const LearnContent = () => {
   useIntersectionObserver(considerationTextRef, setIsConsiderationTextVisible, {
     threshold: 0.2,
   });
-
-
 
   return (
     <div className="learn_content">
@@ -210,6 +216,10 @@ const LearnContent = () => {
       {/* 出やすいシーン */}
       <section className="learn_trigger">
         <div className="learn_trigger_group">
+          <TelIcon />
+          <PresentationIcon />
+          <TransactionIcon />
+          <ReadIcon />
           <div
             className={`learn_trigger_title ${
               isTriggerTitleVisible ? "isVisible" : ""
@@ -228,18 +238,18 @@ const LearnContent = () => {
             ref={triggerTextRef}
           >
             <div className="learn_trigger_description_item">
+              <p className="learn_trigger_description_summary">電話対応</p>
+              <p className="learn_trigger_description_detail">
+                声だけのやり取りで、相手の表情や反応が見えない場面。
+              </p>
+            </div>
+
+            <div className="learn_trigger_description_item">
               <p className="learn_trigger_description_summary">
                 プレゼンや説明
               </p>
               <p className="learn_trigger_description_detail">
                 途中で言葉を置き換えたり省略が難しく、順序立てて話す必要がある場面。
-              </p>
-            </div>
-
-            <div className="learn_trigger_description_item">
-              <p className="learn_trigger_description_summary">電話対応</p>
-              <p className="learn_trigger_description_detail">
-                声だけのやり取りで、相手の表情や反応が見えない場面。
               </p>
             </div>
 
@@ -263,7 +273,7 @@ const LearnContent = () => {
 
             <div className="learn_trigger_description_item">
               <p className="learn_trigger_description_summary">
-                報告、連絡、相談（ホウレンソウ）
+                報告•連絡•相談<span>（ホウレンソウ）</span>
               </p>
               <p className="learn_trigger_description_detail">
                 進捗確認や報告など、正確な情報伝達が求められる場面。
@@ -278,10 +288,9 @@ const LearnContent = () => {
                 言い換えができず、決まった文章を読む場面。
               </p>
             </div>
-
-            <div className="learn_trigger_description_message">
-              人により違いはありますが、このような傾向があると言われていますし、当事者として感じます。これらの状況では、話す際の負担を軽減するために、周囲の理解やサポートが重要です。
-            </div>
+          </div>
+          <div className="learn_trigger_description_message">
+            人により違いはありますが、このような傾向があると言われていますし、当事者として感じます。これらの状況では、話す際の負担を軽減するために、周囲の理解やサポートが重要です。
           </div>
         </div>
       </section>
@@ -289,6 +298,10 @@ const LearnContent = () => {
       {/* 配慮 */}
       <section className="learn_consideration">
         <div className="learn_consideration_group">
+        <SlideIcon />
+        <ChatIcon />
+        <MailIcon />
+        <MemoIcon />
           <div
             className={`learn_consideration_title ${
               isConsiderationTitleVisible ? "isVisible" : ""
@@ -316,13 +329,6 @@ const LearnContent = () => {
           </div> */}
 
             <div className="learn_consideration_description_item">
-              <p className="learn_consideration_summary">代替手段の提供</p>
-              <p className="learn_consideration_detail">
-                発言が難しい場合は、メモやメール、チャットツールでの報告を許可する。
-              </p>
-            </div>
-
-            <div className="learn_consideration_description_item">
               <p className="learn_consideration_summary">
                 発表形式の柔軟な選択
               </p>
@@ -332,18 +338,34 @@ const LearnContent = () => {
             </div>
 
             <div className="learn_consideration_description_item">
+              <p className="learn_consideration_summary">代替手段の提供</p>
+              <p className="learn_consideration_detail">
+                発言が難しい場合は、メモやメール、チャットツールでの報告を許可する。
+              </p>
+            </div>
+
+            <div className="learn_consideration_description_item">
               <p className="learn_consideration_summary">電話対応の負担軽減</p>
               <p className="learn_consideration_detail">
-                必要に応じてメール、チャットツール対応を優先させたり、他のメンバーと分担する。
+                他のメンバーと分担したり、外部とのやり取りは可能なものはメール等で行うなどする。
               </p>
             </div>
 
             <div className="learn_consideration_description_item">
               <p className="learn_consideration_summary">
-                自己紹介やスピーチのサポート
+                自己紹介やスピーチの配慮
               </p>
               <p className="learn_consideration_detail">
                 なるべく本人のペースででき、簡潔な自己紹介にするなどの配慮をする。
+              </p>
+            </div>
+
+            <div className="learn_consideration_description_item">
+              <p className="learn_consideration_summary">
+                吃音に対する理解を深める
+              </p>
+              <p className="learn_consideration_detail">
+                吃音を知らない人も一定数いるため、社内で基本的な情報や配慮のポイントを共有し、周囲の理解を促す。
               </p>
             </div>
 
@@ -355,9 +377,9 @@ const LearnContent = () => {
                 話しにくさを理解し、困りごとを気軽に相談できる雰囲気をつくる。
               </p>
             </div>
-            <div className="learn_trigger_consideration_message">
-              これらの配慮を通じて、吃音のある方が少しでも安心して自分らしく働ける職場ができれば幸いです。
-            </div>
+          </div>
+          <div className="learn_trigger_consideration_message">
+            このような配慮を通じて、吃音ある方が安心して自分らしく働け、一人ひとりが持つ力を十分に発揮できるようになれば幸いです。
           </div>
         </div>
       </section>

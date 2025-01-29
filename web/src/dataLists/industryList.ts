@@ -20,7 +20,7 @@ export const industryList = [
 ];
 
 // 業種ラベル
-export const  industryLabels: Record<string, string> = {
+export const  allDataLabels: Record<string, string> = {
   age: "年代",
   gender: "性別",
   industry: "業種",

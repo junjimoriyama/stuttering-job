@@ -18,7 +18,7 @@ export const PolicyCheck = (
   }
 ) => {
   return (
-    <div className="privacy">
+    <div className="privacy_check">
       <div className="privacy_consent">
         <div className="privacy_consent_check">
           {isChecked && <CheckMark />}
@@ -32,7 +32,7 @@ export const PolicyCheck = (
           <Link href={"/privacyPolicy"} target="_blank" rel="noopener noreferrer">
             <span>プライバシーポリシー</span>
           </Link>
-          を確認し、同意をします。
+          を確認し、同意します。
         </label>
       </div>
     </div>

@@ -16,6 +16,7 @@ import {
 } from "@/assets/svg/icon/menuIcon";
 // style
 import "./header.scss";
+import { MailIcon } from "@/assets/svg/icon/mail";
 
 const Header = () => {
   // パス
@@ -56,15 +57,6 @@ const Header = () => {
     return { isTopPage: false, activePage: "" };
   }, [pathname]);
 
-  // const handleClick = () => {
-  //   console.log(isShow)
-  // }
-
-  useEffect(() => {
-    console.log(isShow)
-
-  }, [isShow])
-
   return (
     <>
       <header
@@ -91,7 +83,7 @@ const Header = () => {
                     activePage === "top_page" ? "top_page" : ""
                   }`}
                 >
-                  HOME
+                  TOP
                 </span>
               </Link>
             </li>
@@ -139,7 +131,8 @@ const Header = () => {
                     activePage === "contact_page" ? "contact_page" : ""
                   }`}
                 >
-                  問い合わせ
+                  {/* お問い合わせ */}
+                  <MailIcon />
                 </span>
               </Link>
             </li>
@@ -155,7 +148,7 @@ const Header = () => {
                   }`}
                   onClick={() => setIsShow(false)}
                 >
-                  HOME
+                  TOP
                 </span>
               </li>
             </Link>
@@ -203,7 +196,7 @@ const Header = () => {
                   }`}
                   onClick={() => setIsShow(false)}
                 >
-                  問い合わせ
+                  お問い合わせ
                 </span>
               </li>
             </Link>

@@ -1,5 +1,5 @@
 export type contactFormData = {
-privacy: boolean,
+// privacy: boolean,
 name: string,
 email: string,
 overview: string,

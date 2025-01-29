@@ -8,6 +8,7 @@
   flex-direction: column;
   align-items: center;
   width: 100%;
+  margin-top: var.$header_Height;
   padding: 20px;
   min-height: calc(100vh - var.$footer_Height);
   // overflow-y: scroll;
@@ -107,9 +108,16 @@
       @include mixin.actionBtn(var.$main_color);
       width: 150px;
       height: 40px;
+      margin-bottom: 50px;
       @include bp.media(xxs, max) {
         margin-bottom: 50px;
       }
     }
   }
 }
+
+.receivedBlanc {
+  width: 100%;
+  min-height: calc(100vh - var.$footer_Height);
+  background-color: #fff;
+} 

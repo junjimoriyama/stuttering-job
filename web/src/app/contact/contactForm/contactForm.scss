@@ -31,6 +31,9 @@
 
     .contact_details {
       line-height: 2;
+      span {
+        border-bottom: 2px solid var.$sub_color;
+      }
     }
   }
 

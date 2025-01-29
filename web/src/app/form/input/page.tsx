@@ -28,7 +28,6 @@ import { Free } from "./free/Free";
 import "./input.scss";
 import { LinkArrow } from "@/assets/svg/icon/arrow";
 import { GuideChara, UpHandChara } from "@/assets/svg/character/characterSvg";
-import { SurpriseMark } from "@/assets/svg/icon/mark";
 
 const input = () => {
   // router
@@ -107,7 +106,7 @@ const input = () => {
       display: false,
       text: "",
     });
-    router.push("/form/confirm", { scroll: false });
+    router.push("/form/confirm");
   };
   
   // 必須項目未入力

@@ -14,12 +14,19 @@
   gap: 20px;
   width: 100%;
   min-height: 100vh;
-  padding: 20px 20px 0 20px;
+  padding: 20px 60px 0 60px;
   margin-top: calc(var.$header_Height + 20px);
   margin-bottom: 50px;
   display: flex;
   justify-content: center;
   @include mixin.graduallyPage();
+
+  @include bp.media(xs, max) {
+    padding: 20px 30px 0 30px;
+  }
+  @include bp.media(xxs, max) {
+    padding: 20px 20px 0 20px;
+  }
 
   .single_story_heading {
     display: flex;
@@ -111,6 +118,7 @@
           &.isActive {
             color: #fff;
             background-color: var.$main_color;
+            border: 2px solid var.$main_color;
           }
         }
       }

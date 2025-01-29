@@ -1,6 +1,6 @@
 export const BagIcon = () => {
   return (
-    <svg 
+<svg 
 id="bag_svg" 
 className="bag_svg"
 xmlns="http://www.w3.org/2000/svg" width="50" height="50" version="1.1" viewBox="0 0 50 50">

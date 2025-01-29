@@ -7,15 +7,14 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
-  margin-bottom: 20px;
+  min-height: 100vh;
   overflow: hidden;
 
   .first_view_wrap {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+    align-items: calc(center + 80px);
 
     @include bp.media(xs, max) {
       width: 80%;
@@ -30,7 +29,6 @@
   .main_logo {
     // 画面中央へ
     display: block;
-
     margin-bottom: 80px;
     @include bp.media(xs, max) {
       width: 400px;

@@ -10,6 +10,7 @@ $completePadding: 20px;
   flex-direction: column;
   align-items: center;
   width: 100%;
+  // margin-top: var.$header_Height;
   padding: $completePadding;
   min-height: calc(100vh - var.$footer_Height);
   overflow-y: scroll;
@@ -110,9 +111,16 @@ $completePadding: 20px;
       @include mixin.actionBtn(var.$main_color);
       width: 150px;
       height: 40px;
+      margin-bottom: 50px;
       @include bp.media(xxs, max) {
         margin-bottom: 50px;
       }
     }
   }
+}
+
+.completeBlanc {
+  width: 100%;
+  min-height: calc(100vh - var.$footer_Height);
+  background-color: #fff;
 }

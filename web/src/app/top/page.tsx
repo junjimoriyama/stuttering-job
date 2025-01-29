@@ -1,4 +1,3 @@
-
 // components
 import Header from "../../components/layout/header/Header";
 import BackGroundAnimation from "./components/backgroundAnimation/BackgroundAnimation";
@@ -11,7 +10,6 @@ import "./top.scss";
 const page = () => {
   return (
     <div className="top">
-      {/* <Loading /> */}
       <BackGroundAnimation />
       <Header />
       <FirstView />

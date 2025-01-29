@@ -6,13 +6,13 @@ import { useRouter } from "next/navigation";
 import { useContext, useEffect, useState } from "react";
 import { useFormContext } from "react-hook-form";
 // dataLists
-import { industryLabels } from "@/dataLists/industryList";
+import { allDataLabels } from "@/dataLists/industryList";
 // functions
 import { sendAction } from "./actionConfirm";
 // components
 import { Step } from "@/app/form/components/step/Step";
 import { StepContext } from "@/app/form/components/step/stepContext";
-import Loading from "@/app/loading/loading";
+import Loading from "@/components/common/loading/loading";
 import { PolicyCheck } from "@/components/common/policyCheck/PolicyCheck";
 // style
 import "./confirm.scss";
@@ -23,11 +23,10 @@ const confirm = () => {
   const router = useRouter();
   // フォーム進行状況
   const { setStep } = useContext(StepContext);
-
   // フォームに入力された全ての値
   const { getValues } = useFormContext<Record<string, string>>();
   // 全てのデータ
-  const formValues = getValues()
+  const formValues = getValues();
   // formの値を配列に
   const sendFormArray = Object.entries(formValues);
   // ローディング状態の有無
@@ -35,41 +34,41 @@ const confirm = () => {
 
   // 送信ボタンクリック
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-      e.preventDefault();
-      // ローディングをtrue
-      setIsLoading(true);
-      const formData = new FormData(e.currentTarget);
-      try {
-        // 非同期でデータ送信
-        await sendAction(formData);
-        // パラメーター付与
-        router.push("/form/complete?from=confirm");
-      } catch (error) {
-        console.error("送信エラー:", error);
-      }
+    e.preventDefault();
+    // ローディングをtrue
+    setIsLoading(true);
+    const formData = new FormData(e.currentTarget);
+    try {
+      // 非同期でデータ送信
+      // await sendAction(formData);
+      // パラメーター付与
+      router.push("/form/complete?from=confirm");
+    } catch (error) {
+      console.error("送信エラー:", error);
     }
+  };
 
   // 一番上にスクロールされる様にする
   useEffect(() => {
     setTimeout(() => {
       window.scrollTo({
         top: 0,
-        behavior: "smooth"
-      })
-    }, 500); // 100msほど遅延させる
+        behavior: "smooth",
+      });
+    }, 500); // 遅延させる
   }, []);
 
   // データが空なら前のページに戻す
   useEffect(() => {
-    if(sendFormArray.length === 0) {
-      router.push("/form/input")
+    if (sendFormArray.length === 0) {
+      router.push("/form/input");
     }
-  }, [sendFormArray, router])
+  }, [sendFormArray, router]);
 
-   // チェックボックスをクリックの状態
-   const [isChecked, setIsChecked] = useState(false);
+  // チェックボックスをクリックの状態
+  const [isChecked, setIsChecked] = useState(false);
 
-    // useForm
+  // useForm
   const {
     // 入力された値登録
     register,
@@ -78,11 +77,10 @@ const confirm = () => {
     formState: { errors },
   } = useFormContext();
 
-
-   // チェックボックスをクリック
-   const handleCheckBox = () => {
-     setIsChecked((prev) => !prev);
-   };
+  // チェックボックスをクリック
+  const handleCheckBox = () => {
+    setIsChecked((prev) => !prev);
+  };
 
   return (
     <>
@@ -100,7 +98,7 @@ const confirm = () => {
               .filter(([key]) => ["username", "email"].includes(key))
               .map(([key, value]) => (
                 <li className="confirm_form_row" key={key}>
-                  <p className="confirm_form_label">{industryLabels[key]}</p>
+                  <p className="confirm_form_label">{allDataLabels[key]}</p>
                   <p className="confirm_form_value">{value || "未記入"}</p>
                   <input type="hidden" name={key} value={value} readOnly />
                 </li>
@@ -110,7 +108,7 @@ const confirm = () => {
                 .filter(([key]) => ["age", "gender", "industry"].includes(key))
                 .map(([key, value]) => (
                   <li className="confirm_form_row" key={key}>
-                    <p className="confirm_form_label">{industryLabels[key]}</p>
+                    <p className="confirm_form_label">{allDataLabels[key]}</p>
                     <p className="confirm_form_value">
                       {value || "未記入"}
                       {key === "age" ? "代" : ""}
@@ -121,24 +119,24 @@ const confirm = () => {
             </div>
 
             {sendFormArray
-                .filter(([key]) => ["job_details", "reason"].includes(key))
-                .map(([key, value]) => (
-                  <li className="confirm_form_row" key={key}>
-                    <p className="confirm_form_label">{industryLabels[key]}</p>
-                    <p className="confirm_form_value">
-                      {value || "未記入"}
-                      {key === "age" ? "代" : ""}
-                    </p>
-                    <input type="hidden" name={key} value={value} readOnly />
-                  </li>
-                ))}
+              .filter(([key]) => ["job_details", "reason"].includes(key))
+              .map(([key, value]) => (
+                <li className="confirm_form_row" key={key}>
+                  <p className="confirm_form_label">{allDataLabels[key]}</p>
+                  <p className="confirm_form_value">
+                    {value || "未記入"}
+                    {key === "age" ? "代" : ""}
+                  </p>
+                  <input type="hidden" name={key} value={value} readOnly />
+                </li>
+              ))}
 
             <div className="confirm_employment_years">
               {sendFormArray
                 .filter(([key]) => ["employment", "years"].includes(key))
                 .map(([key, value]) => (
                   <li className="confirm_form_row" key={key}>
-                    <p className="confirm_form_label">{industryLabels[key]}</p>
+                    <p className="confirm_form_label">{allDataLabels[key]}</p>
                     <p className="confirm_form_value">{value || "未記入"}</p>
                     <input type="hidden" name={key} value={value} readOnly />
                   </li>
@@ -150,12 +148,12 @@ const confirm = () => {
               .filter(
                 ([key]) =>
                   ![
-                    "username", 
+                    "username",
                     "email",
                     "age",
                     "gender",
                     "industry",
-                    "job_details", 
+                    "job_details",
                     "reason",
                     "employment",
                     "years",
@@ -163,17 +161,16 @@ const confirm = () => {
               )
               .map(([key, value]) => (
                 <li className="confirm_form_row" key={key}>
-                  <p className="confirm_form_label">{industryLabels[key]}</p>
-                  <p className="confirm_form_value">{value || "未記入"}</p>
+                  <p className="confirm_form_label">{allDataLabels[key]}</p>
+                  <p className="confirm_form_value">{value || "未記入"}
+                  {["job_difficulty", "job_hunt_difficulty"].includes(key) ? " / 5" : ""}
+                  </p>
                   <input type="hidden" name={key} value={value} readOnly />
                 </li>
               ))}
           </ul>
 
-          <PolicyCheck
-          isChecked={isChecked}
-          handleCheckBox={handleCheckBox}
-        />
+          <PolicyCheck isChecked={isChecked} handleCheckBox={handleCheckBox} />
 
           <div className="confirm_buttons">
             <button
@@ -184,7 +181,10 @@ const confirm = () => {
               戻る
             </button>
 
-            <button className={`complete_step_button ${isChecked ? "isActive" : ""}`} type="submit">
+            <button
+              className={`complete_step_button ${isChecked ? "isActive" : ""}`}
+              type="submit"
+            >
               送信する
             </button>
           </div>

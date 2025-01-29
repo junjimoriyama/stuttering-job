@@ -50,12 +50,12 @@ const confirm = () => {
 
   // 一番上にスクロールされる様にする
   useEffect(() => {
-    setTimeout(() => {
+    // setTimeout(() => {
       window.scrollTo({
         top: 0,
         behavior: "smooth",
       });
-    }, 500); // 遅延させる
+    // }, 500); // 遅延させる
   }, []);
 
   // データが空なら前のページに戻す

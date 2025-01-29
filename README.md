@@ -32,8 +32,8 @@
 ## 使用技術
 | カテゴリー　　            | 技術　　　　　　　　　　　　　　　　　　　　　　　　　　   |
 |---------------------|------------------- |
-| **Frontend**       | Next.js, TypeScript  |
-| **Backend**        | Ruby on Rails       |
+| **Frontend**       | Next.js(15.1.4), TypeScript  |
+| **Backend**        | Ruby on Rails(8.0.0)       |
 | **Infrastructure** | Heroku, Vercel      |
 | **Database**       | PostgreSQL          |
 | **Design**         | Illustrator         |

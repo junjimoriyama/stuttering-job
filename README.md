@@ -25,7 +25,7 @@
 ## 技術
 | Category            | Technology Stack   |
 |---------------------|------------------- |
-| **Frontend**       | TypeScript, Next.js |
+| **Frontend**       | Next.js,TypeScript  |
 | **Backend**        | Ruby on Rails       |
 | **Infrastructure** | Heroku, Vercel      |
 | **Database**       | PostgreSQL          |

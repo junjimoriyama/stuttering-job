@@ -32,7 +32,7 @@
 ## 使用技術
 | カテゴリー　　            | 技術　　　　　　　　　　　　　　　　　　　　　　　　　　   |
 |---------------------|------------------- |
-| **Frontend**       | Next.js,TypeScript  |
+| **Frontend**       | Next.js, TypeScript  |
 | **Backend**        | Ruby on Rails       |
 | **Infrastructure** | Heroku, Vercel      |
 | **Database**       | PostgreSQL          |

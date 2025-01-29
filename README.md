@@ -1,6 +1,7 @@
 # README
 
 <img width="483" alt="github_README_画像" src="https://github.com/user-attachments/assets/966d9bc6-5115-4778-a3c4-f9bc5e7e8d3b" />
+
 ### URL: https://stuttering-job-web.vercel.app/
 
 ## 概要
@@ -22,7 +23,7 @@
 
 「 知 る 」: 吃音について知ることができます。吃音者を雇う企業にとっても役立つ内容になっています。
 
-## 技術
+## 使用技術
 | Category            | Technology Stack   |
 |---------------------|------------------- |
 | **Frontend**       | Next.js,TypeScript  |

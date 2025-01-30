@@ -38,3 +38,8 @@
 | **Database**       | PostgreSQL          |
 | **Design**         | Illustrator         |
 | **Editor**         | VSCode              |
+
+<br>
+
+## アーキテクチャ
+<img width="1125" alt="github_アーキテクチャ" src="https://github.com/user-attachments/assets/fef61b0c-ab6b-45fb-b4fd-30d7efd675a2" />

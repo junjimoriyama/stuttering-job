@@ -21,8 +21,8 @@
     top: 100px;
     right: 0;
     display: flex;
-    flex-direction: row; // 縦書きの場合に文字を上から下に配置
-    align-items: center; // 子要素を中央揃え
+    flex-direction: row;
+    align-items: center;
     justify-content: center;
     color: #ffffff;
     width: 80px;
@@ -30,8 +30,8 @@
     border-radius: 10px 0 0 10px;
     writing-mode: vertical-rl;
     text-orientation: upright;
-    text-align: center; // 文字を中央揃え
-    line-height: 1; // 行間を調整
+    text-align: center;
+    line-height: 1;
     transition: 0.3s;
     cursor: pointer;
     z-index: 2;
@@ -90,14 +90,9 @@
         transform: rotate(180deg) scaleX(-1);
         top: 250px;
         right: -8px;
-        // bottom: 100px;
-        // display: none;
       }
       @include bp.media(xxs, max) {
-        top: 232px;
-        right: -12px;
-        // bottom: 100px;
-        // display: none;
+        display: none;
       }
     }
   }

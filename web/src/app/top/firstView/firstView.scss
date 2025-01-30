@@ -14,7 +14,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: calc(center + 80px);
+    align-items: center;
 
     @include bp.media(xs, max) {
       width: 80%;

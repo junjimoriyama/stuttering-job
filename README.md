@@ -38,6 +38,7 @@
 | **Database**       | PostgreSQL          |
 | **Design**         | Illustrator         |
 | **Editor**         | VSCode              |
+<img alt="my skills" src="https://skillicons.dev/icons?theme=dark&perline=7&i=html,css,ts,react,next,rails,heroku,vercel,illustrator,svg,vscode,github" />
 
 <br>
 

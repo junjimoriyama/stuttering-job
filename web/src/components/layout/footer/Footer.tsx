@@ -15,7 +15,7 @@ const Footer = () => {
       <ul className="footer_menu">
         <li className="footer_item">
           <Link href="/top">
-            <span className="footer_item_text">HOME</span>
+            <span className="footer_item_text">TOP</span>
           </Link>
         </li>
         <li className="footer_item">
@@ -89,7 +89,7 @@ export default Footer;
 //           <ul className="footer_menu">
 //             <li className="footer_item">
 //               <Link href="/top">
-//                 <span className="footer_item_text">HOME</span>
+//                 <span className="footer_item_text">TOP</span>
 //               </Link>
 //             </li>
 //             <li className="footer_item">

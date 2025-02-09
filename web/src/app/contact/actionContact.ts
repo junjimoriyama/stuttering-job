@@ -11,10 +11,6 @@ export const sendContactAction = async(contactData: any) => {
       credentials: "include",
       body: JSON.stringify({contact_data: contactData})
     })
-
-    const data = await res.json()
-
-    console.log(data)
   } catch (error) {
     
   }
